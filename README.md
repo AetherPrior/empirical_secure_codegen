@@ -3,7 +3,7 @@
 | Folder | Contents |
 |---|---|
 | `benchmarks/` | Original and repaired SecCodePLT-Python, CWEval and BaxBench, the fuzz tests (`*_repaired/fuzzed/`), and the evaluation harness (`run_plain_vllm.py`). See `benchmarks/README.md`. |
-| `benchmarks/repair_audit/` | Contract audit (gpt-6.1-sol) and repair drafting for each benchmark, with the audit verdicts. |
+| `benchmarks/repair_procedure/` | Contract audit (gpt-6.1-sol) and repair drafting for each benchmark, with the audit verdicts. |
 | `benchmarks_fuzzing_oracle/` | Scorer for the fuzz tests. |
 | `dataset_curation/verisec_data/` | The VeriSec dataset (`verisec.parquet`, 31,642 prompts with functionality and security tests; Python, C, C++, JavaScript). |
 | `dataset_curation/simple_gen/` | VeriSec construction pipeline, stages 0–6 per language (`run_validate_<lang>.sh`). |
