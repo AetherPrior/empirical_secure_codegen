@@ -3,6 +3,7 @@
 | Folder | Contents |
 |---|---|
 | `benchmarks/` | Original and repaired SecCodePLT-Python, CWEval and BaxBench, the fuzz tests (`*_repaired/fuzzed/`), and the evaluation harness (`run_plain_vllm.py`). See `benchmarks/README.md`. |
+| `benchmarks/repair_audit/` | Contract audit (gpt-6.1-sol) and repair drafting for each benchmark, with the audit verdicts. |
 | `benchmarks_fuzzing_oracle/` | Scorer for the fuzz tests. |
 | `dataset_curation/verisec_data/` | The VeriSec dataset (`verisec.parquet`, 31,642 prompts with functionality and security tests; Python, C, C++, JavaScript). |
 | `dataset_curation/simple_gen/` | VeriSec construction pipeline, stages 0–6 per language (`run_validate_<lang>.sh`). |
@@ -11,3 +12,4 @@
 | `dataset_curation/verl/` | RL training code (GRPO with the outcome reward). |
 | `baselines/` | Existing methods: CodeGuarder, RESCUE, CoSec, GoodVibe, SVEN and SafeCoder (`SafeCoder/`), PromSec, PurpCode, Qwen3-8B, and the OpenAI models. |
 | `baselines_extended/` | Methods trained or retrieved with VeriSec: retrieval (`Our-Retrieval/`), GoodVibe (`GoodVibe-OurData/`), preference optimization (`dpo/`), outcome-only RL (`Outcome-Only-RL*/`), and the runs on languages outside VeriSec (`extra_runs/`). |
+| `analysis/failure_judge/` | LLM judge (gpt-6-luna) that labels security failures by pattern, its labels, and the failure-pattern table. |

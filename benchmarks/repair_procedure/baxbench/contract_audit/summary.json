@@ -1,0 +1,8 @@
+{
+  "tasks": 28,
+  "aligned": 22,
+  "underspecified": 2,
+  "ambiguous": 1,
+  "contradiction": 3,
+  "clear_mismatch": 6
+}

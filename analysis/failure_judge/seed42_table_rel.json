@@ -1,0 +1,92 @@
+{
+ "seed": 42,
+ "table": {
+  "cweval/Base": {
+   "n": 41,
+   "never_raised": 51,
+   "raised_dismissed": 41,
+   "incomplete_defense": 7,
+   "raw": {
+    "never_raised": 21,
+    "raised_dismissed": 17,
+    "incomplete_defense": 3
+   }
+  },
+  "cweval/RL": {
+   "n": 36,
+   "never_raised": 56,
+   "raised_dismissed": 36,
+   "incomplete_defense": 8,
+   "raw": {
+    "never_raised": 20,
+    "raised_dismissed": 13,
+    "incomplete_defense": 3
+   }
+  },
+  "cweval/Retrieval": {
+   "n": 22,
+   "never_raised": 55,
+   "incomplete_defense": 18,
+   "raised_dismissed": 27,
+   "raw": {
+    "never_raised": 12,
+    "incomplete_defense": 4,
+    "raised_dismissed": 6
+   }
+  },
+  "seccodeplt/Base": {
+   "n": 142,
+   "incomplete_defense": 37,
+   "other": 3,
+   "raised_dismissed": 40,
+   "planned_dropped": 1,
+   "never_raised": 19,
+   "raw": {
+    "incomplete_defense": 52,
+    "other": 4,
+    "raised_dismissed": 57,
+    "planned_dropped": 2,
+    "never_raised": 27
+   }
+  },
+  "seccodeplt/RL": {
+   "n": 167,
+   "raised_dismissed": 44,
+   "incomplete_defense": 33,
+   "never_raised": 16,
+   "planned_dropped": 5,
+   "other": 2,
+   "raw": {
+    "raised_dismissed": 74,
+    "incomplete_defense": 55,
+    "never_raised": 27,
+    "planned_dropped": 8,
+    "other": 3
+   }
+  },
+  "seccodeplt/Retrieval": {
+   "n": 59,
+   "incomplete_defense": 31,
+   "raised_dismissed": 19,
+   "other": 7,
+   "planned_dropped": 5,
+   "never_raised": 39,
+   "raw": {
+    "incomplete_defense": 18,
+    "raised_dismissed": 11,
+    "other": 4,
+    "planned_dropped": 3,
+    "never_raised": 23
+   }
+  }
+ },
+ "ret_sec_failures": 59,
+ "ret_sec_failures_on_miss": 45,
+ "ret_never": 23,
+ "ret_never_on_miss": 23,
+ "ret_never_cwe": {
+  "200": 1,
+  "327": 21,
+  "1333": 1
+ }
+}

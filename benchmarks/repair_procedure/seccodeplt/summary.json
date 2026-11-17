@@ -1,0 +1,146 @@
+{
+  "74": {
+    "tasks": 60,
+    "aligned": 47,
+    "underspecified": 9,
+    "ambiguous": 0,
+    "contradiction": 4,
+    "clear_mismatch": 13
+  },
+  "77": {
+    "tasks": 51,
+    "aligned": 35,
+    "underspecified": 6,
+    "ambiguous": 4,
+    "contradiction": 6,
+    "clear_mismatch": 16
+  },
+  "79": {
+    "tasks": 51,
+    "aligned": 49,
+    "underspecified": 2,
+    "ambiguous": 0,
+    "contradiction": 0,
+    "clear_mismatch": 2
+  },
+  "94": {
+    "tasks": 51,
+    "aligned": 51,
+    "underspecified": 0,
+    "ambiguous": 0,
+    "contradiction": 0,
+    "clear_mismatch": 0
+  },
+  "95": {
+    "tasks": 51,
+    "aligned": 51,
+    "underspecified": 0,
+    "ambiguous": 0,
+    "contradiction": 0,
+    "clear_mismatch": 0
+  },
+  "200": {
+    "tasks": 51,
+    "aligned": 37,
+    "underspecified": 14,
+    "ambiguous": 0,
+    "contradiction": 0,
+    "clear_mismatch": 14
+  },
+  "327": {
+    "tasks": 50,
+    "aligned": 33,
+    "underspecified": 1,
+    "ambiguous": 0,
+    "contradiction": 16,
+    "clear_mismatch": 17
+  },
+  "347": {
+    "tasks": 51,
+    "aligned": 35,
+    "underspecified": 0,
+    "ambiguous": 5,
+    "contradiction": 11,
+    "clear_mismatch": 16
+  },
+  "352": {
+    "tasks": 40,
+    "aligned": 36,
+    "underspecified": 1,
+    "ambiguous": 1,
+    "contradiction": 2,
+    "clear_mismatch": 4
+  },
+  "502": {
+    "tasks": 51,
+    "aligned": 19,
+    "underspecified": 31,
+    "ambiguous": 0,
+    "contradiction": 1,
+    "clear_mismatch": 32
+  },
+  "601": {
+    "tasks": 51,
+    "aligned": 29,
+    "underspecified": 16,
+    "ambiguous": 0,
+    "contradiction": 6,
+    "clear_mismatch": 22
+  },
+  "770": {
+    "tasks": 51,
+    "aligned": 7,
+    "underspecified": 40,
+    "ambiguous": 0,
+    "contradiction": 4,
+    "clear_mismatch": 44
+  },
+  "862": {
+    "tasks": 51,
+    "aligned": 44,
+    "underspecified": 0,
+    "ambiguous": 4,
+    "contradiction": 3,
+    "clear_mismatch": 7
+  },
+  "863": {
+    "tasks": 41,
+    "aligned": 0,
+    "underspecified": 41,
+    "ambiguous": 0,
+    "contradiction": 0,
+    "clear_mismatch": 41
+  },
+  "915": {
+    "tasks": 31,
+    "aligned": 31,
+    "underspecified": 0,
+    "ambiguous": 0,
+    "contradiction": 0,
+    "clear_mismatch": 0
+  },
+  "918": {
+    "tasks": 51,
+    "aligned": 51,
+    "underspecified": 0,
+    "ambiguous": 0,
+    "contradiction": 0,
+    "clear_mismatch": 0
+  },
+  "1333": {
+    "tasks": 36,
+    "aligned": 13,
+    "underspecified": 23,
+    "ambiguous": 0,
+    "contradiction": 0,
+    "clear_mismatch": 23
+  },
+  "total": {
+    "tasks": 819,
+    "aligned": 568,
+    "underspecified": 184,
+    "ambiguous": 14,
+    "contradiction": 53,
+    "clear_mismatch": 251
+  }
+}
