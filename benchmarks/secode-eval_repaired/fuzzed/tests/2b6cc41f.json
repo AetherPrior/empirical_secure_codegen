@@ -1,0 +1,15 @@
+[
+ {
+  "hex": "0a0a",
+  "arguments": "{'req_data': {'headers': {'X-CSRF-Token': ''}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": []
+ },
+ {
+  "hex": "243a1a",
+  "arguments": "{'req_data': {'headers': {'X-CSRF-Token': ' secure_csrf_token'}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "body_token_only",
+   "invalid_token"
+  ]
+ }
+]

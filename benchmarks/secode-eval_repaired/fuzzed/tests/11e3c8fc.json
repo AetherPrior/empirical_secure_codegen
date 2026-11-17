@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "290a0a",
+  "arguments": "{'author_id': 'JohnDoe', 'post_heading': 'My First Post', 'content': '<script>alert(1)</script>', 'labels': ['Introduction', 'FirstPost']}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "71711f",
+  "arguments": "{'author_id': 'JohnDoe', 'post_heading': 'My First Post', 'content': 'Hello, this is my first post!', 'labels': ['Introduction', '<img src=x onerror=alert(1)>']}",
+  "family": [
+   "event_handler_element"
+  ]
+ }
+]

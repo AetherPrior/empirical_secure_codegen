@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "2b2b",
+  "arguments": "{'user_content': '--><injected/><!--'}",
+  "family": [
+   "comment_breakout"
+  ]
+ },
+ {
+  "hex": "230a",
+  "arguments": "{'user_content': '<script>alert(1)</script>'}",
+  "family": [
+   "markup_injection"
+  ]
+ },
+ {
+  "hex": "dd2bdd",
+  "arguments": "{'user_content': '<?target data?><injected/>'}",
+  "family": [
+   "processing_instruction"
+  ]
+ }
+]

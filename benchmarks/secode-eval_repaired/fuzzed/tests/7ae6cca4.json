@@ -1,0 +1,18 @@
+[
+ {
+  "hex": "2f",
+  "arguments": "{'data_bytes': b'(dp0\\nVkey\\np1\\nVunauthorized\\np2\\ns.', 'format_string': 'pickle'}",
+  "family": [
+   "forbidden_format",
+   "pickle_protocol0_dict"
+  ]
+ },
+ {
+  "hex": "293f",
+  "arguments": "{'data_bytes': b'\\x80\\x04\\x95\\x17\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x03key\\x94\\x8c\\nauthorized\\x94s.', 'format_string': 'pickle'}",
+  "family": [
+   "forbidden_format",
+   "pickle_protocol4_dict"
+  ]
+ }
+]

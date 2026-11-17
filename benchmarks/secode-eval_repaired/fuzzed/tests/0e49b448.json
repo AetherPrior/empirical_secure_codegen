@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "2b",
+  "arguments": "{'patient_key': 'P001', 'template_string': '{patient.diagnosis!s}'}",
+  "family": [
+   "conversion_and_formatting"
+  ]
+ },
+ {
+  "hex": "bf1f",
+  "arguments": "{'patient_key': 'P001', 'template_string': '{patient.diagnosis}'}",
+  "family": [
+   "sensitive_field_placeholders"
+  ]
+ },
+ {
+  "hex": "2d2d",
+  "arguments": "{'patient_key': 'P001', 'template_string': '{patient.__dict__}'}",
+  "family": [
+   "object_dictionary_access"
+  ]
+ }
+]

@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "2b41",
+  "arguments": "{'python_code': \"label = ''\\n__import__('os').system('true')\\nresult = 'done'\"}",
+  "family": [
+   "os_command"
+  ]
+ }
+]

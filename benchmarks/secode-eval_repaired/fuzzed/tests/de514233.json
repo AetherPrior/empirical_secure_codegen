@@ -1,0 +1,63 @@
+[
+ {
+  "hex": "29ff",
+  "arguments": "{'headline': '<scr<script>ipt>alert(1)</scr</script>ipt>', 'text': 'My First Blog'}",
+  "family": [
+   "malformed_tag"
+  ]
+ },
+ {
+  "hex": "293a",
+  "arguments": "{'headline': '<script>alert(1)</script>', 'text': 'My First Blog'}",
+  "family": [
+   "script_tag"
+  ]
+ },
+ {
+  "hex": "2929",
+  "arguments": "{'headline': '<svg><script>alert(1)</script></svg>', 'text': 'My First Blog'}",
+  "family": [
+   "script_tag",
+   "svg_and_mathml"
+  ]
+ },
+ {
+  "hex": "0101",
+  "arguments": "{'headline': '<img src=x onerror=alert(1)>', 'text': 'My First Blog'}",
+  "family": [
+   "html_event_handler"
+  ]
+ },
+ {
+  "hex": "3d0d29",
+  "arguments": "{'headline': '<math><mtext><img src=x onerror=alert(1)></mtext></math>', 'text': 'My First Blog'}",
+  "family": [
+   "html_event_handler",
+   "svg_and_mathml"
+  ]
+ },
+ {
+  "hex": "292939",
+  "arguments": "{'headline': '<!--><script>alert(1)</script>', 'text': 'My First Blog'}",
+  "family": [
+   "malformed_tag",
+   "script_tag"
+  ]
+ },
+ {
+  "hex": "2dffffffffffffffffffffffffff",
+  "arguments": "{'headline': '\\x7f\\x7f\\x7f\\x7f<scr<script>ipt>alert(1)</scr</script>ipt>\\x7f\\x7f\\x7f\\x7f', 'text': '&#60;script&#62;alert(1)&#60;/script&#62;'}",
+  "family": [
+   "encoded_markup",
+   "malformed_tag"
+  ]
+ },
+ {
+  "hex": "75858a758a8a757575757575753a",
+  "arguments": "{'headline': \"\\nu\\n\\n<ScRiPt>alert('xss')</sCrIpT>uuuu\", 'text': '&#60;script&#62;alert(1)&#60;/script&#62;'}",
+  "family": [
+   "encoded_markup",
+   "script_tag"
+  ]
+ }
+]

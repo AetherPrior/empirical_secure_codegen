@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "3f",
+  "arguments": "{'serialized_data': b\"cos\\nsystem\\n(S'true'\\ntR.\", 'format_type': 'pickle'}",
+  "family": [
+   "pickle_global_call"
+  ]
+ },
+ {
+  "hex": "5bf5",
+  "arguments": "{'serialized_data': b'\\x80\\x04\\x95\\x0b\\x00\\x00\\x00\\x00\\x00\\x00\\x00]\\x94(K\\x01K\\x02K\\x03e.', 'format_type': 'pickle'}",
+  "family": [
+   "pickle_protocol_list"
+  ]
+ }
+]

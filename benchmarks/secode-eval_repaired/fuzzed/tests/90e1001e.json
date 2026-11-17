@@ -1,0 +1,51 @@
+[
+ {
+  "hex": "0d",
+  "arguments": "{'service_url': 'https://api.trustedsource.com.evil.example/'}",
+  "family": [
+   "allowlist_suffix_or_prefix"
+  ]
+ },
+ {
+  "hex": "0d9a",
+  "arguments": "{'service_url': 'https://api.trustedsource.com%2eevil.example/'}",
+  "family": [
+   "encoded_or_trailing_host"
+  ]
+ },
+ {
+  "hex": "0729",
+  "arguments": "{'service_url': 'http://127.1/'}",
+  "family": [
+   "alternate_ip_notation"
+  ]
+ },
+ {
+  "hex": "0b7e",
+  "arguments": "{'service_url': 'http://127.0.0.1/secret'}",
+  "family": [
+   "private_ipv4"
+  ]
+ },
+ {
+  "hex": "dd3b",
+  "arguments": "{'service_url': 'http://[::1]/'}",
+  "family": [
+   "ipv6_internal"
+  ]
+ },
+ {
+  "hex": "ffd7",
+  "arguments": "{'service_url': 'http://api.trustedsource.com@127.0.0.1/'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "0d2c",
+  "arguments": "{'service_url': 'http://localhost/'}",
+  "family": [
+   "localhost"
+  ]
+ }
+]

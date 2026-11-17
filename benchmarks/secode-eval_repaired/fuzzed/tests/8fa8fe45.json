@@ -1,0 +1,26 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'member_id': 'USER2', 'member_role': 'viewer', 'proj_id': 'PROJ001', 'fresh_settings': {'visibility': 'private'}}",
+  "family": [
+   "non_privileged_role",
+   "unauthorized_member"
+  ]
+ },
+ {
+  "hex": "0a53",
+  "arguments": "{'member_id': 'GUEST', 'member_role': 'viewer', 'proj_id': 'PROJ002', 'fresh_settings': {'visibility': 'private'}}",
+  "family": [
+   "non_privileged_role",
+   "unknown_user"
+  ]
+ },
+ {
+  "hex": "0f95",
+  "arguments": "{'member_id': 'USER2', 'member_role': 'Project_Manager', 'proj_id': 'PROJ002', 'fresh_settings': {'visibility': 'private'}}",
+  "family": [
+   "role_spoofing",
+   "unauthorized_member"
+  ]
+ }
+]

@@ -1,0 +1,52 @@
+[
+ {
+  "hex": "2523",
+  "arguments": "{'auth_base_url': 'https://myapp.com/login', 'post_login_param': 'https://evil.com/hack'}",
+  "family": [
+   "absolute_external_url",
+   "protocol_relative_url"
+  ]
+ },
+ {
+  "hex": "292c23",
+  "arguments": "{'auth_base_url': 'https://myapp.com/login', 'post_login_param': 'javascript://evil.com/%0Aalert(1)'}",
+  "family": [
+   "javascript_scheme"
+  ]
+ },
+ {
+  "hex": "ffffff",
+  "arguments": "{'auth_base_url': 'https://myapp.com', 'post_login_param': 'https://trusted-site.com@evil.com/'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "272525",
+  "arguments": "{'auth_base_url': 'https://myapp.com/', 'post_login_param': '//evil.com/hack'}",
+  "family": [
+   "protocol_relative_url"
+  ]
+ },
+ {
+  "hex": "f531f5",
+  "arguments": "{'auth_base_url': 'https://myapp.com/login', 'post_login_param': 'https://trusted-site.com.evil.com/'}",
+  "family": [
+   "allowed_domain_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "ffff30ff",
+  "arguments": "{'auth_base_url': 'https://myapp.com', 'post_login_param': 'http://evil.com/'}",
+  "family": [
+   "absolute_external_url"
+  ]
+ },
+ {
+  "hex": "e3323230",
+  "arguments": "{'auth_base_url': 'https://myapp.com', 'post_login_param': 'https://evil.com\\\\@myapp.com/'}",
+  "family": [
+   "backslash_authority"
+  ]
+ }
+]

@@ -1,0 +1,62 @@
+[
+ {
+  "hex": "33",
+  "arguments": "{'api_message_id': 'msg_1001', 'cryptographic_sign': 'abcd5678efgh1234ijkl9012mnop3456'}",
+  "family": [
+   "altered_signature"
+  ]
+ },
+ {
+  "hex": "2133",
+  "arguments": "{'api_message_id': 'msg_1001', 'cryptographic_sign': ''}",
+  "family": []
+ },
+ {
+  "hex": "9321",
+  "arguments": "{'api_message_id': 'msg_1001', 'cryptographic_sign': 'ABCD1234EFGH5678IJKL9012MNOP3456'}",
+  "family": [
+   "case_mutation"
+  ]
+ },
+ {
+  "hex": "ffc5",
+  "arguments": "{'api_message_id': 'msg_1001', 'cryptographic_sign': 'abcd1234'}",
+  "family": [
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "1ffc",
+  "arguments": "{'api_message_id': 'msg_1001', 'cryptographic_sign': 'abcd1234efgh5678ijkl9012mnop3456x'}",
+  "family": [
+   "cross_message_replay",
+   "extended_signature",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "250a",
+  "arguments": "{'api_message_id': 'msg_1001', 'cryptographic_sign': '1122aabbccdd3344eeff5566gggghhhh'}",
+  "family": [
+   "cross_message_replay",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "017e",
+  "arguments": "{'api_message_id': 'msg_1003', 'cryptographic_sign': '1122aabbccdd3344eeff5566gggghhhh'}",
+  "family": [
+   "cross_message_replay",
+   "truncated_signature",
+   "unknown_message_id"
+  ]
+ },
+ {
+  "hex": "010108",
+  "arguments": "{'api_message_id': 'msg_1001', 'cryptographic_sign': '1122aabbccdd3344eeff5566gggghhhx'}",
+  "family": [
+   "altered_signature",
+   "truncated_signature"
+  ]
+ }
+]

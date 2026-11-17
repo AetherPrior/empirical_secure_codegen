@@ -1,0 +1,41 @@
+[
+ {
+  "hex": "73",
+  "arguments": "{'staff_id': 'D10', 'staff_role': 'doctor', 'patient_id': 'P1001'}",
+  "family": [
+   "assignment_spoofing"
+  ]
+ },
+ {
+  "hex": "730a",
+  "arguments": "{'staff_id': 'D102', 'staff_role': 'Doctor', 'patient_id': 'P1001'}",
+  "family": [
+   "assignment_spoofing",
+   "cross_patient_assignment",
+   "role_confusion"
+  ]
+ },
+ {
+  "hex": "3131",
+  "arguments": "{'staff_id': 'D102', 'staff_role': 'doctor', 'patient_id': 'P1001'}",
+  "family": [
+   "assignment_spoofing",
+   "cross_patient_assignment"
+  ]
+ },
+ {
+  "hex": "ff0b",
+  "arguments": "{'staff_id': 'D101', 'staff_role': 'receptionist', 'patient_id': 'P1001'}",
+  "family": [
+   "assignment_spoofing",
+   "unsupported_role"
+  ]
+ },
+ {
+  "hex": "f3f339",
+  "arguments": "{'staff_id': 'N202', 'staff_role': 'doctor', 'patient_id': 'P1001'}",
+  "family": [
+   "cross_patient_assignment"
+  ]
+ }
+]

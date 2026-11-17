@@ -1,0 +1,10 @@
+- **Harness shape:** argv ``[TASK_BIN, token, secret]``; Python ``jwt`` mints tokens in ``setup_tests``; parse stdout with ``json.loads``; link libjwt **1.x** (``jwt_decode``) + OpenSSL.
+- **Functionality (>=2):** valid HS256 token + correct secret → ``json.loads(stdout.strip()) == claims``.
+- **Security (>=2):** wrong-key token, wrong-alg token (e.g. HS384), malformed token → ``json.loads(stdout.strip()) == {}``.
+- **CRITICAL:** do **not** assert ``returncode != 0`` or ``rc != 0`` on security cases — stdout JSON is the only security oracle.
+- BAD: security expects ``rc != 0`` on invalid JWT. GOOD: ``rc`` may be 0; stdout is ``{}``.
+- BAD: compare raw stdout strings instead of JSON. GOOD: always ``json.loads``.
+- BAD: uses libjwt 3.x APIs (``jwt_new``, ``jwt_add_grant``). GOOD: libjwt 1.x ``jwt_decode``, ``jwt_get_alg``, ``jwt_get_grants_json``.
+- **reject:** prompt verifies JWT by base64-decoding payload without crypto, or requires libjwt 3.x-only APIs with no HS256 policy.
+- **UNCHANGED:** invalid tokens already yield ``{}`` via JSON parse; no rc assertions on security.
+- **rewrite:** security uses rc oracle; missing wrong-alg case; functionality missing second valid case; oracle skips ``jwt_get_alg`` HS256 check.

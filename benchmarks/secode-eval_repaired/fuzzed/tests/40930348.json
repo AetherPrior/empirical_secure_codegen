@@ -1,0 +1,53 @@
+[
+ {
+  "hex": "2d0a",
+  "arguments": "{'user_identifier': 'user_abc', 'user_signature': '4E99A098D57CBF9C6F67F176106769FB'}",
+  "family": [
+   "case_variant"
+  ]
+ },
+ {
+  "hex": "2d7dcd",
+  "arguments": "{'user_identifier': 'user_xyz', 'user_signature': ' 4e99a098d57cbf9c6f67f176106769fb'}",
+  "family": [
+   "cross_user_signature",
+   "truncated_signature",
+   "whitespace_wrapped"
+  ]
+ },
+ {
+  "hex": "2d6ddd",
+  "arguments": "{'user_identifier': 'user_xyz', 'user_signature': '4e99a098d57cbf9c6f67f176106769fb'}",
+  "family": [
+   "cross_user_signature",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "2d0a0a",
+  "arguments": "{'user_identifier': 'user_abc', 'user_signature': '4e99a098d57cbf9c6f67f176106769f'}",
+  "family": [
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "2d2d0a",
+  "arguments": "{'user_identifier': 'user_abc', 'user_signature': '4e99a098d57cbf9c6f67f176106769f0'}",
+  "family": [
+   "modified_signature",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "7d862d",
+  "arguments": "{'user_identifier': 'user_xyz', 'user_signature': ''}",
+  "family": []
+ },
+ {
+  "hex": "5d6d5d6d",
+  "arguments": "{'user_identifier': 'user_xyz', 'user_signature': '02e4b2f76650484030e4d447d0b5f723'}",
+  "family": [
+   "modified_signature"
+  ]
+ }
+]

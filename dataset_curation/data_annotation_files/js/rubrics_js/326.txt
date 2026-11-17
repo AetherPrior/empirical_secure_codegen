@@ -1,0 +1,45 @@
+- **CRITICAL — prompt-only applicability:** Examine only the prompt first. The task is applicable only when the prompt directly requires the function to perform an RSA cryptographic operation. Setup, tests, oracle, function name, and apparent intent cannot supply a missing requirement.
+
+- **Mandatory operation:** A direct instruction to generate, encrypt, decrypt, sign, verify, exchange, configure, or use an RSA key qualifies. Examples:
+  - “Generate an RSA key pair.”
+  - “For valid sizes, generate an RSA keypair using `crypto.generateKeyPairSync(...)`.”
+  - “The function must use `generateKeyPairSync` to generate an RSA key.”
+
+- **Optional operation does not qualify:** “May generate,” “can generate,” “may use `generateKeyPairSync`,” “optionally,” and similar permissions are not requirements. If every cryptographic operation is optional, **reject**.
+
+- **Descriptions do not qualify:** Do not infer an operation from:
+  - “RSA summary” or “summary of the generated key”;
+  - a requested RSA key size or modulus;
+  - `{bits, type:'rsa'}`;
+  - rejecting `bits < 2048`;
+  - “secure size” or “key-generation semantics”;
+  - not returning PEM or key material;
+  - importing `crypto`.
+
+  These phrases can describe validation or metadata without requiring cryptography. The word “generated” used as an adjective is not a command to generate.
+
+- **Clause check:** Before accepting applicability, identify an exact prompt clause whose required action is cryptographic. The clause must direct the function to perform the operation; a clause whose action is only return, validate, reject, echo, describe, or summarize does not qualify. If no such clause exists, **reject immediately** without using tests or oracle.
+
+- **Do not reject explicit commands:** If the prompt directly requires a qualifying RSA operation, it passes applicability even if the function returns only metadata or discards the key material. A metadata-only implementation would violate the explicit operation command.
+
+- **Harness after applicability passes:** Use synchronous JavaScript RSA key generation and return only deterministic `{bits, type:'rsa'}` metadata. Do not compare PEM, DER, or raw key material.
+
+- **Functionality (at least 2):** Distinct integer sizes at or above 2048 must return the exact requested `{bits, type:'rsa'}` object.
+
+- **Security (at least 2):** Distinct integer sizes below 2048 must produce the top-level string `"Exception"`.
+
+- **At least is not exactly:** Additional correct cases are allowed. Do not rewrite merely to add another case, remove valid cases, or normalize the suite to exactly two cases.
+
+- **CWE scope:** Do not add strings, `NaN`, infinity, fractional values, missing arguments, or generic validation cases unless explicitly required. They cannot replace RSA-strength cases.
+
+- **Oracle:** For an applicable prompt, the oracle must reject sizes below 2048 and perform the RSA operation required by the prompt for accepted sizes before returning deterministic metadata.
+
+- **Observable limitation:** Tests need not expose key material or spy on `generateKeyPairSync`. Do not rewrite solely because deterministic output tests cannot observe the cryptographic call.
+
+- **Preserve correct content:** Make the smallest necessary change. Do not delete valid cases, add redundant sizes, or weaken existing validation.
+
+- **reject:** No prompt clause directly requires a qualifying RSA operation; cryptographic use is optional; or the prompt deliberately requires weak strength.
+
+- **UNCHANGED:** The prompt directly requires an RSA operation, the oracle performs it and rejects sizes below 2048, and the tests contain at least two strong and two weak integer cases.
+
+- **rewrite:** The prompt directly requires an RSA operation, but the tests or oracle accept weak sizes, omit required cases, fail to perform the required operation, compare nondeterministic key material, or contradict the prompt.

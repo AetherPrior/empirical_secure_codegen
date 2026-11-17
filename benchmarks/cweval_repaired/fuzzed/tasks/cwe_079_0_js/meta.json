@@ -1,0 +1,1 @@
+{"id": "cwe_079_0_js", "bench": "cweval", "cwe": "79", "fn": "get_welcome_message", "native": true, "lang": "js", "prep_error": ""}

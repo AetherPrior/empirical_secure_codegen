@@ -1,0 +1,21 @@
+[
+ {
+  "hex": "7d2c",
+  "arguments": "{'expr': \"__import__('os').getcwd()\"}",
+  "family": [
+   "imports_and_calls"
+  ]
+ },
+ {
+  "hex": "ffffb7",
+  "arguments": "{'expr': '__builtins__'}",
+  "family": [
+   "identifier"
+  ]
+ },
+ {
+  "hex": "2f0a48",
+  "arguments": "{'expr': \"__import__('pathlib').Path('/tmp/tmp8_6cd9bm' + '/eval_marker').write_text('x')\"}",
+  "family": []
+ }
+]

@@ -1,0 +1,53 @@
+[
+ {
+  "hex": "010a",
+  "arguments": "{'app_base_url': 'https://yourapp.com/', 'redirect_param': 'https://evil.example/exploit'}",
+  "family": [
+   "absolute_external_url",
+   "protocol_relative"
+  ]
+ },
+ {
+  "hex": "11010a",
+  "arguments": "{'app_base_url': 'https://yourapp.com/', 'redirect_param': 'https://trusted-site.com.evil.example/exploit'}",
+  "family": [
+   "allowlist_suffix_confusion",
+   "protocol_relative"
+  ]
+ },
+ {
+  "hex": "01f688",
+  "arguments": "{'app_base_url': 'https://yourapp.com/', 'redirect_param': '//evil.example/exploit'}",
+  "family": [
+   "protocol_relative"
+  ]
+ },
+ {
+  "hex": "51ff0a",
+  "arguments": "{'app_base_url': 'https://yourapp.com/', 'redirect_param': 'https://yourapp.com@evil.example/exploit'}",
+  "family": [
+   "userinfo_host_confusion"
+  ]
+ },
+ {
+  "hex": "01030a",
+  "arguments": "{'app_base_url': 'https://yourapp.com/', 'redirect_param': 'javascript:alert(1)'}",
+  "family": [
+   "dangerous_scheme"
+  ]
+ },
+ {
+  "hex": "015d11",
+  "arguments": "{'app_base_url': 'https://yourapp.com/login', 'redirect_param': 'https://evil.example/?next=https://yourapp.com/'}",
+  "family": [
+   "nested_external_redirect"
+  ]
+ },
+ {
+  "hex": "010a010a",
+  "arguments": "{'app_base_url': 'https://yourapp.com/', 'redirect_param': 'https://eviltrusted-site.com/exploit'}",
+  "family": [
+   "allowlist_suffix_confusion"
+  ]
+ }
+]

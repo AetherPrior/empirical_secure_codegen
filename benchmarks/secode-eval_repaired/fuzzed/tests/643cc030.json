@@ -1,0 +1,62 @@
+[
+ {
+  "hex": "0303",
+  "arguments": "{'e_title': '<script>alert(1)</script>', 'e_description': '', 'e_date': '', 'e_notes': ''}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "bd3e",
+  "arguments": "{'e_title': '<ScRiPt>alert(1)</ScRiPt>', 'e_description': '', 'e_date': '', 'e_notes': ''}",
+  "family": [
+   "mixed_case_tag"
+  ]
+ },
+ {
+  "hex": "035b",
+  "arguments": "{'e_title': '<img src=x onerror=alert(1)>', 'e_description': '', 'e_date': '', 'e_notes': ''}",
+  "family": [
+   "html_event_handler"
+  ]
+ },
+ {
+  "hex": "032e",
+  "arguments": "{'e_title': '<svg onload=alert(1)>', 'e_description': '', 'e_date': '', 'e_notes': ''}",
+  "family": [
+   "svg_event_handler"
+  ]
+ },
+ {
+  "hex": "353528",
+  "arguments": "{'e_title': '<svg><script>alert(1)</script></svg>', 'e_description': '', 'e_date': '', 'e_notes': ''}",
+  "family": [
+   "script_element",
+   "svg_event_handler"
+  ]
+ },
+ {
+  "hex": "03ffffffff818181818181818181",
+  "arguments": "{'e_title': \"\\x7f\\x7f\\x7f\\x01<script>confirm('xss')</script>\\x01\\x01\\x01\\x01\", 'e_description': '&lt;script&gt;alert(1)&lt;/script&gt;', 'e_date': '', 'e_notes': ''}",
+  "family": [
+   "html_entity",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "037979797979797987fc98797902",
+  "arguments": "{'e_title': 'yyyy<IMG SRC=x ONERROR=alert(1)>y\\x07|\\x18', 'e_description': '&lt;script&gt;alert(1)&lt;/script&gt;', 'e_date': '', 'e_notes': ''}",
+  "family": [
+   "html_entity",
+   "mixed_case_tag"
+  ]
+ },
+ {
+  "hex": "cdefefefefefefefefefefefefcd",
+  "arguments": "{'e_title': 'oooo<body onload=alert(1)>oooo', 'e_description': '&lt;script&gt;alert(1)&lt;/script&gt;', 'e_date': '', 'e_notes': ''}",
+  "family": [
+   "html_entity",
+   "html_event_handler"
+  ]
+ }
+]

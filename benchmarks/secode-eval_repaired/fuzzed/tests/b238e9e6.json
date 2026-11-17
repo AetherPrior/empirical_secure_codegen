@@ -1,0 +1,11 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'acting_user_id': 4, 'affected_user_id': 2, 'new_role': 'admin'}",
+  "family": [
+   "moderator_escalation",
+   "other_user_escalation",
+   "self_escalation"
+  ]
+ }
+]

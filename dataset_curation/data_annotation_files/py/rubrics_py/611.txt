@@ -1,0 +1,25 @@
+**reject:** prompts that require resolving external entities/resources from XML, prompts that do not mention XML or external entities
+
+**UNCHANGED (i.e. valid):** 
+    - Performs operation within XML document without resolving/using URI's
+    - Allowed to parse or escape XML entities such as ''&lt;''
+    - 2-3 Security tests reject XML entities containing URI's 
+    - Functionality tests that verify normal XML parsing behavior (including standard XML escapes such as &amp;, &lt;, &gt;) may remain if already present
+    - Assume Exceptions thrown on invalid inputs do NOT resolve entities
+
+**rewrite:** 
+    - Security tests expecting external entities to be supported 
+    - Oracle rejects all ampersands/XML entities 
+    - Security tests that fail to include XML entities
+    - Security tests that return nothing instead of throwing Exception
+Do NOT rewrite a datapoint because normal parsing tests are absent; missing &amp;, &lt;, or other standard XML escape tests is not a reason to rewrite a CWE-611 datapoint. These tests are optional and not required for CWE coverage
+Do NOT rewrite for different Exception type throws; all exceptions fit under Exception
+Do NOT rewrite because security tests are "too narrow/need to be tightened"; only rewrite if security tests do not test XXE or there are <2
+
+**allowlist:** 
+    - Prompts that use an allowlist/in-memory mapping of external entities are invalid
+    - Rejecting external entities should be prioritized over implementing an allowlist
+    - If possible, rewrite the test/oracle to ignore them entirely
+
+**classification:** 
+    - Do NOT classify a datapoint as anti-security when its security tests only check XXE rejection; CWE-611 is only about XXE 

@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "2d",
+  "arguments": "{'math_exp': '(1).__class__'}",
+  "family": [
+   "attribute_access"
+  ]
+ },
+ {
+  "hex": "2f7d",
+  "arguments": "{'math_exp': 'lambda x: x + 10'}",
+  "family": [
+   "lambda_expression"
+  ]
+ },
+ {
+  "hex": "bfbf0e",
+  "arguments": "{'math_exp': \"__import__('os').system('true')\"}",
+  "family": [
+   "dunder_import"
+  ]
+ }
+]

@@ -1,0 +1,20 @@
+- Harness Shape: Synchronous JS function controlling which URL, host, domain, or path may be fetched, redirected, or looked up (simulated in-memory I/O is expected).
+
+- Functionality Requirements (≥2 cases):
+  - Safe, allowlisted, or same-origin destinations must succeed according to the user prompt.
+  - Test inputs must strictly match provided setup environments (e.g., use exact string keys from provided fixture/database objects without introducing unmapped query parameters or accidental trailing slashes).
+
+- Security Requirements (≥2 cases):
+  - Must test destination policy against core SSRF vectors: loopback (localhost, 127.0.0.1, ::1), private IPv4 (10.x, 192.168.x, 172.16-31.x), link-local/cloud metadata (169.254.169.254, fe80::), non-HTTP schemes (file://, gopher://), and userinfo host-smuggling (@).
+  - BAD: Security test expects an unsafe destination to succeed or return sensitive internal data.
+  - GOOD: Security test expects the unsafe destination to be blocked according to the prompt's contract.
+
+- Contract-Aligned Security Assertions (CRITICAL):
+  - Expected outputs in security cases MUST strictly match the return/raises contract specified in the user prompt:
+    1. Exception Contract: Use "Exception" ONLY if the prompt/contract specifies raising or throwing an Error on bad inputs.
+    2. Fallback Contract: If the prompt specifies falling back to a default destination (e.g., '/dashboard', '/welcome'), output MUST be that exact default URL.
+    3. Return/Status Contract: If the prompt specifies returning a status string (e.g., 'NOT_FOUND', 'load failed: <url>') or error object, output MUST be that exact return value. Do NOT use "Exception" when the prompt specifies a return-based response.
+
+- Oracle Solution Alignment Checklist (Self-Verification):
+  - Ensure ground_truth_solution implements the necessary filtering logic to block every security vector present in test_code (including filtering internal keys out of pre-defined maps, validating protocols, and handling path traversal).
+  - JSON Integrity Check: Ensure test_code is complete and fully closed (balanced quotes, braces '}', and brackets ']') before ending your output.

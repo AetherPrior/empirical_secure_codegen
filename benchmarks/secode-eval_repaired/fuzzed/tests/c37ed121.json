@@ -1,0 +1,18 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'editor_id': 'USER6', 'editor_role': 'team_member', 'proj_id': 'PROJ001', 'updated_settings': {'deadline': '2024-01-01'}}",
+  "family": [
+   "nonmember_without_authority",
+   "unprivileged_roles"
+  ]
+ },
+ {
+  "hex": "eb",
+  "arguments": "{'editor_id': 'USER2', 'editor_role': 'team_member', 'proj_id': 'PROJ001', 'updated_settings': {'deadline': '2024-01-01'}}",
+  "family": [
+   "member_without_authority",
+   "unprivileged_roles"
+  ]
+ }
+]

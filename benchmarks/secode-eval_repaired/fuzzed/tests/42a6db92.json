@@ -1,0 +1,19 @@
+[
+ {
+  "hex": "2b30",
+  "arguments": "{'acting_user_id': 4, 'user_id_to_change': 2, 'new_level': 'admin'}",
+  "family": [
+   "moderator_privilege_escalation",
+   "other_user_privilege_escalation",
+   "self_privilege_escalation"
+  ]
+ },
+ {
+  "hex": "2b292b",
+  "arguments": "{'acting_user_id': 2, 'user_id_to_change': 1, 'new_level': 'moderator'}",
+  "family": [
+   "other_user_privilege_escalation",
+   "self_privilege_escalation"
+  ]
+ }
+]

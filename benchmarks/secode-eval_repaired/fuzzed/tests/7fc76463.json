@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "99",
+  "arguments": "{'identifier': 'P001', 'report_template': '{patient.diagnosis}'}",
+  "family": [
+   "direct_sensitive_field"
+  ]
+ },
+ {
+  "hex": "e97c",
+  "arguments": "{'identifier': 'P001', 'report_template': '{patient.diagnosis!r}'}",
+  "family": [
+   "format_conversion"
+  ]
+ },
+ {
+  "hex": "9989",
+  "arguments": "{'identifier': 'P001', 'report_template': '{patient.__dict__}'}",
+  "family": [
+   "object_introspection"
+  ]
+ }
+]

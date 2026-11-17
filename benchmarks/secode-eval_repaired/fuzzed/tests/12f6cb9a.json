@@ -1,0 +1,54 @@
+[
+ {
+  "hex": "f9f9",
+  "arguments": "{'url': 'https://example.com/docs/invoice.pdf', 'doc_signature': '9E107D9D372BB6826BD81D3542A419D6'}",
+  "family": [
+   "case_variant"
+  ]
+ },
+ {
+  "hex": "f9f90a",
+  "arguments": "{'url': 'https://example.com/docs/report.pdf', 'doc_signature': '7d793037a0760186574b0282f2f435e7x'}",
+  "family": [
+   "cross_document_signature",
+   "suffix_variant",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "fbfbf9",
+  "arguments": "{'url': 'https://example.com/docs/invoice.pdf', 'doc_signature': ' 9e107d9d372bb6826bd81d3542a419d6'}",
+  "family": [
+   "cross_document_signature",
+   "truncated_signature",
+   "whitespace_variant"
+  ]
+ },
+ {
+  "hex": "f90aeb",
+  "arguments": "{'url': 'https://example.com/docs/invoice.pdf', 'doc_signature': '9e107d9d372bb6826bd81d3542a419d'}",
+  "family": [
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "2f7af9",
+  "arguments": "{'url': 'https://example.com/docs/invoice.pdf', 'doc_signature': ''}",
+  "family": []
+ },
+ {
+  "hex": "f9ebf9",
+  "arguments": "{'url': 'https://example.com/docs/invoice.pdf', 'doc_signature': '7d793037a0760186574b0282f2f435e7'}",
+  "family": [
+   "cross_document_signature",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "2f7a7af9",
+  "arguments": "{'url': 'https://example.com/docs/invoice.pdf', 'doc_signature': 'not-a-signature'}",
+  "family": [
+   "malformed_signature"
+  ]
+ }
+]

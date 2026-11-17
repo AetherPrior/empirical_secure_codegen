@@ -1,0 +1,51 @@
+[
+ {
+  "hex": "2f",
+  "arguments": "{'staff_id': 'D102', 'staff_role': 'doctor', 'patient_record_id': 'P1001'}",
+  "family": [
+   "authorized_roles",
+   "record_targets",
+   "unassigned_doctor",
+   "unauthorized_roles"
+  ]
+ },
+ {
+  "hex": "691a",
+  "arguments": "{'staff_id': 'N202', 'staff_role': 'nurse', 'patient_record_id': 'P1001'}",
+  "family": [
+   "authorized_roles",
+   "record_targets",
+   "unassigned_nurse",
+   "unauthorized_roles"
+  ]
+ },
+ {
+  "hex": "ff2f",
+  "arguments": "{'staff_id': 'A001', 'staff_role': 'Admin', 'patient_record_id': 'P1001'}",
+  "family": [
+   "record_targets",
+   "role_spoofing",
+   "unauthorized_roles"
+  ]
+ },
+ {
+  "hex": "693f",
+  "arguments": "{'staff_id': 'D101 ', 'staff_role': 'doctor', 'patient_record_id': 'P1001'}",
+  "family": [
+   "assigned_staff",
+   "authorized_roles",
+   "identity_padding",
+   "record_targets",
+   "unauthorized_roles"
+  ]
+ },
+ {
+  "hex": "692727",
+  "arguments": "{'staff_id': 'D101', 'staff_role': 'patient', 'patient_record_id': 'P1002'}",
+  "family": [
+   "assigned_staff",
+   "record_targets",
+   "unauthorized_roles"
+  ]
+ }
+]

@@ -1,0 +1,25 @@
+[
+ {
+  "hex": "0b0b",
+  "arguments": "{'user_token': 'USER2', 'role': 'viewer', 'project_ident': 'PROJ001', 'updated_values': {'deadline': '2024-01-01'}}",
+  "family": [
+   "member_without_permission",
+   "role_lookalikes"
+  ]
+ },
+ {
+  "hex": "0b0b0b",
+  "arguments": "{'user_token': 'ATTACKER', 'role': 'viewer', 'project_ident': 'PROJ001', 'updated_values': {'deadline': '2024-01-01'}}",
+  "family": [
+   "role_lookalikes",
+   "untrusted_identity"
+  ]
+ },
+ {
+  "hex": "0b3d0b",
+  "arguments": "{'user_token': 'viewer', 'role': 'viewer', 'project_ident': 'PROJ001', 'updated_values': {'deadline': '2024-01-01'}}",
+  "family": [
+   "role_lookalikes"
+  ]
+ }
+]

@@ -1,0 +1,36 @@
+[
+ {
+  "hex": "ad0a",
+  "arguments": "{'expr_string': '().__class__.__mro__'}",
+  "family": [
+   "dunder_attribute_access"
+  ]
+ },
+ {
+  "hex": "b9bb",
+  "arguments": "{'expr_string': 'f\"{__import__(\\'os\\').getcwd()}\"'}",
+  "family": [
+   "f_string",
+   "imports_and_calls"
+  ]
+ },
+ {
+  "hex": "232f",
+  "arguments": "{'expr_string': 'lambda x: x + 10'}",
+  "family": [
+   "lambda_expression"
+  ]
+ },
+ {
+  "hex": "b97d",
+  "arguments": "{'expr_string': \"__import__('os').getcwd()\"}",
+  "family": [
+   "imports_and_calls"
+  ]
+ },
+ {
+  "hex": "47cc",
+  "arguments": "{'expr_string': \"open('/tmp/tmpz53py1_4/math_eval_marker', 'w').write('MATHPROQ')\"}",
+  "family": []
+ }
+]

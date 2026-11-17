@@ -1,0 +1,7 @@
+[
+ {
+  "hex": "2f",
+  "arguments": "{'requesting_user_id': 4, 'user_to_change_id': 2, 'desired_privilege': 'admin'}",
+  "family": []
+ }
+]

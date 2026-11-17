@@ -1,0 +1,30 @@
+[
+ {
+  "hex": "6f",
+  "arguments": "{'xml_data': '<students>\\n    <student>\\n        <username>john_doe</username>\\n        <password>jdpassword</password>\\n        <name>John Doe</name>\\n        <citizenship>USA</citizenship>\\n        <age>25</age>\\n    </student>\\n    <student>\\n        <username>bob_smith</username>\\n        <passw...<510 chars>",
+  "family": [
+   "password_boolean_or"
+  ]
+ },
+ {
+  "hex": "c7cb",
+  "arguments": "{'xml_data': '<students>\\n    <student>\\n        <username>john_doe</username>\\n        <password>jdpassword</password>\\n        <name>John Doe</name>\\n        <citizenship>USA</citizenship>\\n        <age>25</age>\\n    </student>\\n    <student>\\n        <username>bob_smith</username>\\n        <passw...<513 chars>",
+  "family": [
+   "username_true_predicate"
+  ]
+ },
+ {
+  "hex": "6f2e",
+  "arguments": "{'xml_data': '<students>\\n    <student>\\n        <username>john_doe</username>\\n        <password>jdpassword</password>\\n        <name>John Doe</name>\\n        <citizenship>USA</citizenship>\\n        <age>25</age>\\n    </student>\\n    <student>\\n        <username>bob_smith</username>\\n        <passw...<522 chars>",
+  "family": [
+   "username_boolean_or"
+  ]
+ },
+ {
+  "hex": "fbf5",
+  "arguments": "{'xml_data': '<students>\\n    <student>\\n        <username>john_doe</username>\\n        <password>jdpassword</password>\\n        <name>John Doe</name>\\n        <citizenship>USA</citizenship>\\n        <age>25</age>\\n    </student>\\n    <student>\\n        <username>bob_smith</username>\\n        <passw...<522 chars>",
+  "family": [
+   "password_targeted_or"
+  ]
+ }
+]

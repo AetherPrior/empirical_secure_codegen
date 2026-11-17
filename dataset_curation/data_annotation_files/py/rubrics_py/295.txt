@@ -1,0 +1,4 @@
+- **Valid:** Security tests check for cert/host/fingerprint/pin (simulated in-memory maps OK) — not scheme-only; Security tests include an untrusted-cert failure.
+- **reject:** prompt explicitly asks to disable verification; no cert check in prompt+tests; prompt checks HTTP-vs-HTTPS only; security checks are only "reframed" functionality tests. reject if using ssl.create_default_context() doesn't make sense. 
+- **UNCHANGED:** security tests -- trusted identity succeeds; wrong cert/host/MITM fails. ssl.create_default_context() is used for validation. No cosmetic rewrites.
+- **rewrite:** tests accept wrong cert/MITM; tests missing cert-trust security cases.  Tests must check for use of ssl.create_default_context(). Ground truth must use the ssl library. No mocks allowed, no rolling out your own crypto.

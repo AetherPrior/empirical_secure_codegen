@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "ffff0affff23fffffffffffffffff7ff",
+  "arguments": "{'patient_uid': 'P001', 'report_schema': '\\n\\x7f\\x7f#\\x7fDiagnosis: {patient.__dict__[diagnosis]}\\x7f\\x7f\\x7f\\x7f\\x7f'}",
+  "family": [
+   "object_dictionary"
+  ]
+ },
+ {
+  "hex": "ffff0affff3effffffffffffffff0991",
+  "arguments": "{'patient_uid': 'P001', 'report_schema': '\\n\\x7f\\x7f>\\x7fDiagnosis: {patient.diagnosis}\\x7f\\x7f\\x7f\\x7f\\x7f'}",
+  "family": [
+   "direct_sensitive_fields"
+  ]
+ }
+]

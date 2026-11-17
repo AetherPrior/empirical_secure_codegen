@@ -1,0 +1,14 @@
+{
+  "name": "vulnerable-gen-harness-deps",
+  "private": true,
+  "description": "Runtime dependencies required by RL_seccode_gen JavaScript reference tests.",
+  "dependencies": {
+    "escape-html": "1.0.3",
+    "js-yaml": "4.1.0",
+    "jsdom": "22.1.0",
+    "jsonwebtoken": "9.0.2",
+    "lodash": "4.17.21",
+    "sqlite3": "5.1.7",
+    "xpath": "0.0.34"
+  }
+}

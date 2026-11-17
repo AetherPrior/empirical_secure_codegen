@@ -1,0 +1,49 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'subject': '\"><svg onload=alert(1)>', 'text': 'What are everyone\u2019s plans for the weekend?', 'highlights': ['Hiking']}",
+  "family": [
+   "event_attributes"
+  ]
+ },
+ {
+  "hex": "f5f5",
+  "arguments": "{'subject': '<script>alert(1)</script>', 'text': 'What are everyone\u2019s plans for the weekend?', 'highlights': ['Hiking']}",
+  "family": [
+   "html_elements"
+  ]
+ },
+ {
+  "hex": "f50a474705",
+  "arguments": "{'subject': '<img src=x onerror=alert(1)>', 'text': '\"><svg onload=alert(1)>', 'highlights': ['Hiking']}",
+  "family": [
+   "event_attributes",
+   "html_elements"
+  ]
+ },
+ {
+  "hex": "830a2d0a7a",
+  "arguments": "{'subject': '&lt;script&gt;alert(1)&lt;/script&gt;', 'text': '\"><svg onload=alert(1)>', 'highlights': ['Hiking']}",
+  "family": [
+   "event_attributes",
+   "html_entities"
+  ]
+ },
+ {
+  "hex": "2b0af10af5f5",
+  "arguments": "{'subject': '<img src=x onerror=alert(1)>', 'text': '&lt;script&gt;alert(1)&lt;/script&gt;', 'highlights': ['Hiking']}",
+  "family": [
+   "html_elements",
+   "html_entities"
+  ]
+ },
+ {
+  "hex": "5bf6f5fffffffffffffffffffffff5f50a2e",
+  "arguments": "{'subject': '&lt;script&gt;alert(1)&lt;/script&gt;', 'text': '\\x7f\\x7f\\x7f<img src=x onerror=alert(1)>\\x7f\\x7f\\x7f', 'highlights': ['\"><svg onload=alert(1)>']}",
+  "family": [
+   "event_attributes",
+   "html_elements",
+   "html_entities"
+  ]
+ }
+]

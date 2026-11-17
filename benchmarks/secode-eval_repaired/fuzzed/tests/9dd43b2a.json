@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "ef",
+  "arguments": "{'content': b'(dp0\\nVcommand\\np1\\nVexecute\\np2\\ns.', 'format_type': 'pickle'}",
+  "family": [
+   "pickle_protocol0"
+  ]
+ },
+ {
+  "hex": "ffff",
+  "arguments": "{'content': b'\\x80\\x04\\x95\\x18\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x07command\\x94\\x8c\\x07execute\\x94s.', 'format_type': 'pickle'}",
+  "family": [
+   "pickle_protocol4"
+  ]
+ }
+]

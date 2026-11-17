@@ -1,0 +1,65 @@
+[
+ {
+  "hex": "5b",
+  "arguments": "{'heading': '<ScRiPt>alert(1)</ScRiPt>', 'description': 'This is an introductory post.'}",
+  "family": [
+   "case_and_whitespace_variants"
+  ]
+ },
+ {
+  "hex": "5b5b",
+  "arguments": "{'heading': '<img src=x onerror=alert(1)>', 'description': 'This is an introductory post.'}",
+  "family": [
+   "event_handler_element"
+  ]
+ },
+ {
+  "hex": "11a8",
+  "arguments": "{'heading': '<script>alert(1)</script>', 'description': 'This is an introductory post.'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "5bd1",
+  "arguments": "{'heading': '<svg><script>alert(1)</script></svg>', 'description': 'This is an introductory post.'}",
+  "family": [
+   "script_element",
+   "svg_and_mathml"
+  ]
+ },
+ {
+  "hex": "fffffe",
+  "arguments": "{'heading': '<math><mtext></mtext><img src=x onerror=alert(1)></math>', 'description': 'This is an introductory post.'}",
+  "family": [
+   "event_handler_element",
+   "svg_and_mathml"
+  ]
+ },
+ {
+  "hex": "0100005b005b",
+  "arguments": "{'heading': '<img src=x onerror=alert(1)>', 'description': '<ScRiPt>alert(1)</ScRiPt>'}",
+  "family": [
+   "case_and_whitespace_variants",
+   "event_handler_element"
+  ]
+ },
+ {
+  "hex": "5bc2c25bc2c2",
+  "arguments": "{'heading': '<svg><script>alert(1)</script></svg>', 'description': '<ScRiPt>alert(1)</ScRiPt>'}",
+  "family": [
+   "case_and_whitespace_variants",
+   "script_element",
+   "svg_and_mathml"
+  ]
+ },
+ {
+  "hex": "5bc2c25b3fc2",
+  "arguments": "{'heading': '<math><mtext></mtext><img src=x onerror=alert(1)></math>', 'description': '<ScRiPt>alert(1)</ScRiPt>'}",
+  "family": [
+   "case_and_whitespace_variants",
+   "event_handler_element",
+   "svg_and_mathml"
+  ]
+ }
+]

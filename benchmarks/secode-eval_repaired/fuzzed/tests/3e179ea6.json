@@ -1,0 +1,38 @@
+[
+ {
+  "hex": "7979",
+  "arguments": "{'expression': '().__class__'}",
+  "family": [
+   "attribute_introspection"
+  ]
+ },
+ {
+  "hex": "3d0a",
+  "arguments": "{'expression': 'globals()'}",
+  "family": [
+   "builtins_and_namespace"
+  ]
+ },
+ {
+  "hex": "417e",
+  "arguments": "{'expression': 'lambda x: x + 10'}",
+  "family": [
+   "lambda"
+  ]
+ },
+ {
+  "hex": "83edfc",
+  "arguments": "{'expression': \"f'{().__class__}'\"}",
+  "family": [
+   "attribute_introspection",
+   "f_strings"
+  ]
+ },
+ {
+  "hex": "7be5e5e5",
+  "arguments": "{'expression': \"(__import__('os').getcwd())\"}",
+  "family": [
+   "imports_and_calls"
+  ]
+ }
+]

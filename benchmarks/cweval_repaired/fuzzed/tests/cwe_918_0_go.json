@@ -1,0 +1,38 @@
+[
+ {
+  "hex": "533f",
+  "arguments": "{'domain': 'example.com', 'subdomain_prefix': 'attacker.invalid#'}",
+  "family": [
+   "fragment_authority_termination"
+  ]
+ },
+ {
+  "hex": "090e7b",
+  "arguments": "{'domain': 'example.com', 'subdomain_prefix': 'trusted@attacker.invalid/'}",
+  "family": [
+   "path_authority_termination",
+   "userinfo_host_injection"
+  ]
+ },
+ {
+  "hex": "9f6767",
+  "arguments": "{'domain': 'trusted.test', 'subdomain_prefix': 'attacker.invalid?x='}",
+  "family": [
+   "query_authority_termination"
+  ]
+ },
+ {
+  "hex": "3fd33f",
+  "arguments": "{'domain': 'example.com', 'subdomain_prefix': 'attacker.invalid/'}",
+  "family": [
+   "path_authority_termination"
+  ]
+ },
+ {
+  "hex": "532f3c",
+  "arguments": "{'domain': 'example.com', 'subdomain_prefix': 'attacker.invalid:443/'}",
+  "family": [
+   "port_injection"
+  ]
+ }
+]

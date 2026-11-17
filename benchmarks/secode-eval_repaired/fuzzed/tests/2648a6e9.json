@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "57",
+  "arguments": "{'input_text': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "5757",
+  "arguments": "{'input_text': \"<script>alert('XSS');</script>\"}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "5741",
+  "arguments": "{'input_text': '--><script>alert(1)</script><!--'}",
+  "family": [
+   "html_comment_breakout"
+  ]
+ }
+]

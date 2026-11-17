@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "2b",
+  "arguments": "{'content_to_add': '<![CDATA[injection]]>'}",
+  "family": [
+   "cdata"
+  ]
+ },
+ {
+  "hex": "2b33",
+  "arguments": "{'content_to_add': '--><injected>1</injected><!--'}",
+  "family": [
+   "comment_injection"
+  ]
+ },
+ {
+  "hex": "ffffff36",
+  "arguments": "{'content_to_add': '<script>alert(1)</script>'}",
+  "family": [
+   "tag_injection"
+  ]
+ }
+]

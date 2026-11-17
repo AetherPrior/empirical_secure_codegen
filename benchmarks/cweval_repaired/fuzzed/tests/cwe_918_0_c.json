@@ -1,0 +1,30 @@
+[
+ {
+  "hex": "0101",
+  "arguments": "{'domain': 'trusted.test', 'subdomain_prefix': 'evil.example\\\\'}",
+  "family": [
+   "backslash_path"
+  ]
+ },
+ {
+  "hex": "010101",
+  "arguments": "{'domain': 'trusted.test', 'subdomain_prefix': 'evil.example#'}",
+  "family": [
+   "fragment_injection"
+  ]
+ },
+ {
+  "hex": "01b201",
+  "arguments": "{'domain': 'trusted.test', 'subdomain_prefix': 'evil.example/'}",
+  "family": [
+   "path_injection"
+  ]
+ },
+ {
+  "hex": "01ffffff",
+  "arguments": "{'domain': 'trusted.test', 'subdomain_prefix': 'evil.example?'}",
+  "family": [
+   "query_injection"
+  ]
+ }
+]

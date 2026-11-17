@@ -1,0 +1,1 @@
+{"id": "cwe_347_0", "bench": "cweval", "cwe": "347", "fn": "decode_json_web_token"}

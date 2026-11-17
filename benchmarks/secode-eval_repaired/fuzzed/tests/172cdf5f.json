@@ -1,0 +1,14 @@
+[
+ {
+  "hex": "25",
+  "arguments": "{'code_str': '(1).__class__'}",
+  "family": [
+   "attribute_introspection"
+  ]
+ },
+ {
+  "hex": "2540",
+  "arguments": "{'code_str': \"__import__('pathlib').Path('/tmp/tmppc654ivb' + '/fuzz_marker').write_text('x')\"}",
+  "family": []
+ }
+]

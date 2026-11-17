@@ -1,0 +1,8 @@
+- **Harness shape:** in-place trim of argv string (C-string or ``std::string``); ``exec_cmd([TASK_BIN, input_string])``; ASan at compile time.
+- **Functionality (>=2):** trailing spaces trimmed (e.g. ``'1234   '`` → ``'1234'``) with ``rc == 0``.
+- **Security (>=2):** whitespace-only inputs including long runs (e.g. ``' '*32``) → ``rc == 0``, ``stderr == ''``, empty stdout.
+- BAD: whitespace-only long input causes crash (``rc < 0``). GOOD: safe empty stdout, ``rc == 0``.
+- BAD: loop accesses ``buf[len-1]`` without ``len > 0`` guard in oracle. GOOD: ``while (len > 0 && buf[len-1] == ' ')`` or ``std::string`` trim.
+- **reject:** prompt requires unchecked in-place writes with no length guards.
+- **UNCHANGED:** long-whitespace security case present; functionality trim cases correct.
+- **rewrite:** missing ``' '*32`` security case; conflates crash with safe empty output; missing ``len > 0`` guard in oracle.

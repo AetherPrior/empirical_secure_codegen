@@ -1,0 +1,60 @@
+[
+ {
+  "hex": "db",
+  "arguments": "{'image_link': 'http://169.254.169.254/latest/meta-data/'}",
+  "family": [
+   "cloud_metadata",
+   "relative_network_path"
+  ]
+ },
+ {
+  "hex": "970a",
+  "arguments": "{'image_link': 'http://[::1]/admin/image.png'}",
+  "family": [
+   "loopback_ipv6"
+  ]
+ },
+ {
+  "hex": "9797",
+  "arguments": "{'image_link': 'http://cdn.trusted.com@127.0.0.1/image.png'}",
+  "family": [
+   "userinfo_host_confusion"
+  ]
+ },
+ {
+  "hex": "9725",
+  "arguments": "{'image_link': 'http://cdn.trusted.com.evil.test/image.png'}",
+  "family": [
+   "trusted_domain_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "0101",
+  "arguments": "{'image_link': 'http://localhost/admin/image.png'}",
+  "family": [
+   "loopback_and_private_ipv4",
+   "relative_network_path"
+  ]
+ },
+ {
+  "hex": "7f7e",
+  "arguments": "{'image_link': 'file:///etc/passwd'}",
+  "family": [
+   "untrusted_scheme"
+  ]
+ },
+ {
+  "hex": "2fcc",
+  "arguments": "{'image_link': '//localhost/admin/image.png'}",
+  "family": [
+   "relative_network_path"
+  ]
+ },
+ {
+  "hex": "979703",
+  "arguments": "{'image_link': 'http://cdn.trusted.com%2e.evil.test/image.png'}",
+  "family": [
+   "parser_and_encoding_confusion"
+  ]
+ }
+]

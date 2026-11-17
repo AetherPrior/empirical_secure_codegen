@@ -1,0 +1,18 @@
+[
+ {
+  "hex": "05c6c60a6c",
+  "arguments": "{'cdn_base_url': '//evil.org', 'resource_id': 'scripts/app.js', 'resource_type': 'image'}",
+  "family": [
+   "base_url_external",
+   "resource_type_delimiters",
+   "scheme_relative_authority"
+  ]
+ },
+ {
+  "hex": "05c6c6b50a6c",
+  "arguments": "{'cdn_base_url': 'https://cdn.example.com@evil.org', 'resource_id': 'scripts/app.js', 'resource_type': 'script'}",
+  "family": [
+   "base_url_external"
+  ]
+ }
+]

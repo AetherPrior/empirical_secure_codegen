@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "23",
+  "arguments": "{'user_expression': '().__class__'}",
+  "family": [
+   "attribute_access"
+  ]
+ }
+]

@@ -1,0 +1,58 @@
+[
+ {
+  "hex": "0b",
+  "arguments": "{'image_url': 'http://2130706433/image.png'}",
+  "family": [
+   "alternate_ip_forms"
+  ]
+ },
+ {
+  "hex": "0f25",
+  "arguments": "{'image_url': 'http://evil.test/img.example.com/image.png'}",
+  "family": [
+   "trusted_in_path_or_query"
+  ]
+ },
+ {
+  "hex": "5b0e",
+  "arguments": "{'image_url': 'http://img.example.com.evil.invalid/image.png'}",
+  "family": [
+   "trusted_suffix"
+  ]
+ },
+ {
+  "hex": "5b5b",
+  "arguments": "{'image_url': 'http://localhost/admin/image.png'}",
+  "family": [
+   "loopback_and_private_addresses"
+  ]
+ },
+ {
+  "hex": "5bf4",
+  "arguments": "{'image_url': 'file:///etc/passwd'}",
+  "family": [
+   "scheme_bypass"
+  ]
+ },
+ {
+  "hex": "75c7",
+  "arguments": "{'image_url': 'http://img.example.com@evil.test/image.png'}",
+  "family": [
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "5b0a0a",
+  "arguments": "{'image_url': 'http://IMG.EXAMPLE.COM.evil.test/image.png'}",
+  "family": [
+   "hostname_normalization"
+  ]
+ },
+ {
+  "hex": "758f8f8f8f21",
+  "arguments": "{'image_url': 'http://img.example.com%00.evil.test/image.png?q=\\x0f'}",
+  "family": [
+   "authority_parser_confusion"
+  ]
+ }
+]

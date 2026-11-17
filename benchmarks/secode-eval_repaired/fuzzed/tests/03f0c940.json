@@ -1,0 +1,21 @@
+[
+ {
+  "hex": "0b",
+  "arguments": "{'quiz_query': \"__import__('os').getcwd()\"}",
+  "family": [
+   "builtin_import"
+  ]
+ },
+ {
+  "hex": "050a",
+  "arguments": "{'quiz_query': '__import__(\\'builtins\\').exec(\"open(\\'/tmp/tmptlwnmt9t/quiz_output.txt\\', \\'w\\').write(\\'hacked\\')\")'}",
+  "family": []
+ },
+ {
+  "hex": "0d2d",
+  "arguments": "{'quiz_query': '().__class__.__mro__'}",
+  "family": [
+   "dunder_introspection"
+  ]
+ }
+]

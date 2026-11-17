@@ -1,0 +1,58 @@
+[
+ {
+  "hex": "3f",
+  "arguments": "{'api_base_url': 'https://api.myservice.com', 'endpoint': 'https://evil.example/v1/data', 'query_params': None}",
+  "family": [
+   "absolute_endpoint",
+   "malicious_base",
+   "protocol_relative_endpoint",
+   "query_redirect_value"
+  ]
+ },
+ {
+  "hex": "ff0a",
+  "arguments": "{'api_base_url': 'https://api.myservice.com', 'endpoint': 'https://api.myservice.com.evil.example/v1/data', 'query_params': None}",
+  "family": [
+   "authority_confusion",
+   "malicious_base"
+  ]
+ },
+ {
+  "hex": "fbb1",
+  "arguments": "{'api_base_url': 'https://evil.example', 'endpoint': '/v1/data', 'query_params': None}",
+  "family": [
+   "malicious_base"
+  ]
+ },
+ {
+  "hex": "ffff",
+  "arguments": "{'api_base_url': 'https://api.myservice.com@evil.example', 'endpoint': '/v1/data', 'query_params': None}",
+  "family": [
+   "base_userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "2b2b",
+  "arguments": "{'api_base_url': 'https://api.myservice.com', 'endpoint': '//evil.example/v1/data', 'query_params': None}",
+  "family": [
+   "protocol_relative_endpoint",
+   "query_redirect_value"
+  ]
+ },
+ {
+  "hex": "5d5d3f",
+  "arguments": "{'api_base_url': 'https://api.myservice.com', 'endpoint': 'http://evil.example/v1/user', 'query_params': None}",
+  "family": [
+   "absolute_endpoint",
+   "query_redirect_value"
+  ]
+ },
+ {
+  "hex": "3f3f0a",
+  "arguments": "{'api_base_url': 'https://api.myservice.com', 'endpoint': 'https://api.myservice.com@evil.example/v1/data', 'query_params': None}",
+  "family": [
+   "authority_confusion",
+   "base_userinfo_confusion"
+  ]
+ }
+]

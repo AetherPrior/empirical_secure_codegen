@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "0b",
+  "arguments": "{'team_name': 'IT', 'list_template': 'Worker: {employee.name}  {employee.salary}'}",
+  "family": [
+   "direct_sensitive_attributes"
+  ]
+ },
+ {
+  "hex": "2323",
+  "arguments": "{'team_name': 'IT', 'list_template': 'Worker: {employee.name}  {employee.__dict__}'}",
+  "family": [
+   "employee_dictionary_access"
+  ]
+ }
+]

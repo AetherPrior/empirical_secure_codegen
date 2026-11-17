@@ -1,0 +1,28 @@
+[
+ {
+  "hex": "ffffffff0a",
+  "arguments": "{'identifier': '\\x7f\\x7fUSER2\\x7f\\x7f', 'role': 'account_owner', 'source_acc': 'ACC001', 'destination_acc': 'ACC002', 'value': 11.0}",
+  "family": [
+   "cross_owner_identifier"
+  ]
+ },
+ {
+  "hex": "ffffffffef0a",
+  "arguments": "{'identifier': 'USER1', 'role': 'customer_service', 'source_acc': 'ACC001', 'destination_acc': 'ACC002', 'value': 11.0}",
+  "family": [
+   "unauthorized_role"
+  ]
+ },
+ {
+  "hex": "3df7ffff46ff",
+  "arguments": "{'identifier': 'USER1', 'role': 'bank_admin ', 'source_acc': 'ACC001', 'destination_acc': 'ACC002', 'value': 56.0}",
+  "family": [
+   "role_spelling_confusion"
+  ]
+ },
+ {
+  "hex": "ffffffffef260a",
+  "arguments": "{'identifier': 'USER1', 'role': '', 'source_acc': 'ACC001', 'destination_acc': 'ACC002', 'value': 11.0}",
+  "family": []
+ }
+]

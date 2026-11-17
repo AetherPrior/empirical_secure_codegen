@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "99",
+  "arguments": "{'raw_bytes': b'\\x80\\x04\\x95\\x17\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x03key\\x94\\x8c\\nauthorized\\x94s.', 'format_hint': 'pickle'}",
+  "family": [
+   "pickle_protocol4_data"
+  ]
+ },
+ {
+  "hex": "7399",
+  "arguments": "{'raw_bytes': b\"cbuiltins\\neval\\n(S'1+1'\\ntR.\", 'format_hint': 'pickle'}",
+  "family": [
+   "pickle_reduce_eval"
+  ]
+ }
+]

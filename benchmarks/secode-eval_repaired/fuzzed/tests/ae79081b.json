@@ -1,0 +1,63 @@
+[
+ {
+  "hex": "1b1b",
+  "arguments": "{'headline': '<svg/onload=alert(1)>', 'summary': 'A night filled with melodies and rhythm.', 'scheduled_date': '2023-11-15', 'additional_info': 'Tickets are available at the venue entrance.'}",
+  "family": [
+   "svg_payload"
+  ]
+ },
+ {
+  "hex": "1b55",
+  "arguments": "{'headline': '<img src=x onerror=alert(1)>', 'summary': 'A night filled with melodies and rhythm.', 'scheduled_date': '2023-11-15', 'additional_info': 'Tickets are available at the venue entrance.'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "257a",
+  "arguments": "{'headline': '<script>alert(1)</script>', 'summary': 'A night filled with melodies and rhythm.', 'scheduled_date': '2023-11-15', 'additional_info': 'Tickets are available at the venue entrance.'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "132d2d2d2d402d2d2d2d2d2d2d2d2d2d",
+  "arguments": "{'headline': '---@-\"><svg onload=alert(1)>-----', 'summary': '&lt;script&gt;alert(1)&lt;/script&gt;', 'scheduled_date': '2023-11-15', 'additional_info': 'Tickets are available at the venue entrance.'}",
+  "family": [
+   "encoded_markup",
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c92ab2",
+  "arguments": "{'headline': 'IIIII<script>alert(1)</script>IIIII', 'summary': '\"><svg onload=alert(1)>', 'scheduled_date': '2023-11-15', 'additional_info': 'Tickets are available at the venue entrance.'}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "ffffffffffffffffffffffffff90ffffffff59",
+  "arguments": "{'headline': '\\x7f\\x7f\\x7f\\x7f\\x7f\"><svg onload=alert(1)>\\x7f\\x7f\\x7f\\x7f\\x7f', 'summary': 'A night filled with melodies and rhythm.', 'scheduled_date': '<svg/onload=alert(1)>', 'additional_info': 'Tickets are available at the venue entrance.'}",
+  "family": [
+   "event_handler",
+   "svg_payload"
+  ]
+ },
+ {
+  "hex": "39393939393939393939393939393939393030301b",
+  "arguments": "{'headline': '99999<svg/onload=alert(1)>99999', 'summary': '99&lt;script&gt;alert(1)&lt;/script&gt;', 'scheduled_date': '2023-11-15', 'additional_info': 'Tickets are available at the venue entrance.'}",
+  "family": [
+   "encoded_markup",
+   "svg_payload"
+  ]
+ },
+ {
+  "hex": "1beaeaeaeaeaeaeaeaea3feaeaeaeaeaeaeaeaeaeaeaeaea3deaeaea",
+  "arguments": "{'headline': '\\ueaea\\ueaea\\ueaea\\ueaea\\uea3f<script>alert(1)</script>\\ueaea\\ueaea\\ueaea\\ueaea\\ueaea', 'summary': 'A night filled with melodies and rhythm.', 'scheduled_date': '&lt;script&gt;alert(1)&lt;/script&gt;', 'additional_info': 'Tickets are available at the venue entrance.'}",
+  "family": [
+   "encoded_markup",
+   "script_element"
+  ]
+ }
+]

@@ -1,0 +1,17 @@
+[
+ {
+  "hex": "27277e",
+  "arguments": "{'math_expr': \"__import__('os').getcwd()\"}",
+  "family": [
+   "bare_names",
+   "module_imports"
+  ]
+ },
+ {
+  "hex": "273241",
+  "arguments": "{'math_expr': '__builtins__'}",
+  "family": [
+   "bare_names"
+  ]
+ }
+]

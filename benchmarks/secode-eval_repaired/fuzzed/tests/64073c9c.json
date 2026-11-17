@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "25",
+  "arguments": "{'content_insert': ']]><injected/>'}",
+  "family": [
+   "cdata_termination"
+  ]
+ },
+ {
+  "hex": "2513",
+  "arguments": "{'content_insert': '--><evil/> <!--'}",
+  "family": [
+   "comment_markup"
+  ]
+ },
+ {
+  "hex": "25fb",
+  "arguments": "{'content_insert': '<tag>'}",
+  "family": [
+   "xml_special_characters"
+  ]
+ }
+]

@@ -1,0 +1,154 @@
+{
+ "CWE-20": {
+  "name": "Improper Input Validation",
+  "retrieval_key": "Validate the complete type, syntax, structure, range, and business constraints of every untrusted input before it reaches an indexing, allocation, dispatch, or other sensitive operation."
+ },
+ "CWE-22": {
+  "name": "Improper Limitation of a Pathname to a Restricted Directory",
+  "retrieval_key": "Treat every untrusted file or resource name as confined to a designated namespace or base directory, and reject any value that escapes or selects anything outside that boundary."
+ },
+ "CWE-78": {
+  "name": "Improper Neutralization of Special Elements used in an OS Command",
+  "retrieval_key": "Keep untrusted data from being interpreted as operating-system command syntax by avoiding shell evaluation and passing validated values only as data to fixed operations."
+ },
+ "CWE-79": {
+  "name": "Improper Neutralization of Input During Web Page Generation",
+  "retrieval_key": "Keep untrusted content from becoming active browser markup or script by applying context-appropriate output encoding or strictly allowlisted sanitization before web-page rendering."
+ },
+ "CWE-89": {
+  "name": "Improper Neutralization of Special Elements used in an SQL Command",
+  "retrieval_key": "Keep untrusted values from changing database query structure by binding them as data and restricting any dynamic identifiers to an explicit allowlist."
+ },
+ "CWE-95": {
+  "name": "Improper Neutralization of Directives in Dynamically Evaluated Code",
+  "retrieval_key": "Never interpret untrusted text as executable code; if a limited expression language is required, parse it and permit only explicitly supported syntax and operations."
+ },
+ "CWE-113": {
+  "name": "Improper Neutralization of CRLF Sequences in HTTP Headers",
+  "retrieval_key": "Prevent untrusted values from creating or splitting HTTP headers by rejecting carriage returns and line feeds in every header component and using structured header APIs."
+ },
+ "CWE-117": {
+  "name": "Improper Output Neutralization for Logs",
+  "retrieval_key": "Prevent untrusted log fields from forging records or leaking uncontrolled content by neutralizing line breaks and control characters, bounding length, and using structured logging."
+ },
+ "CWE-119": {
+  "name": "Improper Restriction of Operations within the Bounds of a Memory Buffer",
+  "retrieval_key": "For every operation on a memory buffer, validate attacker-influenced lengths, offsets, and derived arithmetic against the actual allocation before access, accounting for overflow and terminator space."
+ },
+ "CWE-120": {
+  "name": "Buffer Copy without Checking Size of Input",
+  "retrieval_key": "Before copying an untrusted string or byte sequence into a fixed-size destination, prove the entire bounded input fits, including any terminator, and reject truncation instead of using an unchecked copy."
+ },
+ "CWE-125": {
+  "name": "Out-of-bounds Read",
+  "retrieval_key": "Before reading from memory or a container, validate every attacker-influenced index and range against the actual available length at the access site."
+ },
+ "CWE-200": {
+  "name": "Exposure of Sensitive Information to an Unauthorized Actor",
+  "retrieval_key": "Expose only the minimum fields authorized for the current audience and keep secrets, privileged records, diagnostics, and internal state out of responses and logs."
+ },
+ "CWE-281": {
+  "name": "Improper Preservation of Permissions",
+  "retrieval_key": "Preserve policy-approved permissions whenever sensitive files are copied, replaced, or extracted, ignoring untrusted metadata and applying restrictive modes before publication."
+ },
+ "CWE-284": {
+  "name": "Improper Access Control",
+  "retrieval_key": "Require authenticated, default-deny access control on every protected route and resource, granting only explicitly authorized principals the permitted operation."
+ },
+ "CWE-295": {
+  "name": "Improper Certificate Validation",
+  "retrieval_key": "Authenticate secure-connection peers by verifying the certificate chain and exact expected service identity, failing closed on any mismatch."
+ },
+ "CWE-326": {
+  "name": "Inadequate Encryption Strength",
+  "retrieval_key": "Enforce policy-approved cryptographic strength for keys and parameters, use complete high-entropy key material, and reject undersized or caller-weakened configurations."
+ },
+ "CWE-327": {
+  "name": "Use of a Broken or Risky Cryptographic Algorithm",
+  "retrieval_key": "Use only modern, vetted cryptographic algorithms and authenticated modes suited to the security goal, rejecting deprecated hashes, ciphers, and unauthenticated encryption."
+ },
+ "CWE-329": {
+  "name": "Generation of Predictable IV with CBC Mode",
+  "retrieval_key": "Generate a fresh, unpredictable, correctly sized initialization vector from a cryptographic random source for every encryption operation, and never reuse a constant or derivable value."
+ },
+ "CWE-347": {
+  "name": "Improper Verification of Cryptographic Signature",
+  "retrieval_key": "Before trusting a signed token or message, verify its signature or authenticator over the original bytes with a fixed approved algorithm and key, then validate all required claims and fail closed."
+ },
+ "CWE-352": {
+  "name": "Cross-Site Request Forgery",
+  "retrieval_key": "Protect every state-changing web request with an unpredictable token bound to the authenticated session and operation, validated before any side effect."
+ },
+ "CWE-400": {
+  "name": "Uncontrolled Resource Consumption",
+  "retrieval_key": "Bound attacker-influenced input size, work, memory, concurrency, recursion, and execution time before consuming resources so one request cannot exhaust service capacity."
+ },
+ "CWE-434": {
+  "name": "Unrestricted Upload of File with Dangerous Type",
+  "retrieval_key": "Accept uploaded files only after verifying an allowlisted type from their content, then assign a server-controlled name and store them outside executable or publicly served locations."
+ },
+ "CWE-476": {
+  "name": "NULL Pointer Dereference",
+  "retrieval_key": "Check every nullable input, allocation, parse result, and returned pointer before dereferencing it, and handle failure without accessing the absent object."
+ },
+ "CWE-502": {
+  "name": "Deserialization of Untrusted Data",
+  "retrieval_key": "Never deserialize untrusted data into executable objects; use data-only formats, validate the complete decoded structure and resource bounds, and dispatch only explicitly allowed operations."
+ },
+ "CWE-522": {
+  "name": "Insufficiently Protected Credentials",
+  "retrieval_key": "Protect credentials throughout their lifecycle with one-way password hashing, encrypted transport, hardened session storage, approved secret storage, minimal exposure, and independent rotation."
+ },
+ "CWE-601": {
+  "name": "URL Redirection to Untrusted Site",
+  "retrieval_key": "Allow user-influenced browser redirects only to approved local routes or explicitly trusted destinations, using structural URL checks that prevent off-site navigation."
+ },
+ "CWE-611": {
+  "name": "Improper Restriction of XML External Entity Reference",
+  "retrieval_key": "Parse untrusted XML without external entity, document-type, file, or network resolution, then validate the resulting document against the expected schema."
+ },
+ "CWE-643": {
+  "name": "Improper Neutralization of Data within XPath Expressions",
+  "retrieval_key": "Keep untrusted values from becoming XPath syntax by treating them as bound or exactly compared data within a fixed query structure, never as expressions, predicates, or axes."
+ },
+ "CWE-732": {
+  "name": "Incorrect Permission Assignment for Critical Resource",
+  "retrieval_key": "Create critical files and resources atomically with least-privilege permissions, ensuring untrusted names or links cannot redirect creation before the restrictive policy applies."
+ },
+ "CWE-760": {
+  "name": "Use of a One-Way Hash with a Predictable Salt",
+  "retrieval_key": "Generate a unique unpredictable salt from a cryptographic random source for every password or secret, and use it with a password-hardening function instead of a constant or derived salt."
+ },
+ "CWE-770": {
+  "name": "Allocation of Resources Without Limits or Throttling",
+  "retrieval_key": "Bound attacker-influenced work, memory, storage, concurrency, and temporary state before allocation or processing, and release resources on every exit path."
+ },
+ "CWE-787": {
+  "name": "Out-of-bounds Write",
+  "retrieval_key": "Before writing to memory, prove every attacker-influenced index and range fits the actual destination capacity using overflow-safe arithmetic and reserved terminator space."
+ },
+ "CWE-862": {
+  "name": "Missing Authorization",
+  "retrieval_key": "Perform an access-control check before every protected resource access or state change, verifying the authenticated caller's permission for that exact operation and object and denying when no permission exists."
+ },
+ "CWE-863": {
+  "name": "Incorrect Authorization",
+  "retrieval_key": "When an access-control check exists, compute its deny-by-default decision only from trusted identity and resource state, require every applicable role, ownership, action, and state condition together, and fail closed on errors."
+ },
+ "CWE-915": {
+  "name": "Improperly Controlled Modification of Dynamically-Determined Object Attributes",
+  "retrieval_key": "Apply untrusted object updates only to an explicit allowlist of intended data fields, rejecting structural or privileged attributes and recursively validating nested changes."
+ },
+ "CWE-918": {
+  "name": "Server-Side Request Forgery",
+  "retrieval_key": "Before a server makes an outbound request influenced by untrusted input, allow only approved destinations and reject local, private, metadata, or otherwise forbidden addresses after parsing, resolution, and every redirect."
+ },
+ "CWE-943": {
+  "name": "Improper Neutralization of Special Elements in Data Query Logic",
+  "retrieval_key": "Keep untrusted data from changing database or document-query logic by fixing the query structure, binding scalar values, and allowlisting every dynamic field, operator, or sort choice."
+ },
+ "CWE-1333": {
+  "name": "Inefficient Regular Expression Complexity",
+  "retrieval_key": "Make sure regular expressions do not support backtracking, e.g. don't have nested quantifiers, eliminate overlapping alternations, anchor patterns judiciously"
+ }
+}

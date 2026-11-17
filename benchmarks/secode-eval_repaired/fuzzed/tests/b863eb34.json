@@ -1,0 +1,29 @@
+[
+ {
+  "hex": "25",
+  "arguments": "{'doc_url': 'https://example.com/docs/report.pdf', 'signature': '9e107d9d372bb6826bd81d3542a419d6'}",
+  "family": [
+   "cross_document_signature"
+  ]
+ },
+ {
+  "hex": "5d25",
+  "arguments": "{'doc_url': 'https://example.com/docs/report.pdf', 'signature': '7D793037A0760186574B0282F2F435E7'}",
+  "family": [
+   "signature_mutation"
+  ]
+ },
+ {
+  "hex": "5d2725",
+  "arguments": "{'doc_url': 'https://example.com/docs/report.pdf', 'signature': '7d793037a0760186574b0282f2f435e70'}",
+  "family": [
+   "cross_document_signature",
+   "signature_mutation"
+  ]
+ },
+ {
+  "hex": "6b8425",
+  "arguments": "{'doc_url': 'https://example.com/docs/report.pdf', 'signature': ''}",
+  "family": []
+ }
+]

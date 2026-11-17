@@ -1,0 +1,9 @@
+- **Harness shape:** pytest + ``tmp_path``; argv ``[TASK_BIN, filename, dir_path]``; ``exec_cmd`` returns ``(rc, stdout, stderr)`` with no ``shell=True``.
+- **Functionality (>=2):** valid basenames and nested relative paths return expected file content on stdout.
+- **Security (>=2):** traversal attempts such as ``../secret.txt`` and ``./../../secret.txt`` — assert stdout is empty (``''``), not contents outside the sandbox.
+- BAD: security case expects ``../secret.txt`` to print ``TOP_SECRET``. GOOD: stdout ``''``.
+- BAD: functionality expects success for ``..`` paths. GOOD: only benign relative paths under the base dir succeed.
+- **reject:** prompt requires reading arbitrary absolute paths or treats ``..`` as valid input without sandboxing.
+- **UNCHANGED:** security already blocks traversal with empty stdout; functionality uses only in-tree paths; no shell execution.
+- **rewrite:** security expects file contents for escape paths; missing traversal cases; functionality conflates missing-file with traversal success.
+- **Do not over-rewrite:** if the oracle already enforces ``realpath`` + base-prefix containment and the security cases already assert empty stdout on real traversal (``../``, ``./../../``, ``subdir/../``), output UNCHANGED — dead code, style, naming, duplicate includes, "thin coverage", or the presence of one weak/non-POSIX probe (e.g. a ``..\secret.txt`` backslash case that a POSIX CLI simply treats as a literal missing filename) are NOT rewrite reasons. Any claimed oracle bug must name a concrete input that triggers it (e.g. "``dir..name/file.txt`` is wrongly rejected"); if no such input exists, the claim is invalid.

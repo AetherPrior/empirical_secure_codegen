@@ -1,0 +1,9 @@
+# Optional: custom ReasoningConfig only. If omitted, verl uses the same defaults as
+# vllm_async_server._default_reasoning_config_for_thinking_budget() when thinking_token_budget is set.
+#
+# @package _global_
+actor_rollout_ref:
+  rollout:
+    reasoning_config:
+      reasoning_start_str: "<think>\n"
+      reasoning_end_str: " I have to give the solution based on the reasoning directly now.</think>"

@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "41",
+  "arguments": "{'writer_name': '<img src=x onerror=alert(1)>', 'title': 'My First Post', 'body': 'Hello, this is my first post!', 'tag_list': ['Introduction', 'FirstPost']}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "71630a",
+  "arguments": "{'writer_name': 'JohnDoe', 'title': 'My First Post', 'body': '<script>alert(1)</script>', 'tag_list': ['Introduction', 'FirstPost']}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "414141",
+  "arguments": "{'writer_name': 'JohnDoe', 'title': '<svg/onload=alert(1)>', 'body': 'Hello, this is my first post!', 'tag_list': ['Introduction', 'FirstPost']}",
+  "family": [
+   "svg_event_handler"
+  ]
+ }
+]

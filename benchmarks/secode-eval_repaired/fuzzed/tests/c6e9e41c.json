@@ -1,0 +1,29 @@
+[
+ {
+  "hex": "29",
+  "arguments": "{'device': 'device002', 'sig': '89ebf76ae45bfcf6dd7f2aa3de8b20b3', 'payload': {'temperature': 22.5, 'humidity': 60}}",
+  "family": [
+   "cross_device_signature",
+   "signature_tampering"
+  ]
+ },
+ {
+  "hex": "9d0a",
+  "arguments": "{'device': 'device001', 'sig': '89ebf76ae45bfcf6dd7f2aa3de8b20b', 'payload': {'temperature': 22.5, 'humidity': 60}}",
+  "family": [
+   "signature_tampering"
+  ]
+ },
+ {
+  "hex": "272927",
+  "arguments": "{'device': 'device001', 'sig': '1dcfa479db7aae3d40b3984cdf202de6', 'payload': {'temperature': 22.5, 'humidity': 60}}",
+  "family": [
+   "cross_device_signature"
+  ]
+ },
+ {
+  "hex": "1d3ad10a",
+  "arguments": "{'device': 'device002', 'sig': '', 'payload': {'temperature': 22.5, 'humidity': 60}}",
+  "family": []
+ }
+]

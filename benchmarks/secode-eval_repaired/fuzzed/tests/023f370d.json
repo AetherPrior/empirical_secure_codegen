@@ -1,0 +1,68 @@
+[
+ {
+  "hex": "9dd6f5",
+  "arguments": "{'base_api_url': 'https://malicious-api.com', 'api_endpoint': '/v2/analytics', 'query_options': None}",
+  "family": [
+   "query_redirect_keys",
+   "untrusted_authority"
+  ]
+ },
+ {
+  "hex": "9d1feee5",
+  "arguments": "{'base_api_url': 'https://api-test.myservice.com', 'api_endpoint': 'https://evil.example/v1/data', 'query_options': None}",
+  "family": [
+   "endpoint_authority_override",
+   "query_redirect_keys",
+   "query_redirect_values",
+   "untrusted_authority"
+  ]
+ },
+ {
+  "hex": "9dffffffff",
+  "arguments": "{'base_api_url': 'https://evil.example#@api.myservice.com', 'api_endpoint': '/health', 'query_options': None}",
+  "family": [
+   "query_redirect_keys",
+   "query_redirect_values",
+   "untrusted_authority"
+  ]
+ },
+ {
+  "hex": "1d8f8f8f9dd6",
+  "arguments": "{'base_api_url': 'https://api.myservice.com@evil.example', 'api_endpoint': '/v1/data/../admin', 'query_options': None}",
+  "family": [
+   "endpoint_path_confusion",
+   "query_redirect_keys",
+   "untrusted_authority"
+  ]
+ },
+ {
+  "hex": "ffdfffff02ffdf",
+  "arguments": "{'base_api_url': 'https://evil.example#@api.myservice.com', 'api_endpoint': '/v1/data/../../v1/user', 'query_options': None}",
+  "family": [
+   "endpoint_path_confusion",
+   "query_redirect_keys",
+   "query_redirect_values",
+   "untrusted_authority"
+  ]
+ },
+ {
+  "hex": "63020a21f50a0a",
+  "arguments": "{'base_api_url': 'https://api.myservice.com@evil.example', 'api_endpoint': '\\\\\\\\evil.example\\\\v1\\\\data', 'query_options': None}",
+  "family": [
+   "endpoint_authority_override",
+   "query_redirect_keys",
+   "untrusted_authority"
+  ]
+ },
+ {
+  "hex": "9fffffff7e20202020202020df",
+  "arguments": "{'base_api_url': 'https://evil.example/api.myservice.com', 'api_endpoint': '\\\\\\\\evil.example\\\\v1\\\\data', 'query_options': {'limit': '10', 'format': 'json', 'url': '/v1/data#@evil.example'}}",
+  "family": [
+   "endpoint_authority_override",
+   "endpoint_path_confusion",
+   "query_redirect_keys",
+   "query_redirect_values",
+   "untrusted_authority"
+  ]
+ }
+]

@@ -1,0 +1,47 @@
+[
+ {
+  "hex": "3d3a0a",
+  "arguments": "{'base_api_url': 'https://api-test.myservice.com', 'api_path': 'https://evil.example/v1/data', 'query_dict': None}",
+  "family": [
+   "absolute_or_redirect_endpoint",
+   "scheme_relative_authority",
+   "unapproved_authority"
+  ]
+ },
+ {
+  "hex": "2b0a2b0a",
+  "arguments": "{'base_api_url': 'https://api-test.myservice.com', 'api_path': '//evil.example/v1/data', 'query_dict': None}",
+  "family": [
+   "scheme_relative_authority"
+  ]
+ },
+ {
+  "hex": "2b2b2b0a",
+  "arguments": "{'base_api_url': 'https://api.myservice.com@evil.example', 'api_path': '/health', 'query_dict': None}",
+  "family": [
+   "authority_confusion"
+  ]
+ },
+ {
+  "hex": "2b0b2b0a",
+  "arguments": "{'base_api_url': 'https://malicious-api.com', 'api_path': '/health', 'query_dict': None}",
+  "family": [
+   "unapproved_authority"
+  ]
+ },
+ {
+  "hex": "2b0a002b0a",
+  "arguments": "{'base_api_url': 'https://api-test.myservice.com', 'api_path': '//evil.example/v1/user', 'query_dict': None}",
+  "family": [
+   "absolute_or_redirect_endpoint"
+  ]
+ },
+ {
+  "hex": "2b26000002",
+  "arguments": "{'base_api_url': 'https://api-staging.myservice.com', 'api_path': 'https://api.myservice.com@evil.example/v1/data', 'query_dict': None}",
+  "family": [
+   "absolute_or_redirect_endpoint",
+   "authority_confusion"
+  ]
+ }
+]

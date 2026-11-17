@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "4541",
+  "arguments": "{'img_url': 'http://%6cocalhost/admin/image.png'}",
+  "family": [
+   "encoded_authority"
+  ]
+ },
+ {
+  "hex": "4145",
+  "arguments": "{'img_url': 'http://img.example.com.evil.test/image.png'}",
+  "family": [
+   "scheme_relative",
+   "trusted_name_suffix"
+  ]
+ },
+ {
+  "hex": "4155",
+  "arguments": "{'img_url': 'http://2130706433/admin/image.png'}",
+  "family": [
+   "numeric_ip"
+  ]
+ },
+ {
+  "hex": "f10a",
+  "arguments": "{'img_url': 'file:///etc/passwd'}",
+  "family": [
+   "disallowed_schemes"
+  ]
+ },
+ {
+  "hex": "4130",
+  "arguments": "{'img_url': 'http://localhost/admin/image.png'}",
+  "family": [
+   "loopback_hosts"
+  ]
+ },
+ {
+  "hex": "330e",
+  "arguments": "{'img_url': '//127.0.0.1/admin/image.png'}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "5d2b",
+  "arguments": "{'img_url': 'http://sub.img.example.com/image.png'}",
+  "family": [
+   "untrusted_subdomain"
+  ]
+ },
+ {
+  "hex": "7d7d",
+  "arguments": "{'img_url': 'http://img.example.com@127.0.0.1/admin/image.png'}",
+  "family": [
+   "userinfo_confusion"
+  ]
+ }
+]

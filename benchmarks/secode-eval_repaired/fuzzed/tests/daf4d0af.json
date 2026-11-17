@@ -1,0 +1,46 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'device_id': 'device001', 'signature': '1dcfa479db7aae3d40b3984cdf202de6', 'data': {}}",
+  "family": [
+   "cross_device_replay",
+   "malformed_signature"
+  ]
+ },
+ {
+  "hex": "01",
+  "arguments": "{'device_id': 'device002', 'signature': '89ebf76ae45bfcf6dd7f2aa3de8b20b3', 'data': {}}",
+  "family": [
+   "cross_device_replay"
+  ]
+ },
+ {
+  "hex": "0a0a8a",
+  "arguments": "{'device_id': 'device001', 'signature': ' 89ebf76ae45bfcf6dd7f2aa3de8b20b3', 'data': {}}",
+  "family": [
+   "cross_device_replay",
+   "decorated_signature"
+  ]
+ },
+ {
+  "hex": "0a088a",
+  "arguments": "{'device_id': 'device001', 'signature': '', 'data': {}}",
+  "family": []
+ },
+ {
+  "hex": "00273d29",
+  "arguments": "{'device_id': 'device002', 'signature': '1dcfa479db7aae3d40b3984cdf202de6\\n', 'data': {}}",
+  "family": [
+   "cross_device_replay",
+   "decorated_signature",
+   "malformed_signature"
+  ]
+ },
+ {
+  "hex": "0a600e0e",
+  "arguments": "{'device_id': 'device001', 'signature': '00000000000000000000000000000000', 'data': {}}",
+  "family": [
+   "malformed_signature"
+  ]
+ }
+]

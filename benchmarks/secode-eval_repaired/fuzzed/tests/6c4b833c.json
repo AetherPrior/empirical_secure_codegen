@@ -1,0 +1,17 @@
+[
+ {
+  "hex": "dd",
+  "arguments": "{'modifying_user_id': 4, 'user_to_change_id': 1, 'new_privilege_level': 'moderator'}",
+  "family": [
+   "moderator_abuse"
+  ]
+ },
+ {
+  "hex": "174a",
+  "arguments": "{'modifying_user_id': 2, 'user_to_change_id': 2, 'new_privilege_level': 'admin'}",
+  "family": [
+   "peer_privilege_escalation",
+   "self_escalation"
+  ]
+ }
+]

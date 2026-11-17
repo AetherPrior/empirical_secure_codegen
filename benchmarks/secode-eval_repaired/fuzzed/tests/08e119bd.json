@@ -1,0 +1,31 @@
+[
+ {
+  "hex": "797b79ea0a",
+  "arguments": "{'cdn_host_url': 'https://%65vil.org', 'resource_tag': 'abcd1234', 'resource_category': 'script'}",
+  "family": [
+   "encoded_external_host"
+  ]
+ },
+ {
+  "hex": "057b792f7b79ea0aea0a",
+  "arguments": "{'cdn_host_url': 'https://assets.example.net', 'resource_tag': 'abcd1234', 'resource_category': '/{//evil.org'}",
+  "family": [
+   "category_path_injection",
+   "protocol_relative_cdn"
+  ]
+ },
+ {
+  "hex": "057b792f7b79ea0a3fea0a",
+  "arguments": "{'cdn_host_url': 'https://assets.example.net', 'resource_tag': 'abcd1234', 'resource_category': '/{y../../evil.org'}",
+  "family": [
+   "category_path_injection"
+  ]
+ },
+ {
+  "hex": "2fafafafffafafafafafafafafaf",
+  "arguments": "{'cdn_host_url': 'https://assets.example.net', 'resource_tag': 'logo.png', 'resource_category': '/\\x7f/https:evil.org/'}",
+  "family": [
+   "absolute_external_cdn"
+  ]
+ }
+]

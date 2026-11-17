@@ -1,0 +1,52 @@
+[
+ {
+  "hex": "6d",
+  "arguments": "{'url': 'http://img.example.com%2e.evil.test/image.png'}",
+  "family": [
+   "encoded_host_confusion"
+  ]
+ },
+ {
+  "hex": "d3ed",
+  "arguments": "{'url': 'http://img.example.com.evil.test/image.png'}",
+  "family": [
+   "trusted_domain_suffix_spoofing"
+  ]
+ },
+ {
+  "hex": "af0a",
+  "arguments": "{'url': 'http://localhost/admin/image.png'}",
+  "family": [
+   "scheme_bypass",
+   "untrusted_hosts"
+  ]
+ },
+ {
+  "hex": "6d2c",
+  "arguments": "{'url': 'file:///etc/passwd'}",
+  "family": [
+   "scheme_bypass"
+  ]
+ },
+ {
+  "hex": "e3fd",
+  "arguments": "{'url': 'http://localhost./admin/image.png'}",
+  "family": [
+   "host_normalization"
+  ]
+ },
+ {
+  "hex": "b341",
+  "arguments": "{'url': 'http://img.example.com@127.0.0.1/admin/image.png'}",
+  "family": [
+   "userinfo_host_confusion"
+  ]
+ },
+ {
+  "hex": "41ad88",
+  "arguments": "{'url': 'http://169.254.169.254/latest/meta-data/'}",
+  "family": [
+   "untrusted_hosts"
+  ]
+ }
+]

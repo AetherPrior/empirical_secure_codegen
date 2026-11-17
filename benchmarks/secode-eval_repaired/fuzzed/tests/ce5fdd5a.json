@@ -1,0 +1,14 @@
+[
+ {
+  "hex": "0d",
+  "arguments": "{'expr': '().__class__.__mro__'}",
+  "family": [
+   "attribute_introspection"
+  ]
+ },
+ {
+  "hex": "0d0d",
+  "arguments": "{'expr': \"open('/tmp/tmpjs_yhpes/eval_injection.txt', 'w').write('fuzzed')\"}",
+  "family": []
+ }
+]

@@ -1,0 +1,36 @@
+[
+ {
+  "hex": "3f",
+  "arguments": "{'uuid': 'user_xyz', 'sig_hash': '4e99a098d57cbf9c6f67f176106769fb'}",
+  "family": [
+   "cross_user_signature"
+  ]
+ },
+ {
+  "hex": "290a",
+  "arguments": "{'uuid': 'user_abc', 'sig_hash': ' 4e99a098d57cbf9c6f67f176106769fb'}",
+  "family": [
+   "cross_user_signature",
+   "signature_formatting"
+  ]
+ },
+ {
+  "hex": "37b9",
+  "arguments": "{'uuid': 'user_abc', 'sig_hash': '4e99a098d57cbf9c6f67f176106769f0'}",
+  "family": [
+   "tampered_signature"
+  ]
+ },
+ {
+  "hex": "290aca",
+  "arguments": "{'uuid': 'user_abc', 'sig_hash': '4E99A098D57CBF9C6F67F176106769FB'}",
+  "family": [
+   "signature_formatting"
+  ]
+ },
+ {
+  "hex": "3fb747",
+  "arguments": "{'uuid': 'user_abc', 'sig_hash': ''}",
+  "family": []
+ }
+]

@@ -1,0 +1,56 @@
+[
+ {
+  "hex": "c511",
+  "arguments": "{'fullname': '<img src=x onerror=alert(1)>', 'biography': 'Software engineer from xyz.', 'status_message': 'Feeling great!'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "c52a",
+  "arguments": "{'fullname': '<b>injected</b>', 'biography': 'Software engineer from xyz.', 'status_message': 'Feeling great!'}",
+  "family": [
+   "html_tag_injection"
+  ]
+ },
+ {
+  "hex": "113b",
+  "arguments": "{'fullname': '<script>alert(1)</script>', 'biography': 'Software engineer from xyz.', 'status_message': 'Feeling great!'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "111126",
+  "arguments": "{'fullname': '</p><img src=x onerror=alert(1)>', 'biography': 'Software engineer from xyz.', 'status_message': 'Feeling great!'}",
+  "family": [
+   "event_handler",
+   "html_tag_injection"
+  ]
+ },
+ {
+  "hex": "ababababffffffffab11ababab1111",
+  "arguments": "{'fullname': '++\\x7f\\x7f<svg onload=alert(1)>\\x7f+\\x11+', 'biography': '<script>alert(1)</script>', 'status_message': 'Feeling great!'}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "31110b0b0b0b0b110b0b0b0b7e0b0b",
+  "arguments": "{'fullname': \"\\x0b\\x0b\\x0b\\x0b<ScRiPt>alert('xss')</ScRiPt>\\x11\\x0b\\x0b\\x0b\", 'biography': '<b>injected</b>', 'status_message': 'Feeling great!'}",
+  "family": [
+   "html_tag_injection",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "ffffffffffffffffffffffa3a3a31106",
+  "arguments": "{'fullname': '\\x7f\\x7f\\x7f\\x7f</p><img src=x onerror=alert(1)>\\x7f\\x7f\\x7f\\x7f', 'biography': \"<ScRiPt>alert('xss')</ScRiPt>\", 'status_message': 'Feeling great!'}",
+  "family": [
+   "event_handler",
+   "html_tag_injection",
+   "script_element"
+  ]
+ }
+]

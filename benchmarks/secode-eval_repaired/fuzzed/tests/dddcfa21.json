@@ -1,0 +1,51 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'img_address': 'file:///etc/passwd'}",
+  "family": [
+   "alternate_schemes"
+  ]
+ },
+ {
+  "hex": "8d02",
+  "arguments": "{'img_address': 'http://cdn.trusted.com.evil.invalid/image.png'}",
+  "family": [
+   "domain_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "1111",
+  "arguments": "{'img_address': 'http://localhost/admin/image.png'}",
+  "family": [
+   "loopback_and_private_addresses"
+  ]
+ },
+ {
+  "hex": "2121",
+  "arguments": "{'img_address': 'http://evil.invalid/image.png?next=cdn.trusted.com'}",
+  "family": [
+   "untrusted_host_in_query_or_fragment"
+  ]
+ },
+ {
+  "hex": "0b01",
+  "arguments": "{'img_address': 'http://evil-cdn.trusted.com/image.png'}",
+  "family": [
+   "domain_prefix_confusion"
+  ]
+ },
+ {
+  "hex": "27ae",
+  "arguments": "{'img_address': 'http://cdn.trusted.com@127.0.0.1/admin/image.png'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "3f270b",
+  "arguments": "{'img_address': 'http://%63dn.trusted.com.evil.invalid/image.png'}",
+  "family": [
+   "parser_and_encoding_confusion"
+  ]
+ }
+]

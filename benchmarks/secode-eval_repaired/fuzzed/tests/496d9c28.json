@@ -1,0 +1,36 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'new_request': {'headers': {'X-CSRF-Token': 'invalid'}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "forged_token"
+  ]
+ },
+ {
+  "hex": "013a",
+  "arguments": "{'new_request': {'headers': {'X-CSRF-Token': 'SECURE_CSRF_TOKEN'}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "token_case_mismatch"
+  ]
+ },
+ {
+  "hex": "0b45",
+  "arguments": "{'new_request': {'headers': {'X-CSRF-Token': ' secure_csrf_token'}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "token_whitespace"
+  ]
+ },
+ {
+  "hex": "b502",
+  "arguments": "{'new_request': {'headers': {}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": []
+ },
+ {
+  "hex": "010a2c002000080a",
+  "arguments": "{'new_request': {'headers': {'X-CSRF-Token': ', secure_csrf_tokenx'}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "forged_token",
+   "token_whitespace"
+  ]
+ }
+]

@@ -1,0 +1,60 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'msg_code': 'msg_1001', 'crypto_sign': 'ABCD1234EFGH5678IJKL9012MNOP3456'}",
+  "family": [
+   "case_change"
+  ]
+ },
+ {
+  "hex": "a10a",
+  "arguments": "{'msg_code': 'msg_9999', 'crypto_sign': 'abcd1234efgh5678ijkl9012mnop3456'}",
+  "family": [
+   "truncation",
+   "unknown_message"
+  ]
+ },
+ {
+  "hex": "0101",
+  "arguments": "{'msg_code': 'msg_1001', 'crypto_sign': 'xabcd1234efgh5678ijkl9012mnop3456'}",
+  "family": [
+   "prefix_suffix",
+   "truncation"
+  ]
+ },
+ {
+  "hex": "0165",
+  "arguments": "{'msg_code': 'msg_1001', 'crypto_sign': ' abcd1234efgh5678ijkl9012mnop3456'}",
+  "family": [
+   "truncation",
+   "whitespace"
+  ]
+ },
+ {
+  "hex": "0799",
+  "arguments": "{'msg_code': 'msg_1001', 'crypto_sign': ''}",
+  "family": []
+ },
+ {
+  "hex": "a138",
+  "arguments": "{'msg_code': 'msg_1001', 'crypto_sign': 'abcd5678efgh1234ijkl9012mnop3456'}",
+  "family": [
+   "signature_substitution"
+  ]
+ },
+ {
+  "hex": "a1210a",
+  "arguments": "{'msg_code': '', 'crypto_sign': 'abcd1234efgh5678ijkl9012mnop3456'}",
+  "family": [
+   "truncation"
+  ]
+ },
+ {
+  "hex": "47a18c34",
+  "arguments": "{'msg_code': 'msg_9999', 'crypto_sign': '1122aabbccdd3344eeff5566gggghhhh'}",
+  "family": [
+   "signature_substitution",
+   "unknown_message"
+  ]
+ }
+]

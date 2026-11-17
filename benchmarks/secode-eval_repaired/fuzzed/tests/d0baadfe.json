@@ -1,0 +1,24 @@
+[
+ {
+  "hex": "0a0a02",
+  "arguments": "{'user_request': {'headers': {'X-CSRF-Token': 'invalid'}, 'body': {'user_id': '1', 'new_phone': '212-555-0199'}}}",
+  "family": [
+   "header_name_confusion",
+   "invalid_token"
+  ]
+ },
+ {
+  "hex": "7e0b0a",
+  "arguments": "{'user_request': {'headers': {}, 'body': {'user_id': '1', 'new_phone': '555-0100'}}}",
+  "family": []
+ },
+ {
+  "hex": "2a0a0e21",
+  "arguments": "{'user_request': {'headers': {'X-CSRF-Token': ' secure_csrf_token'}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": [
+   "body_only_token",
+   "header_name_confusion",
+   "invalid_token"
+  ]
+ }
+]

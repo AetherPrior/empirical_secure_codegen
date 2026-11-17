@@ -1,0 +1,24 @@
+[
+ {
+  "hex": "2b",
+  "arguments": "{'patient_code': 'P001', 'report_template': 'Diagnosis: {patient.diagnosis}'}",
+  "family": [
+   "direct_sensitive_field"
+  ]
+ },
+ {
+  "hex": "0b44",
+  "arguments": "{'patient_code': 'P001', 'report_template': 'Record: {patient.__dict__}'}",
+  "family": [
+   "object_introspection"
+  ]
+ },
+ {
+  "hex": "2b2b",
+  "arguments": "{'patient_code': 'P001', 'report_template': 'Patient: {patient.name}; Age: {patient.age}; Diagnosis: {patient.diagnosis}'}",
+  "family": [
+   "direct_sensitive_field",
+   "mixed_allowed_and_sensitive"
+  ]
+ }
+]

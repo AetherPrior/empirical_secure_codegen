@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "13",
+  "arguments": "{'user_code': '(1).__class__  # '}",
+  "family": [
+   "attribute_access"
+  ]
+ }
+]

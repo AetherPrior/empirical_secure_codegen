@@ -1,0 +1,15 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'operator_id': 'user333', 'operator_role': 'viewer', 'doc_id': 'doc123', 'doc_owner_id': 'user111', 'updated_content': 'Updated document content'}",
+  "family": []
+ },
+ {
+  "hex": "f125ffff",
+  "arguments": "{'operator_id': 'user999', 'operator_role': 'EDITOR', 'doc_id': 'doc456', 'doc_owner_id': 'user222', 'updated_content': ''}",
+  "family": [
+   "forged_owner",
+   "role_alias"
+  ]
+ }
+]

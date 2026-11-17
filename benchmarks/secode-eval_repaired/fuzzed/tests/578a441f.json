@@ -1,0 +1,15 @@
+[
+ {
+  "hex": "e94a",
+  "arguments": "{'user_script': \"import os\\nos.system('echo fuzz')\"}",
+  "family": [
+   "command_execution",
+   "module_import"
+  ]
+ },
+ {
+  "hex": "21210a",
+  "arguments": "{'user_script': \"open('/tmp/tmplvw1wkdx/marker.txt', 'w').write('changed')\"}",
+  "family": []
+ }
+]

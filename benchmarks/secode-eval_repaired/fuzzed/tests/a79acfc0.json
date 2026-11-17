@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "31",
+  "arguments": "{'title': 'My First Blog', 'body': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "314f",
+  "arguments": "{'title': 'My First Blog', 'body': '<script>alert(1)</script>'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "0101",
+  "arguments": "{'title': 'My First Blog', 'body': '<marquee onstart=alert(1)>x</marquee>'}",
+  "family": [
+   "html_elements"
+  ]
+ }
+]

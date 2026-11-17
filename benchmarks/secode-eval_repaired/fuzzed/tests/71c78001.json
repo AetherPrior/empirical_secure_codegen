@@ -1,0 +1,33 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'dev_id': 'device001', 'crypto_sign': '89ebf76ae45bfcf6dd7f2aa3de8b20b3 ', 'packet_content': {}}",
+  "family": [
+   "cross_device_replay",
+   "signature_whitespace",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "f39f",
+  "arguments": "{'dev_id': 'device002', 'crypto_sign': '89ebf76ae45bfcf6dd7f2aa3de8b20b3', 'packet_content': {}}",
+  "family": [
+   "cross_device_replay",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "b0160a",
+  "arguments": "{'dev_id': 'device001', 'crypto_sign': '89EBF76AE45BFCF6DD7F2AA3DE8B20B3', 'packet_content': {}}",
+  "family": [
+   "signature_case_change"
+  ]
+ },
+ {
+  "hex": "b0170a",
+  "arguments": "{'dev_id': 'device001', 'crypto_sign': '89ebf76ae45bfcf6', 'packet_content': {}}",
+  "family": [
+   "truncated_signature"
+  ]
+ }
+]

@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "670a",
+  "arguments": "{'snippet_string': \"__import__('os').system('true')\"}",
+  "family": [
+   "external_command"
+  ]
+ }
+]

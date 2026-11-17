@@ -1,0 +1,64 @@
+[
+ {
+  "hex": "0101",
+  "arguments": "{'header_content': '\\r\\nX-Injected: 1'}",
+  "family": [
+   "crlf_header_injection",
+   "lone_line_break"
+  ]
+ },
+ {
+  "hex": "0303",
+  "arguments": "{'header_content': '\\r\\n X-Folded: 1'}",
+  "family": [
+   "obsolete_line_folding"
+  ]
+ },
+ {
+  "hex": "0102",
+  "arguments": "{'header_content': '\\nX-Injected: 1'}",
+  "family": [
+   "lone_line_break"
+  ]
+ },
+ {
+  "hex": "010101",
+  "arguments": "{'header_content': '\\r\\nSet-Cookie: injected=1'}",
+  "family": [
+   "crlf_header_injection"
+  ]
+ },
+ {
+  "hex": "2b0101010101",
+  "arguments": "{'header_content': '\\x01\\r\\nSet-Cookie: injected=1'}",
+  "family": [
+   "control_characters",
+   "crlf_header_injection"
+  ]
+ },
+ {
+  "hex": "3fffffffff01",
+  "arguments": "{'header_content': '\\x7f\\r\\nX-Injected: 1'}",
+  "family": [
+   "control_characters",
+   "crlf_header_injection",
+   "lone_line_break"
+  ]
+ },
+ {
+  "hex": "ffffffff0108",
+  "arguments": "{'header_content': '\\x7f\\r\\n\\tX-Folded: 1'}",
+  "family": [
+   "control_characters",
+   "obsolete_line_folding"
+  ]
+ },
+ {
+  "hex": "a901a9010120",
+  "arguments": "{'header_content': '\\x01\\rX-Injected: 1'}",
+  "family": [
+   "control_characters",
+   "lone_line_break"
+  ]
+ }
+]

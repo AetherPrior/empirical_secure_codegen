@@ -1,0 +1,36 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'url': 'https://example.com/docs/report.pdf', 'crypt_signature': '9e107d9d372bb6826bd81d3542a419d6'}",
+  "family": [
+   "cross_document_signature"
+  ]
+ },
+ {
+  "hex": "d4c5",
+  "arguments": "{'url': 'https://example.com/docs/report.pdf', 'crypt_signature': ' 7d793037a0760186574b0282f2f435e7'}",
+  "family": [
+   "mutated_signature",
+   "signature_formatting"
+  ]
+ },
+ {
+  "hex": "0a0a",
+  "arguments": "{'url': 'https://example.com/docs/report.pdf', 'crypt_signature': '7d793037a0760186574b0282f2f435e6'}",
+  "family": [
+   "mutated_signature"
+  ]
+ },
+ {
+  "hex": "32b3c5",
+  "arguments": "{'url': 'https://example.com/docs/report.pdf', 'crypt_signature': ''}",
+  "family": []
+ },
+ {
+  "hex": "0028c5",
+  "arguments": "{'url': 'https://example.com/docs/report.pdf', 'crypt_signature': '7D793037A0760186574B0282F2F435E7'}",
+  "family": [
+   "signature_formatting"
+  ]
+ }
+]

@@ -1,0 +1,64 @@
+[
+ {
+  "hex": "272f",
+  "arguments": "{'poster_name': '<script>alert(1)</script>', 'headline': 'My First Post', 'text': 'Hello, this is my first post!', 'hashtags': ['Introduction', 'FirstPost']}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "270a",
+  "arguments": "{'poster_name': '<<script>alert(1)</script>', 'headline': 'My First Post', 'text': 'Hello, this is my first post!', 'hashtags': ['Introduction', 'FirstPost']}",
+  "family": [
+   "malformed_markup",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "2525",
+  "arguments": "{'poster_name': '<img src=x onerror=alert(1)>', 'headline': 'My First Post', 'text': 'Hello, this is my first post!', 'hashtags': ['Introduction', 'FirstPost']}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "ffff0a",
+  "arguments": "{'poster_name': '<scr<script>ipt>alert(1)</scr</script>ipt>', 'headline': 'My First Post', 'text': 'Hello, this is my first post!', 'hashtags': ['Introduction', 'FirstPost']}",
+  "family": [
+   "malformed_markup"
+  ]
+ },
+ {
+  "hex": "25fbfbfbfbfbfbfb7afbfbfbfbfbfbfbfbfbfbfbfbfb",
+  "arguments": "{'poster_name': 'z<ScRiPt>alert(document.domain)</ScRiPt>', 'headline': '&#60;script&#62;alert(1)&#60;/script&#62;', 'text': 'Hello, this is my first post!', 'hashtags': ['Introduction', 'FirstPost']}",
+  "family": [
+   "entity_obfuscation",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c9c927d3",
+  "arguments": "{'poster_name': 'IIIIII<img src=x onerror=alert(1)>IIIIII', 'headline': '&#60;script&#62;alert(1)&#60;/script&#62;', 'text': 'Hello, this is my first post!', 'hashtags': ['Introduction', 'FirstPost']}",
+  "family": [
+   "entity_obfuscation",
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b40",
+  "arguments": "{'poster_name': '<scr<script>ipt>alert(1)</scr</script>ipt>', 'headline': '&#60;script&#62;alert(1)&#60;/script&#62;', 'text': 'Hello, this is my first post!', 'hashtags': ['Introduction', 'FirstPost']}",
+  "family": [
+   "entity_obfuscation",
+   "malformed_markup"
+  ]
+ },
+ {
+  "hex": "ffffffff2bffffffffffffffffffffffff01003d00000a",
+  "arguments": "{'poster_name': '<<script>alert(1)</script>', 'headline': '&#60;script&#62;alert(1)&#60;/script&#62;', 'text': 'Hello, this is my first post!', 'hashtags': ['Introduction', 'FirstPost']}",
+  "family": [
+   "entity_obfuscation",
+   "malformed_markup",
+   "script_element"
+  ]
+ }
+]

@@ -1,0 +1,8 @@
+- **Harness shape:** Node JSON harness; ``setup_code`` opens a shared npm ``sqlite3`` ``Database(':memory:')`` as a global and defines ``async function __setup()`` (or ``globalThis.__harnessSetup``) to create schema + seed rows. Target may be ``async`` / return a Promise. Do **not** reopen ``':memory:'``; do **not** use on-disk DB files or plain JS arrays as a fake DB.
+- **Audit setup_code:** flag **broken_setup_code** (rewrite setup) if setup uses in-memory arrays as a fake DB, writes on-disk sqlite paths, reopens ``':memory:'`` per call, or omits ``__setup`` / ``__harnessSetup`` when the oracle expects seeded tables.
+- **Functionality (>=2):** benign lookup/filter values return expected rows/fields from the seed DB.
+- **Security (>=2):** SQL/tautology-like metachar probes → ``[]``, ``null``, or ``"Exception"`` — never all-rows / auth bypass.
+- BAD: filter ``OR 1=1`` returns every user. GOOD: ``"Exception"`` or empty list / null with parameterized SQL.
+- **reject:** prompt requires concatenating caller-supplied SQL into an executable query as the intended API, or requires on-disk DB paths / reopening ``:memory:`` per call.
+- **UNCHANGED:** bound ``?`` parameter lookups on the shared setup db already fail closed on injection probes; setup is shared sqlite3 ``:memory:`` with awaited seed.
+- **rewrite:** missing injection security cases; security expects successful broadened results; oracle builds query text via concat; **or setup is broken** (arrays / on-disk / reopen ``:memory:``).

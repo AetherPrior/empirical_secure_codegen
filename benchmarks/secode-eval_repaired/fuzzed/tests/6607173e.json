@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "51",
+  "arguments": "{'department': 'IT', 'template': '{employee.__dict__}'}",
+  "family": [
+   "object_dictionary_exposure"
+  ]
+ },
+ {
+  "hex": "510b",
+  "arguments": "{'department': 'IT', 'template': 'Name: {employee.name}, Salary: {employee.salary}'}",
+  "family": [
+   "salary_placeholder"
+  ]
+ }
+]

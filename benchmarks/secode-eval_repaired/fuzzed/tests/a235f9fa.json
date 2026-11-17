@@ -1,0 +1,60 @@
+[
+ {
+  "hex": "03",
+  "arguments": "{'msg_id': 'msg_1001', 'sig': 'ABCD1234EFGH5678IJKL9012MNOP3456'}",
+  "family": [
+   "case_or_whitespace"
+  ]
+ },
+ {
+  "hex": "030a",
+  "arguments": "{'msg_id': 'msg_1001', 'sig': ''}",
+  "family": []
+ },
+ {
+  "hex": "2727",
+  "arguments": "{'msg_id': 'msg_unknown', 'sig': 'abcd1234efgh5678ijkl9012mnop3456'}",
+  "family": [
+   "substring",
+   "unknown_message_id"
+  ]
+ },
+ {
+  "hex": "0303",
+  "arguments": "{'msg_id': 'msg_1001', 'sig': 'abcd5678efgh1234ijkl9012mnop3456'}",
+  "family": [
+   "near_match",
+   "substring"
+  ]
+ },
+ {
+  "hex": "03c1",
+  "arguments": "{'msg_id': 'msg_1001', 'sig': '1122aabbccdd3344eeff5566gggghhhh'}",
+  "family": [
+   "cross_message_replay"
+  ]
+ },
+ {
+  "hex": "3125",
+  "arguments": "{'msg_id': 'msg_1001', 'sig': 'abcd'}",
+  "family": [
+   "substring"
+  ]
+ },
+ {
+  "hex": "0366",
+  "arguments": "{'msg_id': 'msg_1001', 'sig': 'extra.abcd1234efgh5678ijkl9012mnop3456'}",
+  "family": [
+   "substring",
+   "suffix_match"
+  ]
+ },
+ {
+  "hex": "3124",
+  "arguments": "{'msg_id': 'msg_1001', 'sig': 'abcd1234efgh5678ijkl9012mnop3456.extra'}",
+  "family": [
+   "prefix_match",
+   "substring"
+  ]
+ }
+]

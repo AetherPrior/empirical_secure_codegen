@@ -1,0 +1,38 @@
+[
+ {
+  "hex": "ff",
+  "arguments": "{'domain': 'example.com', 'subdomain_prefix': '127.0.0.1\\\\'}",
+  "family": [
+   "backslash_delimiter"
+  ]
+ },
+ {
+  "hex": "ff8a",
+  "arguments": "{'domain': 'example.com', 'subdomain_prefix': '127.0.0.1?'}",
+  "family": [
+   "query_delimiter"
+  ]
+ },
+ {
+  "hex": "ed3d",
+  "arguments": "{'domain': 'example.com', 'subdomain_prefix': '127.0.0.1#'}",
+  "family": [
+   "fragment_delimiter"
+  ]
+ },
+ {
+  "hex": "fffe",
+  "arguments": "{'domain': 'example.com', 'subdomain_prefix': 'attacker@127.0.0.1/'}",
+  "family": [
+   "path_delimiter",
+   "userinfo_host_injection"
+  ]
+ },
+ {
+  "hex": "ff7f",
+  "arguments": "{'domain': 'example.com', 'subdomain_prefix': '127.0.0.1/'}",
+  "family": [
+   "path_delimiter"
+  ]
+ }
+]

@@ -1,0 +1,52 @@
+[
+ {
+  "hex": "0d",
+  "arguments": "{'webhook_address': 'https://api.service.com.attacker.invalid/webhook'}",
+  "family": [
+   "allowlist_suffix_and_prefix"
+  ]
+ },
+ {
+  "hex": "450d",
+  "arguments": "{'webhook_address': 'http://2130706433/admin'}",
+  "family": [
+   "alternate_ip_encodings"
+  ]
+ },
+ {
+  "hex": "f94a",
+  "arguments": "{'webhook_address': 'http://127.0.0.1/admin/login'}",
+  "family": [
+   "direct_private_hosts",
+   "scheme_and_parser_confusion"
+  ]
+ },
+ {
+  "hex": "a340",
+  "arguments": "{'webhook_address': 'file://127.0.0.1/etc/passwd'}",
+  "family": [
+   "scheme_and_parser_confusion"
+  ]
+ },
+ {
+  "hex": "0f2f",
+  "arguments": "{'webhook_address': 'http://api.service.com@127.0.0.1/admin'}",
+  "family": [
+   "userinfo_host_confusion"
+  ]
+ },
+ {
+  "hex": "f9584a",
+  "arguments": "{'webhook_address': 'http://192.168.1.1/admin'}",
+  "family": [
+   "direct_private_hosts"
+  ]
+ },
+ {
+  "hex": "0f0d0f",
+  "arguments": "{'webhook_address': 'https://localhost./admin'}",
+  "family": [
+   "hostname_normalization"
+  ]
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "e7",
+  "arguments": "{'script_str': '(1).__class__'}",
+  "family": [
+   "attribute_access"
+  ]
+ },
+ {
+  "hex": "2323",
+  "arguments": "{'script_str': \"'{0.__class__}'.format(1)\"}",
+  "family": [
+   "format_method"
+  ]
+ }
+]

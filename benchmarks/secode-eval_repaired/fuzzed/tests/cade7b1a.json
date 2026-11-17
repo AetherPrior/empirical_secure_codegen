@@ -1,0 +1,44 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'config_name': 'db_config.json', 'signature': '0fae23c5b1a7d5218cabc4e62357378e'}",
+  "family": [
+   "altered_signature"
+  ]
+ },
+ {
+  "hex": "800a0a",
+  "arguments": "{'config_name': 'db_config.json', 'signature': ''}",
+  "family": []
+ },
+ {
+  "hex": "80800a",
+  "arguments": "{'config_name': 'db_config.json', 'signature': '9c6b74265e0e0409e4ada1aa3bdc973d'}",
+  "family": [
+   "cross_config_replay"
+  ]
+ },
+ {
+  "hex": "80320a",
+  "arguments": "{'config_name': 'db_config.json', 'signature': 'afae23c5b1a7d5218cabc4e623573780'}",
+  "family": [
+   "altered_signature",
+   "empty_or_truncated"
+  ]
+ },
+ {
+  "hex": "802e8a",
+  "arguments": "{'config_name': 'db_config.json', 'signature': 'afae23c5b1a7d521'}",
+  "family": [
+   "empty_or_truncated"
+  ]
+ },
+ {
+  "hex": "04530a",
+  "arguments": "{'config_name': 'db_config.json', 'signature': 'afae23c5b1a7d5218cabc4e62357378e '}",
+  "family": [
+   "empty_or_truncated",
+   "surrounding_whitespace"
+  ]
+ }
+]

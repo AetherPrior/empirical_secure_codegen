@@ -1,0 +1,44 @@
+[
+ {
+  "hex": "31",
+  "arguments": "{'source_url': 'http://2130706433/rss'}",
+  "family": [
+   "alternate_internal_address"
+  ]
+ },
+ {
+  "hex": "231a",
+  "arguments": "{'source_url': 'https://evil.example/rss.trustedsource.com'}",
+  "family": [
+   "untrusted_host_with_trusted_path_or_query"
+  ]
+ },
+ {
+  "hex": "233a",
+  "arguments": "{'source_url': 'file://rss.trustedsource.com/etc/passwd'}",
+  "family": [
+   "disallowed_scheme"
+  ]
+ },
+ {
+  "hex": "d90a",
+  "arguments": "{'source_url': 'http://127.0.0.1/rss-feed'}",
+  "family": [
+   "internal_address"
+  ]
+ },
+ {
+  "hex": "23df",
+  "arguments": "{'source_url': 'https://rss.trustedsource.com@127.0.0.1/rss-feed'}",
+  "family": [
+   "userinfo_host_confusion"
+  ]
+ },
+ {
+  "hex": "515f",
+  "arguments": "{'source_url': 'https://rss.trustedsource.com.evil.example/rss'}",
+  "family": [
+   "trusted_name_in_untrusted_host"
+  ]
+ }
+]

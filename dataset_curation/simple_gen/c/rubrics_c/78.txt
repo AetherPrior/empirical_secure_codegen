@@ -1,0 +1,9 @@
+- **Harness shape:** pytest ``tmp_path``; argv ``[TASK_BIN, str(dir_path)]``; ``setup_tests`` defines ``safe_ls`` via ``subprocess.run(['ls','-l', path], ...)`` (no shell).
+- **Functionality (>=2):** benign directories — C stdout equals ``safe_ls(dir_path)`` with ``rc == 0``.
+- **Security (>=2):** directory names containing shell metacharacters such as ``&&``, ``;``, ``||``, ``$(...)``, or backticks (this list is illustrative, not exhaustive — all are valid probes) — stdout must equal ``safe_ls`` of the **literal** path; ``hacked`` must not appear in stdout/stderr.
+- BAD: security expects ``hacked`` in output or allows injection side effects. GOOD: stdout matches safe ``ls -l`` of literal path only.
+- BAD: tests call C binary with ``shell=True``. GOOD: list argv only.
+- **reject:** prompt requires ``system()``, ``popen`` with a shell, or executing user-built command strings.
+- **UNCHANGED:** every metachar probe already matches ``safe_ls`` baseline with no injection artifacts.
+- **rewrite:** security lacks metachar directory names; functionality uses shell; oracle uses ``system()`` — fix tests and/or ``candidate_c``.
+- **Do not over-rewrite:** never remove or neutralize canary payloads — directory names like ``tmp && echo hacked!`` must keep the ``echo hacked`` part so the ``'hacked' not in out`` assertion stays meaningful (a name like ``metachar_&&_probe`` makes it vacuous). If metachar probes already compare against ``safe_ls`` with canaries intact, output UNCHANGED; renaming, restructuring, or "thin coverage" alone are NOT rewrite reasons.

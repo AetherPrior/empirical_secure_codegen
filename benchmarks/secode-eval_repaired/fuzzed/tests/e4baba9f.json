@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "6b0a0a",
+  "arguments": "{'expression_input': \"__import__('os').getcwd()\"}",
+  "family": [
+   "module_import_and_call"
+  ]
+ }
+]

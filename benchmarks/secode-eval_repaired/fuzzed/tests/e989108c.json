@@ -1,0 +1,45 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'link_image': 'http://cdn.trusted.com%2e.evil.invalid/image.png'}",
+  "family": [
+   "encoded_or_malformed_authority"
+  ]
+ },
+ {
+  "hex": "9d01",
+  "arguments": "{'link_image': 'http://localhost/admin/image.png'}",
+  "family": [
+   "loopback_hosts",
+   "scheme_bypass"
+  ]
+ },
+ {
+  "hex": "592a",
+  "arguments": "{'link_image': '//localhost/admin/image.png'}",
+  "family": [
+   "scheme_bypass"
+  ]
+ },
+ {
+  "hex": "5959",
+  "arguments": "{'link_image': 'http://cdn.trusted.com@localhost/image.png'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "fd8a",
+  "arguments": "{'link_image': 'http://cdn.trusted.com.evil.invalid/image.png'}",
+  "family": [
+   "trusted_domain_suffixes"
+  ]
+ },
+ {
+  "hex": "9d0a01",
+  "arguments": "{'link_image': 'http://2130706433/image.png'}",
+  "family": [
+   "loopback_hosts"
+  ]
+ }
+]

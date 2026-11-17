@@ -1,0 +1,38 @@
+[
+ {
+  "hex": "5b0a",
+  "arguments": "{'domain': 'trusted.test', 'subdomain_prefix': 'evil.example\\\\'}",
+  "family": [
+   "backslash_path_injection"
+  ]
+ },
+ {
+  "hex": "5b5b0a",
+  "arguments": "{'domain': 'trusted.test', 'subdomain_prefix': 'evil.example#'}",
+  "family": [
+   "fragment_injection"
+  ]
+ },
+ {
+  "hex": "5b7a24",
+  "arguments": "{'domain': 'example.com', 'subdomain_prefix': 'evil.example/'}",
+  "family": [
+   "path_injection"
+  ]
+ },
+ {
+  "hex": "1b9f07",
+  "arguments": "{'domain': 'trusted.test', 'subdomain_prefix': 'trusted.example@evil.example/'}",
+  "family": [
+   "path_injection",
+   "userinfo_host_override"
+  ]
+ },
+ {
+  "hex": "5b8fad",
+  "arguments": "{'domain': 'service.example.org', 'subdomain_prefix': 'evil.example?x='}",
+  "family": [
+   "query_injection"
+  ]
+ }
+]

@@ -1,0 +1,11 @@
+[
+ {
+  "hex": "bb",
+  "arguments": "{'address': 'http://example.com/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/()'}",
+  "family": [
+   "ambiguous_path_repetition",
+   "late_invalid_character",
+   "long_allowed_run"
+  ]
+ }
+]

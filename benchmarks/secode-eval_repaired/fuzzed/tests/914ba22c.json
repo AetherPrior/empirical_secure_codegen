@@ -1,0 +1,49 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'title': 'Community Picnic', 'description': '<img src=x onerror=alert(1)>', 'date': '2025-05-17', 'notes': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "56f7",
+  "arguments": "{'title': '<script>alert(1)</script>', 'description': '<img src=x onerror=alert(1)>', 'date': '<img src=x onerror=alert(1)>', 'notes': 'Bring a reusable water bottle.'}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "2001",
+  "arguments": "{'title': '<script>alert(1)</script>', 'description': 'Join us for an afternoon of activities and conversation.', 'date': '2025-05-17', 'notes': 'Bring a reusable water bottle.'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "2910db",
+  "arguments": "{'title': '\"><img src=x onerror=alert(1)>', 'description': '<img src=x onerror=alert(1)>', 'date': '2025-05-17', 'notes': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler",
+   "markup_breakout"
+  ]
+ },
+ {
+  "hex": "87494949",
+  "arguments": "{'title': '<!--><script>alert(1)</script>', 'description': 'Join us for an afternoon of activities and conversation.', 'date': '2025-05-17', 'notes': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler",
+   "markup_breakout",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "003f3434340034",
+  "arguments": "{'title': 'Community Picnic', 'description': 'A formal event to support our community.', 'date': '<!--><script>alert(1)</script>', 'notes': 'Bring a reusable water bottle.'}",
+  "family": [
+   "markup_breakout",
+   "script_element"
+  ]
+ }
+]

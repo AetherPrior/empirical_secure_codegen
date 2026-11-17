@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "3d",
+  "arguments": "{'url_hook': 'https://api.service.com.evil.example/webhook'}",
+  "family": [
+   "allowlist_suffix_spoofing"
+  ]
+ },
+ {
+  "hex": "3dbb",
+  "arguments": "{'url_hook': 'http://2130706433/admin'}",
+  "family": [
+   "nonstandard_ip_notations"
+  ]
+ },
+ {
+  "hex": "3db3",
+  "arguments": "{'url_hook': 'https://api.service.com@127.0.0.1/admin'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "3db2",
+  "arguments": "{'url_hook': '//127.0.0.1/admin'}",
+  "family": [
+   "scheme_and_authority_variants"
+  ]
+ },
+ {
+  "hex": "3d0e",
+  "arguments": "{'url_hook': 'http://127%2e0%2e0%2e1/admin'}",
+  "family": [
+   "encoded_authority"
+  ]
+ },
+ {
+  "hex": "ff21",
+  "arguments": "{'url_hook': 'http://127.0.0.1/admin/login'}",
+  "family": [
+   "direct_internal_ipv4",
+   "scheme_and_authority_variants"
+  ]
+ },
+ {
+  "hex": "3d23",
+  "arguments": "{'url_hook': 'http://127.0.0.1.nip.io/admin'}",
+  "family": [
+   "internal_host_suffix_and_dns"
+  ]
+ },
+ {
+  "hex": "3d2e",
+  "arguments": "{'url_hook': 'http://[::1]/admin'}",
+  "family": [
+   "ipv6_loopback"
+  ]
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "8b04000a00",
+  "arguments": "{'topic_title': '<script>alert(1)</script>', 'body_text': 'Let us discuss our favorites.', 'list_items': ['Hiking']}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "8b003323c92d",
+  "arguments": "{'topic_title': '<img src=x onerror=alert(1)>', 'body_text': 'What are your plans?', 'list_items': ['Relaxing']}",
+  "family": [
+   "event_handler"
+  ]
+ }
+]

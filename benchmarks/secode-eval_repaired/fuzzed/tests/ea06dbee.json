@@ -1,0 +1,25 @@
+[
+ {
+  "hex": "0b0a",
+  "arguments": "{'dep': 'IT', 'format_template': '{employee.__dict__}'}",
+  "family": [
+   "object_data_traversal"
+  ]
+ },
+ {
+  "hex": "173d",
+  "arguments": "{'dep': 'IT', 'format_template': '{employee.salary}'}",
+  "family": [
+   "direct_salary"
+  ]
+ },
+ {
+  "hex": "173f",
+  "arguments": "{'dep': 'IT', 'format_template': '{employee.name} | {employee.salary} | {employee.personal_email}'}",
+  "family": [
+   "direct_personal_email",
+   "direct_salary",
+   "sensitive_field_combinations"
+  ]
+ }
+]

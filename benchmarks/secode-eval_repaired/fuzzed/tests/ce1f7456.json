@@ -1,0 +1,44 @@
+[
+ {
+  "hex": "31",
+  "arguments": "{'destination_url': 'https://partner.com.evil.com/'}",
+  "family": [
+   "allowlist_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "312d",
+  "arguments": "{'destination_url': 'https://evil.com/hack'}",
+  "family": [
+   "unapproved_hosts"
+  ]
+ },
+ {
+  "hex": "dd0a",
+  "arguments": "{'destination_url': 'javascript://evil.com/%0aalert(1)'}",
+  "family": [
+   "unsafe_schemes"
+  ]
+ },
+ {
+  "hex": "0f3b",
+  "arguments": "{'destination_url': 'https://partner.com@evil.com/'}",
+  "family": [
+   "userinfo_host_confusion"
+  ]
+ },
+ {
+  "hex": "3f0e",
+  "arguments": "{'destination_url': '//evil.com/path'}",
+  "family": [
+   "scheme_relative_urls"
+  ]
+ },
+ {
+  "hex": "710131",
+  "arguments": "{'destination_url': 'https://partner.com%2Eevil.com/'}",
+  "family": [
+   "parser_disagreement"
+  ]
+ }
+]

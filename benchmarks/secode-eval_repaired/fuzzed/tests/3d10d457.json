@@ -1,0 +1,14 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'incoming_request': {'headers': {}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": []
+ },
+ {
+  "hex": "0a9b",
+  "arguments": "{'incoming_request': {'headers': {'X-CSRF-Token': 'invalid'}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": [
+   "forged_token"
+  ]
+ }
+]

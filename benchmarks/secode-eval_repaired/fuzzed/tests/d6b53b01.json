@@ -1,0 +1,29 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'document_location': 'https://example.com/docs/report.pdf', 'crypto_sign': '9e107d9d372bb6826bd81d3542a419d6'}",
+  "family": [
+   "cross_document_signature_replay"
+  ]
+ },
+ {
+  "hex": "000a00",
+  "arguments": "{'document_location': 'https://example.com/docs/report.pdf', 'crypto_sign': 'invalid'}",
+  "family": [
+   "malformed_signature"
+  ]
+ },
+ {
+  "hex": "02835f",
+  "arguments": "{'document_location': 'https://example.com/docs/invoice.pdf', 'crypto_sign': '9e107d9d372bb6826bd81d3542a419d6 '}",
+  "family": [
+   "cross_document_signature_replay",
+   "signature_with_extra_data"
+  ]
+ },
+ {
+  "hex": "000100",
+  "arguments": "{'document_location': 'https://example.com/docs/report.pdf', 'crypto_sign': ''}",
+  "family": []
+ }
+]

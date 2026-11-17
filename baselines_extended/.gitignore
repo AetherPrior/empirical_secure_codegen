@@ -1,0 +1,14 @@
+# Commit code and configs only; run outputs, data snapshots and environments stay local.
+outputs*/
+.venv/
+cache/
+frozen/
+__pycache__/
+*.pyc
+*.log
+*.out
+*.pid
+*.lock
+/dpo/data/
+/extra_runs/*/
+checkpoints/

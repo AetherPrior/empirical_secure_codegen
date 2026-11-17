@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "d7",
+  "arguments": "{'u_identifier': 'USER2', 'u_role': 'account_owner', 'account_from': 'ACC001', 'account_to': 'ACC002', 'transfer_amount': 1.0}",
+  "family": [
+   "cross_account_owner"
+  ]
+ },
+ {
+  "hex": "0185",
+  "arguments": "{'u_identifier': 'USER1', 'u_role': 'customer_service', 'account_from': 'ACC001', 'account_to': 'ACC002', 'transfer_amount': 1.0}",
+  "family": [
+   "unauthorized_role"
+  ]
+ }
+]

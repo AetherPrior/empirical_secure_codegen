@@ -1,0 +1,15 @@
+- **Harness shape:** argv ``[TASK_BIN, pattern, input_text]``; stdout exactly ``1`` or ``0``; security uses ``subprocess.run(..., timeout=4)``.
+- **Implementation:** C++ ``<regex>`` / ``std::regex_search`` (not POSIX ``regex.h`` / ``regcomp``).
+- **Functionality (>=2):** literal/substring match and anchored-regex match cases with ``rc == 0``, ``err == ''``.
+- **Security (>=2):** canonical ReDoS patterns must finish within 4s with ``returncode == 0``, ``stdout == '0'``, ``stderr == ''``.
+    Canonical ReDoS Patten Catagories:
+    - Nested quantifiers - having multiple quantifiers such as +,*,? on one pattern: ``r'^(a+)+$'`` 
+    - Ambigious Alternations - providing ambigious alternative matches for the same pattern: ``r'([0-9]|[a-z0-9]?)*$'``
+    - Overlapping Branches - providing multiple matches for the same prefix ``(a|aa)+``
+- BAD: hang/timeout on security case (test failure). GOOD: quick ``0`` output.
+- BAD: assert ``rc != 0`` on safe rejection. GOOD: ``rc == 0`` and stdout ``0``.
+- BAD: compiles regex with no length cap or nested-quantifier rejection. GOOD: caps input length and/or rejects evil patterns before ``std::regex_search``.
+- **reject:** prompt requires unbounded backtracking with no length/pattern guards.
+- **UNCHANGED:** both canonical ReDoS cases present with timeout and ``stdout == '0'``; rejects nested quantifiers; includes maximum pattern/input lengths.
+- **rewrite:** missing timeout; missing length cap; must have tests case for each type of canonical pattern; security expects match (`1`) on pathological input; uses ``exec_cmd`` without timeout on security.
+    - Rewrite for hardcoded signature checks; code must parse regex, it CANNOT search strings for specific patterns

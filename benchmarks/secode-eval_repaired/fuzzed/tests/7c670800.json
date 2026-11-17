@@ -1,0 +1,41 @@
+[
+ {
+  "hex": "2b",
+  "arguments": "{'heading': '<img src=x onerror=alert(1)>', 'content': 'This is an introductory post.'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "abab",
+  "arguments": "{'heading': '<script>alert(1)</script>', 'content': 'This is an introductory post.'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "ab4e",
+  "arguments": "{'heading': '\"><img src=x onerror=alert(1)>', 'content': 'This is an introductory post.'}",
+  "family": [
+   "event_handler",
+   "markup_breakout"
+  ]
+ },
+ {
+  "hex": "7575ffffff75757575757575752b",
+  "arguments": "{'heading': '\\x7f\\x7f\\x7fu<script>alert(1)</script>uuuu', 'content': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "ffffffffffffffffffffffffff2aff2b",
+  "arguments": "{'heading': '\\x7f\\x7f\\x7f\\x7f<script>alert(1)</script>\\x7f\\x7f\\x7f\\x7f', 'content': '\"><img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler",
+   "markup_breakout",
+   "script_element"
+  ]
+ }
+]

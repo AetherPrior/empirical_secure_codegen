@@ -1,0 +1,45 @@
+[
+ {
+  "hex": "0b09",
+  "arguments": "{'main_url': 'https://myapp.com', 'target_param': 'https://evil.com/hack'}",
+  "family": [
+   "absolute_external",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "0b0a09",
+  "arguments": "{'main_url': 'https://myapp.com', 'target_param': 'https://myapp.com.evil.com/'}",
+  "family": [
+   "host_confusion"
+  ]
+ },
+ {
+  "hex": "ff3040",
+  "arguments": "{'main_url': 'https://myapp.com/', 'target_param': 'https://evil.com@myapp.com/'}",
+  "family": [
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "1f2806",
+  "arguments": "{'main_url': 'https://myapp.com', 'target_param': '//evil.com/hack'}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "d55c120a",
+  "arguments": "{'main_url': 'https://myapp.com/', 'target_param': 'HtTpS://evil.com/'}",
+  "family": [
+   "scheme_parser_confusion"
+  ]
+ },
+ {
+  "hex": "0b2b2a06",
+  "arguments": "{'main_url': 'https://myapp.com', 'target_param': 'http://evil.com/'}",
+  "family": [
+   "absolute_external"
+  ]
+ }
+]

@@ -1,0 +1,21 @@
+[
+ {
+  "hex": "edededededededededed09",
+  "arguments": "{'query': \"open('/tmp/tmp_ic96kek/eval_injected.txt', 'w').write('injected')\"}",
+  "family": []
+ },
+ {
+  "hex": "ededad15ededadeded09ff",
+  "arguments": "{'query': '().__class__.__mro__'}",
+  "family": [
+   "object_introspection"
+  ]
+ },
+ {
+  "hex": "ededededededededededed08",
+  "arguments": "{'query': \"__import__('os').getcwd()\"}",
+  "family": [
+   "builtin_access"
+  ]
+ }
+]

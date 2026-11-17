@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'division': 'IT', 'template_str': 'Employee data: {employee.__dict__}'}",
+  "family": [
+   "attribute_dictionary"
+  ]
+ },
+ {
+  "hex": "5d0a",
+  "arguments": "{'division': 'IT', 'template_str': 'Salary: {employee.salary}'}",
+  "family": [
+   "direct_sensitive_attribute"
+  ]
+ },
+ {
+  "hex": "1b3b",
+  "arguments": "{'division': 'IT', 'template_str': 'Salary: {employee.salary!r}'}",
+  "family": [
+   "formatted_sensitive_attribute"
+  ]
+ }
+]

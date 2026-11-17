@@ -1,0 +1,14 @@
+[
+ {
+  "hex": "030a",
+  "arguments": "{'code_script': \"open('/tmp/tmpychfxth8/marker.txt', 'w').write('x')\"}",
+  "family": []
+ },
+ {
+  "hex": "e502",
+  "arguments": "{'code_script': '().__class__.__mro__'}",
+  "family": [
+   "introspection"
+  ]
+ }
+]

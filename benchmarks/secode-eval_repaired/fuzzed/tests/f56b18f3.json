@@ -1,0 +1,65 @@
+[
+ {
+  "hex": "3d",
+  "arguments": "{'heading': '<img src=x onerror=alert(1)>', 'text': 'This is an introductory post.'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "71bc",
+  "arguments": "{'heading': '<svg><script>alert(1)</script></svg>', 'text': 'This is an introductory post.'}",
+  "family": [
+   "script_tag",
+   "svg_payload"
+  ]
+ },
+ {
+  "hex": "712a",
+  "arguments": "{'heading': '<script>alert(1)</script>', 'text': 'This is an introductory post.'}",
+  "family": [
+   "script_tag"
+  ]
+ },
+ {
+  "hex": "3d3d3a",
+  "arguments": "{'heading': '<svg/onload=alert(1)>', 'text': 'This is an introductory post.'}",
+  "family": [
+   "svg_payload"
+  ]
+ },
+ {
+  "hex": "3fc2c1c1c5",
+  "arguments": "{'heading': '<ScRiPt>alert(1)</sCrIpT>', 'text': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler",
+   "script_tag"
+  ]
+ },
+ {
+  "hex": "5d7e3d3d21",
+  "arguments": "{'heading': '<svg/onload=alert(1)>', 'text': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler",
+   "svg_payload"
+  ]
+ },
+ {
+  "hex": "392a392a85",
+  "arguments": "{'heading': '<svg><script>alert(1)</script></svg>', 'text': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler",
+   "script_tag",
+   "svg_payload"
+  ]
+ },
+ {
+  "hex": "3d7777777777777777777777777777",
+  "arguments": "{'heading': 'wwwwx</title><script>alert(1)</script>wwww', 'text': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler",
+   "script_tag",
+   "tag_breakout"
+  ]
+ }
+]

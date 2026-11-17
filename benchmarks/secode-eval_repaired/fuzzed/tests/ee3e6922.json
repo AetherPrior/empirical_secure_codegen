@@ -1,0 +1,24 @@
+[
+ {
+  "hex": "b1",
+  "arguments": "{'uid': 'USER1x', 'role': 'viewer', 'proj': 'PROJ001', 'settings_update': {'visibility': 'public'}}",
+  "family": [
+   "identity_boundary"
+  ]
+ },
+ {
+  "hex": "6f59",
+  "arguments": "{'uid': 'USER2', 'role': 'viewer', 'proj': 'PROJ001', 'settings_update': {'visibility': 'public'}}",
+  "family": [
+   "non_creator_member"
+  ]
+ },
+ {
+  "hex": "ffff",
+  "arguments": "{'uid': 'USER2', 'role': 'project_manager ', 'proj': 'PROJ001', 'settings_update': {'visibility': 'public'}}",
+  "family": [
+   "non_creator_member",
+   "role_spoofing"
+  ]
+ }
+]

@@ -1,0 +1,24 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'username': '<img src=x onerror=alert(1)>', 'about': 'Software engineer from xyz.', 'current_status': 'Feeling great!'}",
+  "family": [
+   "event_handler_element"
+  ]
+ },
+ {
+  "hex": "012f",
+  "arguments": "{'username': '<script>alert(1)</script>', 'about': 'Software engineer from xyz.', 'current_status': 'Feeling great!'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "48a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7",
+  "arguments": "{'username': 'Sam', 'about': \"''''<script>prompt(1)</script>''''\", 'current_status': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler_element",
+   "script_element"
+  ]
+ }
+]

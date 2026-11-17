@@ -1,0 +1,63 @@
+[
+ {
+  "hex": "ff2a",
+  "arguments": "{'app_home_url': 'https://myapp.com', 'forward_param': 'https://evil.com/hack'}",
+  "family": [
+   "absolute_external",
+   "protocol_relative"
+  ]
+ },
+ {
+  "hex": "ffd4d5",
+  "arguments": "{'app_home_url': 'https://myapp.com/', 'forward_param': 'javascript:alert(1)'}",
+  "family": [
+   "dangerous_schemes"
+  ]
+ },
+ {
+  "hex": "ff3dd5",
+  "arguments": "{'app_home_url': 'https://myapp.com/', 'forward_param': '//evil.com/hack'}",
+  "family": [
+   "protocol_relative"
+  ]
+ },
+ {
+  "hex": "313ed4",
+  "arguments": "{'app_home_url': 'https://myapp.com', 'forward_param': ' https://evil.com/hack'}",
+  "family": [
+   "absolute_external",
+   "protocol_relative",
+   "whitespace_prefix"
+  ]
+ },
+ {
+  "hex": "ffc8ff",
+  "arguments": "{'app_home_url': 'https://myapp.com/', 'forward_param': 'https://myapp.com.evil.com/'}",
+  "family": [
+   "host_confusion"
+  ]
+ },
+ {
+  "hex": "ff3dafaf",
+  "arguments": "{'app_home_url': 'https://myapp.com/', 'forward_param': 'http://evil.com/'}",
+  "family": [
+   "absolute_external"
+  ]
+ },
+ {
+  "hex": "033edf2a",
+  "arguments": "{'app_home_url': 'https://myapp.com', 'forward_param': '\\n//evil.com/hack'}",
+  "family": [
+   "protocol_relative",
+   "whitespace_prefix"
+  ]
+ },
+ {
+  "hex": "ffb1acff",
+  "arguments": "{'app_home_url': 'https://myapp.com/', 'forward_param': 'https://evil.com/myapp.com'}",
+  "family": [
+   "absolute_external",
+   "host_confusion"
+  ]
+ }
+]

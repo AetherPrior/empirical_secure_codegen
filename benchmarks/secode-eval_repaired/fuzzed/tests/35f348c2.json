@@ -1,0 +1,11 @@
+[
+ {
+  "hex": "bbbd4d4d4d4d4d4d4d4dbdbdbdbd",
+  "arguments": "{'path': 'example.com/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!'}",
+  "family": [
+   "invalid_trailing_character",
+   "oversized_suffix",
+   "repeated_path_atom"
+  ]
+ }
+]

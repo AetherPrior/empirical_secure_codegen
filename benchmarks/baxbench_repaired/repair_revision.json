@@ -1,0 +1,49 @@
+{
+  "revision": "scenario_test_and_spec_repairs_v2",
+  "timestamp": "2026-10-13T13:48:33.844672+00:00",
+  "changed_files": [
+    {
+      "path": "benchmarks/baxbench_repaired/src/scenarios/image_converter.py",
+      "before_sha256": "4b1ea730a3450f937e92bfd5da17042c94e4a3a3251c941505489d3c198812a9",
+      "after_sha256": "bb5e1617788904e8fe71da2a088cc88b34df42cb2fb9dd101d1fd2670b2f658e"
+    },
+    {
+      "path": "benchmarks/baxbench_repaired/src/scenarios/unsubscribe.py",
+      "before_sha256": "85579a230c138fc8fe910e4d2c7f31442abe71893538b029fb89be045a0babfd",
+      "after_sha256": "4376a6de70398b6daa51d4c7f4d69cc0932410fc52edfe824f8fa20ec9f3911a"
+    },
+    {
+      "path": "benchmarks/baxbench_repaired/src/scenarios/profile_collection.py",
+      "before_sha256": "eebcb62d33ab6971ce143d5f043e2f17709db2ba295df16add442a3d3dc91f63",
+      "after_sha256": "15193f3e7cfdc61bbffd97857c31b3111f3a3b0f0e07298e8849b8b0502ce0e3"
+    },
+    {
+      "path": "benchmarks/baxbench_repaired/src/scenarios/login.py",
+      "before_sha256": "c711ec80bcf8bc1c0daa7e00afb920d1574d78ccc8fcc8b92e1a515b11426c10",
+      "after_sha256": "1eaf9ce9120a7173385581bf3a82ffe5ac35014111a6e5d05674c56e1883e4a6"
+    },
+    {
+      "path": "benchmarks/baxbench_repaired/src/scenarios/zip_to_txt.py",
+      "before_sha256": "840d9bf3e26ea8bd9d72fb644aef8f0c93ab1065a66799cab66c0222dcad3cc0",
+      "after_sha256": "1452c120fffbb1692e8585086152cc60c28fce9449251ec882e741aecfb70c16"
+    }
+  ],
+  "preserved_original_and_frozen_files": [
+    "/workspace/verisec/CodeGuarder_AE/reasoning_injection_experiments/benchmarks/baxbench/src/scenarios/image_converter.py",
+    "/workspace/verisec/CodeGuarder_AE/reasoning_injection_experiments/results/reasoning_injection_20261012T200059Z/frozen/baxbench/src/scenarios/image_converter.py",
+    "/workspace/verisec/CodeGuarder_AE/reasoning_injection_experiments/benchmarks/baxbench/src/scenarios/unsubscribe.py",
+    "/workspace/verisec/CodeGuarder_AE/reasoning_injection_experiments/results/reasoning_injection_20261012T200059Z/frozen/baxbench/src/scenarios/unsubscribe.py",
+    "/workspace/verisec/CodeGuarder_AE/reasoning_injection_experiments/benchmarks/baxbench/src/scenarios/profile_collection.py",
+    "/workspace/verisec/CodeGuarder_AE/reasoning_injection_experiments/results/reasoning_injection_20261012T200059Z/frozen/baxbench/src/scenarios/profile_collection.py",
+    "/workspace/verisec/CodeGuarder_AE/reasoning_injection_experiments/benchmarks/baxbench/src/scenarios/login.py",
+    "/workspace/verisec/CodeGuarder_AE/reasoning_injection_experiments/results/reasoning_injection_20261012T200059Z/frozen/baxbench/src/scenarios/login.py",
+    "/workspace/verisec/CodeGuarder_AE/reasoning_injection_experiments/benchmarks/baxbench/src/scenarios/zip_to_txt.py",
+    "/workspace/verisec/CodeGuarder_AE/reasoning_injection_experiments/results/reasoning_injection_20261012T200059Z/frozen/baxbench/src/scenarios/zip_to_txt.py"
+  ],
+  "validation": {
+    "scenario_regression_tests_passed": 13,
+    "runner_regression_tests_passed": 21
+  },
+  "tests_sha256": "31e9e01a177741e29b34c23c4d452cc550d2c2b92ab905b170007ab9f81a8755",
+  "previous_results_policy": "Existing frozen experiments retain their original source hashes, prompts, and scores"
+}

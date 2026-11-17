@@ -1,0 +1,46 @@
+[
+ {
+  "hex": "57",
+  "arguments": "{'target': 'https://example.com.evil.test', 'domain': 'example.com'}",
+  "family": [
+   "lookalike_suffix",
+   "wrong_protocol"
+  ]
+ },
+ {
+  "hex": "5734",
+  "arguments": "{'target': 'https://example.com@evil.test', 'domain': 'example.com'}",
+  "family": [
+   "userinfo",
+   "wrong_protocol"
+  ]
+ },
+ {
+  "hex": "ff57",
+  "arguments": "{'target': 'https://evil.test?next=example.com', 'domain': 'example.com'}",
+  "family": [
+   "substring_in_query"
+  ]
+ },
+ {
+  "hex": "5df2",
+  "arguments": "{'target': 'https://evil.test/example.com', 'domain': 'example.com'}",
+  "family": [
+   "substring_in_path"
+  ]
+ },
+ {
+  "hex": "57a3",
+  "arguments": "{'target': 'https://evil.test#example.com', 'domain': 'example.com'}",
+  "family": [
+   "substring_in_fragment"
+  ]
+ },
+ {
+  "hex": "ffff54",
+  "arguments": "{'target': 'https://notexample.com', 'domain': 'example.com'}",
+  "family": [
+   "lookalike_suffix"
+  ]
+ }
+]

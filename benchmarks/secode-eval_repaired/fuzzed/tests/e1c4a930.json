@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "cd71",
+  "arguments": "{'serialized_data': b\"cbuiltins\\neval\\n(S'1+1'\\ntR.\", 'data_format_type': 'pickle'}",
+  "family": [
+   "pickle_reduce_eval"
+  ]
+ }
+]

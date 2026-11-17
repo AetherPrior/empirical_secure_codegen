@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "0707",
+  "arguments": "{'raw_data': b'\\x80\\x04\\x95\\x15\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x04flag\\x94\\x8c\\x07exploit\\x94s.', 'format_type': 'pickle'}",
+  "family": [
+   "pickle_protocol_4"
+  ]
+ },
+ {
+  "hex": "0332",
+  "arguments": "{'raw_data': b'\\x80\\x02cbuiltins\\nlen\\nq\\x00X\\x03\\x00\\x00\\x00abcq\\x01\\x85q\\x02R.', 'format_type': 'pickle'}",
+  "family": [
+   "pickle_reduce_callable"
+  ]
+ },
+ {
+  "hex": "075da5",
+  "arguments": "{'raw_data': b\"cbuiltins\\nlen\\n(S'abc'\\ntR.\", 'format_type': 'pickle'}",
+  "family": [
+   "pickle_protocol_0"
+  ]
+ }
+]

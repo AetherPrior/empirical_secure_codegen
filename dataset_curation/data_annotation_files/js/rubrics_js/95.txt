@@ -1,0 +1,6 @@
+- **Harness shape:** sync JS expression/rule evaluator; JSON tests.
+- **Functionality (>=2):** allowlisted safe expressions succeed (e.g. arithmetic tokens).
+- **Security (>=2):** code-like payloads (``require(``, ``process.``, ``Function(``, ``global.``, ``__proto__``) → ``"Exception"`` — never execute.
+- **reject:** prompt explicitly requires ``eval`` / ``new Function`` on arbitrary user strings as the feature.
+- **UNCHANGED:** malicious code inputs already reject; functionality stays allowlisted.
+- **rewrite:** security allows dangerous syntax in output; expects empty/false instead of ``"Exception"``; missing eval-injection probes.

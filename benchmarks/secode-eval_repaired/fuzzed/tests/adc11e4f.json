@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "ed",
+  "arguments": "{'expression_str': '(1).__class__'}",
+  "family": [
+   "attribute_access"
+  ]
+ }
+]

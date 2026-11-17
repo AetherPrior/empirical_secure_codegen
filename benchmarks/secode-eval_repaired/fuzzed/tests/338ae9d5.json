@@ -1,0 +1,49 @@
+[
+ {
+  "hex": "95",
+  "arguments": "{'input_content': '<![CDATA[injection]]>'}",
+  "family": [
+   "cdata"
+  ]
+ },
+ {
+  "hex": "8d7c",
+  "arguments": "{'input_content': '<injected>value</injected>'}",
+  "family": [
+   "nested_markup"
+  ]
+ },
+ {
+  "hex": "8d6b",
+  "arguments": "{'input_content': '<!DOCTYPE response [<!ENTITY x \"injected\">]>&x;'}",
+  "family": [
+   "doctype_declaration"
+  ]
+ },
+ {
+  "hex": "25c5",
+  "arguments": "{'input_content': '<!--injected--><injected/>'}",
+  "family": [
+   "comment"
+  ]
+ },
+ {
+  "hex": "b597",
+  "arguments": "{'input_content': '&amp;<injected/>'}",
+  "family": [
+   "entity_reference"
+  ]
+ },
+ {
+  "hex": "9530",
+  "arguments": "{'input_content': '<?xml-stylesheet type=\"text/xsl\"?><injected/>'}",
+  "family": [
+   "processing_instruction"
+  ]
+ },
+ {
+  "hex": "8effffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "arguments": "{'input_content': 'less < than'}",
+  "family": []
+ }
+]

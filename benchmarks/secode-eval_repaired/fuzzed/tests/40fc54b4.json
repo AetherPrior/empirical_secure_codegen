@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "0b",
+  "arguments": "{'input_expr': '().__class__'}",
+  "family": [
+   "attribute_introspection"
+  ]
+ }
+]

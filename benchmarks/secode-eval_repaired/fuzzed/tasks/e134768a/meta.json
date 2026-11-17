@@ -1,0 +1,1 @@
+{"id": "e134768a", "bench": "seccodeplt", "cwe": "502", "fn": "unpack_serialized_object"}

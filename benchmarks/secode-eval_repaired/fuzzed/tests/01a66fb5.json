@@ -1,0 +1,50 @@
+[
+ {
+  "hex": "29",
+  "arguments": "{'cdn_url_base': 'https://cdn.example.com.evil.org/', 'resource_identifier': 'abcd1234', 'type_of_resource': 'image'}",
+  "family": [
+   "authority_variants",
+   "host_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "290a",
+  "arguments": "{'cdn_url_base': ' https://evil.org', 'resource_identifier': 'abcd1234', 'type_of_resource': 'image'}",
+  "family": [
+   "identifier_authority",
+   "scheme_relative_base",
+   "type_authority",
+   "whitespace_controls"
+  ]
+ },
+ {
+  "hex": "d9ae",
+  "arguments": "{'cdn_url_base': 'https://cdn.example.com@evil.org', 'resource_identifier': 'abcd1234', 'type_of_resource': 'image'}",
+  "family": [
+   "userinfo_authority"
+  ]
+ },
+ {
+  "hex": "2128",
+  "arguments": "{'cdn_url_base': '//evil.org', 'resource_identifier': 'abcd1234', 'type_of_resource': 'image'}",
+  "family": [
+   "identifier_authority",
+   "scheme_relative_base",
+   "type_authority"
+  ]
+ },
+ {
+  "hex": "2702",
+  "arguments": "{'cdn_url_base': 'https://%65vil.org', 'resource_identifier': 'abcd1234', 'type_of_resource': 'image'}",
+  "family": [
+   "encoded_authority"
+  ]
+ },
+ {
+  "hex": "250a0e",
+  "arguments": "{'cdn_url_base': 'https://cdn.example.comevil.org', 'resource_identifier': 'abcd1234', 'type_of_resource': 'image'}",
+  "family": [
+   "host_suffix_confusion"
+  ]
+ }
+]

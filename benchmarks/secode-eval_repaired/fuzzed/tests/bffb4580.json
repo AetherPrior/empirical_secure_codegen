@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "21",
+  "arguments": "{'client_input': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "218a",
+  "arguments": "{'client_input': '<ScRiPt>alert(1)</sCrIpT>'}",
+  "family": [
+   "malformed_markup"
+  ]
+ },
+ {
+  "hex": "21c3",
+  "arguments": "{'client_input': '<script>alert(1)</script>'}",
+  "family": [
+   "script_element"
+  ]
+ }
+]

@@ -1,0 +1,65 @@
+[
+ {
+  "hex": "59",
+  "arguments": "{'url_to_check': 'http://127.0.0.1/secret'}",
+  "family": [
+   "loopback",
+   "malformed_or_ambiguous_url",
+   "parser_discrepancy"
+  ]
+ },
+ {
+  "hex": "270a",
+  "arguments": "{'url_to_check': 'http://10.0.0.1/'}",
+  "family": [
+   "malformed_or_ambiguous_url",
+   "private_network"
+  ]
+ },
+ {
+  "hex": "0f08",
+  "arguments": "{'url_to_check': 'http://127.0.0.1%00.evil.example/'}",
+  "family": [
+   "malformed_or_ambiguous_url"
+  ]
+ },
+ {
+  "hex": "272e",
+  "arguments": "{'url_to_check': 'file://127.0.0.1/etc/passwd'}",
+  "family": [
+   "scheme_and_port"
+  ]
+ },
+ {
+  "hex": "270c",
+  "arguments": "{'url_to_check': 'http://evil.example/'}",
+  "family": [
+   "malformed_or_ambiguous_url",
+   "untrusted_host"
+  ]
+ },
+ {
+  "hex": "2737",
+  "arguments": "{'url_to_check': 'http://api.trustedsource.com@evil.example/'}",
+  "family": [
+   "malformed_or_ambiguous_url",
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "270300",
+  "arguments": "{'url_to_check': 'http://127.1/'}",
+  "family": [
+   "loopback",
+   "malformed_or_ambiguous_url"
+  ]
+ },
+ {
+  "hex": "27412c",
+  "arguments": "{'url_to_check': 'http://%31%32%37.0.0.1/'}",
+  "family": [
+   "malformed_or_ambiguous_url",
+   "parser_discrepancy"
+  ]
+ }
+]

@@ -1,0 +1,35 @@
+{
+  "model": "Qwen/Qwen3-8B",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "gpu": 3,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "temperature": 0.6,
+  "top_p": 0.95,
+  "max_tokens": 16384,
+  "max_model_len": 40960,
+  "concurrency": 256,
+  "eval_workers": 128,
+  "gpu_memory_utilization": 0.92,
+  "enable_thinking": true,
+  "embedding_model": "jinaai/jina-embeddings-v3",
+  "embedding_revision": "ab036b023d30b4d1138c4c3bfa9f0c445ab455d6",
+  "security_candidates": 5,
+  "security_per_module": 2,
+  "functional_examples": 1,
+  "decomposition_seed": 42,
+  "decomposition_max_tokens": 2048,
+  "variants": [
+    "original",
+    "repaired"
+  ],
+  "benchmarks": [
+    "seccodeplt",
+    "cweval",
+    "baxbench"
+  ],
+  "hf_home": "/workspace/hf_home"
+}

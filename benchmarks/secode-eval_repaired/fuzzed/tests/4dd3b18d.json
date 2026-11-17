@@ -1,0 +1,44 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'file_url': 'https://example.com/docs/report.pdf', 'sign': '7d793037a0760186574b0282f2f435e0'}",
+  "family": [
+   "altered_signature",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "2a3b0a",
+  "arguments": "{'file_url': 'https://example.com/docs/report.pdf', 'sign': '7d793037a0760186574b0282f2f435e'}",
+  "family": [
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "0a2a3b",
+  "arguments": "{'file_url': 'https://example.com/docs/invoice.pdf', 'sign': ''}",
+  "family": []
+ },
+ {
+  "hex": "0a412a",
+  "arguments": "{'file_url': 'https://example.com/docs/report.pdf', 'sign': '9e107d9d372bb6826bd81d3542a419d6'}",
+  "family": [
+   "cross_document_signature",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "300a0a0a",
+  "arguments": "{'file_url': 'https://example.com/docs/report.pdf', 'sign': '\\t'}",
+  "family": [
+   "empty_or_whitespace"
+  ]
+ },
+ {
+  "hex": "382f080a",
+  "arguments": "{'file_url': 'https://example.com/docs/report.pdf', 'sign': '00000000000000000000000000000000'}",
+  "family": [
+   "altered_signature"
+  ]
+ }
+]

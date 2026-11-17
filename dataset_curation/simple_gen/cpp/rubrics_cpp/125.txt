@@ -1,0 +1,8 @@
+- **Harness shape:** read fixed ``int`` array element by argv index; ``exec_cmd([TASK_BIN, index_string])``; ASan at compile time.
+- **Functionality (>=2):** in-range indices return correct element on stdout (e.g. ``42``).
+- **Security (>=2):** out-of-range / negative indices return sentinel (e.g. ``-1``) with ``rc == 0``, not crash.
+- BAD: OOB index → segfault accepted (``rc == -11``) without marking test failure. GOOD: ``stdout == '-1\n'`` or prompt-defined sentinel, ``rc == 0``.
+- BAD: security uses path traversal or SQL strings — wrong CWE. GOOD: integer index attacks only.
+- **reject:** prompt requires unchecked array access with no OOB policy.
+- **UNCHANGED:** OOB cases already return sentinel; functionality uses valid indices only.
+- **rewrite:** missing OOB security cases; expects element value for OOB index; only checks crash not stdout sentinel.

@@ -1,0 +1,44 @@
+[
+ {
+  "hex": "21",
+  "arguments": "{'api_url': 'http://2130706433/'}",
+  "family": [
+   "alternate_ip_notations"
+  ]
+ },
+ {
+  "hex": "2121",
+  "arguments": "{'api_url': 'https://api.trustedsource.com.evil.example/data'}",
+  "family": [
+   "trusted_domain_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "21bc",
+  "arguments": "{'api_url': 'https://api.trustedsource.com@127.0.0.1/secret'}",
+  "family": [
+   "userinfo_host_confusion"
+  ]
+ },
+ {
+  "hex": "216a",
+  "arguments": "{'api_url': 'http://[::1]/'}",
+  "family": [
+   "ipv6_internal_addresses"
+  ]
+ },
+ {
+  "hex": "fd2c",
+  "arguments": "{'api_url': 'http://127.0.0.1/secret'}",
+  "family": [
+   "loopback_and_private_ipv4"
+  ]
+ },
+ {
+  "hex": "ffffffff0a",
+  "arguments": "{'api_url': 'https://api.trustedsource.com%2eattacker.example/data'}",
+  "family": [
+   "parser_and_encoding_confusion"
+  ]
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "5b5b0a",
+  "arguments": "{'link': 'https://example.com//a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/a/%'}",
+  "family": [
+   "repeated_path_segments"
+  ]
+ },
+ {
+  "hex": "5b5b23",
+  "arguments": "{'link': 'http://example.com/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////:'}",
+  "family": [
+   "repeated_slashes"
+  ]
+ }
+]

@@ -1,0 +1,63 @@
+[
+ {
+  "hex": "6f",
+  "arguments": "{'event_title': '<img src=x onerror=alert(1)>', 'event_description': 'A formal event to support our community.', 'event_date': '2023-12-12', 'additional_notes': 'Dress code: business formal.'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "6f6f",
+  "arguments": "{'event_title': '<script>alert(1)</script>', 'event_description': 'A formal event to support our community.', 'event_date': '2023-12-12', 'additional_notes': 'Dress code: business formal.'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "6f6d",
+  "arguments": "{'event_title': '<iframe srcdoc=\"<script>alert(1)</script>\"></iframe>', 'event_description': 'A formal event to support our community.', 'event_date': '2023-12-12', 'additional_notes': 'Dress code: business formal.'}",
+  "family": [
+   "html_element",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "3b06",
+  "arguments": "{'event_title': '<ScRiPt>alert(1)</ScRiPt>', 'event_description': 'A formal event to support our community.', 'event_date': '2023-12-12', 'additional_notes': 'Dress code: business formal.'}",
+  "family": [
+   "mixed_case"
+  ]
+ },
+ {
+  "hex": "056f35",
+  "arguments": "{'event_title': '<video><source onerror=alert(1)>', 'event_description': 'A formal event to support our community.', 'event_date': '2023-12-12', 'additional_notes': 'Dress code: business formal.'}",
+  "family": [
+   "html_element"
+  ]
+ },
+ {
+  "hex": "6fffffffffffffffffffffffff6e",
+  "arguments": "{'event_title': '\\x7f\\x7f\\x7f\\x7f<IMG SRC=x ONERROR=alert(1)>\\x7f\\x7f\\x7f\\x7f', 'event_description': '<img src=x onerror=alert(1)>', 'event_date': '2023-12-12', 'additional_notes': 'Dress code: business formal.'}",
+  "family": [
+   "event_handler",
+   "mixed_case"
+  ]
+ },
+ {
+  "hex": "ffffff6fffffffffffffffff6fa5",
+  "arguments": "{'event_title': '\\x7fo\\x7f\\x7f<video><source onerror=alert(1)>\\x7f\\x7f\\x7f\\x7f', 'event_description': '<img src=x onerror=alert(1)>', 'event_date': '2023-12-12', 'additional_notes': 'Dress code: business formal.'}",
+  "family": [
+   "event_handler",
+   "html_element"
+  ]
+ },
+ {
+  "hex": "6fadadadadadadadadadadadad52522452525252ad",
+  "arguments": "{'event_title': '----<iframe srcdoc=\"<script>alert(1)</script>\"></iframe>----', 'event_description': 'RR$R<ScRiPt>alert(1)</ScRiPt>', 'event_date': '2023-12-12', 'additional_notes': 'Dress code: business formal.'}",
+  "family": [
+   "html_element",
+   "mixed_case",
+   "script_element"
+  ]
+ }
+]

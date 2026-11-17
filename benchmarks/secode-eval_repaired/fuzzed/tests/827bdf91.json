@@ -1,0 +1,51 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'rss_url': 'http://localhost/rss-feed'}",
+  "family": [
+   "internal_hosts"
+  ]
+ },
+ {
+  "hex": "0101",
+  "arguments": "{'rss_url': 'http://2130706433/rss'}",
+  "family": [
+   "nonstandard_ip_forms"
+  ]
+ },
+ {
+  "hex": "0149",
+  "arguments": "{'rss_url': 'http://rss.trustedsource.com@127.0.0.1/rss'}",
+  "family": [
+   "trusted_host_in_userinfo"
+  ]
+ },
+ {
+  "hex": "8f8a",
+  "arguments": "{'rss_url': 'ftp://rss.trustedsource.com/feed'}",
+  "family": [
+   "untrusted_scheme"
+  ]
+ },
+ {
+  "hex": "e502",
+  "arguments": "{'rss_url': 'http://evil.example/rss.trustedsource.com'}",
+  "family": [
+   "trusted_host_in_path_or_query"
+  ]
+ },
+ {
+  "hex": "9797",
+  "arguments": "{'rss_url': 'https://rss.trustedsource.com.evil.example/feed'}",
+  "family": [
+   "trusted_host_suffix"
+  ]
+ },
+ {
+  "hex": "938f68",
+  "arguments": "{'rss_url': 'https://user@evil.example/rss.trustedsource.com'}",
+  "family": [
+   "url_parser_confusion"
+  ]
+ }
+]

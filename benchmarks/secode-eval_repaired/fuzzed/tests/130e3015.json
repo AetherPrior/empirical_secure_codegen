@@ -1,0 +1,41 @@
+[
+ {
+  "hex": "9f0a",
+  "arguments": "{'post_title': \"<iframe srcdoc='<script>alert(1)</script>'></iframe>\", 'post_body': 'I visited the most beautiful places!'}",
+  "family": [
+   "embedded_html",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "9f09",
+  "arguments": "{'post_title': '<script>alert(1)</script>', 'post_body': 'I visited the most beautiful places!'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "4151",
+  "arguments": "{'post_title': '<img src=x onerror=alert(1)>', 'post_body': 'I visited the most beautiful places!'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "9f00009f0010",
+  "arguments": "{'post_title': '<img src=x onerror=alert(1)>', 'post_body': \"<iframe srcdoc='<script>alert(1)</script>'></iframe>\"}",
+  "family": [
+   "embedded_html",
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "515151515151515151515151515151515151515151515151515151519f",
+  "arguments": "{'post_title': 'QQQQQQ<ScRiPt>1</ScRiPt>QQQQQQ', 'post_body': 'QQQQQ<svg onload=alert(1)>'}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ }
+]

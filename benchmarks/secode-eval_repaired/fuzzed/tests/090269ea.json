@@ -1,0 +1,66 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'cdn_url': '//evil.org', 'res_id': 'abcd1234', 'res_type': 'image'}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "1a1a",
+  "arguments": "{'cdn_url': 'https://evil.org', 'res_id': 'abcd1234', 'res_type': 'image'}",
+  "family": [
+   "absolute_external",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "0808",
+  "arguments": "{'cdn_url': 'https://cdn.example.com.evil.org', 'res_id': 'abcd1234', 'res_type': 'image'}",
+  "family": [
+   "host_suffix"
+  ]
+ },
+ {
+  "hex": "f65c",
+  "arguments": "{'cdn_url': 'https://cdn.example.com@evil.org', 'res_id': 'abcd1234', 'res_type': 'image'}",
+  "family": [
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "080829",
+  "arguments": "{'cdn_url': 'HTTPS://EVIL.ORG', 'res_id': 'abcd1234', 'res_type': 'image'}",
+  "family": [
+   "absolute_external"
+  ]
+ },
+ {
+  "hex": "2ad3e5",
+  "arguments": "{'cdn_url': ' https://evil.org', 'res_id': 'abcd1234', 'res_type': 'image'}",
+  "family": [
+   "absolute_external",
+   "parser_ambiguity",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "7a0a60",
+  "arguments": "{'cdn_url': 'http://evil.org/resources', 'res_id': 'abcd1234', 'res_type': 'image'}",
+  "family": [
+   "absolute_external",
+   "resource_delimiters",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "4a8181814a8a",
+  "arguments": "{'cdn_url': 'https://cdn.example.com.evil.org', 'res_id': 'abcd1234', 'res_type': '?next=https://evil.org'}",
+  "family": [
+   "absolute_external",
+   "host_suffix",
+   "resource_delimiters",
+   "scheme_relative"
+  ]
+ }
+]

@@ -1,0 +1,11 @@
+[
+ {
+  "hex": "ffffffffebfffffffffffffffffffbffffffffffffffffffffffffffffffffffff310a",
+  "arguments": "{'requester_id': 'user444', 'requester_role': 'viewer', 'document_identifier': 'doc123', 'document_owner_id': 'user111', 'modified_content': '\\x7f\\x7f\\x7fk\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f{\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f'}",
+  "family": [
+   "forged_owner_claim",
+   "role_confusion",
+   "unprivileged_requester"
+  ]
+ }
+]

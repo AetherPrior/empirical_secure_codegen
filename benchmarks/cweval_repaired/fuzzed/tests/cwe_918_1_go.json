@@ -1,0 +1,61 @@
+[
+ {
+  "hex": "ff25",
+  "arguments": "{'api_url': 'http://localhost:8080/api/user', 'user_id': '//127.0.0.1'}",
+  "family": [
+   "authority_injection"
+  ]
+ },
+ {
+  "hex": "03e7b0",
+  "arguments": "{'api_url': 'https://service.internal/users', 'user_id': '#@127.0.0.1'}",
+  "family": [
+   "fragment_injection"
+  ]
+ },
+ {
+  "hex": "ffbf0a",
+  "arguments": "{'api_url': 'http://localhost:8080/api/user', 'user_id': '?url=http://127.0.0.1/'}",
+  "family": [
+   "authority_injection",
+   "query_injection"
+  ]
+ },
+ {
+  "hex": "252525",
+  "arguments": "{'api_url': 'http://localhost:8080/api/user', 'user_id': 'id\\r\\nX-Forwarded-Host: 127.0.0.1'}",
+  "family": [
+   "control_characters"
+  ]
+ },
+ {
+  "hex": "250a25",
+  "arguments": "{'api_url': 'http://localhost:8080/api/user', 'user_id': '../admin'}",
+  "family": [
+   "path_injection"
+  ]
+ },
+ {
+  "hex": "250825",
+  "arguments": "{'api_url': 'http://localhost:8080/api/user', 'user_id': '%2f%2f127.0.0.1'}",
+  "family": [
+   "encoded_delimiters"
+  ]
+ },
+ {
+  "hex": "25252525",
+  "arguments": "{'api_url': 'http://localhost:8080/api/user', 'user_id': 'id\\nLocation: http://127.0.0.1/'}",
+  "family": [
+   "authority_injection",
+   "control_characters"
+  ]
+ },
+ {
+  "hex": "2925bd29",
+  "arguments": "{'api_url': 'https://service.internal/users', 'user_id': '#/../../admin'}",
+  "family": [
+   "fragment_injection",
+   "path_injection"
+  ]
+ }
+]

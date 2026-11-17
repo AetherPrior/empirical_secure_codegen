@@ -1,0 +1,32 @@
+[
+ {
+  "hex": "ad",
+  "arguments": "{'username': '\"><script>alert(1)</script>'}",
+  "family": [
+   "attribute_breakout",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "adad",
+  "arguments": "{'username': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "a9af",
+  "arguments": "{'username': '<script>alert(1)</script>'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "3fad60",
+  "arguments": "{'username': \"'><img src=x onerror=alert(1)>\"}",
+  "family": [
+   "attribute_breakout",
+   "event_handler"
+  ]
+ }
+]

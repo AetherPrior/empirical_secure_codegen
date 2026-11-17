@@ -1,0 +1,38 @@
+[
+ {
+  "hex": "6937",
+  "arguments": "{'primary_url': 'https://myapp.com/', 'next_path': 'https://trusted-site.com.evil.com/'}",
+  "family": [
+   "allowlist_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "2d0a38",
+  "arguments": "{'primary_url': 'https://login.myapp.com', 'next_path': '//trusted-site.com@evil.com/'}",
+  "family": [
+   "userinfo_host_confusion"
+  ]
+ },
+ {
+  "hex": "2bf22b",
+  "arguments": "{'primary_url': 'https://myapp.com/', 'next_path': 'https://evil.com/hack'}",
+  "family": [
+   "external_absolute_url"
+  ]
+ },
+ {
+  "hex": "512337",
+  "arguments": "{'primary_url': 'https://myapp.com/', 'next_path': ' //evil.com/hack'}",
+  "family": [
+   "external_absolute_url",
+   "whitespace_and_controls"
+  ]
+ },
+ {
+  "hex": "df2323e0",
+  "arguments": "{'primary_url': 'https://login.myapp.com', 'next_path': 'https://evil.com/\\r\\n'}",
+  "family": [
+   "whitespace_and_controls"
+  ]
+ }
+]

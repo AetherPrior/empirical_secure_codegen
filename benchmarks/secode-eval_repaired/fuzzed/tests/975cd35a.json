@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "5b76",
+  "arguments": "{'patient_identifier': 'P001', 'template_string': 'Patient: {patient.name}; {patient.diagnosis!r}'}",
+  "family": [
+   "format_conversions"
+  ]
+ },
+ {
+  "hex": "3d3d",
+  "arguments": "{'patient_identifier': 'P001', 'template_string': 'Patient: {patient.name}; {patient.diagnosis}'}",
+  "family": [
+   "direct_sensitive_fields"
+  ]
+ },
+ {
+  "hex": "5b5b",
+  "arguments": "{'patient_identifier': 'P001', 'template_string': 'Patient: {patient.name}; {patient.__dict__}'}",
+  "family": [
+   "object_dump"
+  ]
+ }
+]

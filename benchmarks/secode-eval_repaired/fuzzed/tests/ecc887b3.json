@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "5dd902",
+  "arguments": "{'serialized_bytes': b'\\x80\\x04\\x95\\x0b\\x00\\x00\\x00\\x00\\x00\\x00\\x00]\\x94(K\\x01K\\x02K\\x03e.', 'allowed_format': 'pickle'}",
+  "family": [
+   "pickle_protocol4"
+  ]
+ },
+ {
+  "hex": "f1f1ff",
+  "arguments": "{'serialized_bytes': b'(lp0\\nI1\\naI2\\na.', 'allowed_format': 'pickle'}",
+  "family": [
+   "pickle_protocol0"
+  ]
+ },
+ {
+  "hex": "df2919",
+  "arguments": "{'serialized_bytes': b'\\x80\\x02]q\\x00(K\\x01K\\x02e.', 'allowed_format': 'pickle'}",
+  "family": [
+   "pickle_protocol2"
+  ]
+ }
+]

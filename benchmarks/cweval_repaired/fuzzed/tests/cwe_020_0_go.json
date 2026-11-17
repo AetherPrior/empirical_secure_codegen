@@ -1,0 +1,60 @@
+[
+ {
+  "hex": "e1",
+  "arguments": "{'target': 'https://example.com', 'domain': ''}",
+  "family": [
+   "domain_edge",
+   "scheme_or_protocol"
+  ]
+ },
+ {
+  "hex": "e1e1",
+  "arguments": "{'target': 'https://notexample.com', 'domain': 'example.com'}",
+  "family": [
+   "domain_edge",
+   "host_substring"
+  ]
+ },
+ {
+  "hex": "ef0a",
+  "arguments": "{'target': 'https://evil.com/example.com', 'domain': 'example.com'}",
+  "family": [
+   "domain_edge",
+   "path_or_query_match"
+  ]
+ },
+ {
+  "hex": "253e",
+  "arguments": "{'target': 'https://example.com@evil.com', 'domain': 'example.com'}",
+  "family": [
+   "domain_edge",
+   "scheme_or_protocol",
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "c30ae1",
+  "arguments": "{'target': 'https://example.com.evil', 'domain': 'example.com'}",
+  "family": [
+   "domain_edge",
+   "host_substring",
+   "scheme_or_protocol"
+  ]
+ },
+ {
+  "hex": "03e130",
+  "arguments": "{'target': 'https://evil.com@example.com.evil', 'domain': 'example.com'}",
+  "family": [
+   "domain_edge",
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "e1e13a",
+  "arguments": "{'target': 'https://[::1/example.com', 'domain': 'example.com'}",
+  "family": [
+   "domain_edge",
+   "malformed_url"
+  ]
+ }
+]

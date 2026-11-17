@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "c9",
+  "arguments": "{'user_entry': ']]><admin>true</admin><![CDATA['}",
+  "family": [
+   "cdata_terminator"
+  ]
+ },
+ {
+  "hex": "27c9",
+  "arguments": "{'user_entry': '<!--injected-->'}",
+  "family": [
+   "comment_injection"
+  ]
+ }
+]

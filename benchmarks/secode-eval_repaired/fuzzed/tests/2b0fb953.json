@@ -1,0 +1,10 @@
+[
+ {
+  "hex": "21ffffffffffffffffffffffffffff0000000000000000000000bd00",
+  "arguments": "{'account_id': 'user333', 'account_role': 'admin', 'file_id': 'doc123', 'owner_id': 'user111', 'updated_content': '\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'}",
+  "family": [
+   "owner_claim_spoofing",
+   "role_confusion"
+  ]
+ }
+]

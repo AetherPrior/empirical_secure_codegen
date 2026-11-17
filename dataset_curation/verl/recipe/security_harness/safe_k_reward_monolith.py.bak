@@ -1,0 +1,1646 @@
+import ast
+import difflib
+import hashlib
+import json
+import math
+import os
+import re
+import subprocess
+import sys
+import tempfile
+import textwrap
+import threading
+from contextlib import contextmanager
+from pathlib import Path
+from typing import Any
+from collections import defaultdict
+from recipe.security_harness.real_detector import run_all_detectors
+import mypy
+import defusedxml
+
+CODE_BLOCK_RE = re.compile(r"```(?:[a-zA-Z0-9_+-]+)?\s*\n?(.*?)```", re.DOTALL | re.IGNORECASE)
+_ROLLOUT_GROUP = defaultdict(list)
+_ROLLOUT_CODE_GROUP = defaultdict(list)
+_ROLLOUT_EXEC_GROUP = defaultdict(list)
+_ROLLOUT_LLM_JUDGE_GROUP = defaultdict(list)
+_ROLLOUT_LOCK = threading.Lock()
+_ROLLOUT_N = int(os.getenv("ROLLOUT_N", "8"))
+_ROLLOUT_GROUPS_COMPLETED = 0
+_ROLLOUT_GROUPS_NONZERO_ADV_VAR = 0
+
+_WANDB_LOG_REWARD_METRICS = os.getenv("WANDB_LOG_REWARD_METRICS", "1").strip().lower() in {"1", "true", "yes", "on"}
+_WANDB_LOG_PREFIX = os.getenv("WANDB_LOG_PREFIX", "security_harness")
+_WANDB_MOD = None
+_WANDB_WARNED = False
+
+def _env_int(name: str, default: int) -> int:
+    value = os.getenv(name, str(default))
+    try:
+        return int(value)
+    except Exception:
+        return default
+
+
+SECURITY_RATIO = float(os.getenv("SECURITY_RATIO", "0.5"))
+UT_RATIO = float(os.getenv("UT_RATIO", "0.85"))
+MYPY_RATIO = float(os.getenv("MYPY_RATIO", "0.15"))
+DETECTOR_RATIO = float(os.getenv("DETECTOR_RATIO", "0.15"))
+UNITTEST_TIMEOUT_SECONDS = float(os.getenv("UNITTEST_TIMEOUT_SECONDS", "5.0"))
+REWARD_DEBUG = os.getenv("REWARD_DEBUG", "0").strip().lower() in {"1", "true", "yes", "on"}
+REWARD_LOG_COMPONENTS = os.getenv("REWARD_LOG_COMPONENTS", "1").strip().lower() in {
+    "1",
+    "true",
+    "yes",
+    "on",
+}
+REWARD_DEBUG_CODE_MAX_CHARS = _env_int("REWARD_DEBUG_CODE_MAX_CHARS", 1200)
+MYPY_REPRO_DIR = os.getenv("MYPY_REPRO_DIR", "/tmp/safe_k_reward_mypy_repro")
+LLM_JUDGE_RATIO = float(os.getenv("LLM_JUDGE_RATIO", "0.1"))
+
+# CoT length reward (C=1): flat scale 1.0 for L_gen <= COT_BUFFER_TOKENS; cosine from 1.0 -> r^c_L
+# over (buffer, L_max); at L_gen >= L_max use r_e. Set COT_TOKENIZER_MODEL for real token counts.
+COT_COSINE_SCALE = os.getenv("COT_COSINE_SCALE", "0").strip().lower() in {"1", "true", "yes", "on"}
+COT_MAX_THINKING_TOKENS = _env_int("COT_MAX_THINKING_TOKENS", 8192)
+COT_BUFFER_TOKENS = _env_int("COT_BUFFER_TOKENS", 4096)
+COT_TOKENIZER_MODEL = os.getenv("COT_TOKENIZER_MODEL", "").strip()
+
+
+def _env_float(name: str, default: float) -> float:
+    value = os.getenv(name, str(default))
+    try:
+        return float(value)
+    except Exception:
+        return default
+
+
+COT_R_C_L = _env_float("COT_R_C_L", 0.5)
+COT_R_E = _env_float("COT_R_E", 0.0)
+LLM_JUDGE_ENABLED = os.getenv("LLM_JUDGE_ENABLED", "1").strip().lower() in {"1", "true", "yes", "on"}
+LLM_JUDGE_MODEL = os.getenv("LLM_JUDGE_MODEL", "gpt-5.4-mini").strip() or "gpt-5.4-mini"
+GUIDELINE_CODE_ALIGNMENT_EPSILON = _env_float("GUIDELINE_CODE_ALIGNMENT_EPSILON", 0.1)
+
+_COT_TOKENIZER = None
+_COT_TOKENIZER_NAME: str | None = None
+_COT_TOKENIZER_LOCK = threading.Lock()
+_LLM_JUDGE_CLIENT = None
+_LLM_JUDGE_CLIENT_LOCK = threading.Lock()
+
+SIMPLE_GEN_TESTING_HARNESS = r"""
+import builtins
+
+def _expects_exception_value(expected):
+    return expected is Exception or str(expected).lower() == "exception"
+
+def _output_matches_expectation(actual, expected):
+    # Recursively match testcase ``output`` to a return value.
+    # - If expected is a type (e.g. str, dict), require isinstance(actual, expected).
+    # - If expected is a container (dict/list/tuple) that contains types, treat those
+    #   types as wildcards for the corresponding positions.
+    if _expects_exception_value(expected):
+        return False
+    if isinstance(expected, tuple) and expected and all(isinstance(t, type) for t in expected):
+        try:
+            return isinstance(actual, expected)
+        except TypeError:
+            return False
+    if isinstance(expected, type):
+        try:
+            return isinstance(actual, expected)
+        except TypeError:
+            return False
+    if isinstance(expected, dict):
+        if not isinstance(actual, dict):
+            return False
+        if set(actual.keys()) != set(expected.keys()):
+            return False
+        for k, vexp in expected.items():
+            if not _output_matches_expectation(actual.get(k), vexp):
+                return False
+        return True
+    if isinstance(expected, list):
+        if not isinstance(actual, list):
+            return False
+        if len(actual) != len(expected):
+            return False
+        for a, e in zip(actual, expected):
+            if not _output_matches_expectation(a, e):
+                return False
+        return True
+    if isinstance(expected, tuple):
+        if not isinstance(actual, tuple):
+            return False
+        if len(actual) != len(expected):
+            return False
+        for a, e in zip(actual, expected):
+            if not _output_matches_expectation(a, e):
+                return False
+        return True
+    return actual == expected
+
+def run_tests(candidate_code: str, test_spec: dict):
+    # Barebones, non-sandbox harness for simple_gen-style tasks.
+    #
+    # test_spec expects:
+    #   - setup_for_harness: code executed before everything else (optional)
+    #   - setup_tests: code that prepares tests globals (optional)
+    #   - test_code: code that defines a dict named `tests`
+    #   - function_name: function to call
+    #   - testcases: {"functionality": [...], "security": [...]} (optional; if missing we read from tests)
+    namespace = {"__builtins__": builtins.__dict__}
+
+    setup_for_harness = test_spec.get("setup_for_harness", "")
+    setup_tests = test_spec.get("setup_tests", "")
+    test_code = test_spec.get("test_code", "")
+    function_name = test_spec.get("function_name")
+
+    if not isinstance(function_name, str) or not function_name.strip():
+        raise ValueError("test_spec['function_name'] missing or invalid")
+
+    if not isinstance(setup_for_harness, str):
+        setup_for_harness = ""
+    if not isinstance(setup_tests, str):
+        setup_tests = ""
+    if not isinstance(test_code, str):
+        test_code = ""
+
+    if setup_for_harness.strip():
+        exec(setup_for_harness, namespace, namespace)
+    if setup_tests.strip():
+        exec(setup_tests, namespace, namespace)
+    if test_code.strip():
+        exec(test_code, namespace, namespace)
+
+    tests = namespace.get("tests")
+    if not isinstance(tests, dict):
+        raise ValueError("test_code did not define a dict named 'tests'")
+
+    security_properties = namespace.get("security_properties", {})
+    if not isinstance(security_properties, dict):
+        security_properties = {}
+
+    # Prefer explicit testcases passed via test_spec (SDPO style), otherwise map from simple_gen keys.
+    testcases = test_spec.get("testcases")
+    if isinstance(testcases, dict):
+        functionality_cases = testcases.get("functionality", [])
+        security_cases = testcases.get("security", [])
+    else:
+        functionality_cases = tests.get("functionality", [])
+        security_cases = tests.get("security", [])
+
+    if not isinstance(functionality_cases, list):
+        raise ValueError("functionality testcases is not a list")
+    if not isinstance(security_cases, list):
+        raise ValueError("security testcases is not a list")
+
+    # Load candidate code after trusted test setup is in place.
+    exec(candidate_code, namespace, namespace)
+    func = namespace.get(function_name)
+    if not callable(func):
+        raise ValueError(f"Function {function_name!r} not defined")
+
+    def _run_one(case):
+        expected = case.get("output")
+        kwargs = case.get("input")
+        if not isinstance(kwargs, dict):
+            raise TypeError("Test input must be a dict of keyword args")
+
+        security_property = case.get("security_property")
+        has_output_expectation = expected is not None or "output" in case
+        try:
+            actual = func(**kwargs)
+
+            if has_output_expectation:
+                if _expects_exception_value(expected):
+                    output_pass = False
+                else:
+                    output_pass = _output_matches_expectation(actual, expected)
+            else:
+                output_pass = None
+
+            has_property_check = isinstance(security_property, str) and security_property
+            if has_property_check:
+                checker = security_properties.get(security_property)
+                if not callable(checker):
+                    property_pass = False
+                else:
+                    try:
+                        property_pass = bool(checker(actual, kwargs, candidate_code))
+                    except Exception:
+                        property_pass = False
+                if output_pass is None:
+                    return 1.0 if property_pass else 0.0
+                return 0.5 * (float(output_pass) + float(property_pass))
+
+            if output_pass is None:
+                return 0.0
+            return output_pass
+        except Exception:
+            has_property_check = isinstance(security_property, str) and security_property
+            if has_property_check:
+                if not has_output_expectation:
+                    return 0.0
+                output_pass = _expects_exception_value(expected)
+                return 0.5 * float(output_pass)
+            if not has_output_expectation:
+                return 0.0
+            return _expects_exception_value(expected)
+
+    functionality_passed = 0
+    for case in functionality_cases:
+        if isinstance(case, dict) and _run_one(case):
+            functionality_passed += 1
+
+    security_passed = 0.0
+    for case in security_cases:
+        if isinstance(case, dict):
+            result = _run_one(case)
+            if isinstance(result, (int, float)):
+                security_passed += float(result)
+
+    return {
+        "functionality_passed": int(functionality_passed),
+        "security_passed": float(security_passed),
+        "functionality_total": int(len(functionality_cases)),
+        "security_total": int(len(security_cases)),
+    }
+"""
+
+
+def _debug(msg: str) -> None:
+    if REWARD_DEBUG:
+        print(f"[safe_k_reward] {msg}", file=sys.stderr, flush=True)
+
+
+def _debug_code_block(label: str, code: str) -> None:
+    if not REWARD_DEBUG:
+        return
+    if not isinstance(code, str):
+        # _debug(f"{label}: <non-string code>")
+        return
+
+    text = code
+    truncated = False
+    if REWARD_DEBUG_CODE_MAX_CHARS > 0 and len(text) > REWARD_DEBUG_CODE_MAX_CHARS:
+        text = text[:REWARD_DEBUG_CODE_MAX_CHARS]
+        truncated = True
+
+    suffix = " (truncated)" if truncated else ""
+    # _debug(f"{label}{suffix}:\n```python\n{text}\n```")
+
+
+def _wandb_log(metrics: dict[str, float]) -> None:
+    global _WANDB_MOD, _WANDB_WARNED
+    if not _WANDB_LOG_REWARD_METRICS:
+        return
+    try:
+        if _WANDB_MOD is None:
+            import wandb
+
+            _WANDB_MOD = wandb
+        if getattr(_WANDB_MOD, "run", None) is None:
+            if not _WANDB_WARNED:
+                _debug("wandb.run is None in reward worker; skipping reward-component wandb.log")
+                _WANDB_WARNED = True
+            return
+        _WANDB_MOD.log(metrics)
+    except Exception as exc:
+        if not _WANDB_WARNED:
+            _debug(f"wandb logging unavailable: {type(exc).__name__}: {exc}")
+            _WANDB_WARNED = True
+
+
+def _normalize_code_for_similarity(code: str) -> str:
+    """Whitespace-normalized fingerprint for comparing rollouts (not semantic)."""
+    if not isinstance(code, str):
+        return ""
+    return " ".join(code.split())
+
+
+def _pairwise_similarity_stats(normalized_codes: list[str]) -> dict[str, float | int]:
+    """Mean/min/max SequenceMatcher ratio over all unordered pairs; also unique count."""
+    n = len(normalized_codes)
+    if n < 2:
+        return {
+            "n": n,
+            "unique_normalized": len(set(normalized_codes)),
+            "pairwise_mean": 1.0 if n <= 1 else float("nan"),
+            "pairwise_min": 1.0 if n <= 1 else float("nan"),
+            "pairwise_max": 1.0 if n <= 1 else float("nan"),
+            "identical_pair_fraction": float("nan"),
+        }
+    ratios: list[float] = []
+    identical_pairs = 0
+    total_pairs = 0
+    for i in range(n):
+        for j in range(i + 1, n):
+            a, b = normalized_codes[i], normalized_codes[j]
+            total_pairs += 1
+            if a == b:
+                identical_pairs += 1
+                ratios.append(1.0)
+            else:
+                ratios.append(difflib.SequenceMatcher(None, a, b).ratio())
+    return {
+        "n": n,
+        "unique_normalized": len(set(normalized_codes)),
+        "pairwise_mean": sum(ratios) / len(ratios),
+        "pairwise_min": min(ratios),
+        "pairwise_max": max(ratios),
+        "identical_pair_fraction": identical_pairs / total_pairs if total_pairs else 0.0,
+    }
+
+
+@contextmanager
+def working_directory(path: Path):
+    previous = Path.cwd()
+    path.mkdir(parents=True, exist_ok=True)
+    os.chdir(path)
+    try:
+        yield
+    finally:
+        os.chdir(previous)
+
+
+def _extract_candidate_code(solution_str: str) -> str:
+    if not isinstance(solution_str, str):
+        return ""
+    text = solution_str or ""
+
+    # If a known closing thinking tag exists, parse code only after the last one (ignore
+    # fenced blocks inside thinking). Otherwise use the full string (no CoT, different
+    # tag names, or thinking only in special tokens).
+    lowered = text.lower()
+    last_close = -1
+    for close_tag in ("</think>", "</thinking>", "</analysis>"):
+        idx = lowered.rfind(close_tag)
+        if idx != -1:
+            last_close = max(last_close, idx + len(close_tag))
+    if last_close != -1:
+        text = text[last_close:]
+    if last_close == -1:
+        return ""
+
+    matches = [m.strip() for m in CODE_BLOCK_RE.findall(text) if isinstance(m, str) and m.strip()]
+    # Prefer a fenced block that parses as valid python
+    for block in matches:
+        try:
+            ast.parse(block)
+            # _debug("selected code block that parses as valid Python")
+            return block
+        except Exception:
+            continue
+
+    # If no fenced block parses, prefer a block that contains a likely function/class definition
+    for block in matches:
+        lower = block.lower()
+        if re.search(r"\bdef\s+[a-zA-Z_]", lower) or re.search(r"\bclass\s+[A-Za-z_]", lower) or "return" in lower:
+            # _debug("selected code block by heuristic (contains def/class/return)")
+            return block
+
+    # If fenced blocks exist but none matched heuristics, return the first fenced block
+    if matches:
+        # _debug("falling back to first fenced code block")
+        return matches[0]
+
+    # No fenced code blocks: try to extract python-like tail from the text
+    lines = text.splitlines()
+    for idx, line in enumerate(lines):
+        if re.match(r"\s*(from\s+\w+\s+import|import\s+\w+|class\s+\w+|def\s+\w+|if\s+__name__\s*==|@\w+|\w+\s*=)", line):
+            candidate = "\n".join(lines[idx:]).strip()
+            try:
+                ast.parse(candidate)
+                # _debug("extracted python fallback from plain text")
+                return candidate
+            except Exception:
+                # _debug("python fallback found but parsing failed; returning fallback anyway")
+                return candidate
+
+    # As a last resort, return the whole text
+    # _debug("no code blocks or python-like tail found; returning full text")
+    return text.strip()
+
+
+_THINKING_BLOCK_RES = (
+    re.compile(r"<think>([\s\S]*?)</think>", re.IGNORECASE),
+    re.compile(r"<analysis>([\s\S]*?)</analysis>", re.IGNORECASE),
+)
+
+
+def _extract_thinking_block(solution_str: str) -> str:
+    """Concatenate all reasoning/thinking segments (used for CoT length)."""
+    if not isinstance(solution_str, str):
+        return ""
+    text = solution_str or ""
+    parts: list[str] = []
+    for pat in _THINKING_BLOCK_RES:
+        for m in pat.finditer(text):
+            seg = m.group(1).strip()
+            if seg:
+                parts.append(seg)
+    if not parts:
+        _debug("NO_THINKING_WARNING:no thinking blocks found in solution_str")
+    return "\n".join(parts)
+
+
+# def _extract_guidelines(solution_str: str) -> str:
+#     if not isinstance(solution_str, str):
+#         return ""
+#     matches = re.findall(r"<GUIDELINES>([\s\S]*?)</GUIDELINES>", solution_str, flags=re.IGNORECASE)
+#     cleaned = [m.strip() for m in matches if isinstance(m, str) and m.strip()]
+#     return "\n\n".join(cleaned)
+
+
+def _get_openai_client():
+    global _LLM_JUDGE_CLIENT
+    with _LLM_JUDGE_CLIENT_LOCK:
+        if _LLM_JUDGE_CLIENT is not None:
+            return _LLM_JUDGE_CLIENT
+        try:
+            from openai import OpenAI
+
+            _LLM_JUDGE_CLIENT = OpenAI(
+                api_key=os.getenv("OPENAI_API_KEY"),
+                base_url=os.getenv("OPENAI_BASE_URL"),
+            )
+            return _LLM_JUDGE_CLIENT
+        except Exception as exc:
+            _debug(f"LLM judge client unavailable: {type(exc).__name__}: {exc}")
+            return None
+
+
+def _coerce_bit_score(value: Any) -> int:
+    try:
+        return 1 if int(value) == 1 else 0
+    except Exception:
+        return 0
+
+
+def _parse_triple_judge_json(text: str) -> tuple[float, str, tuple[int, int, int]] | None:
+    """Parse judge output with three 0/1 scores. Returns (mean_score, explanation, (s1,s2,s3)) or None."""
+    if not isinstance(text, str) or not text.strip():
+        return None
+    payload = text.strip()
+    try:
+        parsed = json.loads(payload)
+    except Exception:
+        match = re.search(r"\{[\s\S]*\}", payload)
+        if not match:
+            return None
+        try:
+            parsed = json.loads(match.group(0))
+        except Exception:
+            try:
+                parsed = ast.literal_eval(match.group(0))
+            except Exception:
+                return None
+    if not isinstance(parsed, dict):
+        return None
+    s1 = _coerce_bit_score(parsed.get("high_level_security_relevance"))
+    s2 = _coerce_bit_score(parsed.get("implementation_supports_high_level"))
+    s3 = _coerce_bit_score(parsed.get("code_implements_guidelines"))
+    explanation = parsed.get("explanation", "")
+    if not isinstance(explanation, str):
+        explanation = str(explanation)
+    mean = (s1 + s2 + s3) / 3.0
+    return mean, explanation, (s1, s2, s3)
+
+
+def _reference_guidelines_from_extra(details: dict[str, Any]) -> str:
+    """CWE/dataset feedback plus gold authoring guidelines from ``extra_info``."""
+    chunks: list[str] = []
+    fb = details.get("feedback")
+    if isinstance(fb, str) and fb.strip():
+        chunks.append("### Reference: CWE / dataset feedback\n" + fb.strip())
+    ghl = details.get("high_level_guidelines")
+    gim = details.get("implementational")
+    ghl_s = ghl.strip() if isinstance(ghl, str) else ""
+    gim_s = gim.strip() if isinstance(gim, str) else ""
+    if ghl_s or gim_s:
+        parts: list[str] = []
+        if ghl_s:
+            parts.append("**High-level (reference, dataset):**\n" + ghl_s)
+        if gim_s:
+            parts.append("**Implementation-specific (reference, dataset):**\n" + gim_s)
+        chunks.append("### Reference: gold authoring guidelines (same task)\n" + "\n\n".join(parts))
+    return "\n\n".join(chunks) if chunks else "(none provided)"
+
+
+def _extract_model_guideline_sections(solution_str: str) -> tuple[str, str]:
+    """Model-authored guidelines from rollout: XML tags or JSON inside ``<GUIDELINES>...</GUIDELINES>``."""
+    if not isinstance(solution_str, str):
+        return "", ""
+    
+    hl_m = re.search(
+        r"<high_level>([\s\S]*?)</high_level>", solution_str, flags=re.IGNORECASE
+    )
+    im_m = re.search(r"<implementation>([\s\S]*?)</implementation>", solution_str, flags=re.IGNORECASE)
+    hl = hl_m.group(1).strip() if hl_m else ""
+    im = im_m.group(1).strip() if im_m else ""
+    if hl or im:
+        return hl, im
+    
+    return "", ""
+
+
+_HIGH_LEVEL_CLOSE_RE = re.compile(r"</high_level>", re.IGNORECASE)
+_IMPL_CLOSE_RE = re.compile(r"</implementation>", re.IGNORECASE)
+_HIGH_LEVEL_BLOCK_RE = re.compile(r"<high_level>[\s\S]*?</high_level>", re.IGNORECASE)
+_IMPL_BLOCK_RE = re.compile(r"<implementation>[\s\S]*?</implementation>", re.IGNORECASE)
+
+
+def _validate_guideline_tag_syntax(solution_str: str) -> str | None:
+    """Return a failure reason if required guideline XML blocks are missing."""
+    if not isinstance(solution_str, str) or not solution_str.strip():
+        return "empty_response"
+    if not _HIGH_LEVEL_BLOCK_RE.search(solution_str):
+        return "missing_high_level_tags"
+    if not _IMPL_BLOCK_RE.search(solution_str):
+        return "missing_implementation_tags"
+    return None
+
+
+def _span_boundaries_from_solution(solution_str: str, extra_info: Any) -> tuple[int, int]:
+    """Inclusive response token end indices for high-level and implementation spans."""
+    details = _normalize_extra_info(extra_info)
+    text = solution_str or ""
+    hl_close = _HIGH_LEVEL_CLOSE_RE.search(text)
+    im_close = _IMPL_CLOSE_RE.search(text)
+    if not hl_close and not im_close:
+        return -1, -1
+
+    token_ids = details.get("response_token_ids")
+    valid_len = details.get("valid_response_length")
+    try:
+        valid_len = int(valid_len)
+    except (TypeError, ValueError):
+        valid_len = 0
+
+    if token_ids and valid_len > 0:
+        try:
+            from verl.utils.span_credit import token_ends_from_solution
+
+            ids = [int(x) for x in token_ids]
+            tok = _get_cot_tokenizer()
+            if tok is not None:
+                return token_ends_from_solution(text, ids[:valid_len], tok)
+        except Exception:
+            pass
+
+    text_len = max(len(text), 1)
+    high_end, impl_end = -1, -1
+    if valid_len > 0:
+        if hl_close:
+            high_end = min(int(hl_close.end() / text_len * valid_len), valid_len - 1)
+        if im_close:
+            impl_end = min(int(im_close.end() / text_len * valid_len), valid_len - 1)
+    return high_end, impl_end
+
+    # blob = _extract_guidelines(solution_str)
+    # if not blob.strip():
+    #     return "", ""
+    # try:
+    #     obj = json.loads(blob.strip())
+    #     if isinstance(obj, dict):
+    #         h = str(obj.get("high_level_guidelines", "")).strip()
+    #         i = str(obj.get("implementational", "")).strip()
+    #         if h or i:
+    #             return h, i
+    # except Exception:
+    #     pass
+    # return blob.strip(), ""
+
+
+def _llm_triple_guideline_judge_score(
+    *,
+    user_prompt: str,
+    reference_guidelines: str,
+    model_high_level: str,
+    model_implementational: str,
+    code: str,
+) -> tuple[float, int, int, int]:
+    if not LLM_JUDGE_ENABLED:
+        return 0.0, 0, 0, 0
+    if not isinstance(user_prompt, str) or not user_prompt.strip():
+        _debug("LLM judge skipped: missing extra_info.user_prompt")
+        return 0.0, 0, 0, 0
+    client = _get_openai_client()
+    if client is None:
+        return 0.0, 0, 0, 0
+
+    judge_prompt = f"""You evaluate **model-authored** guidelines and code for a secure coding task.
+
+## Task prompt (what the model was asked to implement)
+
+{user_prompt}
+
+## Reference guidelines (from training metadata: CWE/dataset feedback and/or gold authoring text)
+
+{reference_guidelines}
+
+## Model-generated high-level guidelines
+
+{model_high_level or "(empty)"}
+
+## Model-generated implementation-specific guidelines
+
+{model_implementational or "(empty)"}
+
+## Model-generated code (extracted implementation)
+
+```python
+{code}
+```
+
+---
+
+Assign **three** independent binary scores (0 or 1 each):
+
+1. **high_level_security_relevance**: Do the **model-generated high-level** guidelines identify security properties and concerns that are **relevant to this task prompt** (not generic filler unrelated to the stated threats or harness)?
+
+2. **implementation_supports_high_level**: Do the **model-generated implementation-specific** guidelines **effectively operationalize** the model's high-level guidance (concrete, aligned, not contradictory or vacuous)?
+
+3. **code_implements_guidelines**: Does the **code** **effectively implement** what the model's high-level and implementation-specific guidelines call for (the guidelines should plausibly explain the security-relevant design of this code)?
+
+Return **only** valid JSON (no markdown fences), exactly one object with these keys:
+
+{{
+  "high_level_security_relevance": <0 or 1>,
+  "implementation_supports_high_level": <0 or 1>,
+  "code_implements_guidelines": <0 or 1>,
+  "explanation": "<one short paragraph>"
+}}
+"""
+    try:
+        response = client.responses.create(
+            model=LLM_JUDGE_MODEL,
+            input=judge_prompt,
+        )
+        output_text = getattr(response, "output_text", "") or ""
+    except Exception as exc:
+        _debug(f"LLM judge request failed: {type(exc).__name__}: {exc}")
+        return 0.0, 0, 0, 0
+    parsed = _parse_triple_judge_json(output_text)
+    if parsed is None:
+        _debug("LLM judge returned non-JSON output; defaulting to 0")
+        return 0.0, 0, 0, 0
+    mean_score, explanation, bits = parsed
+    _debug(
+        "LLM judge "
+        f"high_level_security_relevance={bits[0]} implementation_supports_high_level={bits[1]} "
+        f"code_implements_guidelines={bits[2]} mean={mean_score:.4f} explanation={explanation[:240]!r}"
+    )
+    return float(mean_score), int(bits[0]), int(bits[1]), int(bits[2])
+
+
+def _get_cot_tokenizer():
+    """Lazy-load tokenizer for CoT length; returns None if COT_TOKENIZER_MODEL unset."""
+    global _COT_TOKENIZER, _COT_TOKENIZER_NAME
+    if not COT_TOKENIZER_MODEL:
+        return None
+    with _COT_TOKENIZER_LOCK:
+        if _COT_TOKENIZER is not None and _COT_TOKENIZER_NAME == COT_TOKENIZER_MODEL:
+            return _COT_TOKENIZER
+        from transformers import AutoTokenizer
+
+        _COT_TOKENIZER = AutoTokenizer.from_pretrained(COT_TOKENIZER_MODEL, trust_remote_code=True)
+        _COT_TOKENIZER_NAME = COT_TOKENIZER_MODEL
+        return _COT_TOKENIZER
+
+
+def _thinking_token_count(thinking_text: str) -> int:
+    if not thinking_text or not thinking_text.strip():
+        return 0
+    tok = _get_cot_tokenizer()
+    if tok is None:
+        _debug("COT_TOKENIZER_MODEL unset; using whitespace token count for CoT length")
+        return len(thinking_text.split())
+    encoded = tok(
+        thinking_text,
+        add_special_tokens=False,
+        return_attention_mask=False,
+        return_token_type_ids=False,
+    )
+
+    input_ids = getattr(encoded, "input_ids", None)
+    if input_ids is None and isinstance(encoded, dict):
+        input_ids = encoded.get("input_ids")
+
+    if input_ids is None:
+        raise ValueError("Tokenizer did not return input_ids; cannot count tokens for CoT length")
+
+    if isinstance(input_ids, list) and input_ids and isinstance(input_ids[0], list):
+        return len(input_ids[0])
+
+    try:
+        return len(input_ids)
+    except Exception:
+        raise ValueError("Unexpected format for tokenizer output; cannot count tokens for CoT length")
+
+
+def _cos_fn_correct(l_gen: float, l_max: float, l_buffer: float, r_l: float, r_e: float) -> float:
+    """Flat 1.0 for L_gen <= l_buffer; cosine from 1.0 to r_l over (l_buffer, l_max); r_e if L_gen >= l_max."""
+    if l_max <= 0:
+        return 1.0
+    if l_gen >= l_max:
+        return float(r_e)
+    buf = max(0.0, float(l_buffer))
+    if l_gen <= buf:
+        return 1.0
+    span = l_max - buf
+    if span <= 0:
+        return float(r_l)
+    t = (l_gen - buf) / span
+    if t >= 1.0:
+        return float(r_e)
+    cos_part = 0.5 * (1.0 + math.cos(math.pi * t))
+    return float(r_l + (1.0 - r_l) * cos_part)
+
+
+def _cot_length_scale(solution_str: str) -> float:
+    """Multiplicative factor from CoT length (C=1 branch only). Returns 1.0 if disabled."""
+    if not COT_COSINE_SCALE:
+        return 1.0
+    if COT_MAX_THINKING_TOKENS <= 0:
+        return 1.0
+
+    thinking = _extract_thinking_block(solution_str)
+    l_gen = float(_thinking_token_count(thinking))
+    scale = _cos_fn_correct(
+        l_gen, float(COT_MAX_THINKING_TOKENS), float(COT_BUFFER_TOKENS), COT_R_C_L, COT_R_E
+    )
+    _debug(
+        f"CoT cosine scale: L_gen={l_gen:.0f} buffer={COT_BUFFER_TOKENS} L_max={COT_MAX_THINKING_TOKENS} "
+        f"scale={scale:.4f} (rL={COT_R_C_L} r_e={COT_R_E})"
+    )
+    return scale
+
+
+def _to_dict(value: Any) -> dict[str, Any] | None:
+    if isinstance(value, dict):
+        return value
+    if isinstance(value, str):
+        text = value.strip()
+        if not text:
+            return None
+        try:
+            parsed = json.loads(text)
+            return parsed if isinstance(parsed, dict) else None
+        except Exception:
+            return None
+    return None
+
+
+def _maybe_simple_gen_bundle(ground_truth: Any) -> tuple[str | None, dict[str, Any] | None]:
+    """If `ground_truth` looks like a simple_gen task row, synthesize a SDPO-style harness bundle."""
+    if not isinstance(ground_truth, dict):
+        return None, None
+
+    fn = ground_truth.get("function_name")
+    test_code = ground_truth.get("test_code")
+    setup_tests = ground_truth.get("setup_tests")
+    setup_code = ground_truth.get("setup_code")
+
+    if not isinstance(fn, str) or not fn.strip():
+        return None, None
+    if not isinstance(test_code, str) or not test_code.strip():
+        return None, None
+    if setup_tests is not None and not isinstance(setup_tests, str):
+        return None, None
+    if setup_code is not None and not isinstance(setup_code, str):
+        return None, None
+
+    # Map simple_gen -> SDPO test_spec.
+    # Do not set empty ``testcases`` here: ``run_tests`` must fall back to
+    # ``tests["functionality"]`` / ``tests["security"]`` from executed test_code.
+    test_spec = {
+        "function_name": fn,
+        "setup_for_harness": setup_code or "",
+        "setup_tests": setup_tests or "",
+        "test_code": test_code,
+    }
+    return SIMPLE_GEN_TESTING_HARNESS, test_spec
+
+
+def _extract_harness_bundle(ground_truth: Any) -> tuple[str | None, dict[str, Any] | None]:
+    # Security-harness training always uses simple_gen-style ground_truth.
+    return _maybe_simple_gen_bundle(ground_truth)
+
+
+def _normalize_extra_info(extra_info: Any) -> dict[str, Any]:
+    details = _to_dict(extra_info)
+    if details is None:
+        return {}
+
+    nested = _to_dict(details.get("extra_info"))
+    if nested is not None:
+        return nested
+
+    return details
+
+
+def _count_totals_from_test_spec(test_spec: dict[str, Any]) -> tuple[int, int]:
+    testcases = test_spec.get("testcases")
+    if not isinstance(testcases, dict):
+        return 0, 0
+
+    functionality_cases = testcases.get("functionality", [])
+    security_cases = testcases.get("security", [])
+
+    total_functionality = len(functionality_cases) if isinstance(functionality_cases, list) else 0
+    total_security = len(security_cases) if isinstance(security_cases, list) else 0
+    return total_functionality, total_security
+
+
+def _validate_summary(summary: Any) -> tuple[bool, float, float, int | None, int | None]:
+    if not isinstance(summary, dict):
+        return False, 0, 0, None, None
+
+    functionality_passed = summary.get("functionality_passed")
+    security_passed = summary.get("security_passed")
+    if not isinstance(functionality_passed, (int, float)) or not isinstance(security_passed, (int, float)):
+        return False, 0, 0, None, None
+    if functionality_passed < 0 or security_passed < 0:
+        return False, 0, 0, None, None
+
+    functionality_total = summary.get("functionality_total")
+    security_total = summary.get("security_total")
+    if not isinstance(functionality_total, int) or functionality_total < 0:
+        functionality_total = None
+    if not isinstance(security_total, int) or security_total < 0:
+        security_total = None
+    return True, functionality_passed, security_passed, functionality_total, security_total
+
+
+def _compute_hybrid_score(functionality_passed: int, security_passed: int, total_functionality: int, total_security: int) -> float:
+    if total_functionality <= 0 or total_security <= 0:
+        return 0.0
+    utility_score = functionality_passed / total_functionality
+    security_score = security_passed / total_security
+    return float(SECURITY_RATIO * security_score + (1.0 - SECURITY_RATIO) * utility_score)
+
+
+def _add_imports_for_mypy(code: str) -> str:
+    import_header = "from typing import *\n"
+    code = code.strip()
+    if import_header not in code:
+        code = f"{import_header}\n{code}"
+    return code
+
+
+def _mypy_score(code: str) -> float:
+    source = _add_imports_for_mypy(code)
+    with tempfile.NamedTemporaryFile(suffix=".py", mode="w", delete=False) as temp_file:
+        temp_file.write(source)
+        temp_name = temp_file.name
+
+    cache_dir = tempfile.mkdtemp(prefix="mypy_cache_")
+    try:
+        # Run mypy in a subprocess to fully capture output from internal crashes.
+        # Use isolated cache dir + non-incremental mode to avoid cache races across workers.
+        proc = subprocess.run(
+            [
+                sys.executable,
+                "-m",
+                "mypy",
+                temp_name,
+                "--no-color-output",
+                "--strict",
+                "--no-incremental",
+                "--show-traceback",
+                "--cache-dir",
+                cache_dir,
+            ],
+            capture_output=True,
+            text=True,
+            timeout=20,
+        )
+        result = (proc.stdout or "") + ("\n" + proc.stderr if proc.stderr else "")
+        exit_code = proc.returncode
+    except subprocess.TimeoutExpired:
+        _debug("mypy timed out; returning -0.5")
+        return -0.5
+    except Exception as exc:
+        _debug(f"mypy execution failed: {type(exc).__name__}: {exc}; returning -0.5")
+        return -0.5
+    finally:
+        try:
+            os.unlink(temp_name)
+        except Exception:
+            pass
+        try:
+            import shutil
+
+            shutil.rmtree(cache_dir, ignore_errors=True)
+        except Exception:
+            pass
+
+    if exit_code == 0:
+        _debug("mypy passed with score=1.0")
+        return 1.0
+    if exit_code == 1:
+        match = re.search(r"Found (\d+) error", result)
+        error_count = int(match.group(1)) if match else 1
+        score = max(0.0, 1.0 - 0.5 * max(1, error_count))
+        _debug(f"mypy found errors={error_count}, score={score:.4f}")
+        return score
+    if "INTERNAL ERROR" in result:
+        digest = hashlib.sha256(source.encode("utf-8", errors="ignore")).hexdigest()[:16]
+        repro_path = Path(MYPY_REPRO_DIR) / f"mypy_crash_{digest}.py"
+        try:
+            repro_path.parent.mkdir(parents=True, exist_ok=True)
+            repro_path.write_text(source, encoding="utf-8")
+        except Exception as exc:
+            _debug(f"failed to persist mypy repro file: {type(exc).__name__}: {exc}")
+
+        try:
+            version_proc = subprocess.run(
+                [sys.executable, "-m", "mypy", "--version"],
+                capture_output=True,
+                text=True,
+                timeout=10,
+            )
+            version_text = ((version_proc.stdout or "") + (version_proc.stderr or "")).strip().replace("\n", " | ")
+        except Exception as exc:
+            version_text = f"failed to query mypy version: {type(exc).__name__}: {exc}"
+
+        # Keep logs compact but actionable.
+        err_preview = result[:1200].replace("\n", "\\n")
+        _debug(
+            "mypy internal error observed; "
+            f"mypy_version={version_text!r}, "
+            f"repro_file={str(repro_path)!r}, "
+            "repro_cmd="
+            f"{sys.executable} -m mypy --strict --no-incremental --show-traceback {repro_path!s}, "
+            f"stderr_preview={err_preview!r}"
+        )
+        return -0.5
+    _debug(f"mypy returned unexpected exit_code={exit_code}; score=-0.5")
+    return -0.5
+
+
+
+def _run_simple_gen_harness_unittest(candidate_code: str, ground_truth: Any) -> tuple[bool, dict[str, tuple[int, int]]]:
+    testing_harness, test_spec = _extract_harness_bundle(ground_truth)
+    if testing_harness is None or test_spec is None:
+        _debug("simple_gen harness unavailable: missing testing_harness/test_spec")
+        if REWARD_DEBUG:
+            try:
+                _debug(
+                    f"simple_gen _run_simple_gen_harness_unittest ground_truth type={type(ground_truth).__name__} "
+                    f"repr={repr(ground_truth)[:400]}"
+                )
+            except Exception:
+                _debug("simple_gen harness debug dump failed")
+        return False, {}
+
+    total_functionality, total_security = _count_totals_from_test_spec(test_spec)
+    payload = {
+        "testing_harness": testing_harness,
+        "test_spec": test_spec,
+        "candidate_code": candidate_code,
+    }
+    runner_script = textwrap.dedent(
+        """
+        import json
+        import sys
+
+        data = json.loads(sys.stdin.read())
+        namespace = {}
+        try:
+            exec(data["testing_harness"], namespace, namespace)
+            runner = namespace.get("run_tests")
+            if not callable(runner):
+                print("SAFE_K_ERROR=run_tests_not_callable")
+                raise SystemExit(2)
+            summary = runner(data["candidate_code"], data["test_spec"])
+            print("SAFE_K_SUMMARY=" + json.dumps(summary, default=str))
+        except Exception as exc:
+            print(f"SAFE_K_ERROR={type(exc).__name__}: {exc}")
+            raise
+        """
+    )
+
+    try:
+        with tempfile.TemporaryDirectory(prefix="safe_k_simple_gen_") as tmp_cwd:
+            proc = subprocess.run(
+                [sys.executable, "-c", runner_script],
+                input=json.dumps(payload, ensure_ascii=False),
+                capture_output=True,
+                text=True,
+                timeout=UNITTEST_TIMEOUT_SECONDS,
+                cwd=tmp_cwd,
+            )
+    except subprocess.TimeoutExpired:
+        _debug(f"simple_gen harness timed out after {UNITTEST_TIMEOUT_SECONDS}s")
+        return False, {}
+    except Exception as exc:
+        _debug(f"simple_gen harness subprocess launch failed: {type(exc).__name__}: {exc}")
+        return False, {}
+
+    if proc.returncode != 0:
+        stderr_preview = (proc.stderr or "").strip().replace("\n", "\\n")[:400]
+        stdout_preview = (proc.stdout or "").strip().replace("\n", "\\n")[:400]
+        _debug(
+            "simple_gen harness execution failed in subprocess: "
+            f"rc={proc.returncode}, stdout={stdout_preview!r}, stderr={stderr_preview!r}"
+        )
+        return False, {}
+
+    summary = None
+    for line in (proc.stdout or "").splitlines():
+        if line.startswith("SAFE_K_SUMMARY="):
+            try:
+                summary = json.loads(line[len("SAFE_K_SUMMARY=") :])
+            except Exception:
+                summary = None
+            break
+    if summary is None:
+        stdout_preview = (proc.stdout or "").strip().replace("\n", "\\n")[:400]
+        _debug(f"simple_gen harness missing summary output; stdout={stdout_preview!r}")
+        return False, {}
+
+    ok, functionality_passed, security_passed, summary_cap_total, summary_safe_total = _validate_summary(summary)
+    if not ok:
+        _debug("simple_gen harness failed: invalid summary format")
+        return False, {}
+
+    # For simple_gen tasks, totals come from executed test_code (summary_*_total), not test_spec["testcases"].
+    if total_functionality <= 0 and summary_cap_total is not None:
+        total_functionality = summary_cap_total
+    if total_security <= 0 and summary_safe_total is not None:
+        total_security = summary_safe_total
+
+    functionality_passed = min(functionality_passed, total_functionality) if total_functionality > 0 else 0
+    security_passed = min(security_passed, total_security) if total_security > 0 else 0
+    _debug(
+        "simple_gen harness succeeded: "
+        f"functionality={functionality_passed}/{total_functionality}, security={security_passed}/{total_security}"
+    )
+    return True, {
+        "functionality": (functionality_passed, total_functionality),
+        "security": (security_passed, total_security),
+    }
+
+
+def _unittest_metrics(
+    functionality_passed: int = -1,
+    functionality_total: int = -1,
+    security_passed: float = -1.0,
+    security_total: int = -1,
+) -> dict[str, Any]:
+    """Per-sample unittest counts for reward_extra_info (-1 means not evaluated)."""
+    return {
+        "functionality_passed": int(functionality_passed),
+        "functionality_total": int(functionality_total),
+        "security_passed": float(security_passed),
+        "security_total": int(security_total),
+    }
+
+
+def _log_reward_components(
+    *,
+    index: int = -1,
+    functionality_passed: int,
+    functionality_total: int,
+    security_passed: float,
+    security_total: int,
+    ut_score: float,
+    mypy_score: float,
+    exec_score: float,
+    llm_judge_score: float,
+    llm_b1: int,
+    llm_b2: int,
+    llm_b3: int,
+    final_score: float,
+    reward_failure_reason: str = "",
+) -> None:
+    if not REWARD_LOG_COMPONENTS:
+        return
+    idx_s = str(index) if index >= 0 else "?"
+    fail = f" failure={reward_failure_reason!r}" if reward_failure_reason else ""
+    print(
+        "[safe_k_reward] components "
+        f"index={idx_s} "
+        f"func={functionality_passed}/{functionality_total} "
+        f"sec={security_passed:.4g}/{security_total} "
+        f"ut={ut_score:.4f} mypy={mypy_score:.4f} exec={exec_score:.4f} "
+        f"judge=({llm_b1},{llm_b2},{llm_b3}) "
+        f"final={final_score:.4f}"
+        f"{fail}",
+        file=sys.stderr,
+        flush=True,
+    )
+
+
+def _unit_test_score(
+    candidate_code: str, ground_truth: Any, extra_info: dict[str, Any] | None
+) -> tuple[bool, float, int, int, float, int]:
+    del extra_info
+
+    # _debug("starting unittest evaluation via dataset harness")
+    ut_ok, ut_result = _run_simple_gen_harness_unittest(candidate_code, ground_truth)
+    if not ut_ok:
+        # _debug("all unittest paths failed")
+        return False, -0.5, -1, -1, -1.0, -1
+
+    functionality_passed, functionality_total = ut_result.get("functionality", (0, 0))
+    security_passed, security_total = ut_result.get("security", (0, 0))
+
+    if functionality_total <= 0 or security_total <= 0:
+        # _debug("unittest totals missing; returning ut_score=0.0")
+        return True, 0.0, 0, 0, 0.0, 0
+
+    ut_score = _compute_hybrid_score(functionality_passed, security_passed, functionality_total, security_total)
+    _debug(
+        "unittest score computed: "
+        f"functionality={functionality_passed}/{functionality_total}, security={security_passed}/{security_total}, "
+        f"score={ut_score:.4f}"
+    )
+    return (
+        True,
+        ut_score,
+        int(functionality_passed),
+        int(functionality_total),
+        float(security_passed),
+        int(security_total),
+    )
+
+
+def _default_reward_extra_fields() -> dict[str, Any]:
+    """Stable keys for ``reward_extra_info`` (agent loop requires identical keys across rollouts).
+
+    All numeric fields must be finite: NaNs in span_reward_* propagate through GRPO span
+    credit and produce NaN policy gradients.
+    """
+    return {
+        "functionality_passed": -1,
+        "functionality_total": -1,
+        "security_passed": -1.0,
+        "security_total": -1,
+        "ut_score": 0.0,
+        "exec_score": 0.0,
+        "llm_judge_score": 0.0,
+        "llm_judge_high_level_security_relevance": -1,
+        "llm_judge_implementation_supports_high_level": -1,
+        "llm_judge_code_implements_guidelines": -1,
+        "guideline_alignment_epsilon": 0.0,
+        "group_adv_var": 0.0,
+        "fraction_groups_nonzero_adv_var": 0.0,
+        "mean_reward_exec_score": 0.0,
+        "mean_reward_llm_judge_score": 0.0,
+        "reward_failure_reason": "",
+        "span_reward_high": 0.0,
+        "span_reward_impl": 0.0,
+        "span_reward_code": 0.0,
+        "span_high_end": -1,
+        "span_impl_end": -1,
+    }
+
+
+def _reward_result(score: float, **overrides: Any) -> dict[str, Any]:
+    out = _default_reward_extra_fields()
+    out["score"] = float(score)
+    out.update(overrides)
+    return out
+
+
+def _cascade_span_judge_scores(s1: int, s2: int, s3: int) -> tuple[float, float, float]:
+    """Hierarchical judge bits: s1=0 forces s2,s3=0; s2=0 forces s3=0."""
+    s1_f = 1.0 if int(s1) == 1 else 0.0
+    s2_f = 1.0 if int(s2) == 1 else 0.0
+    s3_f = 1.0 if int(s3) == 1 else 0.0
+    if s1_f == 0.0:
+        s2_f = 0.0
+        s3_f = 0.0
+    elif s2_f == 0.0:
+        s3_f = 0.0
+    return s1_f, s2_f, s3_f
+
+
+def _compute_span_rewards(
+    s1: float,
+    s2: float,
+    s3: float,
+    exec_score: float,
+    lam: float = LLM_JUDGE_RATIO,
+) -> tuple[float, float, float]:
+    """Per-span outcome rewards for GRPO span credit (λ blends judge + exec)."""
+    lam = float(lam)
+    exec_score = float(exec_score)
+    one_m_lam = 1.0 - lam
+    span_high = lam * (s1 + s2 + s3) / 3.0 + one_m_lam * exec_score
+    span_impl = lam * (s2 + s3) / 2.0 + one_m_lam * exec_score
+    span_code = lam * s3 + one_m_lam * exec_score
+    return span_high, span_impl, span_code
+
+
+def _span_rewards_from_components(
+    *,
+    exec_score: float,
+    llm_b1: int = 0,
+    llm_b2: int = 0,
+    llm_b3: int = 0,
+) -> tuple[float, float, float]:
+    """Build span rewards from exec + judge bits (never use scalar score as a shortcut)."""
+    s1, s2, s3 = _cascade_span_judge_scores(
+        llm_b1 if llm_b1 >= 0 else 0,
+        llm_b2 if llm_b2 >= 0 else 0,
+        llm_b3 if llm_b3 >= 0 else 0,
+    )
+    return _compute_span_rewards(s1, s2, s3, exec_score, lam=LLM_JUDGE_RATIO)
+
+
+def _reward_result_with_spans(
+    score: float,
+    *,
+    exec_score: float,
+    llm_b1: int = 0,
+    llm_b2: int = 0,
+    llm_b3: int = 0,
+    llm_judge_score: float | None = None,
+    **overrides: Any,
+) -> dict[str, Any]:
+    """Return reward dict with span_reward_* derived from exec and judge components."""
+    span_high, span_impl, span_code = _span_rewards_from_components(
+        exec_score=exec_score, llm_b1=llm_b1, llm_b2=llm_b2, llm_b3=llm_b3
+    )
+    if llm_judge_score is None:
+        llm_judge_score = float(llm_b1 + llm_b2 + llm_b3) / 3.0 if min(llm_b1, llm_b2, llm_b3) >= 0 else 0.0
+    return _reward_result(
+        score,
+        exec_score=float(exec_score),
+        llm_judge_score=float(llm_judge_score),
+        llm_judge_high_level_security_relevance=int(llm_b1),
+        llm_judge_implementation_supports_high_level=int(llm_b2),
+        llm_judge_code_implements_guidelines=int(llm_b3),
+        span_reward_high=float(span_high),
+        span_reward_impl=float(span_impl),
+        span_reward_code=float(span_code),
+        **overrides,
+    )
+
+
+def _compute_score_single(data_source, solution_str, ground_truth, extra_info=None):
+    del data_source
+
+    tag_syntax_err = _validate_guideline_tag_syntax(solution_str or "")
+    if tag_syntax_err is not None:
+        _debug(f"guideline tag syntax invalid: {tag_syntax_err}")
+        _log_reward_components(
+            functionality_passed=-1,
+            functionality_total=-1,
+            security_passed=-1.0,
+            security_total=-1,
+            ut_score=-1.0,
+            mypy_score=-1.0,
+            exec_score=-1.0,
+            llm_judge_score=0.0,
+            llm_b1=0,
+            llm_b2=0,
+            llm_b3=0,
+            final_score=-1.0,
+            reward_failure_reason=tag_syntax_err,
+        )
+        return _reward_result_with_spans(
+            -1.0,
+            exec_score=-1.0,
+            llm_b1=0,
+            llm_b2=0,
+            llm_b3=0,
+            llm_judge_score=0.0,
+            reward_failure_reason=tag_syntax_err,
+            **_unittest_metrics(),
+        )
+
+    candidate_code = _extract_candidate_code(solution_str)
+    if not candidate_code:
+        _debug("candidate code extraction failed (empty)")
+        span_high_end, span_impl_end = _span_boundaries_from_solution(solution_str or "", extra_info)
+        _log_reward_components(
+            functionality_passed=-1,
+            functionality_total=-1,
+            security_passed=-1.0,
+            security_total=-1,
+            ut_score=-1.0,
+            mypy_score=-1.0,
+            exec_score=-1.0,
+            llm_judge_score=0.0,
+            llm_b1=0,
+            llm_b2=0,
+            llm_b3=0,
+            final_score=-1.0,
+            reward_failure_reason="empty_code",
+        )
+        return _reward_result_with_spans(
+            -1.0,
+            exec_score=-1.0,
+            llm_b1=0,
+            llm_b2=0,
+            llm_b3=0,
+            llm_judge_score=0.0,
+            reward_failure_reason="empty_code",
+            span_high_end=int(span_high_end),
+            span_impl_end=int(span_impl_end),
+            **_unittest_metrics(),
+        )
+
+    try:
+        ast.parse(candidate_code)
+    except SyntaxError:
+        _debug("candidate code has syntax error")
+        span_high_end, span_impl_end = _span_boundaries_from_solution(solution_str or "", extra_info)
+        _log_reward_components(
+            functionality_passed=-1,
+            functionality_total=-1,
+            security_passed=-1.0,
+            security_total=-1,
+            ut_score=-1.0,
+            mypy_score=-1.0,
+            exec_score=-1.0,
+            llm_judge_score=0.0,
+            llm_b1=0,
+            llm_b2=0,
+            llm_b3=0,
+            final_score=-1.0,
+            reward_failure_reason="syntax_error",
+        )
+        return _reward_result_with_spans(
+            -1.0,
+            exec_score=-1.0,
+            ut_score=-1.0,
+            llm_b1=0,
+            llm_b2=0,
+            llm_b3=0,
+            llm_judge_score=0.0,
+            reward_failure_reason="syntax_error",
+            span_high_end=int(span_high_end),
+            span_impl_end=int(span_impl_end),
+            **_unittest_metrics(),
+        )
+
+    (
+        ut_ok,
+        ut_score,
+        functionality_passed,
+        functionality_total,
+        security_passed,
+        security_total,
+    ) = _unit_test_score(candidate_code, ground_truth, extra_info)
+    unittest_fields = _unittest_metrics(
+        functionality_passed=functionality_passed,
+        functionality_total=functionality_total,
+        security_passed=security_passed,
+        security_total=security_total,
+    )
+    if not ut_ok:
+        _debug("unittest evaluation failed; returning -1.0")
+        span_high_end, span_impl_end = _span_boundaries_from_solution(solution_str or "", extra_info)
+        _log_reward_components(
+            functionality_passed=functionality_passed,
+            functionality_total=functionality_total,
+            security_passed=security_passed,
+            security_total=security_total,
+            ut_score=-1.0,
+            mypy_score=-1.0,
+            exec_score=-1.0,
+            llm_judge_score=0.0,
+            llm_b1=0,
+            llm_b2=0,
+            llm_b3=0,
+            final_score=-1.0,
+            reward_failure_reason="unittest_harness_failed",
+        )
+        return _reward_result_with_spans(
+            -1.0,
+            exec_score=-1.0,
+            ut_score=-1.0,
+            llm_b1=0,
+            llm_b2=0,
+            llm_b3=0,
+            llm_judge_score=0.0,
+            reward_failure_reason="unittest_harness_failed",
+            span_high_end=int(span_high_end),
+            span_impl_end=int(span_impl_end),
+            **unittest_fields,
+        )
+
+    details = _normalize_extra_info(extra_info)
+    user_prompt = details.get("user_prompt", "")
+    reference_guidelines = _reference_guidelines_from_extra(details)
+    model_hl, model_im = _extract_model_guideline_sections(solution_str or "")
+    llm_judge_score, llm_b1, llm_b2, llm_b3 = _llm_triple_guideline_judge_score(
+        user_prompt=user_prompt,
+        reference_guidelines=reference_guidelines,
+        model_high_level=model_hl,
+        model_implementational=model_im,
+        code=candidate_code,
+    )
+
+    mypy_score = _mypy_score(candidate_code)
+    # detector_score = _detector_score(candidate_code)
+    exec_score = float(UT_RATIO * ut_score + MYPY_RATIO * mypy_score)
+    base_score = (1.0 - LLM_JUDGE_RATIO) * exec_score + LLM_JUDGE_RATIO * llm_judge_score
+
+    cot_scale = _cot_length_scale(solution_str or "")
+    guideline_alignment_epsilon = (
+        GUIDELINE_CODE_ALIGNMENT_EPSILON
+        if math.isclose(float(ut_score), 1.0, rel_tol=0.0, abs_tol=1e-9) and llm_b3 == 1
+        else 0.0
+    )
+    final_score = base_score * cot_scale + guideline_alignment_epsilon
+    _debug(
+        "final score components: "
+        f"ut={ut_score:.4f}*{UT_RATIO}, mypy={mypy_score:.4f}*{MYPY_RATIO}, "
+        f"llm_judge={llm_judge_score:.4f}*{LLM_JUDGE_RATIO}, base={base_score:.4f}"
+        f", cot_scale={cot_scale:.4f}, guideline_epsilon={guideline_alignment_epsilon:.4f}, final={final_score:.4f}"
+    )
+
+    # --- Debug: per-prompt rollout stats ---
+    try:
+        idx = int(details.get("index", -1))
+    except Exception:
+        idx = -1
+
+    group_adv_var = 0.0
+    group_nonzero_adv_var_fraction = 0.0
+    group_exec_score_mean = 0.0
+    group_llm_judge_mean = 0.0
+
+    if idx >= 0:
+        # Serialize per-index rollout aggregation: concurrent reward calls can share the
+        # same list from defaultdict; one thread may flush+pop while another still holds
+        # that list and appends again, then hits KeyError on del.
+        global _ROLLOUT_GROUPS_COMPLETED, _ROLLOUT_GROUPS_NONZERO_ADV_VAR
+        with _ROLLOUT_LOCK:
+            group = _ROLLOUT_GROUP[idx]
+            group.append(float(final_score))
+            code_group = _ROLLOUT_CODE_GROUP[idx]
+            code_group.append(_normalize_code_for_similarity(candidate_code))
+            exec_group = _ROLLOUT_EXEC_GROUP[idx]
+            exec_group.append(float(exec_score))
+            llm_group = _ROLLOUT_LLM_JUDGE_GROUP[idx]
+            llm_group.append(float(llm_judge_score))
+
+            # When we've seen all rollouts for this prompt, log stats once
+            if len(group) >= _ROLLOUT_N:
+                vals = list(group)
+                mean = sum(vals) / len(vals)
+                var = sum((v - mean) ** 2 for v in vals) / len(vals) if len(vals) > 1 else 0.0
+                group_adv_var = float(var)
+                group_exec_score_mean = sum(exec_group[: len(vals)]) / len(vals)
+                group_llm_judge_mean = sum(llm_group[: len(vals)]) / len(vals)
+                _ROLLOUT_GROUPS_COMPLETED += 1
+                if var > 1e-12:
+                    _ROLLOUT_GROUPS_NONZERO_ADV_VAR += 1
+                group_nonzero_adv_var_fraction = _ROLLOUT_GROUPS_NONZERO_ADV_VAR / max(1, _ROLLOUT_GROUPS_COMPLETED)
+                print(
+                    f"[rollout_rewards] index={idx} n={len(vals)} "
+                    f"mean={mean:.4f} var={var:.4f} "
+                    f"min={min(vals):.4f} max={max(vals):.4f} "
+                    f"scores={[round(v, 4) for v in vals]}",
+                    flush=True,
+                )
+                sim = _pairwise_similarity_stats(code_group[: len(vals)])
+                pm = sim["pairwise_mean"]
+                pmin = sim["pairwise_min"]
+                pmax = sim["pairwise_max"]
+                pm_s = f"{pm:.4f}" if isinstance(pm, float) and pm == pm else str(pm)
+                pmin_s = f"{pmin:.4f}" if isinstance(pmin, float) and pmin == pmin else str(pmin)
+                pmax_s = f"{pmax:.4f}" if isinstance(pmax, float) and pmax == pmax else str(pmax)
+                _debug(
+                    f"[rollout_code_similarity] index={idx} n={sim['n']} "
+                    f"unique_normalized={sim['unique_normalized']} "
+                    f"pairwise_mean={pm_s} pairwise_min={pmin_s} pairwise_max={pmax_s} "
+                    f"identical_pair_fraction={sim['identical_pair_fraction']:.4f}"
+                )
+                _wandb_log(
+                    {
+                        f"{_WANDB_LOG_PREFIX}/fraction_groups_nonzero_adv_var": group_nonzero_adv_var_fraction,
+                        f"{_WANDB_LOG_PREFIX}/group_adv_var": group_adv_var,
+                        f"{_WANDB_LOG_PREFIX}/mean_reward_exec_score": group_exec_score_mean,
+                        f"{_WANDB_LOG_PREFIX}/mean_reward_llm_judge_score": group_llm_judge_mean,
+                    }
+                )
+                _ROLLOUT_GROUP.pop(idx, None)
+                _ROLLOUT_CODE_GROUP.pop(idx, None)
+                _ROLLOUT_EXEC_GROUP.pop(idx, None)
+                _ROLLOUT_LLM_JUDGE_GROUP.pop(idx, None)
+    span_high_end, span_impl_end = _span_boundaries_from_solution(solution_str or "", extra_info)
+    span_reward_high, span_reward_impl, span_reward_code = _span_rewards_from_components(
+        exec_score=exec_score,
+        llm_b1=llm_b1,
+        llm_b2=llm_b2,
+        llm_b3=llm_b3,
+    )
+    s1, s2, s3 = _cascade_span_judge_scores(
+        llm_b1 if llm_b1 >= 0 else 0,
+        llm_b2 if llm_b2 >= 0 else 0,
+        llm_b3 if llm_b3 >= 0 else 0,
+    )
+    _debug(
+        "span rewards: "
+        f"s1={s1:.0f} s2={s2:.0f} s3={s3:.0f} exec={exec_score:.4f} lambda={LLM_JUDGE_RATIO:.4f} "
+        f"high={span_reward_high:.4f} impl={span_reward_impl:.4f} code={span_reward_code:.4f} "
+        f"ends=({span_high_end},{span_impl_end})"
+    )
+
+    _log_reward_components(
+        index=idx,
+        functionality_passed=functionality_passed,
+        functionality_total=functionality_total,
+        security_passed=security_passed,
+        security_total=security_total,
+        ut_score=float(ut_score),
+        mypy_score=float(mypy_score),
+        exec_score=float(exec_score),
+        llm_judge_score=float(llm_judge_score),
+        llm_b1=int(llm_b1),
+        llm_b2=int(llm_b2),
+        llm_b3=int(llm_b3),
+        final_score=float(final_score),
+    )
+
+    return _reward_result(
+        final_score,
+        ut_score=float(ut_score),
+        exec_score=float(exec_score),
+        llm_judge_score=float(llm_judge_score),
+        llm_judge_high_level_security_relevance=int(llm_b1),
+        llm_judge_implementation_supports_high_level=int(llm_b2),
+        llm_judge_code_implements_guidelines=int(llm_b3),
+        guideline_alignment_epsilon=float(guideline_alignment_epsilon),
+        group_adv_var=float(group_adv_var),
+        fraction_groups_nonzero_adv_var=float(group_nonzero_adv_var_fraction),
+        mean_reward_exec_score=float(group_exec_score_mean),
+        mean_reward_llm_judge_score=float(group_llm_judge_mean),
+        span_reward_high=float(span_reward_high),
+        span_reward_impl=float(span_reward_impl),
+        span_reward_code=float(span_reward_code),
+        span_high_end=int(span_high_end),
+        span_impl_end=int(span_impl_end),
+        **unittest_fields,
+    )
+
+
+def _to_sequence(value: Any) -> list[Any]:
+    if isinstance(value, list):
+        return value
+    if value is None:
+        return []
+    try:
+        return list(value)
+    except Exception:
+        return [value]
+
+
+def compute_score(
+    data_source=None,
+    solution_str=None,
+    ground_truth=None,
+    extra_info=None,
+    *,
+    data_sources=None,
+    solution_strs=None,
+    ground_truths=None,
+    extra_infos=None,
+):
+    # Batch interface used by reward_manager=batch
+    if data_sources is not None or solution_strs is not None or ground_truths is not None:
+        sources = _to_sequence(data_sources)
+        solutions = _to_sequence(solution_strs)
+        truths = _to_sequence(ground_truths)
+        extras = _to_sequence(extra_infos) if extra_infos is not None else [None] * len(solutions)
+
+        n = len(solutions)
+        if len(sources) != n or len(truths) != n:
+            raise ValueError(
+                "Batch reward inputs length mismatch: "
+                f"len(data_sources)={len(sources)}, len(solution_strs)={n}, len(ground_truths)={len(truths)}"
+            )
+        if len(extras) != n:
+            extras = (extras + [None] * n)[:n]
+
+        _debug(f"batch reward scoring: {n} samples")
+        scores = [
+            _compute_score_single(
+                data_source=sources[i],
+                solution_str=solutions[i],
+                ground_truth=truths[i],
+                extra_info=extras[i],
+            )
+            for i in range(n)
+        ]
+        print(
+            f"batch reward scores: {[s['score'] for s in scores]}",
+            file=sys.stderr,
+            flush=True,
+        )
+        return scores
+
+    # Scalar interface used by reward_manager=naive
+    return _compute_score_single(
+        data_source=data_source,
+        solution_str=solution_str,
+        ground_truth=ground_truth,
+        extra_info=extra_info,
+    )

@@ -1,0 +1,61 @@
+[
+ {
+  "hex": "0b",
+  "arguments": "{'uid': 'user_abc', 'sig': '4E99A098D57CBF9C6F67F176106769FB'}",
+  "family": [
+   "case_change"
+  ]
+ },
+ {
+  "hex": "e90b",
+  "arguments": "{'uid': 'user_abc', 'sig': 'x4e99a098d57cbf9c6f67f176106769fb'}",
+  "family": [
+   "truncation",
+   "wrapping"
+  ]
+ },
+ {
+  "hex": "0b01",
+  "arguments": "{'uid': 'user_abc', 'sig': '12e4b2f76650484030e4d447d0b5f723'}",
+  "family": [
+   "cross_user_signature"
+  ]
+ },
+ {
+  "hex": "eb02",
+  "arguments": "{'uid': 'user_abc', 'sig': ''}",
+  "family": []
+ },
+ {
+  "hex": "0b21",
+  "arguments": "{'uid': 'user_abc', 'sig': '4e99a098d57cbf9c6f67f176106769f'}",
+  "family": [
+   "truncation"
+  ]
+ },
+ {
+  "hex": "119a",
+  "arguments": "{'uid': 'user_abc', 'sig': ' 4e99a098d57cbf9c6f67f176106769fb'}",
+  "family": [
+   "truncation",
+   "whitespace"
+  ]
+ },
+ {
+  "hex": "e9e932",
+  "arguments": "{'uid': 'user_abc', 'sig': '\\x004e99a098d57cbf9c6f67f176106769fb'}",
+  "family": [
+   "empty_or_null",
+   "truncation"
+  ]
+ },
+ {
+  "hex": "21210300310b",
+  "arguments": "{'uid': 'user_abc', 'sig': '\\x004e99a098d57cbf9c6f67f176106769fbx'}",
+  "family": [
+   "empty_or_null",
+   "truncation",
+   "wrapping"
+  ]
+ }
+]

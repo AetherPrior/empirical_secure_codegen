@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "3b",
+  "arguments": "{'expr': '(1).__class__'}",
+  "family": [
+   "attribute_access"
+  ]
+ }
+]

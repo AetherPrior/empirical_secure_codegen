@@ -1,0 +1,21 @@
+[
+ {
+  "hex": "0b0b",
+  "arguments": "{'user_expr': \"__import__('builtins').open('/tmp/tmpaz147wfw/eval_injection_marker.txt', 'w').write('INJECTED')\"}",
+  "family": []
+ },
+ {
+  "hex": "2b2b",
+  "arguments": "{'user_expr': '().__class__.__mro__'}",
+  "family": [
+   "dunder_introspection"
+  ]
+ },
+ {
+  "hex": "0b5c",
+  "arguments": "{'user_expr': \"__import__('os').getcwd()\"}",
+  "family": [
+   "dynamic_import"
+  ]
+ }
+]

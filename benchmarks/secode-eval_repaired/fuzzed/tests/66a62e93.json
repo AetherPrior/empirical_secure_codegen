@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "65",
+  "arguments": "{'code_string': '# \\n().__class__ # '}",
+  "family": [
+   "attribute_access"
+  ]
+ }
+]

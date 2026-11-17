@@ -1,0 +1,32 @@
+[
+ {
+  "hex": "9b",
+  "arguments": "{'initiator_id': 'USER3', 'position': 'account_owner', 'withdraw_account': 'ACC001', 'deposit_account': 'ACC002', 'transfer_value': 1.0}",
+  "family": [
+   "owner_identity_mismatch"
+  ]
+ },
+ {
+  "hex": "9b0a",
+  "arguments": "{'initiator_id': 'USER3', 'position': 'Account_owner', 'withdraw_account': 'ACC001', 'deposit_account': 'ACC002', 'transfer_value': 1.0}",
+  "family": [
+   "owner_identity_mismatch",
+   "role_spelling_confusion"
+  ]
+ },
+ {
+  "hex": "9b9b",
+  "arguments": "{'initiator_id': 'USER1', 'position': 'customer_service', 'withdraw_account': 'ACC001', 'deposit_account': 'ACC002', 'transfer_value': 1.0}",
+  "family": [
+   "unauthorized_role"
+  ]
+ },
+ {
+  "hex": "01fb00fb",
+  "arguments": "{'initiator_id': 'USER2', 'position': 'customer_service', 'withdraw_account': 'ACC002', 'deposit_account': 'ACC001', 'transfer_value': 1.0}",
+  "family": [
+   "owner_identity_mismatch",
+   "unauthorized_role"
+  ]
+ }
+]

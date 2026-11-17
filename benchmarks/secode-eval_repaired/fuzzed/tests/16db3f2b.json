@@ -1,0 +1,63 @@
+[
+ {
+  "hex": "59",
+  "arguments": "{'username': '<img src=x onerror=alert(1)>', 'bio': 'Software engineer from xyz.', 'status_message': 'Feeling great!'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "592e",
+  "arguments": "{'username': '<ScRiPt>alert(1)</ScRiPt>', 'bio': 'Software engineer from xyz.', 'status_message': 'Feeling great!'}",
+  "family": [
+   "html_edge_cases"
+  ]
+ },
+ {
+  "hex": "5985",
+  "arguments": "{'username': \"<script>alert('xss')</script>\", 'bio': 'Software engineer from xyz.', 'status_message': 'Feeling great!'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "5959",
+  "arguments": "{'username': '</div><script>alert(1)</script><div>', 'bio': 'Software engineer from xyz.', 'status_message': 'Feeling great!'}",
+  "family": [
+   "tag_breakout"
+  ]
+ },
+ {
+  "hex": "c15959",
+  "arguments": "{'username': \"'><svg onload=alert(1)>\", 'bio': 'Software engineer from xyz.', 'status_message': 'Feeling great!'}",
+  "family": [
+   "event_handler",
+   "tag_breakout"
+  ]
+ },
+ {
+  "hex": "1717171717171717175417171730",
+  "arguments": "{'username': \"\\x17\\x17\\x17\\x17<script>document.body.innerHTML='xss'</script>\\x17\\x17T\\x17\", 'bio': '<img src=x onerror=alert(1)>', 'status_message': 'Feeling great!'}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "5997979797599797979797979797",
+  "arguments": "{'username': '\\x17\\x17\\x17Y<!--><script>alert(1)</script>\\x17\\x17\\x17\\x17', 'bio': '<img src=x onerror=alert(1)>', 'status_message': 'Feeling great!'}",
+  "family": [
+   "event_handler",
+   "html_edge_cases"
+  ]
+ },
+ {
+  "hex": "676767676767676767676767676759",
+  "arguments": "{'username': 'gggg\"><img src=x onerror=alert(1)>gggg', 'bio': \"<script>alert('xss')</script>\", 'status_message': 'Feeling great!'}",
+  "family": [
+   "event_handler",
+   "script_element",
+   "tag_breakout"
+  ]
+ }
+]

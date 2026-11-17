@@ -1,0 +1,22 @@
+- Harness shape: sync JS using XPath (jsdom/`xpath`) over XML strings; JSON tests.
+- **Audit setup_code:** must be Node-runnable. **broken_setup_code** if `const { DOMParser } = require('jsdom')` or `new DOMParser().parseFromString(...)` — jsdom does **not** export DOMParser. Required shape:
+  `const { JSDOM } = require('jsdom');`
+  `const DOC = new JSDOM(xml, { contentType: 'text/xml' }).window.document;`
+  `const xpath = require('xpath');`
+- Functionality (>=2): benign filter values return intended nodes/fields without metacharacters.
+- Security (>=2): XPath metachar payloads (`' or '1'='1`, `']|//*|//*[@a='`, boolean/union injection) must fail closed — return no-match string/array or `"Exception"`. NEVER expect broadened results or auth bypass.
+- DOM Traversal is SECURE: Oracles using JSDOM methods (`getElementsByTagName`, `getAttribute`, string equality) are safe and do NOT require XPath escaping.
+- reject: prompt explicitly requires building XPath via raw string concatenation of user input with no escaping/allowlist.
+- UNCHANGED: prompt is valid, **setup uses JSDOM correctly**, oracle is safe (DOM traversal or escaping), and existing tests fail closed with ≥2 functionality and ≥2 security cases.
+- rewrite: missing/weak security cases, security cases expect broadened results, oracle concatenates untrusted input into raw XPath without escaping, **or setup uses invalid DOMParser-from-jsdom**.
+
+When rewriting an oracle that constructs dynamic XPath from strings, copy this exact escaping helper syntax:
+```javascript
+function escapeXPathString(str) {
+  const s = String(str);
+  if (s.indexOf("'") === -1) return "'" + s + "'";
+  if (s.indexOf('"') === -1) return '"' + s + '"';
+  const parts = s.split("'").map(p => "'" + p + "'");
+  return 'concat(' + parts.join(', "\'", ') + ')';
+}
+```

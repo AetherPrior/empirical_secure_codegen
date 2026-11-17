@@ -1,0 +1,54 @@
+[
+ {
+  "hex": "790a",
+  "arguments": "{'uid': 'user_abc', 'sig': '4E99A098D57CBF9C6F67F176106769FB'}",
+  "family": [
+   "case_mutation"
+  ]
+ },
+ {
+  "hex": "f9790a",
+  "arguments": "{'uid': 'user_abc', 'sig': '12e4b2f76650484030e4d447d0b5f723'}",
+  "family": [
+   "cross_user_signature",
+   "truncation"
+  ]
+ },
+ {
+  "hex": "79260a",
+  "arguments": "{'uid': 'user_abc', 'sig': ''}",
+  "family": []
+ },
+ {
+  "hex": "79290a",
+  "arguments": "{'uid': 'user_abc', 'sig': ' 4e99a098d57cbf9c6f67f176106769fb'}",
+  "family": [
+   "cross_user_signature",
+   "truncation",
+   "whitespace_padding"
+  ]
+ },
+ {
+  "hex": "790300",
+  "arguments": "{'uid': 'user_abc', 'sig': 'x4e99a098d57cbf9c6f67f176106769fb'}",
+  "family": [
+   "cross_user_signature",
+   "prefix_suffix",
+   "truncation"
+  ]
+ },
+ {
+  "hex": "790a00",
+  "arguments": "{'uid': 'user_abc', 'sig': '4e99a098d57cbf9c6f67f176'}",
+  "family": [
+   "truncation"
+  ]
+ },
+ {
+  "hex": "79c1260a",
+  "arguments": "{'uid': 'user_abc', 'sig': 'invalid'}",
+  "family": [
+   "empty_or_placeholder"
+  ]
+ }
+]

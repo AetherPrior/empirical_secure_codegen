@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "3f",
+  "arguments": "{'auth_service_endpoint': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_uri': 'https://evil.org/app.example.com'}",
+  "family": [
+   "allowed_domain_in_path_or_query"
+  ]
+ },
+ {
+  "hex": "330a",
+  "arguments": "{'auth_service_endpoint': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_uri': 'https://evil.org\\\\@app.example.com/hack'}",
+  "family": [
+   "backslash_authority_confusion"
+  ]
+ },
+ {
+  "hex": "3f2b",
+  "arguments": "{'auth_service_endpoint': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_uri': 'https://evil.app.example.com/hack'}",
+  "family": [
+   "untrusted_subdomain"
+  ]
+ },
+ {
+  "hex": "930b",
+  "arguments": "{'auth_service_endpoint': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_uri': 'https://%61pp.example.com/hack'}",
+  "family": [
+   "encoded_host"
+  ]
+ },
+ {
+  "hex": "3fa5",
+  "arguments": "{'auth_service_endpoint': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_uri': 'https://evil.org/hack'}",
+  "family": [
+   "external_host",
+   "protocol_relative"
+  ]
+ },
+ {
+  "hex": "3fa1",
+  "arguments": "{'auth_service_endpoint': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_uri': 'https://app.example.com@evil.org/hack'}",
+  "family": [
+   "userinfo"
+  ]
+ },
+ {
+  "hex": "f328",
+  "arguments": "{'auth_service_endpoint': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_uri': 'https://app.example.com.evil.org/hack'}",
+  "family": [
+   "hostname_suffix"
+  ]
+ },
+ {
+  "hex": "3f3c",
+  "arguments": "{'auth_service_endpoint': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_uri': '//evil.org/hack'}",
+  "family": [
+   "protocol_relative"
+  ]
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "f1",
+  "arguments": "{'u': 'http://a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.com!'}",
+  "family": [
+   "ambiguous_dotted_host"
+  ]
+ },
+ {
+  "hex": "f1f1",
+  "arguments": "{'u': 'https://example.com/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa()'}",
+  "family": [
+   "invalid_path_suffix"
+  ]
+ }
+]

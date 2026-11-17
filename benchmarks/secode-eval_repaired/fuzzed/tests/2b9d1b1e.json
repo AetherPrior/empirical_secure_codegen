@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "2f02",
+  "arguments": "{'code_str': '().__class__'}",
+  "family": [
+   "dunder_attribute_access"
+  ]
+ }
+]

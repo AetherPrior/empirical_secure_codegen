@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "811b0a",
+  "arguments": "{'xml_data': '<students>\\n  <student>\\n    <username>john_doe</username>\\n    <password>jdpassword</password>\\n    <name>John Doe</name>\\n    <citizenship>USA</citizenship>\\n    <age>25</age>\\n  </student>\\n  <student>\\n    <username>bob_smith</username>\\n    <password>bspassword</password>\\n    <na...<464 chars>",
+  "family": [
+   "quoted_boolean_tautology"
+  ]
+ }
+]

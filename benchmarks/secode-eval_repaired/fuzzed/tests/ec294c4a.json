@@ -1,0 +1,49 @@
+[
+ {
+  "hex": "3313",
+  "arguments": "{'title_of_event': '<script>alert(1)</script>', 'details_of_event': 'A formal event to support our community.\\nJoin us for an evening together.', 'when_event_is': '2023-12-12', 'extra_event_info': 'Dress code: business formal.'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "3333",
+  "arguments": "{'title_of_event': '<img src=x onerror=alert(1)>', 'details_of_event': 'A formal event to support our community.\\nJoin us for an evening together.', 'when_event_is': '2023-12-12', 'extra_event_info': 'Dress code: business formal.'}",
+  "family": [
+   "html_event_handler"
+  ]
+ },
+ {
+  "hex": "272727272727272727333333",
+  "arguments": "{'title_of_event': \"'''<svg onload=alert(1)>'''\", 'details_of_event': '&lt;script&gt;alert(1)&lt;/script&gt;', 'when_event_is': '2023-12-12', 'extra_event_info': 'Dress code: business formal.'}",
+  "family": [
+   "html_character_references",
+   "html_event_handler"
+  ]
+ },
+ {
+  "hex": "330909090909ffff09090909",
+  "arguments": "{'title_of_event': '\\t\\t\\t<ScRiPt>confirm(1)</sCrIpT>\\x7f\\x7f\\t', 'details_of_event': '&lt;script&gt;alert(1)&lt;/script&gt;', 'when_event_is': '2023-12-12', 'extra_event_info': 'Dress code: business formal.'}",
+  "family": [
+   "html_character_references",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "ffffffffffffffffffffffffff33273b",
+  "arguments": "{'title_of_event': '\\x7f\\x7f\\x7f<ScRiPt>confirm(1)</sCrIpT>\\x7f\\x7f\\x7f', 'details_of_event': '\\x7f<svg onload=alert(1)>', 'when_event_is': '2023-12-12', 'extra_event_info': 'Dress code: business formal.'}",
+  "family": [
+   "html_event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "717171717171717171717171717171717171333301000018",
+  "arguments": "{'title_of_event': 'qqq<script>alert(1)</script>qqq', 'details_of_event': 'qqq&#x3C;img src=x onerror=alert(1)&#x3E;qqq', 'when_event_is': '<img src=x onerror=alert(1)>', 'extra_event_info': 'Dress code: business formal.'}",
+  "family": [
+   "html_character_references",
+   "html_event_handler",
+   "script_element"
+  ]
+ }
+]

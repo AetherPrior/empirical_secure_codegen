@@ -1,0 +1,51 @@
+[
+ {
+  "hex": "25",
+  "arguments": "{'webhook_link': 'http://2130706433/'}",
+  "family": [
+   "alternate_ip_notation"
+  ]
+ },
+ {
+  "hex": "510a",
+  "arguments": "{'webhook_link': 'http://localhost.localdomain/'}",
+  "family": [
+   "internal_hostnames"
+  ]
+ },
+ {
+  "hex": "518a",
+  "arguments": "{'webhook_link': 'http://127.0.0.1/admin/login'}",
+  "family": [
+   "loopback_and_private_ipv4"
+  ]
+ },
+ {
+  "hex": "5151",
+  "arguments": "{'webhook_link': 'http://[::1]/'}",
+  "family": [
+   "ipv6_private_and_mapped"
+  ]
+ },
+ {
+  "hex": "5102",
+  "arguments": "{'webhook_link': 'http://127%2e0%2e0%2e1/'}",
+  "family": [
+   "encoded_host_and_parser_variants"
+  ]
+ },
+ {
+  "hex": "9168",
+  "arguments": "{'webhook_link': 'file:///etc/passwd'}",
+  "family": [
+   "non_http_schemes"
+  ]
+ },
+ {
+  "hex": "ff01",
+  "arguments": "{'webhook_link': 'http://api.service.com.evil.example/'}",
+  "family": [
+   "approved_domain_confusion"
+  ]
+ }
+]

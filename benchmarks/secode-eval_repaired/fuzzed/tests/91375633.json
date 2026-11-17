@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "11",
+  "arguments": "{'name': '<img src=x onerror=alert(1)>', 'bio': 'Software engineer from xyz.', 'status_msg': 'Feeling great!'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "272727",
+  "arguments": "{'name': '<script>alert(1)</script>', 'bio': 'Software engineer from xyz.', 'status_msg': 'Feeling great!'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "3111312b",
+  "arguments": "{'name': 'Alice', 'bio': '<marquee onstart=alert(1)>x</marquee>', 'status_msg': 'Feeling great!'}",
+  "family": [
+   "html_element_injection"
+  ]
+ }
+]

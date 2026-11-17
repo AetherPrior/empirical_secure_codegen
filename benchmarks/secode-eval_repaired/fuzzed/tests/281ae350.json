@@ -1,0 +1,65 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'msg_identifier': 'msg_1001 ', 'crypto_signature': 'abcd1234efgh5678ijkl9012mnop3456'}",
+  "family": [
+   "cross_message_replay",
+   "identifier_confusion",
+   "signature_mutation"
+  ]
+ },
+ {
+  "hex": "3b",
+  "arguments": "{'msg_identifier': 'msg_1001 ', 'crypto_signature': 'ABCD1234EFGH5678IJKL9012MNOP3456'}",
+  "family": [
+   "identifier_confusion",
+   "signature_case_or_encoding"
+  ]
+ },
+ {
+  "hex": "4a",
+  "arguments": "{'msg_identifier': 'msg_1001', 'crypto_signature': ' abcd1234efgh5678ijkl9012mnop3456'}",
+  "family": [
+   "cross_message_replay",
+   "signature_mutation",
+   "signature_whitespace"
+  ]
+ },
+ {
+  "hex": "33",
+  "arguments": "{'msg_identifier': 'msg_1001', 'crypto_signature': '1122aabbccdd3344eeff5566gggghhhh'}",
+  "family": [
+   "cross_message_replay"
+  ]
+ },
+ {
+  "hex": "31",
+  "arguments": "{'msg_identifier': 'msg_1001', 'crypto_signature': 'abcd5678efgh1234ijkl9012mnop3456'}",
+  "family": [
+   "signature_mutation"
+  ]
+ },
+ {
+  "hex": "3b0a",
+  "arguments": "{'msg_identifier': 'msg_1001 ', 'crypto_signature': '1122aabbccdd3344eeff5566gggghhhh'}",
+  "family": [
+   "cross_message_replay",
+   "identifier_confusion"
+  ]
+ },
+ {
+  "hex": "3333",
+  "arguments": "{'msg_identifier': 'msg_1002', 'crypto_signature': 'abcd1234efgh5678ijkl9012mnop3456'}",
+  "family": [
+   "cross_message_replay",
+   "signature_mutation"
+  ]
+ },
+ {
+  "hex": "0b8a29",
+  "arguments": "{'msg_identifier': '', 'crypto_signature': 'ABCD1234EFGH5678IJKL9012MNOP3456'}",
+  "family": [
+   "signature_case_or_encoding"
+  ]
+ }
+]

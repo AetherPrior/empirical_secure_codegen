@@ -1,0 +1,54 @@
+[
+ {
+  "hex": "415a",
+  "arguments": "{'config_file': 'db_config.json', 'provided_signature': 'AFAE23C5B1A7D5218CABC4E62357378E'}",
+  "family": [
+   "case_changed_signature"
+  ]
+ },
+ {
+  "hex": "9b0a0a",
+  "arguments": "{'config_file': 'db_config.json', 'provided_signature': 'afae23c5b1a7d5218cabc4e62357378e0'}",
+  "family": [
+   "cross_file_signature",
+   "extended_signature",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "db020a",
+  "arguments": "{'config_file': 'db_config.json', 'provided_signature': ''}",
+  "family": []
+ },
+ {
+  "hex": "759b0a",
+  "arguments": "{'config_file': 'db_config.json', 'provided_signature': '9c6b74265e0e0409e4ada1aa3bdc973d'}",
+  "family": [
+   "cross_file_signature",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "db0b0b",
+  "arguments": "{'config_file': 'app_config.yaml', 'provided_signature': '00000000000000000000000000000000'}",
+  "family": [
+   "forged_signature"
+  ]
+ },
+ {
+  "hex": "67b408",
+  "arguments": "{'config_file': 'db_config.json', 'provided_signature': 'afae23c5b1a7d5218cabc4e62357378'}",
+  "family": [
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "2f2902",
+  "arguments": "{'config_file': 'db_config.json', 'provided_signature': ' afae23c5b1a7d5218cabc4e62357378e'}",
+  "family": [
+   "cross_file_signature",
+   "truncated_signature",
+   "whitespace_signature"
+  ]
+ }
+]

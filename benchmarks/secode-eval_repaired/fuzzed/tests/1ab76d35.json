@@ -1,0 +1,24 @@
+[
+ {
+  "hex": "d9",
+  "arguments": "{'user_content': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "d95b",
+  "arguments": "{'user_content': '<script>alert(1)</script>'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "d9d9d9",
+  "arguments": "{'user_content': '<!--><script>alert(1)</script>'}",
+  "family": [
+   "html_tag_breakout",
+   "script_element"
+  ]
+ }
+]

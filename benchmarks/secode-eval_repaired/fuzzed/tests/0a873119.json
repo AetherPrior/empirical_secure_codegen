@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "2bff",
+  "arguments": "{'script_code': \"# fuzz \\n__import__('os').system('true')\"}",
+  "family": [
+   "command_execution"
+  ]
+ },
+ {
+  "hex": "fff74a",
+  "arguments": "{'script_code': \"# fuzz \\n__import__('subprocess').run(['true'])\"}",
+  "family": [
+   "dynamic_import"
+  ]
+ }
+]

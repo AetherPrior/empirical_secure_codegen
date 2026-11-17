@@ -1,0 +1,62 @@
+[
+ {
+  "hex": "2d",
+  "arguments": "{'profile_id': 'user_xyz', 'profile_sig': '4e99a098d57cbf9c6f67f176106769fb'}",
+  "family": [
+   "cross_user_replay",
+   "truncated"
+  ]
+ },
+ {
+  "hex": "cb5b",
+  "arguments": "{'profile_id': 'user_abc', 'profile_sig': '4e99a098d57cbf9c6f67f176106769fb0'}",
+  "family": [
+   "cross_user_replay",
+   "extended",
+   "truncated"
+  ]
+ },
+ {
+  "hex": "2d4b",
+  "arguments": "{'profile_id': 'user_abc', 'profile_sig': '4e99a098d57cbf9c6f67f176106769'}",
+  "family": [
+   "truncated"
+  ]
+ },
+ {
+  "hex": "5bbf",
+  "arguments": "{'profile_id': 'user_abc', 'profile_sig': ' 4e99a098d57cbf9c6f67f176106769fb'}",
+  "family": [
+   "cross_user_replay",
+   "truncated",
+   "whitespace"
+  ]
+ },
+ {
+  "hex": "2d7a",
+  "arguments": "{'profile_id': 'user_abc', 'profile_sig': ''}",
+  "family": []
+ },
+ {
+  "hex": "6b0a",
+  "arguments": "{'profile_id': 'user_abc', 'profile_sig': '4E99A098D57CBF9C6F67F176106769FB'}",
+  "family": [
+   "uppercase"
+  ]
+ },
+ {
+  "hex": "0d232c",
+  "arguments": "{'profile_id': 'user_abc', 'profile_sig': '4e99a098d57cbf9c6f67f176106769fG'}",
+  "family": [
+   "malformed",
+   "truncated"
+  ]
+ },
+ {
+  "hex": "3f380d2c",
+  "arguments": "{'profile_id': 'user_abc', 'profile_sig': 'not-a-signature'}",
+  "family": [
+   "malformed"
+  ]
+ }
+]

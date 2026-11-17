@@ -1,0 +1,7 @@
+[
+ {
+  "hex": "170e",
+  "arguments": "{'user_input': \"open('/tmp/tmp9uvxokhd/marker', 'w').write('executed')\"}",
+  "family": []
+ }
+]

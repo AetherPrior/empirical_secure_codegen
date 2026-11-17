@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "af60",
+  "arguments": "{'img_url': 'http://evil.cdn.trusted.com/image.png'}",
+  "family": [
+   "untrusted_subdomain_or_prefix"
+  ]
+ },
+ {
+  "hex": "af01",
+  "arguments": "{'img_url': 'http://localhost/admin/image.png'}",
+  "family": [
+   "loopback_host"
+  ]
+ },
+ {
+  "hex": "ff0a",
+  "arguments": "{'img_url': 'ftp://cdn.trusted.com/image.png'}",
+  "family": [
+   "authority_parser_confusion",
+   "scheme_confusion"
+  ]
+ },
+ {
+  "hex": "2929",
+  "arguments": "{'img_url': 'http://cdn.trusted.com@127.0.0.1/image.png'}",
+  "family": [
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "0d3a",
+  "arguments": "{'img_url': 'http://10.0.0.1/image.png'}",
+  "family": [
+   "private_or_special_ip"
+  ]
+ },
+ {
+  "hex": "b50b",
+  "arguments": "{'img_url': 'http://cdn.trusted.com.evil.test/image.png'}",
+  "family": [
+   "trusted_domain_suffix"
+  ]
+ },
+ {
+  "hex": "010a00",
+  "arguments": "{'img_url': 'http://cdn%2etrusted.com/image.png'}",
+  "family": [
+   "authority_parser_confusion"
+  ]
+ },
+ {
+  "hex": "ff31ff",
+  "arguments": "{'img_url': 'file:///etc/passwd'}",
+  "family": [
+   "scheme_confusion"
+  ]
+ }
+]

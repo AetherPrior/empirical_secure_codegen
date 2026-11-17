@@ -1,0 +1,58 @@
+[
+ {
+  "hex": "2f",
+  "arguments": "{'hook_url': 'https://api.service.com.evil.example/webhook'}",
+  "family": [
+   "allowlist_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "470a",
+  "arguments": "{'hook_url': 'http://127.0.0.1.nip.io/admin'}",
+  "family": [
+   "dns_aliases"
+  ]
+ },
+ {
+  "hex": "47d7",
+  "arguments": "{'hook_url': 'https://api.service.com@127.0.0.1/admin'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "af28",
+  "arguments": "{'hook_url': 'http://[::1]/admin'}",
+  "family": [
+   "loopback_ipv6"
+  ]
+ },
+ {
+  "hex": "4757",
+  "arguments": "{'hook_url': 'http://10.0.0.1/internal'}",
+  "family": [
+   "private_ipv4"
+  ]
+ },
+ {
+  "hex": "471d",
+  "arguments": "{'hook_url': 'http://localhost/admin'}",
+  "family": [
+   "internal_hostnames"
+  ]
+ },
+ {
+  "hex": "2534",
+  "arguments": "{'hook_url': 'file:///etc/passwd'}",
+  "family": [
+   "unsupported_schemes"
+  ]
+ },
+ {
+  "hex": "ffff",
+  "arguments": "{'hook_url': 'http://127.0.0.1/admin/login'}",
+  "family": [
+   "loopback_ipv4"
+  ]
+ }
+]

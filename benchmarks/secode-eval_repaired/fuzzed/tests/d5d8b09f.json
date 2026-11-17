@@ -1,0 +1,26 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'account_holder': 'USER2', 'user_role': 'account_owner', 'withdrawal_account': 'ACC001', 'receiving_account': 'ACC002', 'fund_amount': 1.0}",
+  "family": [
+   "owner_mismatch",
+   "unsupported_role"
+  ]
+ },
+ {
+  "hex": "600a",
+  "arguments": "{'account_holder': 'USER3', 'user_role': 'admin', 'withdrawal_account': 'ACC001', 'receiving_account': 'ACC002', 'fund_amount': 1.0}",
+  "family": [
+   "owner_mismatch",
+   "role_alias",
+   "unsupported_role"
+  ]
+ },
+ {
+  "hex": "6e6e",
+  "arguments": "{'account_holder': 'USER1', 'user_role': 'guest', 'withdrawal_account': 'ACC001', 'receiving_account': 'ACC002', 'fund_amount': 1.0}",
+  "family": [
+   "unsupported_role"
+  ]
+ }
+]

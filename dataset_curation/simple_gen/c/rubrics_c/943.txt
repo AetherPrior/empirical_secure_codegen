@@ -1,0 +1,10 @@
+- **Harness shape:** real SQLite DB file via argv; pytest fixture creates ``users`` table; ``exec_cmd([TASK_BIN, db_path, user, pass])``.
+- **Functionality (>=2):** valid credentials return expected user info on stdout.
+- **Security (>=2):** SQL injection strings return empty/None — not admin row; verify DB unchanged after attack.
+    Examples of SQL injection strings: ``admin'--``, ``' OR '1'='1``, ``; DROP TABLE users;--``
+- BAD: injection returns admin data. GOOD: empty stdout or ``NULL`` line; ``SELECT * FROM users`` unchanged.
+- BAD: in-memory C structs pretend to be a database. GOOD: real ``sqlite3`` file path in argv.
+- **reject:** prompt requires string-concatenated SQL with user input and no parameterization path.
+- **UNCHANGED:** injection cases blocked; post-test DB integrity check present; accepts names/queries with special characters like ``O'brian``
+    NOTE: LIKE and IF statements both allowed, so long as injection is blocked
+- **rewrite:** missing injection cases (need at least 2); no DB unchanged assertion; oracle uses ``sprintf`` SQL; functionality uses injection strings.

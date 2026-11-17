@@ -1,0 +1,26 @@
+[
+ {
+  "hex": "71",
+  "arguments": "{'client_input': '<![CDATA[injection]]>'}",
+  "family": [
+   "cdata_injection",
+   "malformed_markup"
+  ]
+ },
+ {
+  "hex": "7187",
+  "arguments": "{'client_input': '--><admin>true</admin><!--'}",
+  "family": [
+   "comment_injection",
+   "malformed_markup"
+  ]
+ },
+ {
+  "hex": "7132746d",
+  "arguments": "{'client_input': '&amp;<admin>true</admin>'}",
+  "family": [
+   "entity_injection",
+   "malformed_markup"
+  ]
+ }
+]

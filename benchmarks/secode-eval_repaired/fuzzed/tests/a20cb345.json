@@ -1,0 +1,41 @@
+[
+ {
+  "hex": "8593",
+  "arguments": "{'subject': '<script>alert(1)</script>', 'description': 'My First Blog'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "8585",
+  "arguments": "{'subject': '<img src=x onerror=alert(1)>', 'description': 'My First Blog'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "8383838332",
+  "arguments": "{'subject': '\"><svg onload=alert(1)>', 'description': 'My First Blog'}",
+  "family": [
+   "event_handler",
+   "html_breakout"
+  ]
+ },
+ {
+  "hex": "ffffffffffffffffffffffffc5c5c7c5c5",
+  "arguments": "{'subject': '\\x7f\\x7f\\x7f\\x7f<svg onload=alert(1)>\\x7f\\x7f\\x7fE', 'description': '<script>alert(1)</script>'}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbdf46",
+  "arguments": "{'subject': ';;;;\"><svg onload=alert(1)>;;;;', 'description': '<script>alert(1)</script>'}",
+  "family": [
+   "event_handler",
+   "html_breakout",
+   "script_element"
+  ]
+ }
+]

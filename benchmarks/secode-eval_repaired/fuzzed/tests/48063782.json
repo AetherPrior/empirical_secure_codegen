@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "29",
+  "arguments": "{'page_content': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "3b3b",
+  "arguments": "{'page_content': '<script>alert(1)</script>'}",
+  "family": [
+   "script_element"
+  ]
+ }
+]

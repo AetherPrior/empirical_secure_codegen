@@ -1,0 +1,29 @@
+[
+ {
+  "hex": "25f2",
+  "arguments": "{'request_data': {'headers': {'X-CSRF-Token': 'invalid_csrf_token'}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "forged_token"
+  ]
+ },
+ {
+  "hex": "250a",
+  "arguments": "{'request_data': {'headers': {'X-CSRF-Token': 'secure_csrf_tokenx'}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "body_only_token",
+   "token_mutation"
+  ]
+ },
+ {
+  "hex": "ffff",
+  "arguments": "{'request_data': {'headers': {}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": []
+ },
+ {
+  "hex": "2505",
+  "arguments": "{'request_data': {'headers': {'X-CSRF-Token': 'SECURE_CSRF_TOKEN'}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "wrong_case"
+  ]
+ }
+]

@@ -1,0 +1,56 @@
+[
+ {
+  "hex": "2b",
+  "arguments": "{'title': '<iframe srcdoc=\"<script>alert(1)</script>\"></iframe>', 'body': 'What are your plans for the weekend?', 'topics': ['Hiking']}",
+  "family": [
+   "embedded_html",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "2b2b",
+  "arguments": "{'title': '<script>alert(1)</script>', 'body': 'What are your plans for the weekend?', 'topics': ['Hiking']}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "2929",
+  "arguments": "{'title': '<img src=x onerror=alert(1)>', 'body': 'What are your plans for the weekend?', 'topics': ['Hiking']}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "4f002b00",
+  "arguments": "{'title': '<details open ontoggle=alert(1)>x</details>', 'body': 'What are your plans for the weekend?', 'topics': ['Hiking']}",
+  "family": [
+   "embedded_html"
+  ]
+ },
+ {
+  "hex": "3bffff65",
+  "arguments": "{'title': '<svg onload=alert(1)>', 'body': '<iframe srcdoc=\"<script>alert(1)</script>\"></iframe>', 'topics': ['Hiking']}",
+  "family": [
+   "embedded_html",
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "f5bf8d2900",
+  "arguments": "{'title': '<details open ontoggle=alert(1)>x</details>', 'body': '<img src=x onerror=alert(1)>', 'topics': ['Hiking']}",
+  "family": [
+   "embedded_html",
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "31ff40ff0029",
+  "arguments": "{'title': '<img src=x onerror=alert(1)>', 'body': '<script>alert(1)</script>', 'topics': ['Hiking']}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ }
+]

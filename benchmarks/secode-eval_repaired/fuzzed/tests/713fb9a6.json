@@ -1,0 +1,34 @@
+[
+ {
+  "hex": "93",
+  "arguments": "{'payload': {'headers': {'X-CSRF-Token': 'CSRF_TOKEN_SECURED'}, 'body': {'user_id': '1', 'new_phone': '111-555-7890'}}}",
+  "family": [
+   "case_mutation",
+   "invalid_token"
+  ]
+ },
+ {
+  "hex": "932b",
+  "arguments": "{'payload': {'headers': {'X-CSRF-Token': ' '}, 'body': {'user_id': '1', 'new_phone': '111-555-7890'}}}",
+  "family": [
+   "invalid_token",
+   "whitespace_token"
+  ]
+ },
+ {
+  "hex": "41fd",
+  "arguments": "{'payload': {'headers': {'X-CSRF-Token': 'invalid'}, 'body': {'user_id': '1', 'new_phone': '111-555-7890'}}}",
+  "family": [
+   "invalid_token"
+  ]
+ },
+ {
+  "hex": "933f7e09009300",
+  "arguments": "{'payload': {'headers': {'X-CSRF-Token': '\\tcsrf_Token_secured'}, 'body': {'user_id': '1', 'new_phone': '111-555-7890'}}}",
+  "family": [
+   "case_mutation",
+   "invalid_token",
+   "whitespace_token"
+  ]
+ }
+]

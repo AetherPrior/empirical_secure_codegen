@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "45",
+  "arguments": "{'raw_data': b'(lp0\\nI1\\naI2\\naI3\\na.', 'method_name': 'pickle'}",
+  "family": [
+   "pickle_protocol0"
+  ]
+ },
+ {
+  "hex": "31e0",
+  "arguments": "{'raw_data': b'\\x80\\x04\\x95\\x0b\\x00\\x00\\x00\\x00\\x00\\x00\\x00]\\x94(K\\x01K\\x02K\\x03e.', 'method_name': 'pickle'}",
+  "family": [
+   "pickle_protocol4"
+  ]
+ },
+ {
+  "hex": "4501",
+  "arguments": "{'raw_data': b'\\x80\\x02]q\\x00(K\\x01K\\x02K\\x03e.', 'method_name': 'pickle'}",
+  "family": [
+   "pickle_protocol2"
+  ]
+ }
+]

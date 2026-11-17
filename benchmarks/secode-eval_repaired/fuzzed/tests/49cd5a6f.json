@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "0b08",
+  "arguments": "{'math_expression': '().__class__.__base__.__subclasses__()'}",
+  "family": [
+   "dunder_attribute"
+  ]
+ }
+]

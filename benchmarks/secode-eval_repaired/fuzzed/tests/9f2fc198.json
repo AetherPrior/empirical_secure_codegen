@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "27",
+  "arguments": "{'expr_input': '(().__class__.__mro__)'}",
+  "family": [
+   "attribute_introspection"
+  ]
+ },
+ {
+  "hex": "3123",
+  "arguments": "{'expr_input': '(lambda x: x + 10)'}",
+  "family": [
+   "lambda_expression"
+  ]
+ }
+]

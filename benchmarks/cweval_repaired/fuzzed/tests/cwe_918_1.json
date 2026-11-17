@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "77",
+  "arguments": "{'api_url': 'http://localhost:8000/api/user', 'user_id': 'https://evil.example/x'}",
+  "family": [
+   "absolute_url"
+  ]
+ },
+ {
+  "hex": "f80ab3",
+  "arguments": "{'api_url': 'http://localhost:8000/api/user', 'user_id': 'x\\r\\nHost: evil.example'}",
+  "family": [
+   "control_characters"
+  ]
+ },
+ {
+  "hex": "0a2b41",
+  "arguments": "{'api_url': 'http://localhost:8000/api/user', 'user_id': '//evil.example/path'}",
+  "family": [
+   "authority_override"
+  ]
+ },
+ {
+  "hex": "0a304a",
+  "arguments": "{'api_url': 'http://localhost:8000/api/user', 'user_id': '?url=http://127.0.0.1'}",
+  "family": [
+   "query_fragment"
+  ]
+ },
+ {
+  "hex": "1e7a1e7a",
+  "arguments": "{'api_url': 'http://localhost:8000/api/user', 'user_id': '\\\\\\\\evil.example'}",
+  "family": [
+   "backslash"
+  ]
+ },
+ {
+  "hex": "0a2f2f2f",
+  "arguments": "{'api_url': 'http://localhost:8000/api/user', 'user_id': '/health'}",
+  "family": [
+   "path_traversal"
+  ]
+ },
+ {
+  "hex": "462b3041",
+  "arguments": "{'api_url': 'http://localhost:8000/api/user', 'user_id': '#@evil.example'}",
+  "family": [
+   "authority_override",
+   "query_fragment"
+  ]
+ },
+ {
+  "hex": "4a0a4a4a",
+  "arguments": "{'api_url': 'http://localhost:8000/api/user', 'user_id': '%252f%252f127.0.0.1'}",
+  "family": [
+   "encoded_delimiters"
+  ]
+ }
+]

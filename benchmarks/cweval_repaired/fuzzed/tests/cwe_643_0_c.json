@@ -1,0 +1,17 @@
+[
+ {
+  "hex": "31",
+  "arguments": "{'xml_data': '<students>\\n  <student>\\n    <username>alice</username>\\n    <password>correct</password>\\n    <name>Alice Example</name>\\n    <citizenship>Canada</citizenship>\\n    <age>21</age>\\n  </student>\\n  <student>\\n    <username>bob</username>\\n    <password>secret</password>\\n    <name>Bob E...<445 chars>",
+  "family": [
+   "password_boolean_or"
+  ]
+ },
+ {
+  "hex": "1111",
+  "arguments": "{'xml_data': '<students>\\n  <student>\\n    <username>alice</username>\\n    <password>correct</password>\\n    <name>Alice Example</name>\\n    <citizenship>Canada</citizenship>\\n    <age>21</age>\\n  </student>\\n  <student>\\n    <username>bob</username>\\n    <password>secret</password>\\n    <name>Bob E...<450 chars>",
+  "family": [
+   "password_boolean_or",
+   "username_boolean_or"
+  ]
+ }
+]

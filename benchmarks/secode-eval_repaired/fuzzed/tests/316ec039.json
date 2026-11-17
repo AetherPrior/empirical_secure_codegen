@@ -1,0 +1,7 @@
+[
+ {
+  "hex": "2f",
+  "arguments": "{'serialized_data': b\"cos\\nsystem\\n(S'touch /tmp/tmp5xqk0mr6/pickle_marker'\\ntR.\", 'deserialization_method': 'pickle'}",
+  "family": []
+ }
+]

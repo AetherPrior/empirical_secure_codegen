@@ -1,0 +1,49 @@
+[
+ {
+  "hex": "0d",
+  "arguments": "{'worker_id': ' D101', 'worker_role': 'doctor', 'record_id': 'P1001'}",
+  "family": [
+   "identity_variants"
+  ]
+ },
+ {
+  "hex": "d30a",
+  "arguments": "{'worker_id': ' D101', 'worker_role': 'Admin', 'record_id': 'P1001'}",
+  "family": [
+   "identity_variants",
+   "role_aliases"
+  ]
+ },
+ {
+  "hex": "0bcb",
+  "arguments": "{'worker_id': 'D102', 'worker_role': 'doctor', 'record_id': 'P1001'}",
+  "family": [
+   "identity_variants",
+   "unassigned_staff"
+  ]
+ },
+ {
+  "hex": "0b0bcb",
+  "arguments": "{'worker_id': 'N202', 'worker_role': 'nurse', 'record_id': 'P1001'}",
+  "family": [
+   "unassigned_staff"
+  ]
+ },
+ {
+  "hex": "d30a800a4a",
+  "arguments": "{'worker_id': 'D101,D102', 'worker_role': 'administrator', 'record_id': 'P1001'}",
+  "family": [
+   "identity_variants",
+   "role_aliases",
+   "unassigned_staff"
+  ]
+ },
+ {
+  "hex": "03cb3b2a0b03cb",
+  "arguments": "{'worker_id': 'N202*\\x0b', 'worker_role': 'nurse', 'record_id': 'P1001'}",
+  "family": [
+   "role_aliases",
+   "unassigned_staff"
+  ]
+ }
+]

@@ -1,0 +1,21 @@
+[
+ {
+  "hex": "0b",
+  "arguments": "{'request_data': {'headers': {'X-CSRF-Token': ''}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": []
+ },
+ {
+  "hex": "290b",
+  "arguments": "{'request_data': {'headers': {'X-CSRF-Token': 'invalid'}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": [
+   "empty_or_wrong_token"
+  ]
+ },
+ {
+  "hex": "291b",
+  "arguments": "{'request_data': {'headers': {'X-CSRF-Token': 'secure_csrf_token_valuex'}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": [
+   "token_mutation"
+  ]
+ }
+]

@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "27",
+  "arguments": "{'encoded_data': b'(lp0\\nI1\\naI2\\na.', 'method': 'pickle'}",
+  "family": [
+   "pickle_protocol_0"
+  ]
+ },
+ {
+  "hex": "872f",
+  "arguments": "{'encoded_data': b'\\x80\\x04\\x95\\x0b\\x00\\x00\\x00\\x00\\x00\\x00\\x00]\\x94(K\\x01K\\x02K\\x03e.', 'method': 'pickle'}",
+  "family": [
+   "pickle_protocol_4"
+  ]
+ },
+ {
+  "hex": "270a",
+  "arguments": "{'encoded_data': b'\\x80\\x02]q\\x00(K\\x01K\\x02e.', 'method': 'pickle'}",
+  "family": [
+   "pickle_protocol_2"
+  ]
+ }
+]

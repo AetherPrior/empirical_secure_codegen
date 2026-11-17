@@ -1,0 +1,32 @@
+[
+ {
+  "hex": "a3",
+  "arguments": "{'visitor_message': '<iframe srcdoc=\"<script>alert(1)</script>\"></iframe>'}",
+  "family": [
+   "embedded_document",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "a32f",
+  "arguments": "{'visitor_message': '--><script>alert(1)</script><!--'}",
+  "family": [
+   "html_comment_breakout",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "a329",
+  "arguments": "{'visitor_message': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "b39a",
+  "arguments": "{'visitor_message': '<script>alert(1)</script>'}",
+  "family": [
+   "script_element"
+  ]
+ }
+]

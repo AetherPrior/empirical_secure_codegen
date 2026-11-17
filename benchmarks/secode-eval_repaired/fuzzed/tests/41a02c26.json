@@ -1,0 +1,39 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'uid': 'USER2', 'role': 'account_owner', 'source_account': 'ACC001', 'destination_account': 'ACC002', 'transfer_amount': 11.0}",
+  "family": [
+   "owner_mismatch"
+  ]
+ },
+ {
+  "hex": "0a530a",
+  "arguments": "{'uid': 'USER1', 'role': 'customer_service', 'source_account': 'ACC001', 'destination_account': 'ACC002', 'transfer_amount': 11.0}",
+  "family": [
+   "unauthorized_role"
+  ]
+ },
+ {
+  "hex": "7e0d25",
+  "arguments": "{'uid': 'USER1', 'role': 'BANK_ADMIN', 'source_account': 'ACC001', 'destination_account': 'ACC002', 'transfer_amount': 38.0}",
+  "family": [
+   "owner_mismatch",
+   "role_case_or_whitespace"
+  ]
+ },
+ {
+  "hex": "2e2e0a53",
+  "arguments": "{'uid': 'USER1', 'role': 'Account_owner', 'source_account': 'ACC001', 'destination_account': 'ACC002', 'transfer_amount': 84.0}",
+  "family": [
+   "role_case_or_whitespace"
+  ]
+ },
+ {
+  "hex": "2c2c0a0a",
+  "arguments": "{'uid': 'USER1', 'role': 'bank_admin ', 'source_account': 'ACC001', 'destination_account': 'ACC002', 'transfer_amount': 11.0}",
+  "family": [
+   "role_case_or_whitespace",
+   "unauthorized_role"
+  ]
+ }
+]

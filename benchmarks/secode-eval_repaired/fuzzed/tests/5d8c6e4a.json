@@ -1,0 +1,39 @@
+[
+ {
+  "hex": "290a",
+  "arguments": "{'location': 'https://example.com/docs/report.pdf', 'sign': '9e107d9d372bb6826bd81d3542a419d6'}",
+  "family": [
+   "cross_document_signature",
+   "invalid_signature"
+  ]
+ },
+ {
+  "hex": "2929c8",
+  "arguments": "{'location': 'https://example.com/docs/report.pdf', 'sign': '7d793037a0760186574b0282f2f435e'}",
+  "family": [
+   "invalid_signature",
+   "modified_signature"
+  ]
+ },
+ {
+  "hex": "290a96",
+  "arguments": "{'location': 'https://example.com/docs/report.pdf', 'sign': ''}",
+  "family": []
+ },
+ {
+  "hex": "290a0a96",
+  "arguments": "{'location': 'https://example.com/docs/report.pdf', 'sign': '00000000000000000000000000000000'}",
+  "family": [
+   "invalid_signature"
+  ]
+ },
+ {
+  "hex": "27292729",
+  "arguments": "{'location': 'https://example.com/docs/invoice.pdf', 'sign': '7d793037a0760186574b0282f2f435e7'}",
+  "family": [
+   "cross_document_signature",
+   "invalid_signature",
+   "modified_signature"
+  ]
+ }
+]

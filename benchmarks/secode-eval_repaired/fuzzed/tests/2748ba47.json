@@ -1,0 +1,17 @@
+[
+ {
+  "hex": "2529",
+  "arguments": "{'script_to_execute': \"__import__('os').system('echo fuzz')\"}",
+  "family": [
+   "shell_command"
+  ]
+ },
+ {
+  "hex": "2b2b29",
+  "arguments": "{'script_to_execute': \"import os; os.system('echo fuzz')\"}",
+  "family": [
+   "import_statement",
+   "shell_command"
+  ]
+ }
+]

@@ -1,0 +1,58 @@
+[
+ {
+  "hex": "25",
+  "arguments": "{'img_src': 'http://localhost/admin/image.png'}",
+  "family": [
+   "localhost_and_private_addresses"
+  ]
+ },
+ {
+  "hex": "410a",
+  "arguments": "{'img_src': 'http://2130706433/admin/image.png'}",
+  "family": [
+   "nonstandard_ip_encodings"
+  ]
+ },
+ {
+  "hex": "4123",
+  "arguments": "{'img_src': 'http://img.example.com.evil.test/image.png'}",
+  "family": [
+   "untrusted_suffix"
+  ]
+ },
+ {
+  "hex": "3729",
+  "arguments": "{'img_src': 'http://img.example.com@127.0.0.1/admin/image.png'}",
+  "family": [
+   "trusted_name_in_userinfo"
+  ]
+ },
+ {
+  "hex": "bfd2",
+  "arguments": "{'img_src': 'file://img.example.com/etc/passwd'}",
+  "family": [
+   "scheme_bypass"
+  ]
+ },
+ {
+  "hex": "4504",
+  "arguments": "{'img_src': 'http://evil.test/img.example.com/image.png'}",
+  "family": [
+   "trusted_name_in_path_or_query"
+  ]
+ },
+ {
+  "hex": "bfc4",
+  "arguments": "{'img_src': 'http://evil.img.example.com/image.png'}",
+  "family": [
+   "untrusted_subdomain"
+  ]
+ },
+ {
+  "hex": "250a41",
+  "arguments": "{'img_src': 'http://img.example.com%2e.evil.test/image.png'}",
+  "family": [
+   "parser_confusion"
+  ]
+ }
+]

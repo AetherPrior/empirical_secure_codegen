@@ -1,0 +1,12 @@
+- **Harness shape:** sync JS that formats log lines / audit messages from external input; JSON tests (in-memory string return is fine).
+- **Functionality (>=2):** benign messages without newline/control injection log as a single line with expected prefix/content.
+- **Security (>=2):** inputs with `\n`, `\r`, forged log lines, or ANSI/control characters must not forge extra log entries — strip/escape controls or `"Exception"`.
+    - Extra control characters: \t, \0, \x1B
+    NOTE: only include cases for extra control characters if mentioned in prompt, otherwise just '\n' and '\r'
+- BAD: `{"msg":"ok\n[INFO] admin login success"}` → multi-line log that looks like two events. GOOD: escaped/`"Exception"` / single sanitized line.
+- BAD: inputs are already sanitized/escaped. GOOD: inputs are malicious and output log is sanitized.
+- BAD: only one parameter in log is tested. GOOD: one test for each parameter present in log.
+- **reject:** prompt requires writing unsanitized user text into logs including raw newlines as a feature.
+- **UNCHANGED:** newline/injection probes already neutralized; functionality benign-only.
+- **rewrite:** missing log-injection security cases; security expects forged multi-line success; security does not sanitize or reject log-injection; oracle concatenates raw input into log text; all log parameters are present in security tests; log not present in output; extra control characters present in prompt but missing from tests .
+    NOTE: all tests must include log in output, unless Exception is called on log-injection. 

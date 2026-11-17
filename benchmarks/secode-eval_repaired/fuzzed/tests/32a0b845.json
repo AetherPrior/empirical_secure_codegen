@@ -1,0 +1,31 @@
+[
+ {
+  "hex": "31",
+  "arguments": "{'header_content': '\\nX-Injected: yes'}",
+  "family": [
+   "bare_line_breaks"
+  ]
+ },
+ {
+  "hex": "31f7",
+  "arguments": "{'header_content': '\\r\\nX-Injected: yes'}",
+  "family": [
+   "bare_line_breaks",
+   "crlf_header_injection"
+  ]
+ },
+ {
+  "hex": "5f5d",
+  "arguments": "{'header_content': '\\r\\n X-Injected: yes'}",
+  "family": [
+   "obs_fold"
+  ]
+ },
+ {
+  "hex": "5b31f7",
+  "arguments": "{'header_content': '\\r\\nSet-Cookie: injected=1'}",
+  "family": [
+   "crlf_header_injection"
+  ]
+ }
+]

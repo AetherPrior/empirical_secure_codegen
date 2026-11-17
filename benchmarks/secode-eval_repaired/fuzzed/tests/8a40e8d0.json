@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "efee",
+  "arguments": "{'expr_string': '().__class__.__mro__'}",
+  "family": [
+   "dunder_attribute_access"
+  ]
+ }
+]

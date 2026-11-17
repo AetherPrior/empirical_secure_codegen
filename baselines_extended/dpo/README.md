@@ -1,0 +1,208 @@
+# DPO / ProSec-Style Preference Training
+
+This repository contains the lightweight preference-training pipeline used for the our secure-code experiments.
+
+The current shared code supports:
+
+- generating preference pairs from known correct/secure Python reference solutions and generated insecure rewrites;
+- converting ProSec preference data into TRL conversational preference JSONL;
+- LoRA DPO training with ProSec-style hyperparameters;
+- running ProSec-style SimPO through TRL's CPO/SimPO trainer path when the installed TRL version supports it.
+
+No generated data, model weights, checkpoints, API keys, or benchmark outputs are included.
+
+## Main Files
+
+```text
+simple_gen/py/6_generate_revision_pairs.py
+simple_gen/py/8_generate_reference_negative_pairs.py
+simple_gen/py/prepare_prosec_preferences.py
+simple_gen/py/prepare_our_data_for_safecoder_sft.py
+simple_gen/py/7_train_dpo.py
+simple_gen/py/7_train_simpo.py
+simple_gen/py/configs/deepspeed_zero3_bf16.json
+```
+
+## Prepare ProSec Python Preferences
+
+```bash
+cd simple_gen/py
+
+python prepare_prosec_preferences.py \
+  --dataset-id prosecalign/prosec-mixed-clm7b-inst \
+  --revision d4f17919b3d946bcd393d87c15dfecfa13aaf566 \
+  --split train \
+  --language python \
+  --output-jsonl data/prosec_python_mixed_qwen25coder7b.jsonl
+```
+
+Expected full Python count from the current dataset revision: `19079` pairs.
+
+## ProSec-Style DPO Run
+
+This uses the ProSec paper's DPO-style hyperparameters where possible:
+
+- LoRA, not full fine-tuning;
+- LoRA rank `r=8`;
+- LoRA alpha `16`;
+- total batch size `64`;
+- learning rate `5e-6`;
+- DPO beta `0.05`.
+
+Preferred ProSec-style setup with four GPUs and per-device batch size 2:
+
+```text
+2 * 4 GPUs * gradient_accumulation_steps 8 = total batch size 64
+```
+
+Example:
+
+```bash
+cd simple_gen/py
+
+deepspeed --num_gpus=4 7_train_dpo.py \
+  --train-jsonl data/prosec_python_mixed_qwen25coder7b.jsonl \
+  --model Qwen/Qwen2.5-Coder-7B-Instruct \
+  --output-dir outputs/qwen25coder_7b_prosec_python_dpo_400step \
+  --loss-type sigmoid \
+  --beta 0.05 \
+  --learning-rate 5e-6 \
+  --max-steps 400 \
+  --per-device-train-batch-size 2 \
+  --gradient-accumulation-steps 8 \
+  --max-length 4096 \
+  --max-prompt-length 2048 \
+  --logging-steps 10 \
+  --save-steps 50 \
+  --eval-steps 50 \
+  --eval-ratio 0.02 \
+  --bf16 \
+  --gradient-checkpointing \
+  --deepspeed configs/deepspeed_zero3_bf16.json \
+  --lora-r 8 \
+  --lora-alpha 16 \
+  --lora-dropout 0.05
+```
+
+The requested ProSec-style DPO comparison uses 400 steps. Keep `--max-steps 400` for this campaign.
+
+## SimPO-Style Run
+
+The ProSec Table 6 SimPO setting for non-Phi models is:
+
+- learning rate `5e-6`;
+- beta `1.5`;
+- gamma `0.5`;
+- steps `400`;
+- LoRA `r=8`, alpha `16`;
+- total batch size `64`.
+
+This command runs true SimPO through TRL's CPO/SimPO trainer path. It is separate from the DPO trainer so the two methods are not accidentally mixed.
+
+```bash
+cd simple_gen/py
+
+deepspeed --num_gpus=4 7_train_simpo.py \
+  --train-jsonl data/prosec_python_mixed_qwen25coder7b.jsonl \
+  --model Qwen/Qwen2.5-Coder-7B-Instruct \
+  --output-dir outputs/qwen25coder_7b_prosec_python_simpo_400step \
+  --beta 1.5 \
+  --simpo-gamma 0.5 \
+  --learning-rate 5e-6 \
+  --max-steps 400 \
+  --per-device-train-batch-size 2 \
+  --gradient-accumulation-steps 8 \
+  --max-length 4096 \
+  --max-prompt-length 2048 \
+  --logging-steps 10 \
+  --save-steps 50 \
+  --eval-steps 50 \
+  --eval-ratio 0.02 \
+  --bf16 \
+  --gradient-checkpointing \
+  --deepspeed configs/deepspeed_zero3_bf16.json \
+  --lora-r 8 \
+  --lora-alpha 16 \
+  --lora-dropout 0.05
+```
+
+If this fails with a CPO/SimPO import or `simpo_gamma` error, the installed TRL version does not support true SimPO. Upgrade TRL or use ProSec's original training dependency before running the 400-step experiment.
+
+## Our Execution-Filtered Preference Data
+
+The reference-negative generator creates pairs where:
+
+- `chosen` is the known correct and secure reference solution;
+- `rejected` is a generated variant that is functional but fails at least one security test.
+
+Example:
+
+```bash
+cd simple_gen/py
+
+python 8_generate_reference_negative_pairs.py \
+  --dataset-id anonymous/py_cwe_GRPO \
+  --split train \
+  --dpo-output-jsonl data/python_refneg_dpo_full_qwen25coder14b.jsonl \
+  --all-output-jsonl data/python_refneg_dpo_full_qwen25coder14b_all.jsonl \
+  --model Qwen/Qwen2.5-Coder-14B-Instruct \
+  --api-kind chat \
+  --max-workers 8 \
+  --max-tokens 2048
+```
+
+Observed full-pipeline yield from the previous run: `2141` execution-filtered pairs.
+
+## SafeCoder-Style Data Conversion
+
+For the SafeCoder comparison, the execution-filtered preference pairs are converted into SafeCoder's security-training JSONL format. The mapping is:
+
+- `rejected` -> `func_src_before`, the vulnerable/insecure implementation;
+- `chosen` -> `func_src_after`, the correct/secure implementation;
+- prompt text -> `description`;
+- CWE metadata -> `vul_type`.
+
+Converter:
+
+```text
+simple_gen/py/prepare_our_data_for_safecoder_sft.py
+```
+
+Example command:
+
+```bash
+source /workspace/miniconda3/bin/activate grpo
+
+python /workspace/dpo/simple_gen/py/prepare_our_data_for_safecoder_sft.py \
+  --input-jsonl /workspace/dpo/data/dpo/python_refneg_dpo_full_qwen25coder14b.jsonl \
+  --output-root /workspace/SafeCoder/data_train_val \
+  --dataset-name sec-our-refneg \
+  --val-ratio 0.05 \
+  --seed 42
+```
+
+Observed conversion result:
+
+```text
+converted: 2141
+skipped_missing_fields: 0
+train: 2034
+val: 107
+```
+
+SafeCoder training should then use:
+
+```bash
+--datasets evol sec-our-refneg
+```
+
+This keeps SafeCoder's utility data `evol` fixed while replacing the security data with our converted execution-filtered refneg data. The intended controlled variable is the security training dataset.
+
+## Controlled Comparison
+
+For the next analysis, keep the training script and hyperparameters fixed and vary only the preference dataset:
+
+1. ProSec Python preferences.
+2. Our execution-filtered Python preferences.
+
+Then evaluate both trained Qwen2.5-Coder-7B models against the same base model on the same SecCodePLT-Python / CWEval-Python benchmark settings.

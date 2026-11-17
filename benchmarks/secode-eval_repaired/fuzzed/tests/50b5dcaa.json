@@ -1,0 +1,39 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'req_payload': {'headers': {'X-CSRF-Token': 'secure_csrf_token '}, 'body': {'user_id': '1', 'new_email': 'alice@example.org'}}}",
+  "family": [
+   "altered_token",
+   "missing_token"
+  ]
+ },
+ {
+  "hex": "0a0a5d",
+  "arguments": "{'req_payload': {'headers': {'X-CSRF-Token': 'wrong_csrf_token'}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "incorrect_token",
+   "missing_token"
+  ]
+ },
+ {
+  "hex": "1a0300",
+  "arguments": "{'req_payload': {'headers': {}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": []
+ },
+ {
+  "hex": "0a5d0a",
+  "arguments": "{'req_payload': {'headers': {'X-CSRF-Token': ''}, 'body': {'user_id': '1', 'new_email': 'alice@example.org'}}}",
+  "family": [
+   "missing_token"
+  ]
+ },
+ {
+  "hex": "021f0a20003fb60a46",
+  "arguments": "{'req_payload': {'headers': {'X-CSRF-Token': 'xsecure_csrf_token '}, 'body': {'user_id': '1', 'new_email': 'alice@example.org'}}}",
+  "family": [
+   "altered_token",
+   "incorrect_token",
+   "missing_token"
+  ]
+ }
+]

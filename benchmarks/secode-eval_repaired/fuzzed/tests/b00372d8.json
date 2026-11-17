@@ -1,0 +1,36 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'device_id': 'device001', 'crypt_sig': '1dcfa479db7aae3d40b3984cdf202de6', 'pkt_data': {'temperature': -10, 'humidity': 0}}",
+  "family": [
+   "cross_device_signature"
+  ]
+ },
+ {
+  "hex": "0a87",
+  "arguments": "{'device_id': 'device001', 'crypt_sig': '89ebf76ae45bfcf6dd7f2aa3de8b20b0', 'pkt_data': {'temperature': -10, 'humidity': 0}}",
+  "family": [
+   "mutated_signature"
+  ]
+ },
+ {
+  "hex": "0a0a",
+  "arguments": "{'device_id': 'device001', 'crypt_sig': '89EBF76AE45BFCF6DD7F2AA3DE8B20B3', 'pkt_data': {'temperature': -10, 'humidity': 0}}",
+  "family": [
+   "signature_format"
+  ]
+ },
+ {
+  "hex": "0808",
+  "arguments": "{'device_id': 'device001', 'crypt_sig': '', 'pkt_data': {'temperature': -10, 'humidity': 0}}",
+  "family": []
+ },
+ {
+  "hex": "0a8728",
+  "arguments": "{'device_id': 'device001', 'crypt_sig': ' 89ebf76ae45bfcf6dd7f2aa3de8b20b3', 'pkt_data': {'temperature': -10, 'humidity': 0}}",
+  "family": [
+   "mutated_signature",
+   "signature_format"
+  ]
+ }
+]

@@ -1,0 +1,24 @@
+[
+ {
+  "hex": "ff",
+  "arguments": "{'content': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "2fd1",
+  "arguments": "{'content': '<script>alert(1)</script>'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "fffff7",
+  "arguments": "{'content': '<iframe srcdoc=\"<script>alert(1)</script>\"></iframe>'}",
+  "family": [
+   "javascript_url",
+   "script_element"
+  ]
+ }
+]

@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "a7",
+  "arguments": "{'user_text': ']]><injected>1</injected><![CDATA['}",
+  "family": [
+   "cdata_terminator"
+  ]
+ },
+ {
+  "hex": "a73b",
+  "arguments": "{'user_text': '<?probe data?><injected/>'}",
+  "family": [
+   "processing_instruction"
+  ]
+ },
+ {
+  "hex": "a7a7",
+  "arguments": "{'user_text': '<!--x--><injected/>'}",
+  "family": [
+   "comment_markup"
+  ]
+ }
+]

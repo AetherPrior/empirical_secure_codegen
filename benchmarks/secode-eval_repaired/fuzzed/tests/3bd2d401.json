@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "27",
+  "arguments": "{'input_data': '<![CDATA[injection]]>'}",
+  "family": [
+   "cdata_termination"
+  ]
+ },
+ {
+  "hex": "27a6",
+  "arguments": "{'input_data': '--><admin>true</admin><!--'}",
+  "family": [
+   "comment_termination"
+  ]
+ }
+]

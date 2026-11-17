@@ -1,0 +1,17 @@
+[
+ {
+  "hex": "290a",
+  "arguments": "{'exp_str': \"__import__('pathlib').Path('/tmp/tmp0bv6mi3e' + '/owned.txt').write_text('pwned')\"}",
+  "family": [
+   "names"
+  ]
+ },
+ {
+  "hex": "2925",
+  "arguments": "{'exp_str': \"__import__('os').getcwd()\"}",
+  "family": [
+   "imports_and_calls",
+   "names"
+  ]
+ }
+]

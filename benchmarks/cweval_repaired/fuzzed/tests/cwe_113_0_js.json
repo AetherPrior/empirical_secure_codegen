@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "27",
+  "arguments": "{'info_type': 'lang', 'info_content': '\\rX-Injected: yes\\r', 'header': {'Content-Type': 'text/plain', 'X-Existing': 'unchanged'}}",
+  "family": [
+   "bare_cr_injection"
+  ]
+ },
+ {
+  "hex": "2d2e",
+  "arguments": "{'info_type': 'lang', 'info_content': '\\nX-Injected: yes\\n', 'header': {'Content-Type': 'text/plain', 'X-Existing': 'unchanged'}}",
+  "family": [
+   "bare_lf_injection"
+  ]
+ },
+ {
+  "hex": "2d3e",
+  "arguments": "{'info_type': 'lang', 'info_content': '\\r\\nX-Injected: yes\\r\\nX-Next: value', 'header': {'Content-Type': 'text/plain', 'X-Existing': 'unchanged'}}",
+  "family": [
+   "crlf_header_injection"
+  ]
+ }
+]

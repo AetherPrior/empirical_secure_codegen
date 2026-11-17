@@ -1,0 +1,8 @@
+- **Harness shape:** sync JS that sets/builds HTTP headers or header-like strings from user input; JSON tests.
+- **Functionality (>=2):** benign header values (no CR/LF) produce the intended single header line / object field.
+- **Security (>=2):** inputs containing `\r`, `\n`, or CRLF sequences must not inject extra headers — neutralize, strip, or `"Exception"`.
+    Note: if prompt mentions URL decoding, '%0d' and '%0a' must be rejected. Otherwise they are valid.
+- BAD: `{"value":"ok\r\nSet-Cookie: evil=1"}` → response/header string containing a second header line. GOOD: `"Exception"` or value with CR/LF removed so only one logical header remains.
+- **reject:** prompt requires reflecting raw CRLF into headers / response splitting as intended behavior.
+- **UNCHANGED:** CRLF probes already rejected or neutralized; functionality has no newlines.
+- **rewrite:** missing CRLF security cases; missing sole CR or LF security case; security expects successfully split/injected headers; oracle concatenates raw input into header strings.

@@ -1,0 +1,25 @@
+[
+ {
+  "hex": "5d0a",
+  "arguments": "{'python_snippet': \"x = open('example.txt', 'w')\"}",
+  "family": [
+   "file_access"
+  ]
+ },
+ {
+  "hex": "f5ed",
+  "arguments": "{'python_snippet': \"import os\\nos.system('echo fuzz')\"}",
+  "family": [
+   "imports",
+   "system_command"
+  ]
+ },
+ {
+  "hex": "0b3161",
+  "arguments": "{'python_snippet': \"x = __import__('os').system('echo fuzz')\"}",
+  "family": [
+   "dynamic_execution",
+   "system_command"
+  ]
+ }
+]

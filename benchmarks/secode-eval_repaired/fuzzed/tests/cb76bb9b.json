@@ -1,0 +1,42 @@
+[
+ {
+  "hex": "9d0a9d0a",
+  "arguments": "{'base_cdn_url': '//evil.org', 'res_id': 'photo.png', 'res_type': 'script'}",
+  "family": [
+   "authority_override",
+   "type_path_override"
+  ]
+ },
+ {
+  "hex": "9d9dffff9d0a",
+  "arguments": "{'base_cdn_url': 'https://cdn.example.com%2eevil.org', 'res_id': 'photo.png', 'res_type': 'image'}",
+  "family": [
+   "authority_confusion",
+   "type_path_override"
+  ]
+ },
+ {
+  "hex": "9d0a9dffffff0a",
+  "arguments": "{'base_cdn_url': 'http://cdn.example.com:80@evil.org', 'res_id': 'abcd1234', 'res_type': 'image'}",
+  "family": [
+   "authority_confusion"
+  ]
+ },
+ {
+  "hex": "9d0a0100000c009d0a",
+  "arguments": "{'base_cdn_url': '//evil.org', 'res_id': '//evil.org/x', 'res_type': 'image'}",
+  "family": [
+   "authority_override",
+   "resource_url_override",
+   "type_path_override"
+  ]
+ },
+ {
+  "hex": "9d0a9d0b9d09320909090909",
+  "arguments": "{'base_cdn_url': 'http://cdn.example.com:80@evil.org', 'res_id': '\\\\\\\\evil.org\\\\x', 'res_type': 'image'}",
+  "family": [
+   "authority_confusion",
+   "resource_url_override"
+  ]
+ }
+]

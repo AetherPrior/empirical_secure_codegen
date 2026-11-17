@@ -1,0 +1,64 @@
+[
+ {
+  "hex": "5b",
+  "arguments": "{'author_name': '\"><img src=x onerror=alert(1)>', 'post_title': 'My First Post', 'content': 'Hello, this is my first post!', 'post_tags': []}",
+  "family": [
+   "attribute_breakout",
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "372f",
+  "arguments": "{'author_name': '<script>alert(1)</script>', 'post_title': 'My First Post', 'content': 'Hello, this is my first post!', 'post_tags': []}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "5b68",
+  "arguments": "{'author_name': '<img src=x onerror=alert(1)>', 'post_title': 'My First Post', 'content': 'Hello, this is my first post!', 'post_tags': []}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "590a",
+  "arguments": "{'author_name': '<b>bold</b>', 'post_title': 'My First Post', 'content': 'Hello, this is my first post!', 'post_tags': []}",
+  "family": [
+   "markup_injection"
+  ]
+ },
+ {
+  "hex": "e70100",
+  "arguments": "{'author_name': \"' onmouseover='alert(1)\", 'post_title': 'My First Post', 'content': 'Hello, this is my first post!', 'post_tags': []}",
+  "family": [
+   "attribute_breakout"
+  ]
+ },
+ {
+  "hex": "9d4207d9",
+  "arguments": "{'author_name': '&#60;script&#62;alert(1)&#60;/script&#62;', 'post_title': '\"><img src=x onerror=alert(1)>', 'content': 'Hello, this is my first post!', 'post_tags': []}",
+  "family": [
+   "attribute_breakout",
+   "entity_obfuscation",
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "ad0aad0a0a",
+  "arguments": "{'author_name': '<b>bold</b>', 'post_title': '\"><img src=x onerror=alert(1)>', 'content': 'Hello, this is my first post!', 'post_tags': []}",
+  "family": [
+   "attribute_breakout",
+   "event_handler",
+   "markup_injection"
+  ]
+ },
+ {
+  "hex": "07463b0a00b6",
+  "arguments": "{'author_name': '<img src=x onerror=alert(1)>', 'post_title': '<b>bold</b>', 'content': 'Hello, this is my first post!', 'post_tags': []}",
+  "family": [
+   "event_handler",
+   "markup_injection"
+  ]
+ }
+]

@@ -1,0 +1,17 @@
+{
+  "model": "Qwen/Qwen3-8B",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "dataset": "our-retrieval-pairs",
+  "dataset_revision": "cd1f5b4fc7bff02e72286a4dc23f32edcf53221e1c04cf834334ee29f167c8fc",
+  "slug": "c",
+  "language": "c",
+  "seed": 42,
+  "top_k": 50,
+  "min_silhouette": 0.05,
+  "epochs": 2,
+  "max_length": 1024,
+  "label_token_mode": "tokenizer",
+  "output": "outputs/c",
+  "dataset_file": "../Our-Retrieval/dataset/all_languages.jsonl",
+  "expected_pairs": 3736
+}

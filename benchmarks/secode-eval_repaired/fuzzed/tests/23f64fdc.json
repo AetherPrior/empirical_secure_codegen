@@ -1,0 +1,68 @@
+[
+ {
+  "hex": "31",
+  "arguments": "{'username': '\"><img src=x onerror=alert(1)>', 'biography': 'Software engineer from xyz.', 'status': 'Feeling great!'}",
+  "family": [
+   "attribute_breakout",
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "3131",
+  "arguments": "{'username': '<script>alert(1)</script>', 'biography': 'Software engineer from xyz.', 'status': 'Feeling great!'}",
+  "family": [
+   "script_tag"
+  ]
+ },
+ {
+  "hex": "31dd",
+  "arguments": "{'username': '<iframe srcdoc=\"<script>alert(1)</script>\"></iframe>', 'biography': 'Software engineer from xyz.', 'status': 'Feeling great!'}",
+  "family": [
+   "embedded_document",
+   "script_tag"
+  ]
+ },
+ {
+  "hex": "cfcf",
+  "arguments": "{'username': '<img src=x onerror=alert(1)>', 'biography': 'Software engineer from xyz.', 'status': 'Feeling great!'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "310060310060",
+  "arguments": "{'username': '<iframe srcdoc=\"<script>alert(1)</script>\"></iframe>', 'biography': '\"><img src=x onerror=alert(1)>', 'status': 'Feeling great!'}",
+  "family": [
+   "attribute_breakout",
+   "embedded_document",
+   "event_handler",
+   "script_tag"
+  ]
+ },
+ {
+  "hex": "3100003100004a31",
+  "arguments": "{'username': '<script>alert(1)</script>', 'biography': '\"><img src=x onerror=alert(1)>', 'status': 'Feeling great!'}",
+  "family": [
+   "attribute_breakout",
+   "event_handler",
+   "script_tag"
+  ]
+ },
+ {
+  "hex": "6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6fb160",
+  "arguments": "{'username': 'oooo<iframe srcdoc=\"<script>alert(1)</script>\"></iframe>oooo', 'biography': '<img src=x onerror=alert(1)>', 'status': 'Feeling great!'}",
+  "family": [
+   "embedded_document",
+   "event_handler",
+   "script_tag"
+  ]
+ },
+ {
+  "hex": "43434343434343434343434343434343434331",
+  "arguments": "{'username': \"CCCC<script>alert('xss')</script>CCCC\", 'biography': '<svg onload=alert(1)>', 'status': 'Feeling great!'}",
+  "family": [
+   "event_handler",
+   "script_tag"
+  ]
+ }
+]

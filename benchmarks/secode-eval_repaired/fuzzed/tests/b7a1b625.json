@@ -1,0 +1,56 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'employee_id': 'USER3', 'role_value': 'account_owner', 'source_acct': 'ACC001', 'target_acct': 'ACC002', 'total_amount': 1.0}",
+  "family": [
+   "owner_role_mismatch"
+  ]
+ },
+ {
+  "hex": "0a3f",
+  "arguments": "{'employee_id': 'USER1', 'role_value': 'customer_service', 'source_acct': 'ACC001', 'target_acct': 'ACC002', 'total_amount': 1.0}",
+  "family": [
+   "unauthorized_roles"
+  ]
+ },
+ {
+  "hex": "230a",
+  "arguments": "{'employee_id': 'USER1', 'role_value': 'bank_admin ', 'source_acct': 'ACC001', 'target_acct': 'ACC002', 'total_amount': 1.0}",
+  "family": [
+   "role_spoofing"
+  ]
+ },
+ {
+  "hex": "543e3a",
+  "arguments": "{'employee_id': 'USER1', 'role_value': 'customer_service|bank_admin', 'source_acct': 'ACC001', 'target_acct': 'ACC002', 'total_amount': 1.0}",
+  "family": [
+   "role_spoofing",
+   "unauthorized_roles"
+  ]
+ },
+ {
+  "hex": "89fc2323",
+  "arguments": "{'employee_id': 'USER3', 'role_value': 'BANK_ADMIN', 'source_acct': 'ACC001', 'target_acct': 'ACC002', 'total_amount': 1.0}",
+  "family": [
+   "owner_role_mismatch",
+   "role_spoofing"
+  ]
+ },
+ {
+  "hex": "23fc3a0a",
+  "arguments": "{'employee_id': 'USER3', 'role_value': 'customer_service', 'source_acct': 'ACC001', 'target_acct': 'ACC002', 'total_amount': 1.0}",
+  "family": [
+   "owner_role_mismatch",
+   "unauthorized_roles"
+  ]
+ },
+ {
+  "hex": "23543e31",
+  "arguments": "{'employee_id': 'USER3', 'role_value': 'customer_service|bank_admin', 'source_acct': 'ACC001', 'target_acct': 'ACC002', 'total_amount': 1.0}",
+  "family": [
+   "owner_role_mismatch",
+   "role_spoofing",
+   "unauthorized_roles"
+  ]
+ }
+]

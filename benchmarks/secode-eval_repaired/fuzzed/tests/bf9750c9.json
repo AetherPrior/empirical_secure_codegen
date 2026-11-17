@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "13",
+  "arguments": "{'sso_uri': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_link': 'https://127.0.0.1/'}",
+  "family": [
+   "alternate_host_representation"
+  ]
+ },
+ {
+  "hex": "231a",
+  "arguments": "{'sso_uri': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_link': 'https://app.example.com.evil.org/'}",
+  "family": [
+   "hostname_suffix_or_prefix"
+  ]
+ },
+ {
+  "hex": "132c",
+  "arguments": "{'sso_uri': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_link': 'javascript:alert(1)'}",
+  "family": [
+   "non_http_scheme"
+  ]
+ },
+ {
+  "hex": "231b",
+  "arguments": "{'sso_uri': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_link': 'https://evil.org/app.example.com/'}",
+  "family": [
+   "misleading_path_or_fragment"
+  ]
+ },
+ {
+  "hex": "230f",
+  "arguments": "{'sso_uri': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_link': 'https://app.example.com@evil.org/'}",
+  "family": [
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "af21",
+  "arguments": "{'sso_uri': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_link': 'https://evil.org/hack'}",
+  "family": [
+   "external_absolute_url",
+   "protocol_relative"
+  ]
+ },
+ {
+  "hex": "2166",
+  "arguments": "{'sso_uri': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_link': '//evil.org/hack'}",
+  "family": [
+   "protocol_relative"
+  ]
+ },
+ {
+  "hex": "23433d",
+  "arguments": "{'sso_uri': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_link': 'https://app.example.com%40evil.org/'}",
+  "family": [
+   "parser_disagreement"
+  ]
+ }
+]

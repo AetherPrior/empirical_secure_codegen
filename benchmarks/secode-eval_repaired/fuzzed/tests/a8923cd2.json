@@ -1,0 +1,47 @@
+[
+ {
+  "hex": "5d",
+  "arguments": "{'custom_value': '\\nX-Injected: 1'}",
+  "family": [
+   "bare_line_breaks"
+  ]
+ },
+ {
+  "hex": "5d4c",
+  "arguments": "{'custom_value': '\\r\\n\\r\\nHTTP/1.1 200 OK'}",
+  "family": [
+   "response_split"
+  ]
+ },
+ {
+  "hex": "df5d",
+  "arguments": "{'custom_value': '\\r\\n X-Injected: 1'}",
+  "family": [
+   "obs_fold"
+  ]
+ },
+ {
+  "hex": "5de6",
+  "arguments": "{'custom_value': '\\r\\nAnother-Bad-Header: injected'}",
+  "family": [
+   "crlf_header"
+  ]
+ },
+ {
+  "hex": "a3c4e6",
+  "arguments": "{'custom_value': '\\r\\nX-Injected: 1\\r\\n'}",
+  "family": [
+   "bare_line_breaks",
+   "crlf_header"
+  ]
+ },
+ {
+  "hex": "3f3d10",
+  "arguments": "{'custom_value': '\\r\\nX-Injected: 1\\r\\n\\r\\nbody'}",
+  "family": [
+   "bare_line_breaks",
+   "crlf_header",
+   "response_split"
+  ]
+ }
+]

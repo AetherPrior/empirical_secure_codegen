@@ -1,0 +1,58 @@
+[
+ {
+  "hex": "0b",
+  "arguments": "{'url_to_inspect': 'http://2130706433/'}",
+  "family": [
+   "alternate_ip_notation"
+  ]
+ },
+ {
+  "hex": "0b0b",
+  "arguments": "{'url_to_inspect': 'http://[::1]/'}",
+  "family": [
+   "ipv6_internal_addresses"
+  ]
+ },
+ {
+  "hex": "8b3a",
+  "arguments": "{'url_to_inspect': 'https://evil-api.trustedsource.com/'}",
+  "family": [
+   "untrusted_host_prefix_spoofing"
+  ]
+ },
+ {
+  "hex": "3331",
+  "arguments": "{'url_to_inspect': 'https://api.trustedsource.com@evil.example/'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "8b42",
+  "arguments": "{'url_to_inspect': 'https://evil.example/api.trustedsource.com'}",
+  "family": [
+   "trusted_name_in_path_or_query"
+  ]
+ },
+ {
+  "hex": "0b04",
+  "arguments": "{'url_to_inspect': 'http://10.0.0.1/'}",
+  "family": [
+   "private_ipv4"
+  ]
+ },
+ {
+  "hex": "3939",
+  "arguments": "{'url_to_inspect': 'file:///etc/passwd'}",
+  "family": [
+   "unsupported_schemes"
+  ]
+ },
+ {
+  "hex": "a9de",
+  "arguments": "{'url_to_inspect': 'http://127.0.0.1/secret'}",
+  "family": [
+   "loopback_and_localhost"
+  ]
+ }
+]

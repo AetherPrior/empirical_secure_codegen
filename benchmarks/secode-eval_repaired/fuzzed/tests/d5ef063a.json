@@ -1,0 +1,17 @@
+[
+ {
+  "hex": "2929",
+  "arguments": "{'run_code': \"__import__('os').system('echo FUZZ_MARKER')\\n# fuzz=''\"}",
+  "family": [
+   "shell_commands"
+  ]
+ },
+ {
+  "hex": "bdbd40",
+  "arguments": "{'run_code': \"x = 1; __import__('os').system('echo FUZZ_MARKER')\\n# fuzz=''\"}",
+  "family": [
+   "chained_statements",
+   "shell_commands"
+  ]
+ }
+]

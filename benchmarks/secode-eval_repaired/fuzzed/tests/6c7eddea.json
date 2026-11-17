@@ -1,0 +1,21 @@
+[
+ {
+  "hex": "0b",
+  "arguments": "{'cur_user_id': 2, 'tar_user_id': 1, 'priv_update': 'admin'}",
+  "family": [
+   "admin_privilege_escalation"
+  ]
+ },
+ {
+  "hex": "0a0a",
+  "arguments": "{'cur_user_id': 3, 'tar_user_id': 1, 'priv_update': 'normal'}",
+  "family": []
+ },
+ {
+  "hex": "0bd53db2",
+  "arguments": "{'cur_user_id': 3, 'tar_user_id': 3, 'priv_update': 'moderator'}",
+  "family": [
+   "moderator_privilege_escalation"
+  ]
+ }
+]

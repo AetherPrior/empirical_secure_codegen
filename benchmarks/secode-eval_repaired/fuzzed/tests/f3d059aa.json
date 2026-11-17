@@ -1,0 +1,42 @@
+[
+ {
+  "hex": "9902",
+  "arguments": "{'user_header': 'header\\r\\nAnother-Bad-Header: x'}",
+  "family": [
+   "crlf_injection"
+  ]
+ },
+ {
+  "hex": "0399",
+  "arguments": "{'user_header': 'value\\nX-Injected: 1'}",
+  "family": [
+   "lf_injection"
+  ]
+ },
+ {
+  "hex": "9931",
+  "arguments": "{'user_header': 'value\\r\\n X-Injected: 1'}",
+  "family": [
+   "obs_fold"
+  ]
+ },
+ {
+  "hex": "9942",
+  "arguments": "{'user_header': 'value\\rX-Injected: 1'}",
+  "family": [
+   "cr_injection"
+  ]
+ },
+ {
+  "hex": "ee99450a3102",
+  "arguments": "{'user_header': 'text123\\n1'}",
+  "family": []
+ },
+ {
+  "hex": "8d8d8d8d8d8d8d8d8d8d8d8d8d8d8d8d8d8d8d8d8d8d8d00",
+  "arguments": "{'user_header': '\\r\\r\\rvalue\\x00tail\\r\\r\\r'}",
+  "family": [
+   "control_characters"
+  ]
+ }
+]

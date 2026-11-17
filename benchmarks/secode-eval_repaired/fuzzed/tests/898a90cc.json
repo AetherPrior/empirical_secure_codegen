@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "555d",
+  "arguments": "{'cmd_input': 'ls\\nwhoami'}",
+  "family": [
+   "newline"
+  ]
+ }
+]

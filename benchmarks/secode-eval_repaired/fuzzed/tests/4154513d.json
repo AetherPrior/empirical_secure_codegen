@@ -1,0 +1,58 @@
+[
+ {
+  "hex": "01cf00cf00ffffffff2929292929ab",
+  "arguments": "{'auth_endpoint': 'https://sso.example.com/auth', 'uid': 'O\\x00O\\x00\\x7f\\x7f\\x7f\\x7f))))', 'redirect_url': 'https://evil.org/?next=https://app.example.com/'}",
+  "family": [
+   "nested_redirect"
+  ]
+ },
+ {
+  "hex": "0100cf00ffffffff2929292901295a",
+  "arguments": "{'auth_endpoint': 'https://sso.example.com/auth', 'uid': '\\x00O\\x00\\x7f\\x7f\\x7f\\x7f))))\\x01', 'redirect_url': 'https://app.example.com.evil.org/hack'}",
+  "family": [
+   "hostname_suffix"
+  ]
+ },
+ {
+  "hex": "012100cf00ffffffff01000000ffff",
+  "arguments": "{'auth_endpoint': 'https://sso.example.com/auth', 'uid': '!\\x00O\\x00\\x7f\\x7f\\x7f\\x7f\\x01\\x00\\x00\\x00', 'redirect_url': 'https://app.example.com@evil.org/hack'}",
+  "family": [
+   "userinfo"
+  ]
+ },
+ {
+  "hex": "0100cf00ffffffff2929292929a97c",
+  "arguments": "{'auth_endpoint': 'https://sso.example.com/auth', 'uid': '\\x00O\\x00\\x7f\\x7f\\x7f\\x7f)))))', 'redirect_url': 'javascript:alert(1)'}",
+  "family": [
+   "non_http_scheme"
+  ]
+ },
+ {
+  "hex": "0100cf00ffffffff29a92929292916",
+  "arguments": "{'auth_endpoint': 'https://sso.example.com/auth', 'uid': '\\x00O\\x00\\x7f\\x7f\\x7f\\x7f)))))', 'redirect_url': 'https://evil.app.example.com/hack'}",
+  "family": [
+   "untrusted_subdomain"
+  ]
+ },
+ {
+  "hex": "0100cf00ffffffff2929290a2929ad",
+  "arguments": "{'auth_endpoint': 'https://sso.example.com/auth', 'uid': '\\x00O\\x00\\x7f\\x7f\\x7f\\x7f)))\\n)', 'redirect_url': '//evil.org/hack'}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "ffff30fffffffffffd29292929292929",
+  "arguments": "{'auth_endpoint': 'https://sso.example.com/auth', 'uid': '\\x7f0\\x7f\\x7f\\x7f\\x7f\\x7f}))))', 'redirect_url': 'https://evil.org/#@app.example.com'}",
+  "family": [
+   "fragment_deception"
+  ]
+ },
+ {
+  "hex": "0100cf00ffffffff29292929290100cf00",
+  "arguments": "{'auth_endpoint': 'https://sso.example.com/auth', 'uid': '\\x00O\\x00\\x7f\\x7f\\x7f\\x7f)))))', 'redirect_url': 'https://evil.org\\\\app.example.com/hack'}",
+  "family": [
+   "backslash_authority"
+  ]
+ }
+]

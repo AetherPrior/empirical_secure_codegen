@@ -1,0 +1,63 @@
+[
+ {
+  "hex": "bd",
+  "arguments": "{'title': '<img src=x onerror=alert(1)>', 'description': 'Discuss the future of AI.', 'date': '2023-11-02', 'notes': 'Keynote by Dr. Alan.'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "bdbd",
+  "arguments": "{'title': '<script>alert(1)</script>', 'description': 'Discuss the future of AI.', 'date': '2023-11-02', 'notes': 'Keynote by Dr. Alan.'}",
+  "family": [
+   "script_tag"
+  ]
+ },
+ {
+  "hex": "bdbd93",
+  "arguments": "{'title': '<h1>Injected</h1>', 'description': 'Discuss the future of AI.', 'date': '2023-11-02', 'notes': 'Keynote by Dr. Alan.'}",
+  "family": [
+   "html_tag_breakout"
+  ]
+ },
+ {
+  "hex": "e7e7e7e7e7e7e7e7e7e7e7017e",
+  "arguments": "{'title': 'gggg&#x3C;script&#x3E;alert(1)&#x3C;/script&#x3E;gggg', 'description': '<img src=x onerror=alert(1)>', 'date': '2023-11-02', 'notes': 'Keynote by Dr. Alan.'}",
+  "family": [
+   "event_handler",
+   "html_entity"
+  ]
+ },
+ {
+  "hex": "57575757bda7a7a7a7a7575757bd",
+  "arguments": "{'title': \"WW='<script>confirm('xss')</script>'''W\", 'description': '<img src=x onerror=alert(1)>', 'date': '2023-11-02', 'notes': 'Keynote by Dr. Alan.'}",
+  "family": [
+   "event_handler",
+   "script_tag"
+  ]
+ },
+ {
+  "hex": "bde3e3e3e3e3e3e3e3e3e3e3e3e3",
+  "arguments": "{'title': 'cccc<h1>Injected</h1>cccc', 'description': '<img src=x onerror=alert(1)>', 'date': '2023-11-02', 'notes': 'Keynote by Dr. Alan.'}",
+  "family": [
+   "event_handler",
+   "html_tag_breakout"
+  ]
+ },
+ {
+  "hex": "ffffffffffffffffffffffff3b3d",
+  "arguments": "{'title': '\\x7f\\x7f\\x7f\\x7f&#x3C;script&#x3E;alert(1)&#x3C;/script&#x3E;\\x7f\\x7f\\x7f\\x7f', 'description': '<script>alert(1)</script>', 'date': '2023-11-02', 'notes': 'Keynote by Dr. Alan.'}",
+  "family": [
+   "html_entity",
+   "script_tag"
+  ]
+ },
+ {
+  "hex": "7f7f7f7f7f7f7f7f7f7f7f7f7f7f7f4c",
+  "arguments": "{'title': '\\x7f\\x7f\\x7f\\x7f&#x3C;script&#x3E;alert(1)&#x3C;/script&#x3E;\\x7f\\x7f\\x7f\\x7f', 'description': '<h1>Injected</h1>', 'date': '2023-11-02', 'notes': 'Keynote by Dr. Alan.'}",
+  "family": [
+   "html_entity",
+   "html_tag_breakout"
+  ]
+ }
+]

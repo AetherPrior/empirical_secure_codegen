@@ -1,0 +1,46 @@
+[
+ {
+  "hex": "eb132c40",
+  "arguments": "{'api_url': 'http://service.internal/users', 'user_id': '?url=http://127.0.0.1'}",
+  "family": [
+   "authority_and_scheme_confusion",
+   "query_injection"
+  ]
+ },
+ {
+  "hex": "3d336c13",
+  "arguments": "{'api_url': 'http://service.internal/users', 'user_id': '../admin'}",
+  "family": [
+   "path_traversal"
+  ]
+ },
+ {
+  "hex": "3dff3313",
+  "arguments": "{'api_url': 'http://service.internal/users', 'user_id': '%2f%2f127.0.0.1'}",
+  "family": [
+   "encoded_delimiters"
+  ]
+ },
+ {
+  "hex": "eb132abe",
+  "arguments": "{'api_url': 'http://service.internal/users', 'user_id': '#@127.0.0.1'}",
+  "family": [
+   "authority_and_scheme_confusion",
+   "fragment_injection"
+  ]
+ },
+ {
+  "hex": "ebdd132c40",
+  "arguments": "{'api_url': 'http://service.internal/users', 'user_id': '?next=http://169.254.169.254/latest/meta-data'}",
+  "family": [
+   "query_injection"
+  ]
+ },
+ {
+  "hex": "eb132c402c13c540",
+  "arguments": "{'api_url': 'http://service.internal/users', 'user_id': 'x#http://localhost'}",
+  "family": [
+   "fragment_injection"
+  ]
+ }
+]

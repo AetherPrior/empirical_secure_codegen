@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'dept_name': 'IT', 'template': '{employee.salary}'}",
+  "family": [
+   "direct_sensitive_attribute"
+  ]
+ },
+ {
+  "hex": "3f01",
+  "arguments": "{'dept_name': 'IT', 'template': '{employee.__dict__}'}",
+  "family": [
+   "employee_state_access"
+  ]
+ }
+]

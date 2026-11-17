@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "2d",
+  "arguments": "{'math_expr': '().__class__'}",
+  "family": [
+   "attribute_access"
+  ]
+ },
+ {
+  "hex": "2df8",
+  "arguments": "{'math_expr': \"compile('1+1', '<x>', 'eval')\"}",
+  "family": [
+   "code_compilation"
+  ]
+ }
+]

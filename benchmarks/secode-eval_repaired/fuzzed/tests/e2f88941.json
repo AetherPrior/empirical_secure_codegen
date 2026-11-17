@@ -1,0 +1,30 @@
+[
+ {
+  "hex": "93",
+  "arguments": "{'data_bytes': b'}Vflag\\nVexploit\\ns.', 'format_method': 'pickle'}",
+  "family": [
+   "pickle_legacy_mapping"
+  ]
+ },
+ {
+  "hex": "930a",
+  "arguments": "{'data_bytes': b'cbuiltins\\neval\\n(V1+1\\ntR.', 'format_method': 'pickle'}",
+  "family": [
+   "pickle_reduce_eval"
+  ]
+ },
+ {
+  "hex": "b793",
+  "arguments": "{'data_bytes': b'\\x80\\x02K*.', 'format_method': 'pickle'}",
+  "family": [
+   "pickle_scalar_protocols"
+  ]
+ },
+ {
+  "hex": "930d",
+  "arguments": "{'data_bytes': b'\\x80\\x04\\x95\\x15\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x04flag\\x94\\x8c\\x07exploit\\x94s.', 'format_method': 'pickle'}",
+  "family": [
+   "pickle_protocol4_mapping"
+  ]
+ }
+]

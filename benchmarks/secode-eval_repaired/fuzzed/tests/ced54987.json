@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "2b",
+  "arguments": "{'user_input': '((1).__class__.__mro__)'}",
+  "family": [
+   "attribute_traversal"
+  ]
+ }
+]

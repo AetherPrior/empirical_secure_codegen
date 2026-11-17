@@ -1,0 +1,51 @@
+[
+ {
+  "hex": "a5635a5a5a5a5a5a5af5",
+  "arguments": "{'rss_link': 'http://127.1/rss?probe=cZZZZZZZ'}",
+  "family": [
+   "alternate_ip_forms"
+  ]
+ },
+ {
+  "hex": "a5a5a5a5a5a5a5a5a5a50a",
+  "arguments": "{'rss_link': 'http://127.0.0.1/rss-feed?probe=%25%25%25%25%25%25%25%25'}",
+  "family": [
+   "internal_ipv4"
+  ]
+ },
+ {
+  "hex": "a5a5a5a5a5a5a5a5a5a5a5",
+  "arguments": "{'rss_link': 'http://[::1]/rss?probe=%25%25%25%25%25%25%25%25'}",
+  "family": [
+   "ipv6_internal"
+  ]
+ },
+ {
+  "hex": "a563635a5a5a5a5aa5635a",
+  "arguments": "{'rss_link': 'http://rss.trustedsource.com@127.0.0.1/rss?probe=ccZZZZZ%25'}",
+  "family": [
+   "userinfo"
+  ]
+ },
+ {
+  "hex": "a5010054000094f5a50160",
+  "arguments": "{'rss_link': 'https://rss.trustedsource.com.attacker.invalid/rss?probe=%01%00T%00%00%14u%25'}",
+  "family": [
+   "trusted_suffix"
+  ]
+ },
+ {
+  "hex": "a50100540000000000f5a501",
+  "arguments": "{'rss_link': 'file://127.0.0.1/rss?probe=%01%00T%00%00%00%00%00'}",
+  "family": [
+   "disallowed_schemes"
+  ]
+ },
+ {
+  "hex": "0a6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b6b",
+  "arguments": "{'rss_link': 'https://rss.trustedsource.com%2eattacker.invalid/rss?probe=%E6%AD%AB%E6%AD%AB%E6%AD%AB%E6%AD%AB%E6%AD%AB%E6%AD%AB%E6%AD%AB%E6%AD%AB'}",
+  "family": [
+   "host_normalization"
+  ]
+ }
+]

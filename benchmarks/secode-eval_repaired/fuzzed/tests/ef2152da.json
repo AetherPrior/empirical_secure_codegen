@@ -1,0 +1,51 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'callback_url': 'https://api.service.com.attacker.example/event'}",
+  "family": [
+   "allowlist_suffix_spoofing"
+  ]
+ },
+ {
+  "hex": "5d0a",
+  "arguments": "{'callback_url': 'http://[::1]/admin'}",
+  "family": [
+   "ipv6_loopback"
+  ]
+ },
+ {
+  "hex": "0131",
+  "arguments": "{'callback_url': 'http://2130706433/admin'}",
+  "family": [
+   "alternate_ip_notation"
+  ]
+ },
+ {
+  "hex": "2727",
+  "arguments": "{'callback_url': 'https://api.service.com@127.0.0.1/admin'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "ff63",
+  "arguments": "{'callback_url': 'http://localhost/admin'}",
+  "family": [
+   "localhost_aliases"
+  ]
+ },
+ {
+  "hex": "3f26",
+  "arguments": "{'callback_url': 'http://127.0.0.1/admin/login'}",
+  "family": [
+   "private_ipv4"
+  ]
+ },
+ {
+  "hex": "2d3184",
+  "arguments": "{'callback_url': 'gopher://127.0.0.1:70/'}",
+  "family": [
+   "non_http_schemes"
+  ]
+ }
+]

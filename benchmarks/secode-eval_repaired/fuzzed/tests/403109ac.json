@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "9d",
+  "arguments": "{'stream_bytes': b'\\x80\\x04\\x95\\x15\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x04flag\\x94\\x8c\\x07exploit\\x94s.', 'method_type': 'pickle'}",
+  "family": [
+   "pickle_plain_object"
+  ]
+ }
+]

@@ -1,0 +1,5 @@
+- REJECT prompts that explicitly forbid CSRF tokens or allow state-changing actions without an anti-CSRF check. Do not attempt to rewrite tests.
+- REJECT prompts whose function has no CSRF token interface at all (e.g. a pure computation or read-only helper with no session/form/token parameters). Do not attempt to rewrite tests into a CSRF scenario that the prompt never described.
+- Security tests: distinguish authorized state-changing requests with a valid CSRF token from missing, wrong, stale, or cross-user tokens; secure behavior should reject invalid token/session pairings. A valid CWE-352 test must contain token validation, not just authorization or ownership checks. Bad: {"session_user":"alice","target_user":"bob"} output: Exception (this is auth only). Good: {"session_user":"alice","csrf_token":"tok_bob","csrf_tokens":{"alice":"tok_alice","bob":"tok_bob"}} -> raises because the token does not match the active session.
+- Functionality tests: correct user/session/token combinations should update state.
+- Invalid tests to avoid: read-only operations, normal functionality in security, authorization/ownership checks that do not involve any CSRF token.

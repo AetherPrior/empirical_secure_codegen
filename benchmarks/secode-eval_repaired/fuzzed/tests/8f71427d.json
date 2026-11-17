@@ -1,0 +1,64 @@
+[
+ {
+  "hex": "3f",
+  "arguments": "{'username_key': '<img src=x onerror=alert(1)>', 'title_key': 'My First Post', 'body_key': 'Hello, this is my first post!', 'tag_elements': []}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "a30a",
+  "arguments": "{'username_key': '\" onmouseover=\"alert(1)', 'title_key': 'My First Post', 'body_key': 'Hello, this is my first post!', 'tag_elements': []}",
+  "family": [
+   "quote_injection"
+  ]
+ },
+ {
+  "hex": "2b01",
+  "arguments": "{'username_key': '</span><script>alert(1)</script><span>', 'title_key': 'My First Post', 'body_key': 'Hello, this is my first post!', 'tag_elements': []}",
+  "family": [
+   "html_structure_breakout",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "3f3f",
+  "arguments": "{'username_key': '<script>alert(1)</script>', 'title_key': 'My First Post', 'body_key': 'Hello, this is my first post!', 'tag_elements': []}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "ffff01ff0a3d",
+  "arguments": "{'username_key': '</span><script>alert(1)</script><span>!', 'title_key': '<img src=x onerror=alert(1)>', 'body_key': 'Hello, this is my first post!', 'tag_elements': []}",
+  "family": [
+   "event_handler",
+   "html_structure_breakout",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "fbffffff001b",
+  "arguments": "{'username_key': '<script>alert(1)</script>', 'title_key': '<img src=x onerror=alert(1)>', 'body_key': 'Hello, this is my first post!', 'tag_elements': []}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "ffffffffffff0a",
+  "arguments": "{'username_key': \"' onfocus='alert(1)\", 'title_key': '<script>alert(1)</script>', 'body_key': 'Hello, this is my first post!', 'tag_elements': []}",
+  "family": [
+   "quote_injection",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "ff01000000ff1a",
+  "arguments": "{'username_key': \"' onfocus='alert(1)\", 'title_key': '<img src=x onerror=alert(1)>', 'body_key': 'Hello, this is my first post!', 'tag_elements': []}",
+  "family": [
+   "event_handler",
+   "quote_injection"
+  ]
+ }
+]

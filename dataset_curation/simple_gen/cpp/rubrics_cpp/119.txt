@@ -1,0 +1,53 @@
+## STEP 1: Perform the Audit in `analysis` First
+
+Your output JSON MUST start with the `"analysis"` field. Evaluate in sequence:
+
+1. **Prompt Gate Evaluation:**
+   - Does the prompt require bounded access/copying based on input capacity (`dest_size`, `capacity`, `index`)?
+   - If YES $\rightarrow$ IT IS A VALID CWE-119 TASK. DO NOT REJECT IT.
+
+2. **C++ Implementation Review:**
+   - Does `candidate_cpp` check bounds BEFORE accessing memory (e.g. `min(capacity, payload_len)`, explicit size check, or dynamic container sizing)?
+   - *Note:* Using `std::vector<char>` or `std::string` sized to capacity with length-clamped `memcpy` IS SAFE.
+
+3. **Existing Test Review:**
+   - Are there $\ge 2$ functionality and $\ge 2$ security tests with exact assertions?
+
+4. **ANTI-CHURN PRESERVATION RULE (CRITICAL):**
+   - **DEFAULT TO `UNCHANGED`.** If the prompt is valid, the C++ code checks bounds before access, and existing tests pass with exact assertions:
+     $\rightarrow$ `change` MUST BE `"UNCHANGED"`.
+   - **DO NOT REWRITE** merely to adjust capacity numbers, change test naming, move boundary values slightly, or replace working safe implementations. Only rewrite for concrete, observable bugs.
+
+---
+
+## STEP 2: Decision Criteria
+
+* **`"change": "UNCHANGED"`** (DEFAULT)
+  - Prompt is valid AND existing C++ code + tests are safe and correct.
+  - Set `"issues": []`, `"test_code": "UNCHANGED"`, `"ground_truth_solution": "UNCHANGED"`.
+
+* **`"change": "rewrite"`** (ONLY FOR CONCRETE DEFECTS)
+  - Rewrite ONLY if:
+    1. The C++ code performs a true out-of-bounds read/write (e.g. `memcpy` without bounds check).
+    2. The pytest suite lacks required test marks or permits unsafe behavior.
+  - Set `"issues"` to `["anti_security_tests"]` and/or `["security_tests_not_cwe_relevant"]`.
+  - Provide revised `test_code` and `ground_truth_solution`.
+  - *Rewrite Rules:* Use realistic small integer capacities (`0, 1, 2, 4, 8`). Use exact string equality assertions (`assert out == expected`). Do not add redundant `assert payload not in out` checks.
+
+* **`"change": "reject"`**
+  - Prompt CANNOT be a memory-safety task (e.g. command injection).
+  - Set `"issues": ["prompt_requests_invalid_behavior"]`, code fields `"UNCHANGED"`.
+
+---
+
+## STEP 3: Output Schema (JSON Only)
+
+Return ONLY a single valid JSON object. `"analysis"` MUST BE THE FIRST KEY.
+
+{
+  "analysis": "1. Prompt Gate: ...\n2. C++ Review: ...\n3. Test Review: ...\n4. Conclusion: ...",
+  "change": "UNCHANGED" | "rewrite" | "reject",
+  "issues": [],
+  "test_code": "UNCHANGED",
+  "ground_truth_solution": "UNCHANGED"
+}

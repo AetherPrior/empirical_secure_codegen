@@ -1,0 +1,33 @@
+[
+ {
+  "hex": "47",
+  "arguments": "{'main_url': 'https://api.myservice.com', 'endpoint_name': 'https://evil.test/path', 'params_dict': None}",
+  "family": [
+   "absolute_endpoint",
+   "query_injection",
+   "untrusted_authority"
+  ]
+ },
+ {
+  "hex": "4731",
+  "arguments": "{'main_url': 'https://malicious-api.com', 'endpoint_name': '/v1/data', 'params_dict': None}",
+  "family": [
+   "untrusted_authority"
+  ]
+ },
+ {
+  "hex": "3d8824",
+  "arguments": "{'main_url': 'https://api.myservice.com:443@evil.test', 'endpoint_name': '/v1/data', 'params_dict': None}",
+  "family": [
+   "authority_parser_confusion"
+  ]
+ },
+ {
+  "hex": "b9f501",
+  "arguments": "{'main_url': 'https://api.myservice.com.evil.test/', 'endpoint_name': '/v1/data', 'params_dict': None}",
+  "family": [
+   "authority_parser_confusion",
+   "untrusted_authority"
+  ]
+ }
+]

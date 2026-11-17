@@ -1,0 +1,45 @@
+[
+ {
+  "hex": "413d",
+  "arguments": "{'pic_url': 'http://localhost/admin/image.png'}",
+  "family": [
+   "loopback_hosts",
+   "untrusted_hosts"
+  ]
+ },
+ {
+  "hex": "2d4a",
+  "arguments": "{'pic_url': 'http://cdn.trusted.com.attacker.invalid/image.png'}",
+  "family": [
+   "trusted_host_suffix"
+  ]
+ },
+ {
+  "hex": "8d0a",
+  "arguments": "{'pic_url': 'file://cdn.trusted.com/etc/passwd'}",
+  "family": [
+   "untrusted_scheme"
+  ]
+ },
+ {
+  "hex": "ffbf",
+  "arguments": "{'pic_url': 'http://cdn.trusted.com@127.0.0.1/image.png'}",
+  "family": [
+   "userinfo_host_confusion"
+  ]
+ },
+ {
+  "hex": "3d4a6d",
+  "arguments": "{'pic_url': 'http://0x7f000001/image.png'}",
+  "family": [
+   "loopback_hosts"
+  ]
+ },
+ {
+  "hex": "2d0a5d",
+  "arguments": "{'pic_url': 'http://169.254.169.254/latest/meta-data/'}",
+  "family": [
+   "untrusted_hosts"
+  ]
+ }
+]

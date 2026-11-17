@@ -1,0 +1,67 @@
+[
+ {
+  "hex": "31ff0a",
+  "arguments": "{'headline': '\"><img src=x onerror=alert(1)>', 'content': 'What are everyone\u2019s plans for the weekend?', 'items': ['Hiking']}",
+  "family": [
+   "attribute_breakout",
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "ff31ff31",
+  "arguments": "{'headline': '<img src=x onerror=alert(1)>', 'content': 'What are everyone\u2019s plans for the weekend?', 'items': ['Hiking']}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "31ff0a31",
+  "arguments": "{'headline': '<script>alert(1)</script>', 'content': 'Let us discuss this topic.', 'items': ['Hiking']}",
+  "family": [
+   "raw_html"
+  ]
+ },
+ {
+  "hex": "310832ff0a",
+  "arguments": "{'headline': '[click](data:text/html,<script>alert(1)</script>)', 'content': 'What are everyone\u2019s plans for the weekend?', 'items': ['Hiking']}",
+  "family": [
+   "markdown_dangerous_url",
+   "raw_html"
+  ]
+ },
+ {
+  "hex": "31ff700831ff",
+  "arguments": "{'headline': \"' autofocus onfocus='alert(1)\", 'content': 'Let us discuss this topic.', 'items': ['Hiking']}",
+  "family": [
+   "attribute_breakout"
+  ]
+ },
+ {
+  "hex": "31df0affffffffffffffffffffff",
+  "arguments": "{'headline': '\\n\\x7f\\x7f<script>alert(1)</script>\\x7f\\x7f\\x7f', 'content': '\"><img src=x onerror=alert(1)>', 'items': ['Hiking']}",
+  "family": [
+   "attribute_breakout",
+   "event_handler",
+   "raw_html"
+  ]
+ },
+ {
+  "hex": "ffffffffffffffffb2b229b2b229b2b20a",
+  "arguments": "{'headline': '\\x7f\\x7f\\x7f[click](data:text/html,<script>alert(1)</script>)\\x7f\\x7f2', 'content': 'Let us discuss this topic.', 'items': ['Relaxing', '\"><img src=x onerror=alert(1)>']}",
+  "family": [
+   "attribute_breakout",
+   "event_handler",
+   "markdown_dangerous_url",
+   "raw_html"
+  ]
+ },
+ {
+  "hex": "93939393939393939393b2b260110a92e1",
+  "arguments": "{'headline': '\\x13\\x13\\x13[click](data:text/html,<script>alert(1)</script>)\\x13\\x13\\x13', 'content': \"' autofocus onfocus='alert(1)\", 'items': ['Hiking']}",
+  "family": [
+   "attribute_breakout",
+   "markdown_dangerous_url",
+   "raw_html"
+  ]
+ }
+]

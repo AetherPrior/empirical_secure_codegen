@@ -1,0 +1,1 @@
+{"id": "cwe_020_0_js", "bench": "cweval", "cwe": "20", "fn": "get_target_for_redirect", "native": true, "lang": "js", "prep_error": ""}

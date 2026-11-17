@@ -1,0 +1,61 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'staff_identifier': 'D999', 'staff_role': 'doctor', 'patient_ident': 'P1001'}",
+  "family": [
+   "unassigned_staff"
+  ]
+ },
+ {
+  "hex": "3b",
+  "arguments": "{'staff_identifier': ' D101', 'staff_role': 'doctor', 'patient_ident': 'P1001'}",
+  "family": [
+   "staff_id_formatting"
+  ]
+ },
+ {
+  "hex": "89",
+  "arguments": "{'staff_identifier': 'D101', 'staff_role': 'ADMIN', 'patient_ident': 'P1001'}",
+  "family": [
+   "role_spoofing",
+   "staff_id_formatting"
+  ]
+ },
+ {
+  "hex": "d5e1",
+  "arguments": "{'staff_identifier': 'N201', 'staff_role': 'ADMIN', 'patient_ident': 'P1001'}",
+  "family": [
+   "role_spoofing"
+  ]
+ },
+ {
+  "hex": "f6bf",
+  "arguments": "{'staff_identifier': '', 'staff_role': 'doctor', 'patient_ident': 'P1001'}",
+  "family": []
+ },
+ {
+  "hex": "8a89",
+  "arguments": "{'staff_identifier': 'D102', 'staff_role': 'ADMIN', 'patient_ident': 'P1001'}",
+  "family": [
+   "cross_patient_assignment",
+   "role_spoofing",
+   "staff_id_formatting"
+  ]
+ },
+ {
+  "hex": "2b2b",
+  "arguments": "{'staff_identifier': 'D101,D102', 'staff_role': 'doctor', 'patient_ident': 'P1001'}",
+  "family": [
+   "cross_patient_assignment",
+   "staff_id_formatting"
+  ]
+ },
+ {
+  "hex": "a7e1",
+  "arguments": "{'staff_identifier': 'N202', 'staff_role': 'ADMIN', 'patient_ident': 'P1001'}",
+  "family": [
+   "cross_patient_assignment",
+   "role_spoofing"
+  ]
+ }
+]

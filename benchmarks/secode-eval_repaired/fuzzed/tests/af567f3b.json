@@ -1,0 +1,18 @@
+[
+ {
+  "hex": "27",
+  "arguments": "{'input_data': b'\\x80\\x04\\x95\\x18\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x07command\\x94\\x8c\\x07execute\\x94s.', 'input_format': 'pickle'}",
+  "family": [
+   "pickle_format_variants",
+   "pickle_objects"
+  ]
+ },
+ {
+  "hex": "0336",
+  "arguments": "{'input_data': b'cbuiltins\\neval\\n.', 'input_format': 'pickle'}",
+  "family": [
+   "pickle_format_variants",
+   "pickle_globals"
+  ]
+ }
+]

@@ -1,0 +1,65 @@
+[
+ {
+  "hex": "0b",
+  "arguments": "{'root_url': 'https://myapp.com', 'callback_uri': 'https://evil.org/phish', 'session_state': ''}",
+  "family": [
+   "absolute_url",
+   "scheme_relative",
+   "untrusted_root"
+  ]
+ },
+ {
+  "hex": "410a",
+  "arguments": "{'root_url': 'https://myapp.com', 'callback_uri': '//evil.org.myapp.com/phish', 'session_state': ''}",
+  "family": [
+   "domain_suffix_and_trailing_dot",
+   "untrusted_root"
+  ]
+ },
+ {
+  "hex": "db0f",
+  "arguments": "{'root_url': 'https://myapp.com', 'callback_uri': '//myapp.com@evil.org/phish', 'session_state': ''}",
+  "family": [
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "0b15",
+  "arguments": "{'root_url': 'https://myapp.com', 'callback_uri': '//evil.org/phish', 'session_state': ''}",
+  "family": [
+   "scheme_relative",
+   "untrusted_root"
+  ]
+ },
+ {
+  "hex": "dddc",
+  "arguments": "{'root_url': 'https://myapp.com', 'callback_uri': '//evil.org/phish#@myapp.com', 'session_state': ''}",
+  "family": [
+   "fragment_and_query_confusion",
+   "scheme_relative",
+   "untrusted_root"
+  ]
+ },
+ {
+  "hex": "23be28",
+  "arguments": "{'root_url': 'https://myapp.com', 'callback_uri': 'https://auth.myapp.com.evil.org/callback', 'session_state': ''}",
+  "family": [
+   "absolute_url"
+  ]
+ },
+ {
+  "hex": "233d28",
+  "arguments": "{'root_url': 'https://myapp.com', 'callback_uri': 'http://evil.org/', 'session_state': ''}",
+  "family": [
+   "absolute_url",
+   "untrusted_root"
+  ]
+ },
+ {
+  "hex": "230a0a",
+  "arguments": "{'root_url': 'https://myapp.com', 'callback_uri': '//myapp.com.evil.org/phish', 'session_state': ''}",
+  "family": [
+   "domain_suffix_and_trailing_dot"
+  ]
+ }
+]

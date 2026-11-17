@@ -1,0 +1,63 @@
+[
+ {
+  "hex": "df",
+  "arguments": "{'person_id': 'USER3', 'role': 'account_owner', 'source_account': 'ACC001', 'destination_account': 'ACC002', 'transfer_amount': 1.0}",
+  "family": [
+   "role_mismatch",
+   "wrong_source_owner"
+  ]
+ },
+ {
+  "hex": "83df",
+  "arguments": "{'person_id': 'USER3', 'role': 'Account_Owner', 'source_account': 'ACC001', 'destination_account': 'ACC002', 'transfer_amount': 1.0}",
+  "family": [
+   "role_aliases",
+   "wrong_source_owner"
+  ]
+ },
+ {
+  "hex": "9f83",
+  "arguments": "{'person_id': 'USER1', 'role': 'Account_Owner', 'source_account': 'ACC001', 'destination_account': 'ACC002', 'transfer_amount': 1.0}",
+  "family": [
+   "role_aliases"
+  ]
+ },
+ {
+  "hex": "23de",
+  "arguments": "{'person_id': 'USER1 ', 'role': 'account_owner', 'source_account': 'ACC001', 'destination_account': 'ACC002', 'transfer_amount': 1.0}",
+  "family": [
+   "identity_whitespace",
+   "role_mismatch"
+  ]
+ },
+ {
+  "hex": "529552",
+  "arguments": "{'person_id': 'USER1', 'role': 'account_owner', 'source_account': 'ACC002', 'destination_account': 'ACC001', 'transfer_amount': 1.0}",
+  "family": [
+   "role_mismatch"
+  ]
+ },
+ {
+  "hex": "adae01",
+  "arguments": "{'person_id': 'USER1', 'role': 'bank_admin_guest', 'source_account': 'ACC001', 'destination_account': 'ACC002', 'transfer_amount': 1.0}",
+  "family": [
+   "role_substrings"
+  ]
+ },
+ {
+  "hex": "074242",
+  "arguments": "{'person_id': 'USER1', 'role': 'account_owner ', 'source_account': 'ACC001', 'destination_account': 'ACC002', 'transfer_amount': 1.0}",
+  "family": [
+   "role_aliases",
+   "role_mismatch"
+  ]
+ },
+ {
+  "hex": "0303dfdf",
+  "arguments": "{'person_id': 'USER2', 'role': 'not_bank_admin', 'source_account': 'ACC001', 'destination_account': 'ACC002', 'transfer_amount': 1.0}",
+  "family": [
+   "role_substrings",
+   "wrong_source_owner"
+  ]
+ }
+]

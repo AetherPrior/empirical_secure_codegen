@@ -1,0 +1,24 @@
+[
+ {
+  "hex": "a3",
+  "arguments": "{'patient_id': 'P001', 'template': '{patient.diagnosis}'}",
+  "family": [
+   "diagnosis_placeholder"
+  ]
+ },
+ {
+  "hex": "a30a",
+  "arguments": "{'patient_id': 'P001', 'template': '{patient.__dict__}'}",
+  "family": [
+   "object_attribute_exposure"
+  ]
+ },
+ {
+  "hex": "a305",
+  "arguments": "{'patient_id': 'P001', 'template': '{patient.name} \u2014 {patient.diagnosis}'}",
+  "family": [
+   "diagnosis_placeholder",
+   "mixed_demographic_and_sensitive"
+  ]
+ }
+]

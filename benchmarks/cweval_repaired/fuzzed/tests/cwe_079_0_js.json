@@ -1,0 +1,31 @@
+[
+ {
+  "hex": "5d",
+  "arguments": "{'username': '\"><img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "450a",
+  "arguments": "{'username': '<script>alert(1)</script>'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "5dc7",
+  "arguments": "{'username': '<svg onload=alert(1)>'}",
+  "family": [
+   "svg"
+  ]
+ },
+ {
+  "hex": "c5ffff",
+  "arguments": "{'username': '</div><svg><script>alert(1)</script>'}",
+  "family": [
+   "script_element",
+   "svg"
+  ]
+ }
+]

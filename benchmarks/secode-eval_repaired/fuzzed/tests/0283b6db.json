@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'sso_endpoint': 'https://sso.example.com/auth', 'user_id': '', 'return_url': 'https://app.example.com.evil.org/'}",
+  "family": [
+   "domain_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "280a",
+  "arguments": "{'sso_endpoint': 'https://sso.example.com/auth', 'user_id': '', 'return_url': 'https:\\\\\\\\evil.org\\\\hack'}",
+  "family": [
+   "parser_and_encoding_confusion"
+  ]
+ },
+ {
+  "hex": "0abf",
+  "arguments": "{'sso_endpoint': 'https://sso.example.com/auth', 'user_id': '', 'return_url': 'https://evil.org/?next=https://app.example.com/'}",
+  "family": [
+   "whitelist_in_path_or_fragment"
+  ]
+ },
+ {
+  "hex": "2e25",
+  "arguments": "{'sso_endpoint': 'https://sso.example.com/auth', 'user_id': '', 'return_url': 'javascript:alert(1)'}",
+  "family": [
+   "unsafe_scheme"
+  ]
+ },
+ {
+  "hex": "dcc3",
+  "arguments": "{'sso_endpoint': 'https://sso.example.com/auth', 'user_id': '', 'return_url': '//evil.org/hack'}",
+  "family": [
+   "protocol_relative"
+  ]
+ },
+ {
+  "hex": "0a0e",
+  "arguments": "{'sso_endpoint': 'https://sso.example.com/auth', 'user_id': '', 'return_url': 'https://app.example.com@evil.org/'}",
+  "family": [
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "5651",
+  "arguments": "{'sso_endpoint': 'https://sso.example.com/auth', 'user_id': '', 'return_url': 'https://evil.org/hack'}",
+  "family": [
+   "external_absolute",
+   "protocol_relative"
+  ]
+ },
+ {
+  "hex": "0abc",
+  "arguments": "{'sso_endpoint': 'https://sso.example.com/auth', 'user_id': '', 'return_url': 'https://evil.app.example.com/'}",
+  "family": [
+   "subdomain_confusion"
+  ]
+ }
+]

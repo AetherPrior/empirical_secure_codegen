@@ -1,0 +1,37 @@
+[
+ {
+  "hex": "ed",
+  "arguments": "{'staff_num': 'D101', 'role': 'Doctor', 'patient_ref': 'P1001'}",
+  "family": [
+   "role_case_confusion"
+  ]
+ },
+ {
+  "hex": "3118",
+  "arguments": "{'staff_num': 'D101', 'role': 'receptionist', 'patient_ref': 'P1001'}",
+  "family": [
+   "unauthorized_role"
+  ]
+ },
+ {
+  "hex": "3108",
+  "arguments": "{'staff_num': 'D102', 'role': 'doctor', 'patient_ref': 'P1001'}",
+  "family": [
+   "unassigned_staff"
+  ]
+ },
+ {
+  "hex": "ff11",
+  "arguments": "{'staff_num': 'D101 ', 'role': 'doctor', 'patient_ref': 'P1001'}",
+  "family": [
+   "spoofed_staff_id"
+  ]
+ },
+ {
+  "hex": "3124",
+  "arguments": "{'staff_num': 'D101', 'role': 'administrator', 'patient_ref': 'P1001'}",
+  "family": [
+   "role_prefix_confusion"
+  ]
+ }
+]

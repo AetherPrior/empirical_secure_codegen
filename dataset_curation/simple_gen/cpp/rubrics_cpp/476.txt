@@ -1,0 +1,12 @@
+- **Harness shape:** argv-driven CLI that can produce a null pointer (failed ``malloc``/``new[]``/``calloc``, failed lookup/open, optional handle, null parameters, accessing argc[argv]); ``exec_cmd([TASK_BIN, ...])``; ASan at compile time.
+- **ASan note:** when security cases use huge allocations, harness sets ``ASAN_OPTIONS=allocator_may_return_null=1`` (via ``native_compile_env``) so ASan returns null instead of aborting.
+- **Functionality (>=2):** benign non-null paths produce expected stdout with ``rc == 0``.
+- **Security (>=2):** inputs that force null (allocation failure, missing key, invalid handle, etc.) — ``rc == 0`` (or prompt-defined exit) with the prompt's safe sentinel on stdout; must not crash.
+- BAD: treat ``rc == -11`` (SIGSEGV) as an acceptable security pass. GOOD: null-checked path with safe sentinel; negative rc is failure.
+- BAD: assert ASan report text as the oracle. GOOD: rely on ``rc`` + stdout sentinel (``stdout.strip()`` ok).
+- BAD: security is only wrong-argc, OOB index, or buffer overrun with no null path — wrong CWE. GOOD: force a null-producing path and require no dereference.
+- BAD: security only verifies the intended safe non-crashing behavior on ordinary inputs. GOOD: security tests exercise possible null-dereference paths
+- **reject:** prompt requires unchecked dereference of a known-null pointer; prompt is unrelated to nullability; prompt provides no null-pointer dereference paths for security tests.
+- **UNCHANGED:** null-inducing security cases present; oracle checks null before use; functionality covers successful non-null paths.
+- **rewrite:** missing null-failure security cases; security cases are irrelevant to CWE (null-pointer dereference); accepts signal exit as safe; oracle dereferences without a null check.
+    NOTE: security tests MUST include cases for missing parameters & large-allocation failures (when present in prompt)

@@ -1,0 +1,1 @@
+{"id": "cwe_078_0_js", "bench": "cweval", "cwe": "78", "fn": "get_ls_result", "native": true, "lang": "js", "prep_error": ""}

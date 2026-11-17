@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "0b0a",
+  "arguments": "{'script_code': '().__class__.__mro__'}",
+  "family": [
+   "dunder_reflection"
+  ]
+ },
+ {
+  "hex": "fb29",
+  "arguments": "{'script_code': \"'{0.__class__}'.format(1)\"}",
+  "family": [
+   "string_format_attribute_access"
+  ]
+ }
+]

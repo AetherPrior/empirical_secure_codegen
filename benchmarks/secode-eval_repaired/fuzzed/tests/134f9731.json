@@ -1,0 +1,58 @@
+[
+ {
+  "hex": "c3",
+  "arguments": "{'webhook_endpoint': 'http://2130706433/'}",
+  "family": [
+   "alternate_ipv4_notation"
+  ]
+ },
+ {
+  "hex": "e3e3",
+  "arguments": "{'webhook_endpoint': 'https://api.service.com.evil.example/'}",
+  "family": [
+   "hostname_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "57c7",
+  "arguments": "{'webhook_endpoint': 'http://%31%32%37.0.0.1/'}",
+  "family": [
+   "encoded_hostname"
+  ]
+ },
+ {
+  "hex": "d33b",
+  "arguments": "{'webhook_endpoint': 'http://127.0.0.1/admin/login'}",
+  "family": [
+   "private_ipv4"
+  ]
+ },
+ {
+  "hex": "ffff",
+  "arguments": "{'webhook_endpoint': 'http://[::1]/'}",
+  "family": [
+   "ipv6_loopback"
+  ]
+ },
+ {
+  "hex": "2908",
+  "arguments": "{'webhook_endpoint': 'https://api.service.com@127.0.0.1/'}",
+  "family": [
+   "userinfo_host_confusion"
+  ]
+ },
+ {
+  "hex": "57c757",
+  "arguments": "{'webhook_endpoint': 'https://localhost./'}",
+  "family": [
+   "trailing_dot_hostname"
+  ]
+ },
+ {
+  "hex": "c305c1",
+  "arguments": "{'webhook_endpoint': 'http://127.0.0.1?@api.service.com/'}",
+  "family": [
+   "parser_delimiter_confusion"
+  ]
+ }
+]

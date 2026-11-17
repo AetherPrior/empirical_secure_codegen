@@ -1,0 +1,63 @@
+[
+ {
+  "hex": "710a71",
+  "arguments": "{'base_url': 'https://myapp.com/app', 'callback_path': 'https://evil.org/phish', 'state': 'abc123'}",
+  "family": [
+   "absolute_external_url",
+   "base_url_authority_confusion",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "350a7d09",
+  "arguments": "{'base_url': 'https://myapp.com', 'callback_path': 'https://myapp.com@evil.org', 'state': 'abc123'}",
+  "family": [
+   "base_url_authority_confusion"
+  ]
+ },
+ {
+  "hex": "357d0a09",
+  "arguments": "{'base_url': 'https://myapp.com', 'callback_path': '//evil.org/phish', 'state': 'abc123'}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "35087d4d",
+  "arguments": "{'base_url': 'https://myapp.com/app', 'callback_path': '//myapp.com@evil.org/phish', 'state': 'abc123'}",
+  "family": [
+   "authority_confusion"
+  ]
+ },
+ {
+  "hex": "ff8a6b0a",
+  "arguments": "{'base_url': 'https://myapp.com/', 'callback_path': '//auth.myapp.com.evil.org/phish', 'state': 'abc123'}",
+  "family": [
+   "host_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "01bf8409be",
+  "arguments": "{'base_url': 'https://myapp.com/', 'callback_path': '//myapp.com.evil.org/phish', 'state': 'abc123'}",
+  "family": [
+   "host_suffix_confusion",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "01be7e09be",
+  "arguments": "{'base_url': 'https://myapp.com/', 'callback_path': 'http://evil.org/phish', 'state': 'abc123'}",
+  "family": [
+   "absolute_external_url",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "3b3b3bab60ab08",
+  "arguments": "{'base_url': 'https://myapp.com@evil.org/app', 'callback_path': '//auth.myapp.com.evil.org/phish', 'state': 'abc123'}",
+  "family": [
+   "base_url_authority_confusion",
+   "host_suffix_confusion"
+  ]
+ }
+]

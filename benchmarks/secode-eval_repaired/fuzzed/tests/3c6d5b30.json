@@ -1,0 +1,31 @@
+[
+ {
+  "hex": "21d7",
+  "arguments": "{'domain_base_url': 'http://myapp.com', 'next_redirect_param': 'https://evil.com/hack'}",
+  "family": [
+   "absolute_external_url"
+  ]
+ },
+ {
+  "hex": "21d721",
+  "arguments": "{'domain_base_url': 'https://myapp.com/', 'next_redirect_param': ' https://evil.com/hack'}",
+  "family": [
+   "absolute_external_url",
+   "parser_whitespace"
+  ]
+ },
+ {
+  "hex": "4b0ad7",
+  "arguments": "{'domain_base_url': 'http://myapp.com', 'next_redirect_param': 'https://myapp.com.evil.com/hack'}",
+  "family": [
+   "host_confusion"
+  ]
+ },
+ {
+  "hex": "35f7f7",
+  "arguments": "{'domain_base_url': 'http://myapp.com', 'next_redirect_param': 'javascript:alert(1)'}",
+  "family": [
+   "alternate_scheme"
+  ]
+ }
+]

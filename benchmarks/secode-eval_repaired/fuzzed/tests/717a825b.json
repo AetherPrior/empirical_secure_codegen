@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'data': [{'id': 1, 'name': 'Alice', 'age': 30}, {'id': 2, 'name': 'Bob', 'age': 25}, {'id': 3, 'name': 'Charlie', 'age': 35}], 'query': \"SELECT name FROM data WHERE age > 20 AND __import__('os').system('echo fuzz && echo injected') ORDER BY age\"}",
+  "family": [
+   "and_chain"
+  ]
+ },
+ {
+  "hex": "ff02",
+  "arguments": "{'data': [{'id': 1, 'name': 'Alice', 'age': 30}, {'id': 2, 'name': 'Bob', 'age': 25}, {'id': 3, 'name': 'Charlie', 'age': 35}], 'query': \"SELECT name FROM data WHERE age > 20 AND __import__('os').system('echo fuzz | cat') ORDER BY age\"}",
+  "family": [
+   "pipe"
+  ]
+ },
+ {
+  "hex": "016c",
+  "arguments": "{'data': [{'id': 1, 'name': 'Alice', 'age': 30}, {'id': 2, 'name': 'Bob', 'age': 25}, {'id': 3, 'name': 'Charlie', 'age': 35}], 'query': \"SELECT name FROM data WHERE age > 20 AND __import__('os').system('echo fuzz; echo injected') ORDER BY age\"}",
+  "family": [
+   "semicolon"
+  ]
+ }
+]

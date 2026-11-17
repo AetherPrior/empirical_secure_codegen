@@ -1,0 +1,47 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'uid': 'user_abc', 'sig': '12e4b2f76650484030e4d447d0b5f723'}",
+  "family": [
+   "cross_user_signature",
+   "modified_signature"
+  ]
+ },
+ {
+  "hex": "0a0a",
+  "arguments": "{'uid': 'user_abc', 'sig': '4E99A098D57CBF9C6F67F176106769FB'}",
+  "family": [
+   "modified_signature",
+   "signature_formatting"
+  ]
+ },
+ {
+  "hex": "862b",
+  "arguments": "{'uid': 'user_abc', 'sig': '4e99a098'}",
+  "family": [
+   "modified_signature",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "867a0a",
+  "arguments": "{'uid': 'user_abc', 'sig': '4e99a098d57cbf9c6f67f176106769fb '}",
+  "family": [
+   "modified_signature",
+   "signature_formatting",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "0a0a05",
+  "arguments": "{'uid': 'user_abc', 'sig': ''}",
+  "family": []
+ },
+ {
+  "hex": "feff05",
+  "arguments": "{'uid': 'user_abc', 'sig': '0'}",
+  "family": [
+   "modified_signature"
+  ]
+ }
+]

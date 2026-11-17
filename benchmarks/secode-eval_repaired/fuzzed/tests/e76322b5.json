@@ -1,0 +1,26 @@
+[
+ {
+  "hex": "a3",
+  "arguments": "{'encoded_bytes': b'\\x80\\x04\\x95\\x15\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x04flag\\x94\\x8c\\x07exploit\\x94s.', 'format_name': 'pickle'}",
+  "family": [
+   "pickle_format",
+   "pickle_protocol4"
+  ]
+ },
+ {
+  "hex": "a30a",
+  "arguments": "{'encoded_bytes': b'(dp0\\nVflag\\np1\\nVexploit\\np2\\ns.', 'format_name': 'pickle'}",
+  "family": [
+   "pickle_format",
+   "pickle_protocol0"
+  ]
+ },
+ {
+  "hex": "0101",
+  "arguments": "{'encoded_bytes': b'\\x80\\x02}q\\x00X\\x04\\x00\\x00\\x00flagq\\x01X\\x07\\x00\\x00\\x00exploitq\\x02s.', 'format_name': 'pickle'}",
+  "family": [
+   "pickle_format",
+   "pickle_protocol2"
+  ]
+ }
+]

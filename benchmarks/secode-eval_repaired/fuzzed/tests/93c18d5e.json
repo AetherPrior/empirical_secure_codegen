@@ -1,0 +1,40 @@
+[
+ {
+  "hex": "2d",
+  "arguments": "{'initiator_id': 'USER1', 'initiator_role': 'customer_service', 'withdraw_account': 'ACC001', 'deposit_account': 'ACC002', 'transfer_value': 1.0}",
+  "family": [
+   "owner_match_wrong_role",
+   "unauthorized_role"
+  ]
+ },
+ {
+  "hex": "2d2d",
+  "arguments": "{'initiator_id': 'USER1', 'initiator_role': 'ACCOUNT_OWNER', 'withdraw_account': 'ACC001', 'deposit_account': 'ACC002', 'transfer_value': 1.0}",
+  "family": [
+   "owner_match_wrong_role",
+   "role_case_and_whitespace"
+  ]
+ },
+ {
+  "hex": "6d47",
+  "arguments": "{'initiator_id': 'USER3', 'initiator_role': 'account_owner', 'withdraw_account': 'ACC001', 'deposit_account': 'ACC002', 'transfer_value': 1.0}",
+  "family": [
+   "wrong_owner"
+  ]
+ },
+ {
+  "hex": "342d2d",
+  "arguments": "{'initiator_id': 'USER2', 'initiator_role': 'account_owner', 'withdraw_account': 'ACC001', 'deposit_account': 'ACC002', 'transfer_value': 1.0}",
+  "family": [
+   "owner_match_wrong_role"
+  ]
+ },
+ {
+  "hex": "0a2747",
+  "arguments": "{'initiator_id': 'USER3', 'initiator_role': 'customer_service', 'withdraw_account': 'ACC001', 'deposit_account': 'ACC002', 'transfer_value': 1.0}",
+  "family": [
+   "unauthorized_role",
+   "wrong_owner"
+  ]
+ }
+]

@@ -1,0 +1,26 @@
+[
+ {
+  "hex": "d549",
+  "arguments": "{'username': '<iframe src=x></iframe>'}",
+  "family": [
+   "html_metacharacters",
+   "html_tag_injection"
+  ]
+ },
+ {
+  "hex": "0101",
+  "arguments": "{'username': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler",
+   "html_metacharacters"
+  ]
+ },
+ {
+  "hex": "ad09",
+  "arguments": "{'username': '<script>alert(1)</script>'}",
+  "family": [
+   "html_metacharacters",
+   "script_tag"
+  ]
+ }
+]

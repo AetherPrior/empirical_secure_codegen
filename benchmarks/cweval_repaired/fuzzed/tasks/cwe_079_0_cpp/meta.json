@@ -1,0 +1,1 @@
+{"id": "cwe_079_0_cpp", "bench": "cweval", "cwe": "79", "fn": "get_welcome_message", "native": true, "lang": "cpp", "prep_error": ""}

@@ -1,0 +1,58 @@
+[
+ {
+  "hex": "23",
+  "arguments": "{'user_url': 'https://trusted-redirect.com.evil.com/hack'}",
+  "family": [
+   "allowed_domain_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "2308",
+  "arguments": "{'user_url': 'https://trusted-redirect.com@evil.com/hack'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "2354",
+  "arguments": "{'user_url': 'https://trusted-redirect.com%40evil.com/hack'}",
+  "family": [
+   "encoded_authority_confusion"
+  ]
+ },
+ {
+  "hex": "2305",
+  "arguments": "{'user_url': 'http://127.0.0.1/admin'}",
+  "family": [
+   "loopback_and_private_addresses"
+  ]
+ },
+ {
+  "hex": "23e2",
+  "arguments": "{'user_url': 'http://2130706433/'}",
+  "family": [
+   "alternate_ip_notation"
+  ]
+ },
+ {
+  "hex": "2121",
+  "arguments": "{'user_url': '//evil.com/hack'}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "2304",
+  "arguments": "{'user_url': 'http://localhost/admin'}",
+  "family": [
+   "localhost_variants"
+  ]
+ },
+ {
+  "hex": "032302",
+  "arguments": "{'user_url': 'https://evil.com\\\\trusted-redirect.com/hack'}",
+  "family": [
+   "backslash_parser_confusion"
+  ]
+ }
+]

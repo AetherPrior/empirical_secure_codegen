@@ -1,0 +1,17 @@
+[
+ {
+  "hex": "9999990a99669999999999999393939393716c6c6c6666662566999999",
+  "arguments": "{'modifier_id': 'user999', 'user_role': 'viewer', 'doc_identifier': 'doc456', 'creator_id': 'user222', 'updated_content': '\\x19\\x19\\n\\x19f\\x19\\x19\\x19\\x19\\x19\\x19\\x13\\x13\\x13\\x13\\x13qlllfff%'}",
+  "family": [
+   "forged_creator_id",
+   "non_editor_role"
+  ]
+ },
+ {
+  "hex": "99999999210abd6493712c999999996c6c05669999ff6493712c999999996c6e6d99ff",
+  "arguments": "{'modifier_id': 'user999\\x19\\x19ln', 'user_role': '', 'doc_identifier': 'doc456', 'creator_id': 'user222', 'updated_content': '\\x19\\x19\\x19!\\n=d\\x13q,\\x19\\x19\\x19\\x19ll\\x05f\\x19\\x19\\x7fd\\x13q'}",
+  "family": [
+   "forged_creator_id"
+  ]
+ }
+]

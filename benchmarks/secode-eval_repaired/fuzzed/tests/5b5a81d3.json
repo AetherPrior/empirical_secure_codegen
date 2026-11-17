@@ -1,0 +1,26 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'byte_sequence': b'(dp0\\nVkey\\np1\\nVauthorized\\np2\\ns.', 'data_format': 'pickle'}",
+  "family": [
+   "forbidden_format",
+   "pickle_protocol0"
+  ]
+ },
+ {
+  "hex": "2d0a",
+  "arguments": "{'byte_sequence': b'\\x80\\x02}q\\x00X\\x03\\x00\\x00\\x00keyq\\x01X\\n\\x00\\x00\\x00authorizedq\\x02s.', 'data_format': 'pickle'}",
+  "family": [
+   "forbidden_format",
+   "pickle_protocol2"
+  ]
+ },
+ {
+  "hex": "2d02",
+  "arguments": "{'byte_sequence': b'\\x80\\x04\\x95\\x17\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x03key\\x94\\x8c\\nauthorized\\x94s.', 'data_format': 'pickle'}",
+  "family": [
+   "forbidden_format",
+   "pickle_protocol4"
+  ]
+ }
+]

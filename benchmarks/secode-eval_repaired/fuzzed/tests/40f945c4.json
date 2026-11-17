@@ -1,0 +1,66 @@
+[
+ {
+  "hex": "c7855d",
+  "arguments": "{'user_name': 'JohnDoe', 'post_heading': 'My First Post', 'post_content': 'Hello, this is my first post!', 'post_tags': ['<img src=x onerror=alert(1)>']}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "8dbb1c",
+  "arguments": "{'user_name': '<script>alert(1)</script>', 'post_heading': 'My First Post', 'post_content': 'Hello, this is my first post!', 'post_tags': []}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "8ddb8a1c",
+  "arguments": "{'user_name': '</span><img src=x onerror=alert(1)>', 'post_heading': 'My First Post', 'post_content': 'Hello, this is my first post!', 'post_tags': []}",
+  "family": [
+   "event_handler",
+   "html_boundary_breakout"
+  ]
+ },
+ {
+  "hex": "ddffffffffffffd1",
+  "arguments": "{'user_name': '&lt;script&gt;alert(1)&lt;/script&gt;', 'post_heading': 'My First Post', 'post_content': 'Hello, this is my first post!', 'post_tags': ['\\x7f\\x7f<script>1</script>']}",
+  "family": [
+   "entity_encoded_markup",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "fdffffffff85002f",
+  "arguments": "{'user_name': 'JohnDoe', 'post_heading': 'My First Post', 'post_content': 'Hello, this is my first post!', 'post_tags': ['\\x7f\\x7f&lt;script&gt;alert(1)&lt;/script&gt;', '<img src=x onerror=alert(1)>', 'Introduction']}",
+  "family": [
+   "entity_encoded_markup",
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "fffffffffffffffffdd7",
+  "arguments": "{'user_name': 'JohnDoe', 'post_heading': 'My First Post', 'post_content': 'Hello, this is my first post!', 'post_tags': ['\\x7f\\x7f<svg onload=alert(1)>', '<script>1</script>', 'Introduction']}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "ffffffffffffffffffffffff2126",
+  "arguments": "{'user_name': '&lt;script&gt;alert(1)&lt;/script&gt;', 'post_heading': 'My First Post', 'post_content': 'Hello, this is my first post!', 'post_tags': ['\\x7f\\x7f<svg onload=alert(1)>', '\\x7f\\x7f<script>1</script>']}",
+  "family": [
+   "entity_encoded_markup",
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "ffffffffffffffffffffffffffffff060000",
+  "arguments": "{'user_name': '\\x7f\\x7f\\x7f&lt;script&gt;alert(1)&lt;/script&gt;\\x7f\\x7f\\x7f', 'post_heading': '\\x7f\\x7f\\x7f</span><img src=x onerror=alert(1)>', 'post_content': 'Hello, this is my first post!', 'post_tags': []}",
+  "family": [
+   "entity_encoded_markup",
+   "event_handler",
+   "html_boundary_breakout"
+  ]
+ }
+]

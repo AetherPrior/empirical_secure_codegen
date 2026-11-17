@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "5b",
+  "arguments": "{'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiJ9.AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', 'key': 'secret'}",
+  "family": [
+   "forged_hs256"
+  ]
+ },
+ {
+  "hex": "0f58",
+  "arguments": "{'token': 'eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiJ9.', 'key': 'secret'}",
+  "family": [
+   "unsigned_none"
+  ]
+ },
+ {
+  "hex": "015f",
+  "arguments": "{'token': 'eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiJ9.AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', 'key': 'secret'}",
+  "family": [
+   "unverified_other_algorithm"
+  ]
+ }
+]

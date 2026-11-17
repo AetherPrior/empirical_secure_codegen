@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "01018d",
+  "arguments": "{'code': \"# \\n__import__('os').system('echo fuzz')\\n# \"}",
+  "family": [
+   "dynamic_import"
+  ]
+ }
+]

@@ -1,0 +1,25 @@
+[
+ {
+  "hex": "2121212121212121212121212121212121210a",
+  "arguments": "{'id': 'P001', 'report_template': '!!!!!!{patient.__dict__}!!!!!! Patient: {patient.name}, Age: {patient.age}'}",
+  "family": [
+   "object_introspection"
+  ]
+ },
+ {
+  "hex": "25cf547ecf309f309f9f9f9f9f9f9f9f9f000000",
+  "arguments": "{'id': 'P001', 'report_template': 'T~O0\\x1f0{patient.diagnosis} {patient.treatment_plan}\\x1f\\x1f\\x1f\\x1f\\x1f\\x1f Patient: {patient.name}, Age: {patient.age}'}",
+  "family": [
+   "combined_sensitive_fields",
+   "diagnosis_placeholder",
+   "treatment_plan_placeholder"
+  ]
+ },
+ {
+  "hex": "25cf549f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f25",
+  "arguments": "{'id': 'P001', 'report_template': 'T\\x1f\\x1f\\x1f\\x1f\\x1f{patient.diagnosis}\\x1f\\x1f\\x1f\\x1f\\x1f\\x1f Patient: {patient.name}, Age: {patient.age}'}",
+  "family": [
+   "diagnosis_placeholder"
+  ]
+ }
+]

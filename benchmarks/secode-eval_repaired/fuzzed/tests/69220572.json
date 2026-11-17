@@ -1,0 +1,41 @@
+[
+ {
+  "hex": "bb",
+  "arguments": "{'title_of_event': '<img src=x onerror=alert(1)>', 'event_details': 'A formal event to support our community.', 'scheduled_date': '2023-12-12', 'extra_info': 'Dress code: business formal.'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "bbbb",
+  "arguments": "{'title_of_event': '<script>alert(1)</script>', 'event_details': 'A formal event to support our community.', 'scheduled_date': '2023-12-12', 'extra_info': 'Dress code: business formal.'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "21bb21",
+  "arguments": "{'title_of_event': '\"><img src=x onerror=alert(1)>', 'event_details': 'A formal event to support our community.', 'scheduled_date': '2023-12-12', 'extra_info': 'Dress code: business formal.'}",
+  "family": [
+   "event_handler",
+   "html_context_breakout"
+  ]
+ },
+ {
+  "hex": "0b0000bbbbbb",
+  "arguments": "{'title_of_event': \"<ScRiPt>alert('xss')</sCrIpT>\", 'event_details': '<img src=x onerror=alert(1)>', 'scheduled_date': '2023-12-12', 'extra_info': 'Dress code: business formal.'}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "537e535353535353535353bbbb45",
+  "arguments": "{'title_of_event': '\"><img src=x onerror=alert(1)>SSS', 'event_details': \"<ScRiPt>alert('xss')</sCrIpT>\", 'scheduled_date': '2023-12-12', 'extra_info': 'Dress code: business formal.'}",
+  "family": [
+   "event_handler",
+   "html_context_breakout",
+   "script_element"
+  ]
+ }
+]

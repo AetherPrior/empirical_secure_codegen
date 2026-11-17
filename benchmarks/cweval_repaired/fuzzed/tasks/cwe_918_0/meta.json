@@ -1,0 +1,1 @@
+{"id": "cwe_918_0", "bench": "cweval", "cwe": "918", "fn": "get_url_to_visit"}

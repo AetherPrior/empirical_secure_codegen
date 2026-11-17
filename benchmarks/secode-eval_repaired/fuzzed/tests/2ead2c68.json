@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "0d0a",
+  "arguments": "{'link': 'https://a.co/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa...<326 chars>",
+  "family": [
+   "path_length_boundary"
+  ]
+ },
+ {
+  "hex": "0d0a0d",
+  "arguments": "{'link': 'https://example.com/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa()'}",
+  "family": [
+   "invalid_path_terminator"
+  ]
+ },
+ {
+  "hex": "0d0a300b",
+  "arguments": "{'link': 'https://a.co//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////...<326 chars>",
+  "family": [
+   "slash_ambiguity"
+  ]
+ }
+]

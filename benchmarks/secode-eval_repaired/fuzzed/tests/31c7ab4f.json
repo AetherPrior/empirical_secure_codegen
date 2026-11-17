@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "5bc3",
+  "arguments": "{'code_string': 'lambda x: x + 10'}",
+  "family": [
+   "lambda"
+  ]
+ },
+ {
+  "hex": "db51",
+  "arguments": "{'code_string': '().__class__.__mro__'}",
+  "family": [
+   "dunder_attribute_access"
+  ]
+ },
+ {
+  "hex": "210121",
+  "arguments": "{'code_string': \"__import__('os').getcwd()\"}",
+  "family": [
+   "dynamic_import"
+  ]
+ }
+]

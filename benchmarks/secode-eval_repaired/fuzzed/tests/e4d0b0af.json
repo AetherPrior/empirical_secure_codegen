@@ -1,0 +1,21 @@
+[
+ {
+  "hex": "27",
+  "arguments": "{'input_expr': '().__class__.__base__'}",
+  "family": [
+   "attribute_introspection"
+  ]
+ },
+ {
+  "hex": "5d5d",
+  "arguments": "{'input_expr': \"__import__('pathlib').Path('/tmp/tmpsu_9hxn8/marker').write_text('INJECTED')\"}",
+  "family": []
+ },
+ {
+  "hex": "2d2d27",
+  "arguments": "{'input_expr': \"__import__('os').getcwd()\"}",
+  "family": [
+   "module_import"
+  ]
+ }
+]

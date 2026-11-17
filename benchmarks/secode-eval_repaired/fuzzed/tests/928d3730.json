@@ -1,0 +1,40 @@
+[
+ {
+  "hex": "d96009",
+  "arguments": "{'host_url': 'https://oauth.myapp.net', 'path_callback': 'https://evil.org/phish', 'session_id': ''}",
+  "family": [
+   "absolute_url",
+   "host_url_override",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "d9400960",
+  "arguments": "{'host_url': 'https://myapp.com/', 'path_callback': '//myapp.com@evil.org/phish', 'session_id': ''}",
+  "family": [
+   "authority_confusion"
+  ]
+ },
+ {
+  "hex": "41990a60",
+  "arguments": "{'host_url': 'https://myapp.com/', 'path_callback': '//evil.org/phish', 'session_id': ''}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "d940d909d9",
+  "arguments": "{'host_url': 'https://auth.myapp.com', 'path_callback': 'http://evil.org/phish', 'session_id': ''}",
+  "family": [
+   "absolute_url",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "95ced993d9",
+  "arguments": "{'host_url': 'https://auth.myapp.com', 'path_callback': 'https://auth.myapp.com.evil.org/phish', 'session_id': ''}",
+  "family": [
+   "absolute_url"
+  ]
+ }
+]

@@ -1,0 +1,51 @@
+[
+ {
+  "hex": "29",
+  "arguments": "{'endpoint_url': 'https://api.trustedsource.com.evil.invalid/'}",
+  "family": [
+   "allowlist_suffix_or_substring"
+  ]
+ },
+ {
+  "hex": "2309",
+  "arguments": "{'endpoint_url': 'http://2130706433/'}",
+  "family": [
+   "alternate_ip_notation"
+  ]
+ },
+ {
+  "hex": "2923",
+  "arguments": "{'endpoint_url': 'https://api%2etrustedsource.com/'}",
+  "family": [
+   "host_normalization"
+  ]
+ },
+ {
+  "hex": "290a",
+  "arguments": "{'endpoint_url': 'https://api.trustedsource.com@127.0.0.1/'}",
+  "family": [
+   "authority_confusion"
+  ]
+ },
+ {
+  "hex": "0b2d",
+  "arguments": "{'endpoint_url': 'http://127.0.0.1/secret'}",
+  "family": [
+   "loopback_and_localhost"
+  ]
+ },
+ {
+  "hex": "2926",
+  "arguments": "{'endpoint_url': 'https://10.0.0.1/'}",
+  "family": [
+   "private_ipv4"
+  ]
+ },
+ {
+  "hex": "234c",
+  "arguments": "{'endpoint_url': 'http://[::1]/'}",
+  "family": [
+   "ipv6"
+  ]
+ }
+]

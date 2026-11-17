@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "ffff0a",
+  "arguments": "{'user_id': 'USER3', 'user_role': 'account_owner', 'from_account': 'ACC001', 'to_account': 'ACC002', 'amount': 56.0}",
+  "family": [
+   "owner_mismatch"
+  ]
+ },
+ {
+  "hex": "37377e7e",
+  "arguments": "{'user_id': 'USER1', 'user_role': 'ACCOUNT_OWNER', 'from_account': 'ACC001', 'to_account': 'ACC002', 'amount': 27.0}",
+  "family": [
+   "role_confusion"
+  ]
+ },
+ {
+  "hex": "37777e7e",
+  "arguments": "{'user_id': 'USER1', 'user_role': 'customer_service', 'from_account': 'ACC001', 'to_account': 'ACC002', 'amount': 27.0}",
+  "family": [
+   "unauthorized_role"
+  ]
+ }
+]

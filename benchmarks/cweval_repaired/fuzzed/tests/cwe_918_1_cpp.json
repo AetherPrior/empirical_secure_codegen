@@ -1,0 +1,39 @@
+[
+ {
+  "hex": "0d0d2c",
+  "arguments": "{'api_url': 'http://localhost:8000/users', 'user_id': '?url=http://127.0.0.1'}",
+  "family": [
+   "authority_injection",
+   "query_and_fragment_injection"
+  ]
+ },
+ {
+  "hex": "ff3e08",
+  "arguments": "{'api_url': 'http://localhost:8000/users', 'user_id': '%2f%2f127.0.0.1'}",
+  "family": [
+   "percent_encoded_delimiters"
+  ]
+ },
+ {
+  "hex": "15157e7a",
+  "arguments": "{'api_url': 'http://localhost:8000/users', 'user_id': '../internal'}",
+  "family": [
+   "path_injection"
+  ]
+ },
+ {
+  "hex": "0d7e0e0e",
+  "arguments": "{'api_url': 'http://localhost:8000/users', 'user_id': 'x y'}",
+  "family": [
+   "whitespace_delimiters"
+  ]
+ },
+ {
+  "hex": "0da70da7a7a7a7",
+  "arguments": "{'api_url': 'http://localhost:8000/users', 'user_id': \"'%3furl=http://127.0.0.1\"}",
+  "family": [
+   "authority_injection",
+   "percent_encoded_delimiters"
+  ]
+ }
+]

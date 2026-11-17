@@ -1,0 +1,56 @@
+[
+ {
+  "hex": "5d0a",
+  "arguments": "{'header': '<img src=x onerror=alert(1)>', 'message': 'What are your plans for the weekend?', 'options': ['Hiking']}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "5d3b",
+  "arguments": "{'header': '<script>alert(1)</script>', 'message': 'What are your plans for the weekend?', 'options': ['Hiking']}",
+  "family": [
+   "script_tag"
+  ]
+ },
+ {
+  "hex": "6d7a",
+  "arguments": "{'header': '![x](x\" onerror=\"alert(1))', 'message': 'What are your plans for the weekend?', 'options': ['Hiking']}",
+  "family": [
+   "markdown_html_image"
+  ]
+ },
+ {
+  "hex": "235dfe",
+  "arguments": "{'header': '<script>alert(1)</script>', 'message': '<img src=x onerror=alert(1)>', 'options': ['Hiking']}",
+  "family": [
+   "event_handler",
+   "script_tag"
+  ]
+ },
+ {
+  "hex": "ab4343",
+  "arguments": "{'header': '![x](x\" onerror=\"alert(1))', 'message': '<img src=x onerror=alert(1)>', 'options': ['Hiking']}",
+  "family": [
+   "event_handler",
+   "markdown_html_image"
+  ]
+ },
+ {
+  "hex": "ffffff255e",
+  "arguments": "{'header': '<script>alert(1)</script>', 'message': '![x](x\" onerror=\"alert(1))', 'options': ['Hiking']}",
+  "family": [
+   "markdown_html_image",
+   "script_tag"
+  ]
+ },
+ {
+  "hex": "ffffff000000255e",
+  "arguments": "{'header': '<script>alert(1)</script>', 'message': '![x](x\" onerror=\"alert(1))', 'options': ['<img src=x onerror=alert(1)>']}",
+  "family": [
+   "event_handler",
+   "markdown_html_image",
+   "script_tag"
+  ]
+ }
+]

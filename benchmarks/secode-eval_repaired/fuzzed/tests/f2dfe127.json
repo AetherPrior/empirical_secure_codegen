@@ -1,0 +1,14 @@
+[
+ {
+  "hex": "5b",
+  "arguments": "{'data_bytes': b'\\x80\\x04\\x95\\x0b\\x00\\x00\\x00\\x00\\x00\\x00\\x00]\\x94(K\\x01K\\x02K\\x03e.', 'format_name': 'pickle'}",
+  "family": [
+   "pickle_binary_container"
+  ]
+ },
+ {
+  "hex": "013f",
+  "arguments": "{'data_bytes': b\"cos\\nsystem\\n(S'touch /tmp/tmpz3dgsvhi/pickle_was_executed'\\ntR.\", 'format_name': 'pickle'}",
+  "family": []
+ }
+]

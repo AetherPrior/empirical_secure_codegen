@@ -1,0 +1,17 @@
+[
+ {
+  "hex": "0a312505",
+  "arguments": "{'api_url': '', 'user_id': '?url=http://127.0.0.1'}",
+  "family": [
+   "query_and_fragment",
+   "scheme_and_authority"
+  ]
+ },
+ {
+  "hex": "d2d721d7",
+  "arguments": "{'api_url': '', 'user_id': 'http://127.0.0.1'}",
+  "family": [
+   "scheme_and_authority"
+  ]
+ }
+]

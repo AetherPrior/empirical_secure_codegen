@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "5d",
+  "arguments": "{'dir_path': '&& printf CWE78_MARKER'}",
+  "family": [
+   "and_chain"
+  ]
+ },
+ {
+  "hex": "5d5d",
+  "arguments": "{'dir_path': '| printf CWE78_MARKER'}",
+  "family": [
+   "pipe"
+  ]
+ },
+ {
+  "hex": "5d36",
+  "arguments": "{'dir_path': '; printf CWE78_MARKER'}",
+  "family": [
+   "semicolon"
+  ]
+ }
+]

@@ -1,0 +1,6 @@
+# Use with a venv inheriting the host's CUDA-enabled torch environment.
+transformers==4.57.1
+trl==0.24.0
+datasets==3.3.2
+peft==0.17.1
+GPUtil==1.4.0

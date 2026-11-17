@@ -1,0 +1,44 @@
+[
+ {
+  "hex": "f5",
+  "arguments": "{'input_url': 'https://partner.com%2eevil.com/'}",
+  "family": [
+   "encoding_and_normalization"
+  ]
+ },
+ {
+  "hex": "f587",
+  "arguments": "{'input_url': 'javascript:alert(1)'}",
+  "family": [
+   "unsafe_scheme"
+  ]
+ },
+ {
+  "hex": "f583",
+  "arguments": "{'input_url': 'https://trusted-redirect.com@evil.com/'}",
+  "family": [
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "f52e",
+  "arguments": "{'input_url': 'https://evil.com/hack'}",
+  "family": [
+   "untrusted_domain"
+  ]
+ },
+ {
+  "hex": "f5e0",
+  "arguments": "{'input_url': 'https://trusted-redirect.com.evil.com/'}",
+  "family": [
+   "suffix_and_subdomain_confusion"
+  ]
+ },
+ {
+  "hex": "f5fd",
+  "arguments": "{'input_url': 'https://evil.com#@partner.com/'}",
+  "family": [
+   "parser_delimiter_confusion"
+  ]
+ }
+]

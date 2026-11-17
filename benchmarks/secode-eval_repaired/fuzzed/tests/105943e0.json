@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "43",
+  "arguments": "{'login_endpoint': 'https://sso.example.com/auth', 'account_id': 'user101', 'callback_url': 'https://app.example.com.evil.org/'}",
+  "family": [
+   "allowed_domain_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "e743",
+  "arguments": "{'login_endpoint': 'https://sso.example.com/auth', 'account_id': 'user101', 'callback_url': 'https://evil.org/hack'}",
+  "family": [
+   "external_absolute_url",
+   "scheme_relative_url"
+  ]
+ },
+ {
+  "hex": "437e",
+  "arguments": "{'login_endpoint': 'https://sso.example.com/auth', 'account_id': 'user101', 'callback_url': 'https://evil.app.example.com/'}",
+  "family": [
+   "subdomain_and_trailing_dot"
+  ]
+ },
+ {
+  "hex": "430a",
+  "arguments": "{'login_endpoint': 'https://sso.example.com/auth', 'account_id': 'user101', 'callback_url': 'https://%65vil.org/'}",
+  "family": [
+   "encoded_authority"
+  ]
+ },
+ {
+  "hex": "4349",
+  "arguments": "{'login_endpoint': 'https://sso.example.com/auth', 'account_id': 'user101', 'callback_url': 'https://evil.org\\\\@app.example.com/'}",
+  "family": [
+   "backslash_authority_confusion"
+  ]
+ },
+ {
+  "hex": "5555",
+  "arguments": "{'login_endpoint': 'https://sso.example.com/auth', 'account_id': 'user101', 'callback_url': '//evil.org/hack'}",
+  "family": [
+   "scheme_relative_url"
+  ]
+ },
+ {
+  "hex": "0b14",
+  "arguments": "{'login_endpoint': 'https://sso.example.com/auth', 'account_id': 'user101', 'callback_url': 'javascript:alert(1)'}",
+  "family": [
+   "non_http_scheme"
+  ]
+ },
+ {
+  "hex": "43d343",
+  "arguments": "{'login_endpoint': 'https://sso.example.com/auth', 'account_id': 'user101', 'callback_url': 'http://evil.org/'}",
+  "family": [
+   "external_absolute_url"
+  ]
+ }
+]

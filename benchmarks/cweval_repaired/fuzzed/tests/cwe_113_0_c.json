@@ -1,0 +1,45 @@
+[
+ {
+  "hex": "790a",
+  "arguments": "{'info_type': 'encoding', 'info_content': '\\rX-Injected: yes', 'header': {}}",
+  "family": [
+   "bare_cr_injection"
+  ]
+ },
+ {
+  "hex": "3b0a0a",
+  "arguments": "{'info_type': 'encoding', 'info_content': '\\r\\n\\r\\nInjected body', 'header': {}}",
+  "family": [
+   "response_body_injection"
+  ]
+ },
+ {
+  "hex": "79790a",
+  "arguments": "{'info_type': 'encoding', 'info_content': '\\nX-Injected: yes', 'header': {}}",
+  "family": [
+   "bare_lf_injection"
+  ]
+ },
+ {
+  "hex": "79320a",
+  "arguments": "{'info_type': 'encoding', 'info_content': '\\r\\nX-Injected: yes', 'header': {}}",
+  "family": [
+   "bare_lf_injection",
+   "crlf_header_injection"
+  ]
+ },
+ {
+  "hex": "795d0a",
+  "arguments": "{'info_type': 'encoding', 'info_content': '\\r\\n X-Folded: yes', 'header': {}}",
+  "family": [
+   "header_folding"
+  ]
+ },
+ {
+  "hex": "79590a",
+  "arguments": "{'info_type': 'encoding', 'info_content': '\\r\\nHTTP/1.1 200 OK', 'header': {}}",
+  "family": [
+   "status_line_injection"
+  ]
+ }
+]

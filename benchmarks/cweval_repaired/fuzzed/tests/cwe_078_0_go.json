@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "bd",
+  "arguments": "{'dir_path': '/tmp/tmp9fqibw_k&& printf CWE78_MARKER #'}",
+  "family": [
+   "and_chain"
+  ]
+ },
+ {
+  "hex": "bd0a",
+  "arguments": "{'dir_path': '/tmp/tmpaccn855v; printf CWE78_MARKER #'}",
+  "family": [
+   "semicolon"
+  ]
+ },
+ {
+  "hex": "01bd",
+  "arguments": "{'dir_path': '/tmp/tmp_yj83xuj| printf CWE78_MARKER #'}",
+  "family": [
+   "pipe"
+  ]
+ }
+]

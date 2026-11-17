@@ -1,0 +1,68 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'post_title': '\" onmouseover=\"alert(1)', 'post_body': '\" onmouseover=\"alert(1)', 'bullet_points': ['\" onmouseover=\"alert(1)']}",
+  "family": [
+   "attribute_breakout"
+  ]
+ },
+ {
+  "hex": "0a0b",
+  "arguments": "{'post_title': '&lt;script&gt;alert(1)&lt;/script&gt;', 'post_body': '\" onmouseover=\"alert(1)', 'bullet_points': ['\" onmouseover=\"alert(1)']}",
+  "family": [
+   "attribute_breakout",
+   "entity_encoded_markup"
+  ]
+ },
+ {
+  "hex": "8a0d",
+  "arguments": "{'post_title': '<details open ontoggle=alert(1)>x</details>', 'post_body': '\" onmouseover=\"alert(1)', 'bullet_points': ['\" onmouseover=\"alert(1)']}",
+  "family": [
+   "attribute_breakout",
+   "markdown_html"
+  ]
+ },
+ {
+  "hex": "081d",
+  "arguments": "{'post_title': '<script>alert(1)</script>', 'post_body': '\" onmouseover=\"alert(1)', 'bullet_points': ['\" onmouseover=\"alert(1)']}",
+  "family": [
+   "attribute_breakout",
+   "script_elements"
+  ]
+ },
+ {
+  "hex": "28fffd",
+  "arguments": "{'post_title': '<!-- --><script>alert(1)</script>', 'post_body': '\" onmouseover=\"alert(1)', 'bullet_points': ['\" onmouseover=\"alert(1)']}",
+  "family": [
+   "attribute_breakout",
+   "markdown_html",
+   "script_elements"
+  ]
+ },
+ {
+  "hex": "000000000bff3f",
+  "arguments": "{'post_title': '<!-- --><script>alert(1)</script>', 'post_body': '&lt;script&gt;alert(1)&lt;/script&gt;', 'bullet_points': ['\" onmouseover=\"alert(1)']}",
+  "family": [
+   "attribute_breakout",
+   "entity_encoded_markup",
+   "markdown_html",
+   "script_elements"
+  ]
+ },
+ {
+  "hex": "f646462a461000d5",
+  "arguments": "{'post_title': '<details open ontoggle=alert(1)>x</details>', 'post_body': '&lt;script&gt;alert(1)&lt;/script&gt;', 'bullet_points': ['\" onmouseover=\"alert(1)']}",
+  "family": [
+   "attribute_breakout",
+   "entity_encoded_markup",
+   "markdown_html"
+  ]
+ },
+ {
+  "hex": "ffff7aff80fdffefff",
+  "arguments": "{'post_title': 'Weekend Plans', 'post_body': 'Which option do you prefer?', 'bullet_points': ['<details open ontoggle=alert(1)>x</details>']}",
+  "family": [
+   "markdown_html"
+  ]
+ }
+]

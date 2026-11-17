@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'response_header': '\\rX-Injected: yes'}",
+  "family": [
+   "bare_cr"
+  ]
+ },
+ {
+  "hex": "0101",
+  "arguments": "{'response_header': '\\nX-Injected: yes'}",
+  "family": [
+   "bare_lf"
+  ]
+ },
+ {
+  "hex": "0111",
+  "arguments": "{'response_header': '\\r\\n\\r\\nInjected body'}",
+  "family": [
+   "crlf_body_boundary"
+  ]
+ },
+ {
+  "hex": "0143",
+  "arguments": "{'response_header': '\\r\\nX-Injected: yes'}",
+  "family": [
+   "bare_lf",
+   "crlf_header"
+  ]
+ },
+ {
+  "hex": "015a",
+  "arguments": "{'response_header': '\\r\\n X-Folded: yes'}",
+  "family": [
+   "obs_fold"
+  ]
+ },
+ {
+  "hex": "9191",
+  "arguments": "{'response_header': '\\r\\nX-One: 1\\r\\nX-Two: 2'}",
+  "family": [
+   "crlf_multiple_headers"
+  ]
+ },
+ {
+  "hex": "310151",
+  "arguments": "{'response_header': 'header\\r\\nAnother-Bad-Header: yes'}",
+  "family": [
+   "crlf_header"
+  ]
+ },
+ {
+  "hex": "01f7ff000a00000007a3",
+  "arguments": "{'response_header': '\\x7f\\x00\\n\\x1fX-Injected: yes'}",
+  "family": [
+   "control_characters"
+  ]
+ }
+]

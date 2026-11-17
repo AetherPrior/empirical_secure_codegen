@@ -1,0 +1,61 @@
+[
+ {
+  "hex": "2d2d",
+  "arguments": "{'id_device': 'device002', 'packet_signature': '89ebf76ae45bfcf6dd7f2aa3de8b20b3', 'packet_data': {'temperature': -10, 'humidity': 0}}",
+  "family": [
+   "altered_signature",
+   "cross_device_signature"
+  ]
+ },
+ {
+  "hex": "25282d",
+  "arguments": "{'id_device': 'device002', 'packet_signature': '89ebf76ae45bfcf6dd7f2aa3de8b20b', 'packet_data': {'temperature': -10, 'humidity': 0}}",
+  "family": [
+   "altered_signature"
+  ]
+ },
+ {
+  "hex": "23352a",
+  "arguments": "{'id_device': 'device001', 'packet_signature': '', 'packet_data': {'temperature': -10, 'humidity': 0}}",
+  "family": []
+ },
+ {
+  "hex": "250a2328",
+  "arguments": "{'id_device': 'device001', 'packet_signature': 'unsigned', 'packet_data': {'temperature': -10, 'humidity': 0}}",
+  "family": [
+   "empty_or_garbage_signature"
+  ]
+ },
+ {
+  "hex": "410a2a232a23",
+  "arguments": "{'id_device': 'device002', 'packet_signature': '89ebf76ae45bfcf6dd7f2aa3de8b20b3', 'packet_data': {'temperature': 'attacker-controlled', 'humidity': -10}}",
+  "family": [
+   "altered_signature",
+   "caller_data_spoof",
+   "cross_device_signature"
+  ]
+ },
+ {
+  "hex": "2d0000d32dadaf",
+  "arguments": "{'id_device': 'device002', 'packet_signature': '', 'packet_data': {'temperature': 'attacker-controlled', 'humidity': -10}}",
+  "family": [
+   "caller_data_spoof"
+  ]
+ },
+ {
+  "hex": "23fc0a23fc0a252528",
+  "arguments": "{'id_device': 'device001', 'packet_signature': '1dcfa479db7aae3d40b3984cdf202de', 'packet_data': {'temperature': 'attacker-controlled', 'humidity': 0}}",
+  "family": [
+   "altered_signature",
+   "caller_data_spoof"
+  ]
+ },
+ {
+  "hex": "ff0000ffff5bfe250829ffff250829",
+  "arguments": "{'id_device': 'device002', 'packet_signature': 'unsigned', 'packet_data': {'temperature': '999.9', 'humidity': 3}}",
+  "family": [
+   "caller_data_spoof",
+   "empty_or_garbage_signature"
+  ]
+ }
+]

@@ -1,0 +1,41 @@
+[
+ {
+  "hex": "5d",
+  "arguments": "{'username': '<img src=x onerror=alert(1)>', 'biography': 'Software engineer from xyz.', 'status': 'Feeling great!'}",
+  "family": [
+   "event_handler_element"
+  ]
+ },
+ {
+  "hex": "5dffff",
+  "arguments": "{'username': '<script>alert(1)</script>', 'biography': 'Software engineer from xyz.', 'status': 'Feeling great!'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "5d265d",
+  "arguments": "{'username': '<!--><script>alert(1)</script>', 'biography': 'Software engineer from xyz.', 'status': 'Feeling great!'}",
+  "family": [
+   "markup_breakout",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "ffffff5c",
+  "arguments": "{'username': '<script>alert(1)</script>', 'biography': 'Software engineer from xyz.', 'status': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler_element",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "215d3223",
+  "arguments": "{'username': '<!--><script>alert(1)</script>', 'biography': 'Software engineer from xyz.', 'status': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler_element",
+   "markup_breakout",
+   "script_element"
+  ]
+ }
+]

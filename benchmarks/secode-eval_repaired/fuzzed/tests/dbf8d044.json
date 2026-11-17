@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "29",
+  "arguments": "{'actor_id': 2, 'recipient_id': 1, 'updated_privilege': 'admin'}",
+  "family": [
+   "privilege_escalation"
+  ]
+ }
+]

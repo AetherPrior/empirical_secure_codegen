@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "e3f7",
+  "arguments": "{'student_query': \"open('test.txt', 'w').write('hacked')\"}",
+  "family": [
+   "file_write"
+  ]
+ },
+ {
+  "hex": "2740",
+  "arguments": "{'student_query': '(1).__class__'}",
+  "family": [
+   "object_introspection"
+  ]
+ },
+ {
+  "hex": "1960",
+  "arguments": "{'student_query': \"__import__('os').getcwd()\"}",
+  "family": [
+   "dynamic_import"
+  ]
+ }
+]

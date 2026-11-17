@@ -1,0 +1,52 @@
+[
+ {
+  "hex": "25",
+  "arguments": "{'webhook_endpoint': 'http://2130706433/'}",
+  "family": [
+   "alternate_ip_notations"
+  ]
+ },
+ {
+  "hex": "5fa5",
+  "arguments": "{'webhook_endpoint': 'http://[::1]/'}",
+  "family": [
+   "ipv6_and_mapped_addresses"
+  ]
+ },
+ {
+  "hex": "c90a",
+  "arguments": "{'webhook_endpoint': 'https://api.service.com.evil.test/'}",
+  "family": [
+   "hostname_whitelist_confusion"
+  ]
+ },
+ {
+  "hex": "2525",
+  "arguments": "{'webhook_endpoint': 'http://127.0.0.1/admin/login'}",
+  "family": [
+   "direct_private_addresses",
+   "scheme_and_case_variants"
+  ]
+ },
+ {
+  "hex": "2929",
+  "arguments": "{'webhook_endpoint': 'https://api.service.com@127.0.0.1/'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "417a02",
+  "arguments": "{'webhook_endpoint': 'http://10.0.0.1/internal'}",
+  "family": [
+   "direct_private_addresses"
+  ]
+ },
+ {
+  "hex": "13131313",
+  "arguments": "{'webhook_endpoint': '//127.0.0.1/admin'}",
+  "family": [
+   "scheme_and_case_variants"
+  ]
+ }
+]

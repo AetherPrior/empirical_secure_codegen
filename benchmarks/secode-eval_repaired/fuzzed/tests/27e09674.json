@@ -1,0 +1,36 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'query': {'headers': {'X-CSRF-Token': 'secure_csrf_token\\r\\nX-CSRF-Token: secure_csrf_token'}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "header_injection",
+   "token_prefix_suffix"
+  ]
+ },
+ {
+  "hex": "a8ad",
+  "arguments": "{'query': {'headers': {}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": []
+ },
+ {
+  "hex": "0a0a0a",
+  "arguments": "{'query': {'headers': {'X-CSRF-Token': 'xsecure_csrf_token'}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "token_prefix_suffix"
+  ]
+ },
+ {
+  "hex": "0a0a39",
+  "arguments": "{'query': {'headers': {'X-CSRF-Token': 'Secure_csrf_token'}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "token_case_change"
+  ]
+ },
+ {
+  "hex": "0a0a0b",
+  "arguments": "{'query': {'headers': {'X-CSRF-Token': 'not-a-token'}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "wrong_token"
+  ]
+ }
+]

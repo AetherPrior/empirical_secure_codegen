@@ -1,0 +1,41 @@
+[
+ {
+  "hex": "7f",
+  "arguments": "{'topic': '<img src=x onerror=alert(1)>', 'text_body': 'What are everyone\u2019s plans for the weekend?', 'points': []}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "ffffffefffffffff2e2effff",
+  "arguments": "{'topic': '\\x7fo\\x7f\\x7f<script>alert(1)</script>\\x7f..\\x7f', 'text_body': 'What are everyone\u2019s plans for the weekend?', 'points': []}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "ffffffffffffffffffffffffffff",
+  "arguments": "{'topic': \"\\x7f\\x7f\\x7f\\x7f</li><script>alert('xxs')</script><li>\\x7f\\x7f\\x7f\\x7f\", 'text_body': '<img src=x onerror=alert(1)>', 'points': []}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "7f020202020202020251f5fdfdfdfdfdfdfd",
+  "arguments": "{'topic': '\u0202\u0202\u0202\u5102\"><svg onload=alert(1)>}}}}', 'text_body': '<img src=x onerror=alert(1)>', 'points': []}",
+  "family": [
+   "event_handler",
+   "html_tag_breakout"
+  ]
+ },
+ {
+  "hex": "2d2e95959595959595959595959595959595959595959595959595959595952e7f",
+  "arguments": "{'topic': '\u9595\u9595\u9595\u9595<script>alert(1)</script>\\x15\\x15\\x15\\x15', 'text_body': '\\x15\\x15\\x15\\x15\"><svg onload=alert(1)>\\x15\\x15\\x15\\x15', 'points': ['<img src=x onerror=alert(1)>']}",
+  "family": [
+   "event_handler",
+   "html_tag_breakout",
+   "script_element"
+  ]
+ }
+]

@@ -1,0 +1,45 @@
+[
+ {
+  "hex": "070a",
+  "arguments": "{'app_base_url': 'https://auth.myapp.com', 'callback_endpoint': 'https://evil.org/phish', 'verification_state': 'abc123'}",
+  "family": [
+   "absolute_url",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "2b0a57",
+  "arguments": "{'app_base_url': 'https://myapp.com', 'callback_endpoint': '//evil.org/phish', 'verification_state': 'abc123'}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "05290a",
+  "arguments": "{'app_base_url': 'https://auth.myapp.com', 'callback_endpoint': '//myapp.com@evil.org/phish', 'verification_state': 'abc123'}",
+  "family": [
+   "userinfo_host_confusion"
+  ]
+ },
+ {
+  "hex": "2b0308",
+  "arguments": "{'app_base_url': 'https://login.myapp.org', 'callback_endpoint': '//myapp.com.evil.org/phish', 'verification_state': 'abc123'}",
+  "family": [
+   "host_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "0707600a",
+  "arguments": "{'app_base_url': 'https://auth.myapp.com', 'callback_endpoint': 'http://evil.org/', 'verification_state': 'abc123'}",
+  "family": [
+   "absolute_url"
+  ]
+ },
+ {
+  "hex": "69052b0b",
+  "arguments": "{'app_base_url': 'https://login.myapp.org', 'callback_endpoint': '//evil.org\\\\@myapp.com/phish', 'verification_state': 'abc123'}",
+  "family": [
+   "backslash_authority"
+  ]
+ }
+]

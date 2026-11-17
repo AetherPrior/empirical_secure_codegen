@@ -1,0 +1,17 @@
+[
+ {
+  "hex": "ffffffffffffffffffffffffffffffffffffffffffffffffffff0a0a",
+  "arguments": "{'user_id': 'user444', 'role': 'EDITOR', 'doc_id': 'doc123', 'doc_owner': 'user111', 'new_data': '\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f'}",
+  "family": [
+   "role_confusion",
+   "spoofed_owner_claim"
+  ]
+ },
+ {
+  "hex": "ffffffffff7effffffffffffffffffffffffffcaffffffffcaffffff",
+  "arguments": "{'user_id': 'user222', 'role': 'viewer', 'doc_id': 'doc456', 'doc_owner': 'user444', 'new_data': '\\x7f\\x7f\\x7f\\x7f~\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7fJ\\x7f\\x7f\\x7f\\x7fJ'}",
+  "family": [
+   "spoofed_owner_claim"
+  ]
+ }
+]

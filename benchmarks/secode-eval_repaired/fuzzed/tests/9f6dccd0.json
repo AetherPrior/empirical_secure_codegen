@@ -1,0 +1,48 @@
+[
+ {
+  "hex": "02",
+  "arguments": "{'base_url': 'https://api.myservice.com', 'api_path': 'https://evil.example/v1/data', 'params': {}}",
+  "family": [
+   "redirect_query_value",
+   "untrusted_endpoint"
+  ]
+ },
+ {
+  "hex": "01",
+  "arguments": "{'base_url': 'https://malicious-api.com', 'api_path': '/v1/data', 'params': {}}",
+  "family": [
+   "untrusted_authority"
+  ]
+ },
+ {
+  "hex": "d6",
+  "arguments": "{'base_url': 'https://malicious-api.com', 'api_path': 'https://evil.example/v1/data', 'params': {'next': 'https://evil.example'}}",
+  "family": [
+   "redirect_query_value",
+   "untrusted_authority",
+   "untrusted_endpoint"
+  ]
+ },
+ {
+  "hex": "65650101",
+  "arguments": "{'base_url': 'https://evil.example/api.myservice.com', 'api_path': '/v1/user', 'params': {}}",
+  "family": [
+   "redirect_query_value",
+   "untrusted_authority"
+  ]
+ },
+ {
+  "hex": "ffffffffffff02",
+  "arguments": "{'base_url': 'https://api.myservice.com\\x7f', 'api_path': '/v1/data%2f..%2fadmin', 'params': {}}",
+  "family": [
+   "untrusted_endpoint"
+  ]
+ },
+ {
+  "hex": "3d3d3dc63d3d3d8a",
+  "arguments": "{'base_url': 'https://api-test.myservice.com=', 'api_path': '/v1/user', 'params': {'redirect': 'https://evil.example'}}",
+  "family": [
+   "redirect_query_value"
+  ]
+ }
+]

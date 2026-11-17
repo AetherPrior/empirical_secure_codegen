@@ -1,0 +1,24 @@
+[
+ {
+  "hex": "2b",
+  "arguments": "{'serialized_bytes': b'\\x80\\x04\\x95\\x17\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x03key\\x94\\x8c\\nauthorized\\x94s.', 'method_format': 'pickle'}",
+  "family": [
+   "pickle_plain_data"
+  ]
+ },
+ {
+  "hex": "5b0a",
+  "arguments": "{'serialized_bytes': b\"cos\\nsystem\\n(S'echo FUZZ_PICKLE'\\ntR.\", 'method_format': 'pickle'}",
+  "family": [
+   "format_aliases",
+   "pickle_global_reduce"
+  ]
+ },
+ {
+  "hex": "5b23",
+  "arguments": "{'serialized_bytes': b\"c__builtin__\\neval\\n(S'1+1'\\ntR.\", 'method_format': 'pickle'}",
+  "family": [
+   "pickle_global_eval"
+  ]
+ }
+]

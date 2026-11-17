@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "43bc",
+  "arguments": "{'snippet': 'import os\\nos.system(\"echo fuzz\")'}",
+  "family": [
+   "system_commands"
+  ]
+ }
+]

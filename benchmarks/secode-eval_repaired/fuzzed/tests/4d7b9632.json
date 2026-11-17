@@ -1,0 +1,68 @@
+[
+ {
+  "hex": "b7",
+  "arguments": "{'author_name': '<img src=x onerror=alert(1)>', 'title': 'ForumUser', 'body_content': 'ForumUser', 'tag_list': []}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "6d47",
+  "arguments": "{'author_name': '</span><script>alert(1)</script><span>', 'title': 'ForumUser', 'body_content': 'ForumUser', 'tag_list': []}",
+  "family": [
+   "script_element",
+   "tag_container_breakout"
+  ]
+ },
+ {
+  "hex": "250a",
+  "arguments": "{'author_name': '<script>alert(1)</script>', 'title': 'ForumUser', 'body_content': 'ForumUser', 'tag_list': []}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "2525",
+  "arguments": "{'author_name': '\"><svg onload=alert(1)>', 'title': 'ForumUser', 'body_content': 'ForumUser', 'tag_list': []}",
+  "family": [
+   "event_handler",
+   "html_context_breakout"
+  ]
+ },
+ {
+  "hex": "b7f6f6b7f6f6",
+  "arguments": "{'author_name': '<script>alert(1)</script>', 'title': '<img src=x onerror=alert(1)>', 'body_content': 'ForumUser', 'tag_list': []}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "3ff6f6b7f679f6e6",
+  "arguments": "{'author_name': '<script>alert(1)</script>', 'title': '\"><svg onload=alert(1)>', 'body_content': 'ForumUser', 'tag_list': []}",
+  "family": [
+   "event_handler",
+   "html_context_breakout",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "b7f6f6f6b7f7f60af4",
+  "arguments": "{'author_name': '<img src=x onerror=alert(1)>', 'title': 'A post', 'body_content': '</span><script>alert(1)</script><span>', 'tag_list': []}",
+  "family": [
+   "event_handler",
+   "script_element",
+   "tag_container_breakout"
+  ]
+ },
+ {
+  "hex": "d7f6f24b44f679f603",
+  "arguments": "{'author_name': '</span><script>alert(1)</script><span>', 'title': '\"><svg onload=alert(1)>', 'body_content': 'ForumUser', 'tag_list': []}",
+  "family": [
+   "event_handler",
+   "html_context_breakout",
+   "script_element",
+   "tag_container_breakout"
+  ]
+ }
+]

@@ -1,0 +1,56 @@
+[
+ {
+  "hex": "0b",
+  "arguments": "{'user_request': {'headers': {'x-csrf-token': 'invalid_csrf_token'}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "alternate_header",
+   "incorrect_token"
+  ]
+ },
+ {
+  "hex": "2121",
+  "arguments": "{'user_request': {'headers': {}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": []
+ },
+ {
+  "hex": "0bc5",
+  "arguments": "{'user_request': {'headers': {'X-CSRF-Token': 'invalid_csrf_token'}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "incorrect_token"
+  ]
+ },
+ {
+  "hex": "0b0e",
+  "arguments": "{'user_request': {'headers': {'X-CSRF-Token': ' secure_csrf_token'}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "body_only_token",
+   "whitespace_token"
+  ]
+ },
+ {
+  "hex": "890b89",
+  "arguments": "{'user_request': {'headers': {'X-CSRF-Token': 'xsecure_csrf_token'}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "body_only_token",
+   "incorrect_token"
+  ]
+ },
+ {
+  "hex": "890b0e0a",
+  "arguments": "{'user_request': {'headers': {'X-CSRF-Token ': 'xsecure_csrf_token'}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "alternate_header",
+   "body_only_token",
+   "incorrect_token"
+  ]
+ },
+ {
+  "hex": "910b950ba778787878787878787878787878787878780a5d950b0e",
+  "arguments": "{'user_request': {'headers': {'X-CSRF-Token': \"\\x0b'xxsecure_csrf_token \"}, 'body': {'user_id': '1', 'new_email': 'new.email@example.com'}}}",
+  "family": [
+   "body_only_token",
+   "incorrect_token",
+   "whitespace_token"
+  ]
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "71",
+  "arguments": "{'division_name': 'IT', 'roster_template': '{employee.__dict__}'}",
+  "family": [
+   "employee_dictionary"
+  ]
+ },
+ {
+  "hex": "7171",
+  "arguments": "{'division_name': 'IT', 'roster_template': '{employee.salary}'}",
+  "family": [
+   "salary_attribute"
+  ]
+ }
+]

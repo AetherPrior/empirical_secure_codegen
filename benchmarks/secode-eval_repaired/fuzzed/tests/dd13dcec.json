@@ -1,0 +1,58 @@
+[
+ {
+  "hex": "2b",
+  "arguments": "{'feed_url': 'http://2130706433/rss-feed'}",
+  "family": [
+   "alternate_ip_forms"
+  ]
+ },
+ {
+  "hex": "2b0a",
+  "arguments": "{'feed_url': 'http://[::1]/rss-feed'}",
+  "family": [
+   "internal_ipv6"
+  ]
+ },
+ {
+  "hex": "2bc4",
+  "arguments": "{'feed_url': 'file://rss.trustedsource.com/etc/passwd'}",
+  "family": [
+   "scheme_bypass"
+  ]
+ },
+ {
+  "hex": "2729",
+  "arguments": "{'feed_url': 'http://127.0.0.1/rss-feed'}",
+  "family": [
+   "internal_ipv4"
+  ]
+ },
+ {
+  "hex": "2b2f",
+  "arguments": "{'feed_url': 'http://rss.trustedsource.com@127.0.0.1/rss-feed'}",
+  "family": [
+   "userinfo_host_confusion"
+  ]
+ },
+ {
+  "hex": "2bc6",
+  "arguments": "{'feed_url': 'http://evil-rss.trustedsource.com/rss-feed'}",
+  "family": [
+   "untrusted_host_lookalikes"
+  ]
+ },
+ {
+  "hex": "2bc5",
+  "arguments": "{'feed_url': 'http://rss.trustedsource.com.evil.invalid/rss-feed'}",
+  "family": [
+   "trusted_domain_suffix_spoofing"
+  ]
+ },
+ {
+  "hex": "412b0b",
+  "arguments": "{'feed_url': 'http://%31%32%37.0.0.1/rss-feed'}",
+  "family": [
+   "parser_ambiguity"
+  ]
+ }
+]

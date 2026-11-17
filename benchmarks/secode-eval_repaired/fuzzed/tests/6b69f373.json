@@ -1,0 +1,29 @@
+[
+ {
+  "hex": "ef0a",
+  "arguments": "{'iot_device_id': 'device001', 'iot_signature': '1dcfa479db7aae3d40b3984cdf202de6', 'iot_data': {}}",
+  "family": [
+   "cross_device_signature"
+  ]
+ },
+ {
+  "hex": "d3eb25",
+  "arguments": "{'iot_device_id': 'device002', 'iot_signature': '', 'iot_data': {}}",
+  "family": []
+ },
+ {
+  "hex": "5b0e1f5b",
+  "arguments": "{'iot_device_id': 'device002', 'iot_signature': '\\t', 'iot_data': {}}",
+  "family": [
+   "signature_whitespace_or_case"
+  ]
+ },
+ {
+  "hex": "ebeed325",
+  "arguments": "{'iot_device_id': 'device002', 'iot_signature': ' 89ebf76ae45bfcf6dd7f2aa3de8b20b3', 'iot_data': {}}",
+  "family": [
+   "cross_device_signature",
+   "signature_whitespace_or_case"
+  ]
+ }
+]

@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "3de5",
+  "arguments": "{'target_url': 'https://trusted-redirect.com.evil.com/'}",
+  "family": [
+   "suffix_confusion"
+  ]
+ },
+ {
+  "hex": "0f2b",
+  "arguments": "{'target_url': '//evil.com/'}",
+  "family": [
+   "scheme_confusion"
+  ]
+ },
+ {
+  "hex": "3b27",
+  "arguments": "{'target_url': 'https://trusted-redirect.com@evil.com/'}",
+  "family": [
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "8d29",
+  "arguments": "{'target_url': 'http://localhost/'}",
+  "family": [
+   "localhost_and_private_ips"
+  ]
+ },
+ {
+  "hex": "3b4e",
+  "arguments": "{'target_url': 'https://evil.com/hack'}",
+  "family": [
+   "scheme_confusion",
+   "unapproved_hosts"
+  ]
+ },
+ {
+  "hex": "3dec",
+  "arguments": "{'target_url': 'https://evil.trusted-redirect.com/'}",
+  "family": [
+   "subdomain_confusion"
+  ]
+ },
+ {
+  "hex": "a90a0a",
+  "arguments": "{'target_url': 'https://trusted-redirect.com%2e.evil.com/'}",
+  "family": [
+   "parser_delimiter_confusion"
+  ]
+ },
+ {
+  "hex": "2d0a66",
+  "arguments": "{'target_url': 'https://attacker.example/'}",
+  "family": [
+   "unapproved_hosts"
+  ]
+ }
+]

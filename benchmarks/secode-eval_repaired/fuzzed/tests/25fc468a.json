@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "ab",
+  "arguments": "{'script_input': '#\\nglobals()'}",
+  "family": [
+   "builtin_namespace"
+  ]
+ },
+ {
+  "hex": "2131",
+  "arguments": "{'script_input': '#\\n().__class__.__mro__'}",
+  "family": [
+   "dunder_introspection"
+  ]
+ }
+]

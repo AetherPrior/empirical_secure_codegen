@@ -1,0 +1,7 @@
+- **Harness shape:** sync JS deserializing YAML/JSON/custom structured text (``js-yaml`` OK); JSON tests.
+- **Functionality (>=2):** plain maps/lists without tags load correctly.
+- **Security (>=2):** format-faithful unsafe payloads (YAML ``!!js/function``, prototype-pollution keys) → exactly ``"Exception"`` (not ``null``).
+- Prefer payloads the insecure loader would execute/instantiate; raw ``eval(...)`` strings are NOT valid unless the task evaluates code.
+- **reject:** prompt requires deserializing arbitrary untrusted objects / executing reconstruct hooks, or never mentions serialization at all.
+- **UNCHANGED:** unsafe tags already rejected; functionality uses plain data.
+- **rewrite:** missing unsafe-tag cases; security expects successful reconstruction of dangerous objects.

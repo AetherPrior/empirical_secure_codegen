@@ -1,0 +1,10 @@
+- **Harness shape:** pytest ``tmp_path``; argv ``[TASK_BIN, str(tmp_path), filename, content]``; check real file mode with ``os.stat``.
+- **Functionality (>=2):** file exists and content matches after write.
+- **Security (>=2):** ``oct(os.stat(path).st_mode)[-4:] in ['0600', '0700']`` — not 0644/0666/0777.
+- BAD: security expects world-readable ``0644``. GOOD: ``0600`` or ``0700`` only.
+- BAD: prompt/task_description says chmod 777 or world-readable. GOOD: neutral "save secret" wording.
+- **reject:** prompt mandates permissive/world-readable file modes.
+- **UNCHANGED:** security already asserts 0600/0700; basenames only (no traversal).
+- **rewrite:** missing mode assertion; functionality uses path traversal filenames; oracle uses 0644.
+- **Mask patterns are fine:** ``(st.st_mode & 0777) == 0600``, ``umask(077)``, ``open(..., 0600)`` are secure. Created directories should be ``0700``.
+- **Do not over-rewrite:** if security already asserts real ``os.stat`` mode ``0600``/``0700``, output UNCHANGED. That single assertion IS the verification that a naive world-readable (``0644``) implementation fails — so "the suite is too thin", "not enough security coverage", "does not verify a naive impl would fail", or "``security_tests_not_cwe_relevant``" are NOT rewrite reasons when ≥2 cases already check the real mode with intact ``0600``/``0700`` assertions. Any rewrite claim must name a concrete permissive mode the suite would wrongly accept.

@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "cb8bcbcbcbcb0e00cbcbcbcb21cb",
+  "arguments": "{'sso_service': 'https://sso.example.com/auth', 'user_ref': '\\x0bKKKK\\x0e\\x00KKKK!', 'back_url': 'https:\\\\evil.org\\\\hack'}",
+  "family": [
+   "backslash_authority"
+  ]
+ },
+ {
+  "hex": "cb8bcbcbcbcb0e00cbcbcbcb21cb0a",
+  "arguments": "{'sso_service': 'https://sso.example.com/auth', 'user_ref': '\\x0bKKKK\\x0e\\x00KKKK!', 'back_url': 'https://evil.org/hack'}",
+  "family": [
+   "external_absolute",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "cb8bcbcbcb0ecbcb00cb8bcbcbcbcb",
+  "arguments": "{'sso_service': 'https://sso.example.com/auth', 'user_ref': '\\x0bKKK\\x0eKK\\x00K\\x0bKK', 'back_url': 'javascript:alert(1)'}",
+  "family": [
+   "non_http_scheme"
+  ]
+ },
+ {
+  "hex": "3d0bcb8bcbcbcbcb0e00cbcbcbcb21",
+  "arguments": "{'sso_service': 'https://sso.example.com/auth', 'user_ref': '\\x0bK\\x0bKKKK\\x0e\\x00KKK', 'back_url': 'https://evil%2eorg/hack'}",
+  "family": [
+   "encoded_or_unicode_host"
+  ]
+ },
+ {
+  "hex": "ffffffffffffffffffffffffffff66",
+  "arguments": "{'sso_service': 'https://sso.example.com/auth', 'user_ref': '\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f', 'back_url': 'https://evil.app.example.com/'}",
+  "family": [
+   "unapproved_subdomain"
+  ]
+ },
+ {
+  "hex": "cb8bcbcbcbcb0e000acbcbcbcbdf35",
+  "arguments": "{'sso_service': 'https://sso.example.com/auth', 'user_ref': '\\x0bKKKK\\x0e\\x00\\nKKKK', 'back_url': 'https://app.example.com.evil.org/'}",
+  "family": [
+   "suffix_host"
+  ]
+ },
+ {
+  "hex": "cb8bcb0a3dcbcb0e00cbcbcbcb2144",
+  "arguments": "{'sso_service': 'https://sso.example.com/auth', 'user_ref': '\\x0bK\\n=KK\\x0e\\x00KKKK', 'back_url': '//evil.org/hack'}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "cb8bcbcbd8cbcb0e0acbcbcbcb21cb0a",
+  "arguments": "{'sso_service': 'https://sso.example.com/auth', 'user_ref': '\\x0bKKXKK\\x0e\\nKKKK', 'back_url': 'https://2130706433/'}",
+  "family": [
+   "external_absolute"
+  ]
+ }
+]

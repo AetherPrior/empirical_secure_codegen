@@ -1,0 +1,10 @@
+[
+ {
+  "hex": "cb59",
+  "arguments": "{'snippet_code': \"# \\nimport os\\nos.system('echo fuzz')\"}",
+  "family": [
+   "external_commands",
+   "imports"
+  ]
+ }
+]

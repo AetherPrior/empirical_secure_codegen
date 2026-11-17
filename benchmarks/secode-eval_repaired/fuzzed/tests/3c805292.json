@@ -1,0 +1,66 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'feed_address': 'http://127.1/rss'}",
+  "family": [
+   "alternate_ip_notation",
+   "malformed_or_relative_url"
+  ]
+ },
+ {
+  "hex": "018a",
+  "arguments": "{'feed_address': 'http://rss.trustedsource.com.evil.test/rss'}",
+  "family": [
+   "malformed_or_relative_url",
+   "trusted_host_suffix"
+  ]
+ },
+ {
+  "hex": "2727",
+  "arguments": "{'feed_address': 'http://rss.trustedsource.com@evil.test/rss'}",
+  "family": [
+   "malformed_or_relative_url",
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "0152",
+  "arguments": "{'feed_address': 'ftp://rss.trustedsource.com/feed'}",
+  "family": [
+   "disallowed_scheme",
+   "malformed_or_relative_url"
+  ]
+ },
+ {
+  "hex": "272b",
+  "arguments": "{'feed_address': 'http://127.0.0.1/rss-feed'}",
+  "family": [
+   "internal_ipv4",
+   "malformed_or_relative_url"
+  ]
+ },
+ {
+  "hex": "efb1",
+  "arguments": "{'feed_address': 'http://evil-rss.trustedsource.com/rss'}",
+  "family": [
+   "malformed_or_relative_url",
+   "trusted_host_prefix"
+  ]
+ },
+ {
+  "hex": "0104",
+  "arguments": "{'feed_address': 'http://localhost/rss'}",
+  "family": [
+   "localhost_variants",
+   "malformed_or_relative_url"
+  ]
+ },
+ {
+  "hex": "2fe05b",
+  "arguments": "{'feed_address': 'http://evil.test\\\\rss.trustedsource.com/rss'}",
+  "family": [
+   "authority_parser_confusion",
+   "malformed_or_relative_url"
+  ]
+ }
+]

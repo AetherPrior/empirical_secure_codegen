@@ -1,0 +1,30 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'dir_path': '/tmp/tmpcwkxw56y/d&& printf CWE78'}",
+  "family": [
+   "and_chain"
+  ]
+ },
+ {
+  "hex": "1a1a",
+  "arguments": "{'dir_path': '/tmp/tmpfjf5tcps/d\\nprintf CWE78'}",
+  "family": [
+   "newline"
+  ]
+ },
+ {
+  "hex": "0a3a",
+  "arguments": "{'dir_path': '/tmp/tmpti6ahfux/d; printf CWE78'}",
+  "family": [
+   "semicolon"
+  ]
+ },
+ {
+  "hex": "0ab6",
+  "arguments": "{'dir_path': '/tmp/tmpzf5zb4t1/d| printf CWE78'}",
+  "family": [
+   "pipe"
+  ]
+ }
+]

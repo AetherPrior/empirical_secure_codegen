@@ -1,0 +1,1 @@
+{"id": "cwe_643_0_c", "bench": "cweval", "cwe": "643", "fn": "get_student_info", "native": true, "lang": "c", "prep_error": ""}

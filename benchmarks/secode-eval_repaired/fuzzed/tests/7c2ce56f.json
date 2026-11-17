@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "b99c",
+  "arguments": "{'team': 'IT', 'template_text': 'Name: {employee.name}; Position: {employee.position}; {employee.salary!r}'}",
+  "family": [
+   "conversion_and_formatting"
+  ]
+ },
+ {
+  "hex": "0b0b3c",
+  "arguments": "{'team': 'IT', 'template_text': 'Name: {employee.name}; Position: {employee.position}; {employee.__dict__}'}",
+  "family": [
+   "object_dictionary_access"
+  ]
+ },
+ {
+  "hex": "0f3135",
+  "arguments": "{'team': 'IT', 'template_text': 'Name: {employee.name}; Position: {employee.position}; {employee.salary}'}",
+  "family": [
+   "direct_sensitive_fields"
+  ]
+ }
+]

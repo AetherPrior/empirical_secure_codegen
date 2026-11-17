@@ -1,0 +1,39 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'config_filename': 'db_config.json', 'crypt_signature': 'AFAE23C5B1A7D5218CABC4E62357378E'}",
+  "family": [
+   "case_altered_signature"
+  ]
+ },
+ {
+  "hex": "0a0b",
+  "arguments": "{'config_filename': 'db_config.json', 'crypt_signature': '9c6b74265e0e0409e4ada1aa3bdc973d'}",
+  "family": [
+   "cross_config_signature"
+  ]
+ },
+ {
+  "hex": "263f",
+  "arguments": "{'config_filename': 'db_config.json', 'crypt_signature': 'afae23c5b1a7d5218cabc4e62357378'}",
+  "family": [
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "322f",
+  "arguments": "{'config_filename': 'db_config.json', 'crypt_signature': '0xafae23c5b1a7d5218cabc4e62357378e'}",
+  "family": [
+   "signature_prefix",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "1a4a",
+  "arguments": "{'config_filename': 'db_config.json', 'crypt_signature': ' afae23c5b1a7d5218cabc4e62357378e'}",
+  "family": [
+   "truncated_signature",
+   "whitespace_wrapping"
+  ]
+ }
+]

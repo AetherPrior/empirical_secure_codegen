@@ -1,0 +1,16 @@
+- **Harness shape:** format argv string into small fixed buffer (greeting/message); ``exec_cmd([TASK_BIN, username_or_text])``.
+- **Functionality (>=2):** Test ONLY short, benign strings (under 10 characters) that are guaranteed to fit comfortably inside the buffer. Assert exact expected output.
+- **Security (>=2):** Test overlong strings that are massive (at least 10× the buffer capacity, e.g., 200 to 1000 characters). 
+- **Math-Free Security Assertions:** To prevent off-by-one errors, DO NOT calculate or assert exact truncated output matches or precise character lengths. Instead, assert these relative properties:
+  1. The program must not crash (assert ``rc in (0, 1)`` and ``err == ""``).
+  2. The output must not leak the full input (assert ``payload not in out``).
+  3. The output length must have a generous but safe upper bound (e.g., assert ``len(out) < 100`` when input is 1000 characters).
+  4. If ``rc == 0``, verify functionality by checking if the output starts with the expected prefix (e.g., assert ``out.startswith("Status: ")``).
+- **reject:** prompt requires unbounded copy into fixed stack buffer with no size policy.
+- **UNCHANGED:** long-input security cases already safe; no buffer overread in expected outputs.
+- **rewrite:** 
+    - missing long-input security case
+    - functionality includes attacker-length strings.
+    - expects crash as success
+    - test uses `assert rc != 0` (which allows segfaults to pass silently)
+    - test does not explicitly enforce `err == ""` on security cases

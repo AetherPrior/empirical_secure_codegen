@@ -1,0 +1,45 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'device': 'device001', 'packet_signature': '1dcfa479db7aae3d40b3984cdf202de6', 'data_packet': {}}",
+  "family": [
+   "cross_device_signature"
+  ]
+ },
+ {
+  "hex": "8e8e",
+  "arguments": "{'device': 'device001', 'packet_signature': '00000000000000000000000000000000', 'data_packet': {}}",
+  "family": [
+   "forged_signature"
+  ]
+ },
+ {
+  "hex": "0a01",
+  "arguments": "{'device': 'device002', 'packet_signature': '89ebf76ae45bfcf6dd7f2aa3de8b20b3', 'data_packet': {}}",
+  "family": [
+   "cross_device_signature",
+   "device_confusion",
+   "signature_format_confusion"
+  ]
+ },
+ {
+  "hex": "0a26",
+  "arguments": "{'device': 'device001', 'packet_signature': '89EBF76AE45BFCF6DD7F2AA3DE8B20B3', 'data_packet': {}}",
+  "family": [
+   "signature_format_confusion"
+  ]
+ },
+ {
+  "hex": "280a26",
+  "arguments": "{'device': 'device001', 'packet_signature': '89ebf76ae45bfcf6dd7f2aa3de8b20b3 ', 'data_packet': {}}",
+  "family": [
+   "cross_device_signature",
+   "signature_format_confusion"
+  ]
+ },
+ {
+  "hex": "8e7a8e",
+  "arguments": "{'device': 'device001', 'packet_signature': '', 'data_packet': {}}",
+  "family": []
+ }
+]

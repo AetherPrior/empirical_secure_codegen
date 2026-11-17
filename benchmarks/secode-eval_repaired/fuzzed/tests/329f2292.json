@@ -1,0 +1,42 @@
+[
+ {
+  "hex": "60",
+  "arguments": "{'staff_id': 'X999', 'staff_role': 'doctor', 'patient_id': 'P1001'}",
+  "family": [
+   "unauthorized_role",
+   "unknown_staff"
+  ]
+ },
+ {
+  "hex": "70",
+  "arguments": "{'staff_id': 'D101', 'staff_role': 'guest', 'patient_id': 'P1001'}",
+  "family": [
+   "cross_patient_doctor",
+   "unauthorized_role"
+  ]
+ },
+ {
+  "hex": "78",
+  "arguments": "{'staff_id': 'N202', 'staff_role': 'nurse', 'patient_id': 'P1001'}",
+  "family": [
+   "cross_patient_nurse",
+   "unauthorized_role"
+  ]
+ },
+ {
+  "hex": "05",
+  "arguments": "{'staff_id': 'A001', 'staff_role': 'Admin', 'patient_id': 'P1001'}",
+  "family": [
+   "role_case_confusion",
+   "unauthorized_role"
+  ]
+ },
+ {
+  "hex": "0505",
+  "arguments": "{'staff_id': 'A001', 'staff_role': 'admin ', 'patient_id': 'P1001'}",
+  "family": [
+   "role_whitespace_confusion",
+   "unauthorized_role"
+  ]
+ }
+]

@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "251d",
+  "arguments": "{'code_snippet': \"# \\n__import__('os').system('echo fuzz')\\n# \"}",
+  "family": [
+   "system_commands"
+  ]
+ }
+]

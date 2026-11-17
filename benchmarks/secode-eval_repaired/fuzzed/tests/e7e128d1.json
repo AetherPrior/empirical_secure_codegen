@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "3d",
+  "arguments": "{'user_text': '<![CDATA[injection]]>'}",
+  "family": [
+   "cdata"
+  ]
+ },
+ {
+  "hex": "3d29",
+  "arguments": "{'user_text': '<script>alert(1)</script>'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "c3be",
+  "arguments": "{'user_text': '<!--injected-->'}",
+  "family": [
+   "comment"
+  ]
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "25",
+  "arguments": "{'raw_data': b'(lp0\\nI1\\naI2\\na.', 'serialization_format': 'pickle'}",
+  "family": [
+   "pickle_protocol0"
+  ]
+ },
+ {
+  "hex": "2521",
+  "arguments": "{'raw_data': b'\\x80\\x04\\x95\\x0b\\x00\\x00\\x00\\x00\\x00\\x00\\x00]\\x94(K\\x01K\\x02K\\x03e.', 'serialization_format': 'pickle'}",
+  "family": [
+   "pickle_protocol4"
+  ]
+ }
+]

@@ -1,0 +1,24 @@
+[
+ {
+  "hex": "21",
+  "arguments": "{'visitor_content': '<iframe srcdoc=\"<script>alert(1)</script>\"></iframe>'}",
+  "family": [
+   "active_content",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "21b2",
+  "arguments": "{'visitor_content': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "21c5",
+  "arguments": "{'visitor_content': '<script>alert(1)</script>'}",
+  "family": [
+   "script_element"
+  ]
+ }
+]

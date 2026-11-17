@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "0101",
+  "arguments": "{'user_input': '().__class__.__mro__'}",
+  "family": [
+   "dunder_introspection"
+  ]
+ },
+ {
+  "hex": "852785",
+  "arguments": "{'user_input': \"__import__('os').getcwd()\"}",
+  "family": [
+   "import_call"
+  ]
+ }
+]

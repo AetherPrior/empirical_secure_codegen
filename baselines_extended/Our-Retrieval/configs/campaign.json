@@ -1,0 +1,42 @@
+{
+  "model": "Qwen/Qwen3-8B",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "hf_home": "/workspace/hf_home",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "temperature": 0.6,
+  "top_p": 0.95,
+  "max_tokens": 16384,
+  "max_model_len": 40960,
+  "concurrency": 256,
+  "eval_workers": 64,
+  "gpu_memory_utilization": 0.92,
+  "enable_thinking": true,
+  "workers": [
+    {
+      "variant": "original",
+      "gpu": 2,
+      "port_base": 49000
+    },
+    {
+      "variant": "repaired",
+      "gpu": 3,
+      "port_base": 50000
+    }
+  ],
+  "benchmarks": [
+    "seccodeplt",
+    "cweval",
+    "baxbench"
+  ],
+  "retrieval_placement": "user",
+  "wait_forcing": false,
+  "top_k": 3,
+  "strict_language_routing": true,
+  "embedding_model": "jinaai/jina-embeddings-v3",
+  "embedding_revision": "ab036b023d30b4d1138c4c3bfa9f0c445ab455d6",
+  "retrieval_dataset_sha256": "cd1f5b4fc7bff02e72286a4dc23f32edcf53221e1c04cf834334ee29f167c8fc"
+}

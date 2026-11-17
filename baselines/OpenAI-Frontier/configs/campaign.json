@@ -1,0 +1,41 @@
+{
+  "models": [
+    "gpt-4o",
+    "gpt-6.1-sol"
+  ],
+  "variants": [
+    "original",
+    "repaired"
+  ],
+  "benchmarks": [
+    "seccodeplt",
+    "cweval",
+    "baxbench"
+  ],
+  "samples_per_task": 1,
+  "evaluator_seed_label": 42,
+  "api_seed": null,
+  "endpoint": "https://us.api.openai.com/v1",
+  "max_output_tokens": 16384,
+  "sol_reasoning_effort": "high",
+  "gpt4o_temperature": 0.6,
+  "gpt4o_top_p": 0.95,
+  "api_workers": 64,
+  "eval_workers": 64,
+  "port_bases": {
+    "gpt-4o": 51000,
+    "gpt-6.1-sol": 52000
+  },
+  "spreadsheet_id": "1Ar1hKGKJkWzf_IxlpMCmQkLabeurJLh66hJ1FDqU8Kw",
+  "sheet_name": "Methods w/ contributions",
+  "sheet_rows": {
+    "gpt-4o": {
+      "original": 14,
+      "repaired": 31
+    },
+    "gpt-6.1-sol": {
+      "original": 15,
+      "repaired": 32
+    }
+  }
+}

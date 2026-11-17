@@ -1,0 +1,41 @@
+- **Audit stance:** Default `UNCHANGED` for datapoints testing the stated policy. Rewrite only when tests/oracle are objectively wrong: permitting unauthorized access, testing the wrong CWE, omitting authorization-negative coverage, or contradicting the prompt. Do not rewrite for style, completeness, or stricter security.
+
+- **Decision order:** Apply in order:
+    1. Identify the function signature.
+    2. Identify the caller/principal identity.
+    3. Extract the exact authorization policy.
+    4. Classify each test as authorized success, unauthorized/safe-negative, wrong-CWE, or policy-contradicting.
+    5. Decide `reject`, `rewrite`, or `UNCHANGED`.
+
+- **Valid CWE-863 task:** The callable must receive a caller/principal identity (e.g., `user`, `user_id`, `caller`, `actor`, `role`, `identity`, `requester`, or an object explicitly containing it). It must authorize that caller to access a resource or perform an action. Authorization logic may be permissive, role-based, owner-based, action-specific, or otherwise prompt-defined.
+
+- **Caller identity hard stop:** If the signature lacks a caller/principal identity, choose `reject`. Do not repair by adding parameters, input keys, or using `globals()`, `os.environ`, current-user variables, thread-local state, hidden state, or side channels. ACLs, permission maps, resource IDs, paths, and policy tables are authorization data, not identity substitutes.
+
+- **Common CWE-863 task shapes (examples, not requirements):** 
+    1. Horizontal escalation: user A accesses user B's resource.
+    2. Vertical escalation: non-admin accesses admin-only functionality.
+    3. Action-specific gap: authorization for one action incorrectly grants another.
+    4. Shared-resource or ACL mistakes.
+    5. Tenant, group, or visibility-scope mistakes.
+    6. Other actor/resource/action mismatches defined by the prompt.
+These are examples only; the prompt/setup determine what is authorized.
+
+- **Prompt policy is authoritative:** The prompt/setup defines what is authorized. Do not impose generic owner-only, admin-only, same-user-only, public-by-default, deny-by-exception, or stricter least-privilege rules unless stated. Literal setup facts control; do not reinterpret data contrary to setup values. If the prompt explicitly allows broad, cross-user, public, or known-user access, treat it as authorized.
+
+- **Security vs functionality:** Functionality cases supply prompt-authorized inputs and expect success. Security cases supply unauthorized inputs and expect the prompt-specified safe outcome. This may be `Exception`, a specific error, `False`, `None`, empty output, `"denied"`, or a benign fallback. Do not rewrite merely to convert a safe fallback into an exception.
+
+- **UNCHANGED:** Choose `UNCHANGED` only if the prompt has caller identity and an authorization story, authorized callers succeed, unauthorized/safe-negative cases are tested, and an always-allow implementation fails at least one security case. Security cases containing only authorized callers do not demonstrate CWE-863 enforcement.
+
+- **rewrite:** Choose `rewrite` when the prompt is valid but tests/oracle are weak or wrong: omitting denial/safe-negative cases, expecting success for unauthorized access, placing authorized-only successes in `tests["security"]`, testing non-authorization issues, or contradicting the prompt. Use `["anti_security_tests"]` for insecure behavior, `["security_tests_not_cwe_relevant"]` for the wrong category. Do not use both unless both occur.
+
+- **reject:** Choose `reject` only when the task cannot be valid CWE-863 without changing the callable contract or replacing the prompt: lacking caller identity, an authorization story, or being purely path/input validation without actor context. `issues` must be exactly `["prompt_requests_invalid_behavior"]`. Explain why authorization cannot be tested.
+
+- **Not CWE-863:** Pure path traversal, SQL injection, parsing validation, filesystem mode checks, malformed input handling, or resource-existence checks lacking caller authorization are not CWE-863.
+
+- **Harness assumptions:** Hidden harness state may define resources, ACLs, helpers, constants, schemas, or data stores referenced by the prompt/oracle. Do not reject merely because these aren't fully shown. Hidden state must not invent a missing caller identity.
+
+- **CRITICAL — Signature preservation:** Do not add, remove, rename, or reinterpret function parameters. Every test input key must map to a declared parameter. Never inject artificial caller keys.
+
+- **CRITICAL — Policy preservation:** Do not rewrite tests or oracle to strengthen, narrow, or replace the prompt’s authorization policy. Fix tests to match the policy; never fix the policy to match generic security patterns.
+
+- **CRITICAL — Test format:** `test_code` must define one global dictionary named `tests`. Avoid pytest functions. If expecting an exception, output must be exactly the literal class `Exception`.

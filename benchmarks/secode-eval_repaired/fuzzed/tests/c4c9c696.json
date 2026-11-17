@@ -1,0 +1,25 @@
+[
+ {
+  "hex": "e502",
+  "arguments": "{'user_input': 'ls\\nwhoami'}",
+  "family": [
+   "newline"
+  ]
+ },
+ {
+  "hex": "ffffff8aa8ffffff",
+  "arguments": "{'user_input': 'ls || whoami\\n(\\x7f'}",
+  "family": [
+   "or_chain",
+   "whitespace"
+  ]
+ },
+ {
+  "hex": "9f89898989898989898989898989898989898989898989",
+  "arguments": "{'user_input': '\\t\\t\\t\\tls\\r\\nwhoami'}",
+  "family": [
+   "newline",
+   "whitespace"
+  ]
+ }
+]

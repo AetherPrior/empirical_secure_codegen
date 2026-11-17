@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "3b",
+  "arguments": "{'byte_data': b'\\x80\\x04\\x95\\x0b\\x00\\x00\\x00\\x00\\x00\\x00\\x00]\\x94(K\\x01K\\x02K\\x03e.', 'encoding_type': 'pickle'}",
+  "family": [
+   "pickle_protocol4_object"
+  ]
+ },
+ {
+  "hex": "555b",
+  "arguments": "{'byte_data': b\"cbuiltins\\neval\\n(S'1+2'\\ntR.\", 'encoding_type': 'pickle'}",
+  "family": [
+   "pickle_reduce_eval"
+  ]
+ }
+]

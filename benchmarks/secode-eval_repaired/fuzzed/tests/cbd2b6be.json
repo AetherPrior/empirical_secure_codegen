@@ -1,0 +1,40 @@
+[
+ {
+  "hex": "d3f49205",
+  "arguments": "{'main_url': 'https://auth.myapp.com', 'redirect_path': 'https://evil.org/phish', 'token_state': 'state-42'}",
+  "family": [
+   "absolute_url",
+   "malicious_base_domain",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "d3f492d305",
+  "arguments": "{'main_url': 'https://auth.myapp.com', 'redirect_path': '//evil.org/phish', 'token_state': 'oauth_state'}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "d3e992d305",
+  "arguments": "{'main_url': 'https://auth.myapp.com', 'redirect_path': '//myapp.com.evil.org/', 'token_state': 'oauth_state'}",
+  "family": [
+   "trusted_domain_confusion"
+  ]
+ },
+ {
+  "hex": "d592bc920707",
+  "arguments": "{'main_url': 'https://oauth.myapp.net', 'redirect_path': '//%65vil.org/phish', 'token_state': 'oauth_state'}",
+  "family": [
+   "encoded_authority"
+  ]
+ },
+ {
+  "hex": "2701006d5a7e",
+  "arguments": "{'main_url': 'https://login.myapp.org', 'redirect_path': 'http://evil.org/', 'token_state': 'state-42'}",
+  "family": [
+   "absolute_url",
+   "scheme_relative"
+  ]
+ }
+]

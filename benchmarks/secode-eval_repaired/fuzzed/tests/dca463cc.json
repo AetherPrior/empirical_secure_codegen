@@ -1,0 +1,30 @@
+[
+ {
+  "hex": "0b26",
+  "arguments": "{'custom_header': 'x\\rInjected-Header: yes'}",
+  "family": [
+   "lone_carriage_return"
+  ]
+ },
+ {
+  "hex": "0ba6",
+  "arguments": "{'custom_header': 'x\\r\\nInjected-Header: yes'}",
+  "family": [
+   "crlf_header_splitting"
+  ]
+ },
+ {
+  "hex": "0b22",
+  "arguments": "{'custom_header': 'x\\r\\n Injected-Header: yes'}",
+  "family": [
+   "obs_fold"
+  ]
+ },
+ {
+  "hex": "f5e3",
+  "arguments": "{'custom_header': 'x\\nInjected-Header: yes'}",
+  "family": [
+   "lf_header_splitting"
+  ]
+ }
+]

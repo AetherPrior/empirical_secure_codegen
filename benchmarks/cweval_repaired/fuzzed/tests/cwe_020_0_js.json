@@ -1,0 +1,18 @@
+[
+ {
+  "hex": "2108",
+  "arguments": "{'target': 'https://evil-safe.test/redirect', 'domain': 'safe.test'}",
+  "family": [
+   "hostname_prefix",
+   "trailing_dot"
+  ]
+ },
+ {
+  "hex": "21cd08",
+  "arguments": "{'target': 'https://safe.test.evil.test/redirect', 'domain': 'safe.test'}",
+  "family": [
+   "hostname_suffix",
+   "trailing_dot"
+  ]
+ }
+]

@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "3f011a00",
+  "arguments": "{'ex_string': '().__class__.__mro__'}",
+  "family": [
+   "attribute_introspection"
+  ]
+ }
+]

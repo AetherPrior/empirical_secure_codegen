@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "f5",
+  "arguments": "{'rss_link': 'http://2130706433/rss-feed'}",
+  "family": [
+   "alternate_ip_notations"
+  ]
+ },
+ {
+  "hex": "0bce",
+  "arguments": "{'rss_link': 'https://rss.trustedsource.com.evil.example:443/rss-feed'}",
+  "family": [
+   "trusted_host_port_and_trailing_dot"
+  ]
+ },
+ {
+  "hex": "0bca",
+  "arguments": "{'rss_link': 'https://rss.trustedsource.com@127.0.0.1/rss-feed'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "0b4e",
+  "arguments": "{'rss_link': '//127.0.0.1/rss-feed'}",
+  "family": [
+   "authority_and_encoding_obfuscation"
+  ]
+ },
+ {
+  "hex": "3d0b",
+  "arguments": "{'rss_link': 'https://rss.trustedsource.com.evil.example/rss-feed'}",
+  "family": [
+   "trusted_host_suffix_and_prefix"
+  ]
+ },
+ {
+  "hex": "f3f3",
+  "arguments": "{'rss_link': 'file://127.0.0.1/etc/passwd'}",
+  "family": [
+   "untrusted_schemes"
+  ]
+ },
+ {
+  "hex": "5bf0",
+  "arguments": "{'rss_link': 'http://localhost/rss-feed'}",
+  "family": [
+   "direct_internal_addresses"
+  ]
+ },
+ {
+  "hex": "0b4e674f",
+  "arguments": "{'rss_link': 'http://127.0.0.1/rss-feed'}",
+  "family": [
+   "authority_and_encoding_obfuscation",
+   "direct_internal_addresses"
+  ]
+ }
+]

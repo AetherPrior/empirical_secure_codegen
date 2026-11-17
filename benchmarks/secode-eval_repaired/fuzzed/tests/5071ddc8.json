@@ -1,0 +1,46 @@
+[
+ {
+  "hex": "ff0d",
+  "arguments": "{'main_base_url': 'https://application.com/login', 'next_route': 'https://anotherbad.com/malware'}",
+  "family": [
+   "absolute_external",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "ffff5d",
+  "arguments": "{'main_base_url': 'https://application.com/login', 'next_route': '//anotherbad.com/malware'}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "ff2b10",
+  "arguments": "{'main_base_url': 'https://application.com', 'next_route': 'https://trusted-site.com.evil.example/path'}",
+  "family": [
+   "allowed_domain_suffix"
+  ]
+ },
+ {
+  "hex": "2b3030",
+  "arguments": "{'main_base_url': 'https://application.com', 'next_route': ' https://evil.example/path'}",
+  "family": [
+   "scheme_relative",
+   "whitespace_obfuscation"
+  ]
+ },
+ {
+  "hex": "2f2fd5",
+  "arguments": "{'main_base_url': 'https://application.com/login', 'next_route': 'https://trusted-site.com@evil.example/path'}",
+  "family": [
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "05a7a77a",
+  "arguments": "{'main_base_url': 'https://application.com', 'next_route': 'https://evil.example\\t/path'}",
+  "family": [
+   "whitespace_obfuscation"
+  ]
+ }
+]

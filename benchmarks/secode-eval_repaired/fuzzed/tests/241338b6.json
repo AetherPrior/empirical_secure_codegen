@@ -1,0 +1,58 @@
+[
+ {
+  "hex": "3d",
+  "arguments": "{'url_to_check': 'https://api.trustedsource.com.attacker.invalid/data'}",
+  "family": [
+   "allowlist_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "393d",
+  "arguments": "{'url_to_check': 'http://127.0.0.1/secret'}",
+  "family": [
+   "private_ipv4_and_metadata"
+  ]
+ },
+ {
+  "hex": "394a",
+  "arguments": "{'url_to_check': 'http://[::1]/secret'}",
+  "family": [
+   "ipv6_internal"
+  ]
+ },
+ {
+  "hex": "3d21",
+  "arguments": "{'url_to_check': 'http://localhost/secret'}",
+  "family": [
+   "internal_hostnames"
+  ]
+ },
+ {
+  "hex": "afaf",
+  "arguments": "{'url_to_check': 'https://api.trustedsource.com@127.0.0.1/secret'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "8d24",
+  "arguments": "{'url_to_check': 'https://api.trustedsource.com%2e.attacker.invalid/data'}",
+  "family": [
+   "parser_and_encoding_confusion"
+  ]
+ },
+ {
+  "hex": "3b3b",
+  "arguments": "{'url_to_check': 'http://2130706433/secret'}",
+  "family": [
+   "noncanonical_ipv4"
+  ]
+ },
+ {
+  "hex": "313f26",
+  "arguments": "{'url_to_check': 'gopher://127.0.0.1:11211/_stats'}",
+  "family": [
+   "untrusted_scheme"
+  ]
+ }
+]

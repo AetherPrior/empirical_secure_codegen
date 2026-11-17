@@ -1,0 +1,7 @@
+{
+  "workers": [
+    {"gpu": 3, "languages": ["cpp", "js"], "baxbench_port_base": 36000},
+    {"gpu": 2, "languages": ["py"], "baxbench_port_base": 37000}
+  ],
+  "note": "GPU 3 preserves the already-running C++ training; GPU 2 trains Python concurrently. Each worker evaluates its assigned checkpoints after training."
+}

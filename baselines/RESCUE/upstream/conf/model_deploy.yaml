@@ -1,0 +1,8 @@
+Qwen3-8B:
+  serve-model-name: Qwen3-8B
+  host: 127.0.0.1
+  port: 9161
+Qwen3-8B-base:
+  serve-model-name: Qwen3-8B-base
+  host: 127.0.0.1
+  port: 9162

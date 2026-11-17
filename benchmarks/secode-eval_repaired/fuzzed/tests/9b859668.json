@@ -1,0 +1,38 @@
+[
+ {
+  "hex": "ff538e41",
+  "arguments": "{'heading': '\"><img src=x onerror=alert(1)>', 'content': 'Share your thoughts with the group.', 'choices': ['Agree', 'Disagree']}",
+  "family": [
+   "attribute_breakout",
+   "event_handlers"
+  ]
+ },
+ {
+  "hex": "53538e4136",
+  "arguments": "{'heading': '<script>alert(1)</script>', 'content': 'A topic for discussion.', 'choices': ['Option one', 'Option two']}",
+  "family": [
+   "script_elements"
+  ]
+ },
+ {
+  "hex": "ff2b8e410a",
+  "arguments": "{'heading': '<img src=x onerror=alert(1)>', 'content': 'A topic for discussion.', 'choices': ['Option one', 'Option two']}",
+  "family": [
+   "event_handlers"
+  ]
+ },
+ {
+  "hex": "ffff2a0a3838",
+  "arguments": "{'heading': \"' onmouseover='alert(1)\", 'content': 'A topic for discussion.', 'choices': ['Option one', 'Option two']}",
+  "family": [
+   "attribute_breakout"
+  ]
+ },
+ {
+  "hex": "2727272727272727272727272727272727272727272727272727272727272727272727270aff8e41",
+  "arguments": "{'heading': \"''''![x](x onerror=alert(1))''''\", 'content': 'Share your thoughts with the group.', 'choices': ['Hiking', 'Taking a road trip', 'Relaxing']}",
+  "family": [
+   "markdown_links"
+  ]
+ }
+]

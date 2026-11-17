@@ -1,0 +1,63 @@
+[
+ {
+  "hex": "2d",
+  "arguments": "{'custom_value': '\\rX-Injected: 1'}",
+  "family": [
+   "bare_line_break"
+  ]
+ },
+ {
+  "hex": "2d0a",
+  "arguments": "{'custom_value': '\\r\\n X-Injected: 1'}",
+  "family": [
+   "folded_header"
+  ]
+ },
+ {
+  "hex": "6d0e",
+  "arguments": "{'custom_value': '\\r\\nX-Injected: 1'}",
+  "family": [
+   "bare_line_break",
+   "crlf_header_split"
+  ]
+ },
+ {
+  "hex": "412d7a",
+  "arguments": "{'custom_value': '\\r\\nSet-Cookie: injected=1'}",
+  "family": [
+   "crlf_header_split"
+  ]
+ },
+ {
+  "hex": "ffffffff7e",
+  "arguments": "{'custom_value': '\\x7f\\nX-Injected: 1'}",
+  "family": [
+   "bare_line_break",
+   "control_characters"
+  ]
+ },
+ {
+  "hex": "2d2dffff7a",
+  "arguments": "{'custom_value': '\\x7f\\r\\nSet-Cookie: injected=1'}",
+  "family": [
+   "control_characters",
+   "crlf_header_split"
+  ]
+ },
+ {
+  "hex": "0d2d0d0d2d",
+  "arguments": "{'custom_value': '\\r%0aX-Injected: 1'}",
+  "family": [
+   "encoded_line_breaks"
+  ]
+ },
+ {
+  "hex": "ffffffff6d781a",
+  "arguments": "{'custom_value': '\\x7f\\x7fm\\r\\nX-Injected: 1'}",
+  "family": [
+   "bare_line_break",
+   "control_characters",
+   "crlf_header_split"
+  ]
+ }
+]

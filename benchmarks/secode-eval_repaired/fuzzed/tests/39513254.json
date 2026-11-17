@@ -1,0 +1,29 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'user_id': 'A001', 'user_role': 'Admin', 'patient_id': 'P1001'}",
+  "family": [
+   "assigned_identity_wrong_role",
+   "cross_patient_staff",
+   "role_spoofing",
+   "unknown_identity_or_patient"
+  ]
+ },
+ {
+  "hex": "0a0a",
+  "arguments": "{'user_id': 'D102', 'user_role': 'doctor', 'patient_id': 'P1001'}",
+  "family": [
+   "assigned_identity_wrong_role",
+   "cross_patient_staff"
+  ]
+ },
+ {
+  "hex": "2c02",
+  "arguments": "{'user_id': 'doctor ', 'user_role': 'D101', 'patient_id': 'P1001'}",
+  "family": [
+   "assigned_identity_wrong_role",
+   "cross_patient_staff",
+   "role_spoofing"
+  ]
+ }
+]

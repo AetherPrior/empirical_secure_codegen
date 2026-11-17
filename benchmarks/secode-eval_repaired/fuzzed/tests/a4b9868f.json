@@ -1,0 +1,54 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'service_request': {'headers': {'X-CSRF-Token': ''}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": []
+ },
+ {
+  "hex": "0a0a",
+  "arguments": "{'service_request': {'headers': {'X-CSRF-Token': 'secure_csrf_token,invalid'}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": [
+   "invalid_token",
+   "token_injection"
+  ]
+ },
+ {
+  "hex": "7ef3",
+  "arguments": "{'service_request': {'headers': {'X-CSRF-Token': ' '}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": [
+   "whitespace_token"
+  ]
+ },
+ {
+  "hex": "0a0b0a",
+  "arguments": "{'service_request': {'headers': {'X-CSRF-Token': 'Bearer secure_csrf_token'}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": [
+   "token_injection",
+   "whitespace_token"
+  ]
+ },
+ {
+  "hex": "0a0b2c",
+  "arguments": "{'service_request': {'headers': {'X-CSRF-Token': 'secure_csrf_token '}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": [
+   "invalid_token",
+   "whitespace_token"
+  ]
+ },
+ {
+  "hex": "0aad50",
+  "arguments": "{'service_request': {'headers': {'X-CSRF-Token': 'invalid'}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": [
+   "invalid_token"
+  ]
+ },
+ {
+  "hex": "ac8b0b0ad60a",
+  "arguments": "{'service_request': {'headers': {'X-CSRF-Token': '\\nsecure_csrf_token,invalid'}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": [
+   "invalid_token",
+   "token_injection",
+   "whitespace_token"
+  ]
+ }
+]

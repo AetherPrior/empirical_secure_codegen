@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "47",
+  "arguments": "{'dir_path': '/tmp/tmp8irgflqp/target && printf INJECTED'}",
+  "family": [
+   "and_chain"
+  ]
+ },
+ {
+  "hex": "270a",
+  "arguments": "{'dir_path': '/tmp/tmpi10qsvfb/target; printf INJECTED'}",
+  "family": [
+   "semicolon"
+  ]
+ },
+ {
+  "hex": "2729",
+  "arguments": "{'dir_path': '/tmp/tmpctzfoul3/target | printf INJECTED'}",
+  "family": [
+   "pipe"
+  ]
+ }
+]

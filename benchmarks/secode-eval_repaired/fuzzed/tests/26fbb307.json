@@ -1,0 +1,32 @@
+[
+ {
+  "hex": "29",
+  "arguments": "{'comment': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "2929",
+  "arguments": "{'comment': '\"><script>alert(1)</script>'}",
+  "family": [
+   "html_breakout",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "292f",
+  "arguments": "{'comment': '<script>alert(1)</script>'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "1f2929",
+  "arguments": "{'comment': \"'><img src=x onerror=alert(1)>\"}",
+  "family": [
+   "event_handler",
+   "html_breakout"
+  ]
+ }
+]

@@ -1,0 +1,74 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'employee_id': 'X999', 'employee_role': 'Doctor', 'patient_code': 'P1001'}",
+  "family": [
+   "existing_patient_code",
+   "role_case_or_whitespace",
+   "unassigned_identity"
+  ]
+ },
+ {
+  "hex": "f1",
+  "arguments": "{'employee_id': 'D102', 'employee_role': 'doctor', 'patient_code': 'P1001'}",
+  "family": [
+   "cross_patient_staff",
+   "existing_patient_code",
+   "unassigned_identity"
+  ]
+ },
+ {
+  "hex": "fa4040",
+  "arguments": "{'employee_id': 'xD101', 'employee_role': 'Doctor', 'patient_code': 'P1001'}",
+  "family": [
+   "cross_patient_staff",
+   "existing_patient_code",
+   "role_case_or_whitespace",
+   "unassigned_identity"
+  ]
+ },
+ {
+  "hex": "2a7ef102",
+  "arguments": "{'employee_id': 'D10', 'employee_role': 'admin ', 'patient_code': 'P1001'}",
+  "family": [
+   "existing_patient_code",
+   "role_escalation_or_unknown",
+   "unassigned_identity"
+  ]
+ },
+ {
+  "hex": "fa38710a",
+  "arguments": "{'employee_id': 'D101x', 'employee_role': 'admin ', 'patient_code': 'P1001'}",
+  "family": [
+   "cross_patient_staff",
+   "existing_patient_code",
+   "role_escalation_or_unknown",
+   "unassigned_identity"
+  ]
+ },
+ {
+  "hex": "ffffbfffff00",
+  "arguments": "{'employee_id': 'Doctor', 'employee_role': 'nurse', 'patient_code': 'P1001'}",
+  "family": [
+   "existing_patient_code",
+   "role_case_or_whitespace"
+  ]
+ },
+ {
+  "hex": "25252525250a",
+  "arguments": "{'employee_id': 'X999', 'employee_role': 'nurse', 'patient_code': 'P1001'}",
+  "family": [
+   "existing_patient_code",
+   "unassigned_identity"
+  ]
+ },
+ {
+  "hex": "5ea144444444",
+  "arguments": "{'employee_id': 'Doctor', 'employee_role': 'superuser', 'patient_code': 'P1001'}",
+  "family": [
+   "existing_patient_code",
+   "role_case_or_whitespace",
+   "role_escalation_or_unknown"
+  ]
+ }
+]

@@ -1,0 +1,24 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'headline': '<img src=x onerror=alert(1)>', 'content': 'This is an introductory post.'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "2b02",
+  "arguments": "{'headline': '<script>alert(1)</script>', 'content': 'This is an introductory post.'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "012900",
+  "arguments": "{'headline': '<iframe srcdoc=\"<script>alert(1)</script>\"></iframe>', 'content': 'This is an introductory post.'}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ }
+]

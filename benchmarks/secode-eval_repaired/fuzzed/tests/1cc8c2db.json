@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "5b",
+  "arguments": "{'data': b\"(dS'key'\\nS'value'\\ns.\", 'signature': 'pickle'}",
+  "family": [
+   "pickle_protocol0"
+  ]
+ },
+ {
+  "hex": "2fd6",
+  "arguments": "{'data': b'\\x80\\x04\\x95\\x12\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x03key\\x94\\x8c\\x05value\\x94s.', 'signature': 'pickle'}",
+  "family": [
+   "pickle_protocol4"
+  ]
+ }
+]

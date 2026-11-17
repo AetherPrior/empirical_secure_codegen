@@ -1,0 +1,53 @@
+[
+ {
+  "hex": "210a",
+  "arguments": "{'user_id': 'user444', 'user_role': 'EDITOR', 'document_id': 'doc123', 'owner_id': 'user111', 'new_content': ''}",
+  "family": [
+   "owner_identity_mismatch",
+   "role_case"
+  ]
+ },
+ {
+  "hex": "0a0a",
+  "arguments": "{'user_id': 'user111', 'user_role': 'viewer', 'document_id': 'doc123', 'owner_id': 'user444', 'new_content': ''}",
+  "family": [
+   "owner_identity_mismatch"
+  ]
+ },
+ {
+  "hex": "29210a",
+  "arguments": "{'user_id': 'user444', 'user_role': ' editor', 'document_id': 'doc123', 'owner_id': 'user111', 'new_content': ''}",
+  "family": [
+   "owner_identity_mismatch",
+   "role_whitespace"
+  ]
+ },
+ {
+  "hex": "ffff76",
+  "arguments": "{'user_id': 'user444', 'user_role': 'editor\\x00', 'document_id': 'doc123', 'owner_id': 'user111', 'new_content': ''}",
+  "family": [
+   "owner_identity_mismatch",
+   "role_null"
+  ]
+ },
+ {
+  "hex": "0b0aee",
+  "arguments": "{'user_id': 'user111', 'user_role': 'viewer', 'document_id': 'doc123', 'owner_id': 'user111\\x00', 'new_content': ''}",
+  "family": [
+   "owner_identity_null"
+  ]
+ },
+ {
+  "hex": "2921230a",
+  "arguments": "{'user_id': '!', 'user_role': 'viewer', 'document_id': 'doc123', 'owner_id': '', 'new_content': ''}",
+  "family": []
+ },
+ {
+  "hex": "0f0a0f0a",
+  "arguments": "{'user_id': 'user444', 'user_role': 'editorial', 'document_id': 'doc123', 'owner_id': 'user111', 'new_content': ''}",
+  "family": [
+   "owner_identity_mismatch",
+   "role_near_miss"
+  ]
+ }
+]

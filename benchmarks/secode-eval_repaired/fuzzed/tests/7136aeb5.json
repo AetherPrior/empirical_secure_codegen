@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "ffff",
+  "arguments": "{'expr': \"(__import__('os').getcwd())\"}",
+  "family": [
+   "module_imports"
+  ]
+ }
+]

@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "5b5b",
+  "arguments": "{'math_expression': '(1).__class__'}",
+  "family": [
+   "attribute_access"
+  ]
+ },
+ {
+  "hex": "f5f5",
+  "arguments": "{'math_expression': 'lambda x: x + 10'}",
+  "family": [
+   "lambda_expression"
+  ]
+ }
+]

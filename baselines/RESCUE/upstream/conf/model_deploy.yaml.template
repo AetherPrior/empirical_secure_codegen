@@ -1,0 +1,12 @@
+gpt-4o-mini:
+  serve-model-name: "gpt-4o-mini-2024-07-18"
+  base_url: [REPLACE YOUR OWN URL HERE]
+
+gpt-4o:
+  serve-model-name: "gpt-4o-2024-11-20"
+  base_url: [REPLACE YOUR OWN URL HERE]
+
+Deepseek-Coder-V2-Lite-Instruct:
+  serve-model-name: Deepseek-Coder-V2-Lite-Instruct
+  host: [REPLACE YOUR OWN HOST HERE]
+  port: 9160

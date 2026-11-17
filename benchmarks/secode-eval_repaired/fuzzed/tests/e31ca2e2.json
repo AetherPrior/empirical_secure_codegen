@@ -1,0 +1,19 @@
+[
+ {
+  "hex": "ffffffffffffffff0a",
+  "arguments": "{'u_id': 'user444', 'u_role': 'admin', 'doc_id': 'doc123', 'doc_owner': 'user111', 'new_body': 'Unauthorized attempt admin\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f'}",
+  "family": [
+   "role_confusion",
+   "spoofed_owner",
+   "unauthorized_identity"
+  ]
+ },
+ {
+  "hex": "bffffdfffdffffbfbf46",
+  "arguments": "{'u_id': 'user444', 'u_role': 'viewer', 'doc_id': 'doc123', 'doc_owner': 'user111', 'new_body': 'Unauthorized attempt user444\\x7f}\\x7f}\\x7f\\x7f'}",
+  "family": [
+   "spoofed_owner",
+   "unauthorized_identity"
+  ]
+ }
+]

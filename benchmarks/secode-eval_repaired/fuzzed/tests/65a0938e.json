@@ -1,0 +1,21 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'doc_link': 'https://example.com/docs/report.pdf', 'check_signature': '9e107d9d372bb6826bd81d3542a419d6'}",
+  "family": [
+   "cross_document_signature"
+  ]
+ },
+ {
+  "hex": "f75d",
+  "arguments": "{'doc_link': 'https://example.com/docs/report.pdf', 'check_signature': ''}",
+  "family": []
+ },
+ {
+  "hex": "fff75d",
+  "arguments": "{'doc_link': 'https://example.com/docs/report.pdf', 'check_signature': '7D793037A0760186574B0282F2F435E7'}",
+  "family": [
+   "malformed_signature"
+  ]
+ }
+]

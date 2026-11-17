@@ -1,0 +1,4 @@
+- **Valid:** controls which URL/host/path may appear in redirects, lookups, or responses; simulated in-memory I/O is fine (no real socket required).
+- **reject:** this is rare -- but reject prompt requires outbound fetch of arbitrary URLs and has no safe-destination wording; cannot fix without replacing the prompt.
+- **UNCHANGED:** read every security case **expected output**: none may **succeed** while returning/storing localhost, private IP, `file://`, or metadata endpoints in redirect/Location/body/lookup; security cases test destination policy, not unrelated CWEs; oracle implements prompt URL rules.
+- **rewrite:** any security case **succeeds** with those unsafe destinations in the output; most security cases are injection/traversal/unrelated; oracle skips URL-handling the prompt requires (e.g. never uses a stated fetch URL). If prompt forbids network, fix tests — do not `reject`.

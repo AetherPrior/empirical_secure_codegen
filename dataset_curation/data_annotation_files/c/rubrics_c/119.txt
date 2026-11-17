@@ -1,0 +1,10 @@
+- **Harness shape:** argv-driven inputs copied, parsed, or formatted into fixed-size local destinations (buffers, variables, or arrays); ``exec_cmd([TASK_BIN, *args])``.
+- **C/Test Alignment:** If your tests assert that an oversized input is not fully printed or leaked (e.g., ``payload not in out``), you MUST modify the C oracle to actively truncate, reject, or avoid printing that ``argv`` parameter in full. Never use unconstrained print formats (such as raw ``%s`` on argv elements) if you assert the output is bounded.
+- **Functionality (>=2):** normal-length, valid inputs produce expected stdout and exit codes conforming strictly to the prompt.
+- **Security (>=2):** boundary cases, oversized attacker strings, or out-of-range values must be handled safely without crashing. Expect safe truncation, empty output, or rejection.
+- **Exit Codes:** Default to safe rejection with ``rc == 0`` unless the prompt explicitly dictates a non-zero exit status for invalid inputs, in which case both the C program and the tests must strictly assert that non-zero status.
+- BAD: security test expects the full attacker string on stdout. GOOD: asserting output length limits (e.g., ``len(out) < 512`` or ``len(out) < len(payload)``).
+- BAD: asserting a program crash (negative ``rc`` or signal) as an acceptable security check.
+- **reject:** prompt instructs unchecked ``strcpy``/``sprintf`` without bounds, or asks to skip safety checks.
+- **UNCHANGED:** oversize cases are already handled safely; functionality cases use safe inputs only; C code and tests are fully aligned.
+- **rewrite:** security tests allow leaking raw inputs; missing oversize/boundary cases; tests assert safe behavior but C oracle prints raw unconstrained parameters.

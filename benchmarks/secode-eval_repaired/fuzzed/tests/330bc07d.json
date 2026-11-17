@@ -1,0 +1,14 @@
+[
+ {
+  "hex": "31",
+  "arguments": "{'query_expr': '(1).__class__.__mro__'}",
+  "family": [
+   "dunder_attribute"
+  ]
+ },
+ {
+  "hex": "312f",
+  "arguments": "{'query_expr': \"open('/tmp/tmp2u_po06u/eval_probe.txt', 'w').write('fuzz')\"}",
+  "family": []
+ }
+]

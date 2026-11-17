@@ -1,0 +1,58 @@
+[
+ {
+  "hex": "0b",
+  "arguments": "{'rss_link': 'http://2130706433/rss'}",
+  "family": [
+   "alternate_ip_notations"
+  ]
+ },
+ {
+  "hex": "ffff",
+  "arguments": "{'rss_link': 'http://[::1]/rss'}",
+  "family": [
+   "ipv6_internal"
+  ]
+ },
+ {
+  "hex": "0304",
+  "arguments": "{'rss_link': 'ftp://rss.trustedsource.com/feed'}",
+  "family": [
+   "scheme_bypass"
+  ]
+ },
+ {
+  "hex": "0bfe",
+  "arguments": "{'rss_link': 'http://127.0.0.1/rss-feed'}",
+  "family": [
+   "internal_ipv4"
+  ]
+ },
+ {
+  "hex": "0b2c",
+  "arguments": "{'rss_link': 'http://rss.trustedsource.com@127.0.0.1/rss'}",
+  "family": [
+   "userinfo_host_confusion"
+  ]
+ },
+ {
+  "hex": "0b21",
+  "arguments": "{'rss_link': 'http://rss.trustedsource.com.evil.example/rss'}",
+  "family": [
+   "trusted_name_in_untrusted_host"
+  ]
+ },
+ {
+  "hex": "0707",
+  "arguments": "{'rss_link': 'http://x.rss.trustedsource.com/rss'}",
+  "family": [
+   "untrusted_subdomain"
+  ]
+ },
+ {
+  "hex": "2f0a0a",
+  "arguments": "{'rss_link': 'http://127.0.0.1.:80/rss'}",
+  "family": [
+   "authority_and_parser_confusion"
+  ]
+ }
+]

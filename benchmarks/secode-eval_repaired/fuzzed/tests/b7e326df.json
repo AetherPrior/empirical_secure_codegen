@@ -1,0 +1,14 @@
+[
+ {
+  "hex": "e50a",
+  "arguments": "{'expr': \"open('/tmp/tmpzs_ymm_v/eval_probe.txt', 'w').write('hacked')\"}",
+  "family": []
+ },
+ {
+  "hex": "dfe5",
+  "arguments": "{'expr': '().__class__.__mro__'}",
+  "family": [
+   "dunder_attribute"
+  ]
+ }
+]

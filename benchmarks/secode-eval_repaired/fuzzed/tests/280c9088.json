@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "21",
+  "arguments": "{'expr_input': '().__class__.__base__'}",
+  "family": [
+   "attribute_traversal"
+  ]
+ }
+]

@@ -1,0 +1,7 @@
+[
+ {
+  "hex": "2d4a",
+  "arguments": "{'user_query': \"(open('/tmp/tmp50b20j_c' + '/eval.txt', 'w').write('eval-injection'))\"}",
+  "family": []
+ }
+]

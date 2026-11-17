@@ -1,0 +1,24 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'headline': '<img src=x onerror=alert(1)>', 'text': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "0a08",
+  "arguments": "{'headline': '<script>alert(1)</script>', 'text': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "ffff00ffff00002ed00006ef08",
+  "arguments": "{'headline': 'Weekend\\x00\\x7f\\x7f\\x00\\x00.P\\x00', 'text': '<script>alert(1)</script>'}",
+  "family": [
+   "script_element"
+  ]
+ }
+]

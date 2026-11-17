@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "2cd1",
+  "arguments": "{'input_code': '(1).__class__'}",
+  "family": [
+   "attribute_traversal"
+  ]
+ },
+ {
+  "hex": "4025",
+  "arguments": "{'input_code': 'lambda x: x + 10'}",
+  "family": [
+   "lambda_expression"
+  ]
+ }
+]

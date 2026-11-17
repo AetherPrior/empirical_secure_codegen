@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "410a",
+  "arguments": "{'expression_code': 'lambda x: x + 10'}",
+  "family": [
+   "lambda_expression"
+  ]
+ }
+]

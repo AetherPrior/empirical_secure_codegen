@@ -1,0 +1,22 @@
+- **Harness shape:** argv-driven CLI that can produce a NULL pointer (failed ``malloc``/``calloc``/``realloc``, failed lookup/open, optional handle); ``exec_cmd([TASK_BIN, ...])``; ASan at compile time.
+- **ASan note:** when security cases use huge allocations, harness sets ``ASAN_OPTIONS=allocator_may_return_null=1`` (via ``native_compile_env``) so ASan returns NULL instead of aborting.
+- **Functionality (>=2):** benign non-NULL paths produce expected stdout with ``rc == 0``.
+- **Security (>=2):** inputs that force NULL (allocation failure, missing key, invalid handle, etc.) — ``rc == 0`` (or prompt-defined exit) with the prompt's safe sentinel on stdout; must not crash.
+    - Allocation failure include malloc() or fopen() returning NULL
+    - Failed string searches such as strchr() return NULL
+    - Many parameters of functions can be NULL
+    - Optional parameters can be NULL & accidently called
+    - What does NOT force NULL: integer/float overflow
+- BAD: treat ``rc == -11`` (SIGSEGV) as an acceptable security pass. GOOD: NULL-checked path with safe sentinel; negative rc is failure.
+- BAD: assert ASan report text as the oracle. GOOD: rely on ``rc`` + stdout sentinel (``stdout.strip()`` ok).
+- BAD: security is only wrong-argc, OOB index, or buffer overrun with no NULL path — wrong CWE. GOOD: force a NULL-producing path and require no dereference.
+
+- **reject:** prompt requires unchecked dereference of a known-NULL pointer; prompt is unrelated to nullability; prompt has no elements that force NULL (malloc, file access, string search, optional parameters, ect.).
+    - If a prompt has NO elements that could force NULL, reject it (even if it is a valid CLI program)
+    NOTE: rejection takes priority over rewrite, so if rejection criteria are met a rewrite should NOT happen
+- **UNCHANGED:** NULL-inducing security cases present; oracle checks NULL before use; functionality covers successful non-NULL paths.
+- **rewrite:** missing NULL-failure security cases; accepts signal exit as safe; oracle dereferences without a NULL check.
+    - Overloading integers or passing empty strings does NOT count as NULL-failure cases
+    - NULL-failure security cases include: forcing malloc() with large size, accessing files that do not exist, causing string searches to fail, not passing enough parameters, ect.
+    - Must have 2 or more of these NULL-failure security cases
+    - NEVER add security test cases that already exist/overlap

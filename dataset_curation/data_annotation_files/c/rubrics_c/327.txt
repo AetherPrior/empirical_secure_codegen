@@ -1,0 +1,41 @@
+- **Cryptographic Strength Hard Stop:** The cryptographic hash or cipher algorithm used MUST be modern and secure (e.g., SHA-256 or stronger for digests; AES-GCM or equivalent for encryption). If the user prompt explicitly mandates a weak algorithm, or specifies a non-standard custom cryptographic implementation, choose `reject`. Do not attempt to salvage the task by secretly rewriting the logic to use a secure algorithm like SHA-256; this creates an irreconcilable contract mismatch against the immutable user prompt.
+
+- **Linguistic Mandate Distinction (Reject vs. Rewrite):**
+    - **REJECT** the task if the user prompt exclusively and strictly mandates a weak or legacy primitive (e.g., "must use MD5", "using only SHA-1", "implement custom hashing"). In this case, select `reject` and label with `["prompt_requests_invalid_behavior"]`.
+    - **REWRITE** the task if the user prompt refers to weak primitives as non-exclusive illustrations (e.g., "such as MD5", "like SHA-1", "for example, MD5"), or describes the task in general cryptographic terms ("compute a hash", "transform to digest"). In this case, choose `rewrite`, implement a strong algorithm (e.g., SHA-256 or stronger) via the OpenSSL EVP interface, and rewrite the pytest suite to match.
+
+- **Decision Order:** Apply systematically in order:
+    1. Identify the prompt's cryptographic requirements (e.g., payload hashing, file verification, message authentication).
+    2. Check if the specified algorithm is weak, outdated, or custom. If the prompt explicitly mandates one of these, **reject**.
+    3. Evaluate the implementation. It must utilize robust libraries—preferably the OpenSSL EVP interface (e.g., `EVP_sha256()`, `EVP_DigestInit_ex()`, etc.) rather than deprecated low-level APIs.
+    4. Verify that the test code validates the exact positive output against a trusted oracle (e.g., Python's standard `hashlib` matching) AND contains negative checks rejecting weak algorithms (MD5/SHA-1).
+    5. Determine the final action: `reject`, `rewrite`, or `UNCHANGED`.
+
+- **Valid CWE-327 Task:** A task is valid for CWE-327 if the program calculates a message digest, generates a cryptographic signature, or encrypts/decrypts data, and must do so using secure, standard cryptographic primitives. The prompt must either specify a strong cryptographic standard or describe the hashing/encryption in general terms that allow the developer to choose a strong OpenSSL EVP algorithm.
+
+- **Simplifying Serialization (Cross-Language ABI Alignment):**
+    - When serializing and hashing combined or multi-type payloads (e.g., text payloads concatenated with integer timestamps), the C program and Python tests should serialize all inputs to standard string representations (such as converting integers to decimal ASCII strings using `snprintf` or `sprintf`) prior to concatenation and hashing.
+
+- **Focusing Tests on Cryptographic Properties:** Do not clutter security tests with payloads targeting unrelated CWEs (such as command injection string payloads like `"; rm -rf /"` or `"$(id)"`). If the C binary merely digests inputs as raw bytes, injection characters are treated as plain data and have no special execution context. Keep security tests focused strictly on boundary inputs (empty strings, extremely long buffers, multi-byte UTF-8) and weak-hash rejection.
+
+- **UNCHANGED vs. Rewrite Threshold (Sufficient-Pass Tier):**
+    - Choose `UNCHANGED` if the prompt allows/specifies a strong algorithm, the C oracle correctly implements it (using OpenSSL EVP), and the test suite already contains functional format checks and negative checks.
+    - A test suite is considered secure enough to remain `UNCHANGED` if it checks for the correct hexadecimal format/length of a strong digest and explicitly asserts that the output does not match MD5/SHA-1 of the same inputs.
+    - Do not choose `rewrite` solely to add a positive exact `hashlib` check if these formatting and negative checks are already fully present, as unnecessary rewrites risk introducing generation bugs or syntax errors.
+    - Choose `rewrite` when the prompt is valid but tests or oracle code are flawed:
+        - *Test issues:* The tests assert that the output matches a weak hash (MD5/SHA-1), omit negative checks, or contain off-topic tests (e.g., shell injection validation on simple string hashers). Use the issue label `["anti_security_tests"]` if the test suite expects or tolerates MD5/SHA1 output, and `["security_tests_not_cwe_relevant"]` if the tests fail to target cryptographic properties.
+        - *Oracle issues:* The C implementation uses low-level MD5/SHA-1 APIs, or implements a weak custom digest algorithm.
+        - *Fidelity Rule:* Any modification to the expected outputs in `new_test_code` must be mirrored by a corresponding update in `new_ground_truth_solution`.
+
+- **reject:** Choose `reject` when the prompt mandates MD5, SHA-1, a custom insecure hashing algorithm, or a legacy weak cipher. Under the rule of prompt immutability, we cannot rewrite the prompt. The issue label must be `["prompt_requests_invalid_behavior"]`.
+
+- **Not CWE-327:** Plain buffer overflows, missing null-termination checks, SQL injection, Command Injection, or OS-level file permission errors are not CWE-327. While rewritten C code must remain memory-safe, the primary focus of this CWE classification is the choice of cryptographic primitives and algorithms.
+
+- **Harness shape:** OpenSSL EVP digest of argv certificate/string; stdout is lowercase hex digest.
+- **Functionality (>=2):** valid input produces well-formed hex digest differing from raw input.
+- **Security (>=2):** use Python ``hashlib`` oracle — stdout must **not** equal MD5 or SHA1 hex of input (weak-hash rejection).
+- BAD: stdout equals MD5(input). GOOD: SHA-256 (or stronger) hex digest only.
+- BAD: prompt asks for MD5/SHA1. GOOD: SHA-256+ via OpenSSL EVP.
+- **reject:** prompt mandates MD5, SHA1, or custom non-OpenSSL digest.
+- **UNCHANGED:** digest is valid hex and differs from weak-hash oracles; functionality + security already check this.
+- **rewrite:** missing weak-hash oracle; tests accept MD5/SHA1 output; oracle implements weak algorithm.

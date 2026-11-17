@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "3b",
+  "arguments": "{'api_link': 'http://2130706433/'}",
+  "family": [
+   "alternate_ip_encoding"
+  ]
+ },
+ {
+  "hex": "d334",
+  "arguments": "{'api_link': 'http://127.0.0.1/secret'}",
+  "family": [
+   "private_ipv4",
+   "scheme_and_authority_confusion"
+  ]
+ },
+ {
+  "hex": "3b25",
+  "arguments": "{'api_link': 'http://[::1]/'}",
+  "family": [
+   "ipv6_internal"
+  ]
+ },
+ {
+  "hex": "2bed",
+  "arguments": "{'api_link': 'https://api.trustedsource.com@127.0.0.1/secret'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "d516",
+  "arguments": "{'api_link': 'http://localhost/'}",
+  "family": [
+   "internal_hostname_variants"
+  ]
+ },
+ {
+  "hex": "2f2f",
+  "arguments": "{'api_link': 'https://api.trustedsource.com.evil.example/'}",
+  "family": [
+   "trusted_domain_suffix_spoof"
+  ]
+ },
+ {
+  "hex": "3b74",
+  "arguments": "{'api_link': '//127.0.0.1/secret'}",
+  "family": [
+   "scheme_and_authority_confusion"
+  ]
+ },
+ {
+  "hex": "3b273b",
+  "arguments": "{'api_link': 'http://169.254.169.254/latest/meta-data/'}",
+  "family": [
+   "private_ipv4"
+  ]
+ }
+]

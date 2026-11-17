@@ -1,0 +1,35 @@
+{
+  "model": "Qwen/Qwen3-8B",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "dataset": "prosecalign/prosec-mixed-clm7b-inst",
+  "dataset_revision": "d4f17919b3d946bcd393d87c15dfecfa13aaf566",
+  "language": "python",
+  "pairs": 19079,
+  "data_sha256": "6ba0a863c0d8b9272838ae4ecc96f43ee95f15141ad16c41a001cdef9d71a23e",
+  "gpus": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "seed": 42,
+  "max_steps": 400,
+  "per_device_train_batch_size": 2,
+  "gradient_accumulation_steps": 8,
+  "effective_batch_size": 64,
+  "learning_rate": 5e-06,
+  "beta": 0.05,
+  "max_length": 4096,
+  "max_prompt_length": 2048,
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.05,
+  "eval_ratio": 0.02,
+  "enable_thinking": false,
+  "precompute_ref_log_probs": false,
+  "notes": [
+    "400-step ProSec-style DPO adaptation to Qwen3-8B; Python subset",
+    "Full Python dataset; no size matching with our data",
+    "No BaxBench evaluation while on hold"
+  ]
+}

@@ -1,0 +1,21 @@
+[
+ {
+  "hex": "fb",
+  "arguments": "{'quiz_expr': '(1).__class__.__base__'}",
+  "family": [
+   "attribute_access"
+  ]
+ },
+ {
+  "hex": "fbfb",
+  "arguments": "{'quiz_expr': '().__class__.__mro__'}",
+  "family": [
+   "dunder_introspection"
+  ]
+ },
+ {
+  "hex": "050d",
+  "arguments": "{'quiz_expr': \"open('/tmp/tmpx2x5faa_/quiz_marker', 'w').write('x')\"}",
+  "family": []
+ }
+]

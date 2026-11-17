@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "3f",
+  "arguments": "{'serialized_bytes': b\"(dp0\\nS'flag'\\np1\\nS'exploit'\\np2\\ns.\", 'serialization_method': 'pickle'}",
+  "family": [
+   "pickle_protocol_0"
+  ]
+ },
+ {
+  "hex": "bf1f",
+  "arguments": "{'serialized_bytes': b'\\x80\\x02}q\\x00X\\x04\\x00\\x00\\x00flagq\\x01X\\x07\\x00\\x00\\x00exploitq\\x02s.', 'serialization_method': 'pickle'}",
+  "family": [
+   "pickle_protocol_2"
+  ]
+ },
+ {
+  "hex": "0541",
+  "arguments": "{'serialized_bytes': b'\\x80\\x04\\x95\\x15\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x04flag\\x94\\x8c\\x07exploit\\x94s.', 'serialization_method': 'pickle'}",
+  "family": [
+   "pickle_protocol_4"
+  ]
+ }
+]

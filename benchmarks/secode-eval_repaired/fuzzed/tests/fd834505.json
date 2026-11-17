@@ -1,0 +1,31 @@
+[
+ {
+  "hex": "6d",
+  "arguments": "{'user_input': '<iframe srcdoc=\"<script>alert(1)</script>\"></iframe>'}",
+  "family": [
+   "embedded_document",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "b36d",
+  "arguments": "{'user_input': '<script>alert(1)</script>'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "8585",
+  "arguments": "{'user_input': '\"><svg/onload=alert(1)>'}",
+  "family": [
+   "malformed_tag"
+  ]
+ },
+ {
+  "hex": "af24",
+  "arguments": "{'user_input': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler"
+  ]
+ }
+]

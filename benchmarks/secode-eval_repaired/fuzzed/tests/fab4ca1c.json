@@ -1,0 +1,62 @@
+[
+ {
+  "hex": "41",
+  "arguments": "{'msg_identifier': 'msg_1001', 'sign': 'abcd5678efgh1234ijkl9012mnop3456'}",
+  "family": [
+   "single_character_change"
+  ]
+ },
+ {
+  "hex": "2929",
+  "arguments": "{'msg_identifier': '', 'sign': 'abcd1234efgh5678ijkl9012mnop3456'}",
+  "family": [
+   "truncation"
+  ]
+ },
+ {
+  "hex": "7b0a",
+  "arguments": "{'msg_identifier': 'msg_1001', 'sign': '1122aabbccdd3344eeff5566gggghhhh'}",
+  "family": [
+   "cross_message_signature"
+  ]
+ },
+ {
+  "hex": "293129",
+  "arguments": "{'msg_identifier': 'msg_9999', 'sign': 'abcd1234efgh5678ijkl9012mnop3456'}",
+  "family": [
+   "truncation",
+   "unknown_identifier"
+  ]
+ },
+ {
+  "hex": "41a6f7",
+  "arguments": "{'msg_identifier': 'msg_1001', 'sign': 'abcd1234efgh5678ijkl9012mnop3456x'}",
+  "family": [
+   "extra_characters",
+   "truncation"
+  ]
+ },
+ {
+  "hex": "a741f7",
+  "arguments": "{'msg_identifier': 'msg_1001', 'sign': ' abcd1234efgh5678ijkl9012mnop3456'}",
+  "family": [
+   "truncation",
+   "whitespace"
+  ]
+ },
+ {
+  "hex": "29293129",
+  "arguments": "{'msg_identifier': 'msg_9999', 'sign': '1122aabbccdd3344eeff5566gggghhhh'}",
+  "family": [
+   "cross_message_signature",
+   "unknown_identifier"
+  ]
+ },
+ {
+  "hex": "3f414524",
+  "arguments": "{'msg_identifier': 'msg_1001', 'sign': 'ABCD1234EFGH5678IJKL9012MNOP3456'}",
+  "family": [
+   "case_change"
+  ]
+ }
+]

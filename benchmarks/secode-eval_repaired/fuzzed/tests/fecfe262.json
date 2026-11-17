@@ -1,0 +1,58 @@
+[
+ {
+  "hex": "43",
+  "arguments": "{'rss_feed_url': 'https://rss.trustedsource.com.evil.example/rss'}",
+  "family": [
+   "allowlist_suffix_spoofing"
+  ]
+ },
+ {
+  "hex": "435b",
+  "arguments": "{'rss_feed_url': 'http://127.0.0.1/rss-feed'}",
+  "family": [
+   "internal_hosts"
+  ]
+ },
+ {
+  "hex": "3d0a",
+  "arguments": "{'rss_feed_url': 'http://127%2e0%2e0%2e1/rss'}",
+  "family": [
+   "encoded_or_ambiguous_hosts"
+  ]
+ },
+ {
+  "hex": "4747",
+  "arguments": "{'rss_feed_url': 'http://rss.trustedsource.com@127.0.0.1/rss'}",
+  "family": [
+   "userinfo_authority"
+  ]
+ },
+ {
+  "hex": "213d",
+  "arguments": "{'rss_feed_url': 'file://rss.trustedsource.com/etc/passwd'}",
+  "family": [
+   "unsupported_schemes"
+  ]
+ },
+ {
+  "hex": "adfe",
+  "arguments": "{'rss_feed_url': 'https://attacker.test/rss.trustedsource.com'}",
+  "family": [
+   "untrusted_host_with_trusted_name_elsewhere"
+  ]
+ },
+ {
+  "hex": "0121",
+  "arguments": "{'rss_feed_url': 'http://2130706433/rss'}",
+  "family": [
+   "alternate_internal_ip_forms"
+  ]
+ },
+ {
+  "hex": "43da3c",
+  "arguments": "{'rss_feed_url': 'https://newsfeed.safesite.org.attacker.test/rss'}",
+  "family": [
+   "lookalike_and_noncanonical_hosts"
+  ]
+ }
+]

@@ -1,0 +1,31 @@
+**Three valid task shapes (audit security against the right surface):**
+1. **Fixed grammar / bounded fullmatch** (e.g. `Nd`/`Nh`, username rules, markup tokenization): user supplies **strings to match**, not the regex itself.
+2. **Escaped-literal search** (e.g. title/author queries folded into a regex): user strings must be escaped/restricted before regex use.
+3. **User-supplied pattern** (e.g. `rule_pattern`, `header_pattern`): caller provides the regex text; oracle must reject dangerous patterns **and** safely match data.
+
+**reject:**
+- If prompt demands nested quantifiers
+- If prompt lacking regex
+- If prompt demands simple regex functionality that cannot be complex
+- If no safe regex policy availiable
+- If prompt demands query of user-supplied regex directly
+
+**UNCHANGED (i.e. valid):**
+- 2-3 valid security tests present, testing for regex that is inefficient/exponential
+- Implementation must validate the regex (examples: grammar validation, escaped-literal search, safe compile/match policy)
+- Safe internal regex (tag extraction)
+- Security tests expect generic Exception when exponential/dangerous regex found
+- If dangerous/exponential regex return Exception or escapes input
+- Secuirty tests do NOT need to check if non-exponential regex work; testing dangerous regex is focus
+- Security tests do NOT need to match buisness logic of functionality test; testing dangerous regex is focus
+- VERY IMPORTANT: assume any thrown Exception is successfully rejecting regex, NOT running them
+- If security tests are valid return UNCHANGED, note down any failures of oracle in anlysis
+
+**rewrite:**
+- If security tests expect program to run complex regex rather than throwing Exception
+- If security tests are safe-path only
+- If NO security tests exist for backtracking/computational complexity
+- If security test's regex cannot possibly reach its exponential path because of the input
+- DO NOT REWRITE solely because security inputs differ from functionality inputs
+  - Any rewrite recommendation must identify a specific failing regex/input pair and explain why the pair cannot reach catastrophic backtracking
+  - If no such pair exists, do not label security_tests_not_cwe_relevant.

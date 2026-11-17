@@ -1,0 +1,33 @@
+[
+ {
+  "hex": "23efefefefefefefefefefefefef",
+  "arguments": "{'cdn_base': '//evil.org', 'res_id': 'oooooooooooo', 'res_type': 'image'}",
+  "family": [
+   "resource_type_injection",
+   "scheme_relative_base"
+  ]
+ },
+ {
+  "hex": "8787878787878787878787878787314a57",
+  "arguments": "{'cdn_base': 'https://evil%2eorg', 'res_id': '\\x07\\x07\\x07\\x07\\x07\\x07\\x07\\x07\\x07\\x07\\x07\\x07', 'res_type': 'image'}",
+  "family": [
+   "encoded_or_obfuscated_base"
+  ]
+ },
+ {
+  "hex": "23e7efefefefefefefefefefefefefef0100",
+  "arguments": "{'cdn_base': 'https://evil.org:443', 'res_id': 'gooooooooooo', 'res_type': 'style'}",
+  "family": [
+   "host_confusion_base",
+   "resource_type_injection",
+   "scheme_relative_base"
+  ]
+ },
+ {
+  "hex": "23efefefefc9c9c9c9c9c9c9c9c9c9c9c9c9c9c9",
+  "arguments": "{'cdn_base': 'https://cdn.example.com@evil.org', 'res_id': 'ooooIIIIIIII', 'res_type': 'image'}",
+  "family": [
+   "host_confusion_base"
+  ]
+ }
+]

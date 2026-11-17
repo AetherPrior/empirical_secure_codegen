@@ -1,0 +1,71 @@
+{
+  "variant": "repaired",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "temperature": 0.6,
+  "top_p": 0.95,
+  "max_tokens": 16384,
+  "max_model_len": 32768,
+  "enable_thinking": true,
+  "concurrency": 128,
+  "eval_workers": 64,
+  "gpu_memory_utilization": 0.92,
+  "jobs": [
+    {
+      "checkpoint": "c",
+      "benchmark": "cweval",
+      "languages": [
+        "c"
+      ]
+    },
+    {
+      "checkpoint": "cpp",
+      "benchmark": "cweval",
+      "languages": [
+        "cpp"
+      ]
+    },
+    {
+      "checkpoint": "py",
+      "benchmark": "seccodeplt",
+      "languages": [
+        "py"
+      ]
+    },
+    {
+      "checkpoint": "py",
+      "benchmark": "cweval",
+      "languages": [
+        "py"
+      ]
+    },
+    {
+      "checkpoint": "py",
+      "benchmark": "baxbench",
+      "languages": [
+        "py"
+      ]
+    },
+    {
+      "checkpoint": "js",
+      "benchmark": "cweval",
+      "languages": [
+        "js"
+      ]
+    },
+    {
+      "checkpoint": "js",
+      "benchmark": "baxbench",
+      "languages": [
+        "js"
+      ]
+    }
+  ],
+  "port_bases": {
+    "2": 41000,
+    "3": 42000
+  }
+}

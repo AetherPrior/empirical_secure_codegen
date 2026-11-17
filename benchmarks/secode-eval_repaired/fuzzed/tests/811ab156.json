@@ -1,0 +1,24 @@
+[
+ {
+  "hex": "3f",
+  "arguments": "{'patient_identifier': 'P001', 'report_template': '{patient.name} | {patient.diagnosis}'}",
+  "family": [
+   "mixed_sensitive_fields",
+   "sensitive_field"
+  ]
+ },
+ {
+  "hex": "3f0d",
+  "arguments": "{'patient_identifier': 'P001', 'report_template': '{patient.__dict__}'}",
+  "family": [
+   "object_dump"
+  ]
+ },
+ {
+  "hex": "272c",
+  "arguments": "{'patient_identifier': 'P001', 'report_template': '{patient.diagnosis}'}",
+  "family": [
+   "sensitive_field"
+  ]
+ }
+]

@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "f5",
+  "arguments": "{'endpoint_address': 'https://api.trustedsource.com.evil.example/data'}",
+  "family": [
+   "allowlist_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "0b03",
+  "arguments": "{'endpoint_address': 'http://2130706433/secret'}",
+  "family": [
+   "numeric_ip_and_ipv6"
+  ]
+ },
+ {
+  "hex": "f5f7",
+  "arguments": "{'endpoint_address': 'http://127.0.0.1/secret'}",
+  "family": [
+   "loopback_and_localhost",
+   "scheme_and_authority_parsing"
+  ]
+ },
+ {
+  "hex": "f501",
+  "arguments": "{'endpoint_address': 'http://service.local/internal'}",
+  "family": [
+   "internal_dns_names"
+  ]
+ },
+ {
+  "hex": "0d0d",
+  "arguments": "{'endpoint_address': 'https://api.trustedsource.com@127.0.0.1/secret'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "3df9",
+  "arguments": "{'endpoint_address': 'http://10.0.0.1/internal'}",
+  "family": [
+   "private_ipv4"
+  ]
+ },
+ {
+  "hex": "210e41",
+  "arguments": "{'endpoint_address': 'http://127.1/'}",
+  "family": [
+   "loopback_and_localhost"
+  ]
+ },
+ {
+  "hex": "fd2121",
+  "arguments": "{'endpoint_address': '//127.0.0.1/secret'}",
+  "family": [
+   "scheme_and_authority_parsing"
+  ]
+ }
+]

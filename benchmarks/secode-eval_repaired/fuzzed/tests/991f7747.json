@@ -1,0 +1,56 @@
+[
+ {
+  "hex": "3f",
+  "arguments": "{'api_message_id': 'msg_1001', 'crypto_signature': 'abcd1234efgh5678ijkl9012mnop3456x'}",
+  "family": [
+   "extended_signature",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "3d11",
+  "arguments": "{'api_message_id': 'msg_1001', 'crypto_signature': '1122aabbccdd3344eeff5566gggghhhh'}",
+  "family": [
+   "replayed_signature"
+  ]
+ },
+ {
+  "hex": "3f40",
+  "arguments": "{'api_message_id': 'msg_1001', 'crypto_signature': 'abcd1234'}",
+  "family": [
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "3f3d",
+  "arguments": "{'api_message_id': 'msg_1002', 'crypto_signature': 'abcd1234efgh5678ijkl9012mnop3456'}",
+  "family": [
+   "identifier_confusion",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "3d3f",
+  "arguments": "{'api_message_id': 'msg_1001', 'crypto_signature': ' abcd1234efgh5678ijkl9012mnop3456'}",
+  "family": [
+   "signature_formatting",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "3de93f",
+  "arguments": "{'api_message_id': 'msg_1001', 'crypto_signature': 'ABCD1234EFGH5678IJKL9012MNOP3456'}",
+  "family": [
+   "signature_formatting"
+  ]
+ },
+ {
+  "hex": "313b3bf8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8000000000000002ff8f8f8f800000000000000202df8",
+  "arguments": "{'api_message_id': 'msg_1001', 'crypto_signature': ' abcd1234efgh5678ijkl9012mnop3456xxx'}",
+  "family": [
+   "extended_signature",
+   "signature_formatting",
+   "truncated_signature"
+  ]
+ }
+]

@@ -1,0 +1,21 @@
+{
+  "variant": "original",
+  "seeds": [42, 43, 44],
+  "temperature": 0.6,
+  "top_p": 0.95,
+  "max_tokens": 16384,
+  "max_model_len": 32768,
+  "enable_thinking": true,
+  "concurrency": 32,
+  "eval_workers": 16,
+  "gpu_memory_utilization": 0.85,
+  "jobs": [
+    {"checkpoint": "cpp", "benchmark": "cweval", "languages": ["cpp"]},
+    {"checkpoint": "cpp", "benchmark": "cweval", "languages": ["c"], "note": "C is cross-language evaluation of the C++ checkpoint; no C training data exists in the source dataset."},
+    {"checkpoint": "py", "benchmark": "seccodeplt", "languages": ["py"]},
+    {"checkpoint": "py", "benchmark": "cweval", "languages": ["py"]},
+    {"checkpoint": "py", "benchmark": "baxbench", "languages": ["py"]},
+    {"checkpoint": "js", "benchmark": "cweval", "languages": ["js"]},
+    {"checkpoint": "js", "benchmark": "baxbench", "languages": ["js"]}
+  ]
+}

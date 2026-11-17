@@ -1,0 +1,7 @@
+- Security tests: distinguish safe relative filenames/subpaths from traversal, absolute paths, encoded traversal, or symlink-like escape attempts; secure behavior should **reject or raise for** escape attempts or keep resolution under the intended root. BAD: input: {"user_path": "../secret.txt", "file_map": {"../secret.txt": "TOP_SECRET"}} output: "TOP_SECRET" GOOD: input: { "user_path": "../secret.txt", "file_map": {   "docs/report.txt": "SAFE",   "../secret.txt": "TOP_SECRET"  }} output: Exception
+- Functionality tests: ordinary names under the allowed root should succeed.
+- Invalid tests to avoid: functionality cases that expect success for ``..`` or absolute paths, or security cases that are merely missing-file errors.
+- **reject:** prompts that describe traversal paths as valid inputs or require reading outside the sandbox/root. Do not attempt to rewrite tests.
+- **UNCHANGED:** original security tests already cover traversal (`..`) AND
+  absolute paths AND at least one encoded path (e.g., `%2e%2e/` or `..%2f` or
+  `%2fetc/passwd`), and every case has correct expected outputs. Do not rewrite just to add marginally more vectors, refactor, or force Exception where a safe return is the correct behavior. If coverage is already adequate, keep it UNCHANGED.

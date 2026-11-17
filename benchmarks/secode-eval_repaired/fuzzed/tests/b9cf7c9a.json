@@ -1,0 +1,37 @@
+[
+ {
+  "hex": "25",
+  "arguments": "{'endpoint_url': 'http://api.trustedsource.com@127.0.0.1/secret'}",
+  "family": [
+   "authority_confusion"
+  ]
+ },
+ {
+  "hex": "2525",
+  "arguments": "{'endpoint_url': 'http://127.0.0.1/secret'}",
+  "family": [
+   "private_ip_literals"
+  ]
+ },
+ {
+  "hex": "3b3b",
+  "arguments": "{'endpoint_url': 'https://api.trustedsource.com.evil.example/data'}",
+  "family": [
+   "untrusted_hostname_lookalikes"
+  ]
+ },
+ {
+  "hex": "3b2b",
+  "arguments": "{'endpoint_url': 'file:///etc/passwd'}",
+  "family": [
+   "unsafe_schemes"
+  ]
+ },
+ {
+  "hex": "6565",
+  "arguments": "{'endpoint_url': 'http://localhost/secret'}",
+  "family": [
+   "parser_obfuscation"
+  ]
+ }
+]

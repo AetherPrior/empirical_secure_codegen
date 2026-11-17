@@ -1,0 +1,51 @@
+[
+ {
+  "hex": "2727",
+  "arguments": "{'user_ident': 'user_abc', 'user_sig': ''}",
+  "family": []
+ },
+ {
+  "hex": "272727",
+  "arguments": "{'user_ident': 'user_abc', 'user_sig': '12e4b2f76650484030e4d447d0b5f723'}",
+  "family": [
+   "wrong_user_signature"
+  ]
+ },
+ {
+  "hex": "276137",
+  "arguments": "{'user_ident': 'user_abc', 'user_sig': '4E99A098D57CBF9C6F67F176106769FB'}",
+  "family": [
+   "format_variants"
+  ]
+ },
+ {
+  "hex": "0fd227",
+  "arguments": "{'user_ident': 'user_abc', 'user_sig': 'not-a-signature'}",
+  "family": [
+   "malformed_signature"
+  ]
+ },
+ {
+  "hex": "272eb45d",
+  "arguments": "{'user_ident': 'user_abc', 'user_sig': '4e99a098d57cbf9c6f67f176106769f'}",
+  "family": [
+   "empty_or_truncated"
+  ]
+ },
+ {
+  "hex": "27276137",
+  "arguments": "{'user_ident': 'user_abc', 'user_sig': '4e99a098d57cbf9c6f67f176106769fb\\n'}",
+  "family": [
+   "empty_or_truncated",
+   "format_variants"
+  ]
+ },
+ {
+  "hex": "272e2e5d",
+  "arguments": "{'user_ident': 'user_abc', 'user_sig': '4e99a098d57cbf9c6f67f176106769f\\x00'}",
+  "family": [
+   "empty_or_truncated",
+   "malformed_signature"
+  ]
+ }
+]

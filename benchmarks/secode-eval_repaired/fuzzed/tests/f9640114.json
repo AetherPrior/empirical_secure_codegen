@@ -1,0 +1,49 @@
+[
+ {
+  "hex": "5dc7",
+  "arguments": "{'title': '<script>alert(1)</script>', 'post_body': 'What are everyone\u2019s plans for the weekend?', 'options_list': ['Plain text', 'Another option']}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "67dd",
+  "arguments": "{'title': '<img src=x onerror=alert(1)>', 'post_body': 'What are everyone\u2019s plans for the weekend?', 'options_list': ['Plain text', 'Another option']}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "5d443bff33",
+  "arguments": "{'title': '<svg onload=alert(1)>', 'post_body': '&lt;script&gt;alert(1)&lt;/script&gt;', 'options_list': ['Plain text', 'Another option']}",
+  "family": [
+   "encoded_markup",
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "5d443b3b3b33",
+  "arguments": "{'title': '<svg onload=alert(1)>', 'post_body': '<script>alert(1)</script>', 'options_list': ['Plain text', 'Another option']}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "e1fcff3b3b00",
+  "arguments": "{'title': '&#x3c;img src=x onerror=alert(1)&#x3e;', 'post_body': '<script>alert(1)</script>', 'options_list': ['Plain text', 'Another option']}",
+  "family": [
+   "encoded_markup",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a9a99c0afc3bff00",
+  "arguments": "{'title': '))))))&#x3c;img src=x onerror=alert(1)&#x3e;))))))', 'post_body': '))))))<script>alert(1)</script>))))))', 'options_list': ['<svg onload=alert(1)>', 'Mushrooms', 'Olives']}",
+  "family": [
+   "encoded_markup",
+   "event_handler",
+   "script_element"
+  ]
+ }
+]

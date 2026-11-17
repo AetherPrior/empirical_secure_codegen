@@ -1,0 +1,15 @@
+{
+  "model": "Qwen/Qwen3-8B",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "dataset": "CyberNative/Code_Vulnerability_Security_DPO",
+  "dataset_revision": "403bbc40790391a595acd591326c5b7c5077b291",
+  "slug": "js",
+  "language": "javascript",
+  "seed": 42,
+  "top_k": 50,
+  "min_silhouette": 0.05,
+  "epochs": 2,
+  "max_length": 1024,
+  "label_token_mode": "tokenizer",
+  "output": "outputs/js"
+}

@@ -1,0 +1,46 @@
+[
+ {
+  "hex": "0f30",
+  "arguments": "{'main_url': 'https://myapp.com', 'redirect_path': 'https://evil.org/phish', 'nonce': 'abc123'}",
+  "family": [
+   "absolute_url",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "278a0a",
+  "arguments": "{'main_url': 'https://auth.myapp.com', 'redirect_path': '//evil.org/phish', 'nonce': 'abc123'}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "273041",
+  "arguments": "{'main_url': 'https://www.myapp.com/', 'redirect_path': '//evil.org@myapp.com/phish', 'nonce': 'abc123'}",
+  "family": [
+   "userinfo_authority"
+  ]
+ },
+ {
+  "hex": "83270a",
+  "arguments": "{'main_url': 'https://auth.myapp.com', 'redirect_path': 'javascript://evil.org/phish', 'nonce': 'abc123'}",
+  "family": [
+   "scheme_confusion",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "410a0a41",
+  "arguments": "{'main_url': 'https://www.myapp.com/', 'redirect_path': '//auth.myapp.com.evil.org/phish', 'nonce': 'abc123'}",
+  "family": [
+   "host_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "410a0000",
+  "arguments": "{'main_url': 'https://myapp.com', 'redirect_path': 'http://evil.org/', 'nonce': 'abc123'}",
+  "family": [
+   "absolute_url"
+  ]
+ }
+]

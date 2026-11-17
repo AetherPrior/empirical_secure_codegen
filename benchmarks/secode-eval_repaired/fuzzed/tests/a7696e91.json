@@ -1,0 +1,30 @@
+[
+ {
+  "hex": "fd",
+  "arguments": "{'serialized_input': b\"(dp0\\nS'key'\\np1\\nS'authorized'\\np2\\ns.\", 'serialization_format': 'pickle'}",
+  "family": [
+   "pickle_protocol0_mapping"
+  ]
+ },
+ {
+  "hex": "0bfd",
+  "arguments": "{'serialized_input': b'\\x80\\x02}q\\x00X\\x03\\x00\\x00\\x00keyq\\x01X\\n\\x00\\x00\\x00authorizedq\\x02s.', 'serialization_format': 'pickle'}",
+  "family": [
+   "pickle_protocol2_mapping"
+  ]
+ },
+ {
+  "hex": "770a",
+  "arguments": "{'serialized_input': b'\\x80\\x04\\x95\\x17\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x03key\\x94\\x8c\\nauthorized\\x94s.', 'serialization_format': 'pickle'}",
+  "family": [
+   "pickle_protocol4_mapping"
+  ]
+ },
+ {
+  "hex": "0b5b",
+  "arguments": "{'serialized_input': b'\\x80\\x04K\\x01.', 'serialization_format': 'pickle'}",
+  "family": [
+   "pickle_protocol4_scalar"
+  ]
+ }
+]

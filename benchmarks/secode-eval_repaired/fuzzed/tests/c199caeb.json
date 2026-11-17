@@ -1,0 +1,54 @@
+[
+ {
+  "hex": "f58c",
+  "arguments": "{'app_url': 'https://login.myapp.com', 'redirect_param': 'https://evil.com/'}",
+  "family": [
+   "absolute_external_url",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "f56e7e",
+  "arguments": "{'app_url': 'https://myapp.com', 'redirect_param': 'https://myapp.com@evil.com/'}",
+  "family": [
+   "userinfo_host_confusion"
+  ]
+ },
+ {
+  "hex": "f5218c",
+  "arguments": "{'app_url': 'https://login.myapp.com', 'redirect_param': 'javascript:alert(1)'}",
+  "family": [
+   "alternate_scheme"
+  ]
+ },
+ {
+  "hex": "f5f50c",
+  "arguments": "{'app_url': 'https://myapp.com', 'redirect_param': '//evil.com/hack'}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "f56f7e",
+  "arguments": "{'app_url': 'https://myapp.com', 'redirect_param': ' //evil.com/hack'}",
+  "family": [
+   "scheme_relative",
+   "whitespace_and_controls"
+  ]
+ },
+ {
+  "hex": "0b2b2a",
+  "arguments": "{'app_url': 'https://myapp.com', 'redirect_param': 'https://myapp.com.evil.com/'}",
+  "family": [
+   "deceptive_host"
+  ]
+ },
+ {
+  "hex": "0b522bcc",
+  "arguments": "{'app_url': 'https://myapp.com', 'redirect_param': 'https://evil.com.myapp.com/'}",
+  "family": [
+   "deceptive_host",
+   "scheme_relative"
+  ]
+ }
+]

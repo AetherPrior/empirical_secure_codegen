@@ -1,0 +1,22 @@
+[
+ {
+  "hex": "3d",
+  "arguments": "{'transaction_request': {'headers': {'X-XSRF-Token': ''}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": [
+   "alternate_header"
+  ]
+ },
+ {
+  "hex": "01f8",
+  "arguments": "{'transaction_request': {'headers': {}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": []
+ },
+ {
+  "hex": "ffff0a",
+  "arguments": "{'transaction_request': {'headers': {'X-CSRF-Token': 'secure_csrf_tokenx'}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": [
+   "alternate_header",
+   "invalid_token"
+  ]
+ }
+]

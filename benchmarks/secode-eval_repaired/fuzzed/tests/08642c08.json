@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "89",
+  "arguments": "{'staff_identifier': 'D102', 'staff_role': 'doctor', 'patient_ref': 'P1001'}",
+  "family": [
+   "cross_patient_staff"
+  ]
+ },
+ {
+  "hex": "8567",
+  "arguments": "{'staff_identifier': 'D101', 'staff_role': 'visitor', 'patient_ref': 'P1001'}",
+  "family": [
+   "wrong_role_for_assigned_staff"
+  ]
+ },
+ {
+  "hex": "2b85",
+  "arguments": "{'staff_identifier': 'D101 ', 'staff_role': 'doctor', 'patient_ref': 'P1001'}",
+  "family": [
+   "identifier_spoofing"
+  ]
+ }
+]

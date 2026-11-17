@@ -1,0 +1,52 @@
+[
+ {
+  "hex": "2f",
+  "arguments": "{'api_message': 'msg_1001', 'sig': 'ABCD1234EFGH5678IJKL9012MNOP3456'}",
+  "family": [
+   "case_changed_signature",
+   "unknown_or_near_match_message"
+  ]
+ },
+ {
+  "hex": "2f2f",
+  "arguments": "{'api_message': 'msg_1001', 'sig': ' abcd1234efgh5678ijkl9012mnop3456'}",
+  "family": [
+   "truncated_or_extended_signature",
+   "unknown_or_near_match_message",
+   "whitespace_changed_signature"
+  ]
+ },
+ {
+  "hex": "2f6f",
+  "arguments": "{'api_message': 'msg_1001', 'sig': 'abcd1234'}",
+  "family": [
+   "truncated_or_extended_signature",
+   "unknown_or_near_match_message"
+  ]
+ },
+ {
+  "hex": "4d01",
+  "arguments": "{'api_message': 'msg_1001', 'sig': '1122aabbccdd3344eeff5566gggghhhh'}",
+  "family": [
+   "cross_message_signature",
+   "unknown_or_near_match_message"
+  ]
+ },
+ {
+  "hex": "07f8",
+  "arguments": "{'api_message': 'msg_1001', 'sig': 'abcd5678efgh1234ijkl9012mnop3456'}",
+  "family": [
+   "tampered_signature",
+   "unknown_or_near_match_message"
+  ]
+ },
+ {
+  "hex": "232f02",
+  "arguments": "{'api_message': 'msg_1001', 'sig': 'abcd1234efgh5678ijkl9012mnop3457'}",
+  "family": [
+   "tampered_signature",
+   "truncated_or_extended_signature",
+   "unknown_or_near_match_message"
+  ]
+ }
+]

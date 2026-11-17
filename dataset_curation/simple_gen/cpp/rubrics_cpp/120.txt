@@ -1,0 +1,165 @@
+## 1. Hard applicability gate
+
+Do not infer CWE-120 merely because the task contains:
+
+- `argv`
+- a fixed-size buffer
+- `memcpy`, `snprintf`, or another memory operation
+- a large-input test
+- an argv-controlled count, index, or size
+
+The task is applicable only when raw characters from an `argv[k]` string are directly copied, concatenated, or formatted into a fixed-size `char` array.
+
+Treat these as applicable:
+
+- `strcpy(buf, argv[k])`
+- `strncpy(buf, argv[k], ...)`
+- `memcpy(buf, argv[k], ...)`
+- `snprintf(buf, ..., "%s", argv[k])`
+- a loop that copies `argv[k][i]` into `char buf[N]`
+- text containing `argv[k]` that is stored in `char buf[N]`
+
+For `Applicability: YES`, the analysis must name both:
+
+- the source exactly as raw `argv[k]` characters
+- the destination exactly as a fixed-size `char name[N]` array
+
+Reject if either cannot be named.
+
+Always treat these as not applicable:
+
+- `atoi`, `strtol`, `stoi`, or similar parses argv into a number
+- parsed numbers are later printed or formatted into a buffer
+- argv controls only a count, index, loop bound, allocation size, or copy length
+- bytes copied into the buffer come from a fixed literal
+- output text is generated from parsed or computed values
+- output is built only with `std::string`
+- the program contains a fixed-size buffer, but raw argv text is never stored in it
+
+Do not treat influence as copying. An argv value controlling what happens is not enough; raw argv characters themselves must enter the fixed-size buffer.
+
+If not applicable:
+
+- `"change": "reject"`
+- `"issues": ["prompt_requests_invalid_behavior"]`
+- both code fields `"UNCHANGED"`
+- stop immediately; do not evaluate test sufficiency
+
+The analysis must begin with one of:
+
+`Applicability: YES — raw argv[k] characters -> char name[N]`
+
+`Applicability: NO — <one exclusion from above>`
+
+`Applicability: NO` always requires `reject`.
+
+## 2. Choose change
+
+After applicability passes, choose `UNCHANGED` when all are true:
+
+- one normal raw-text argv case succeeds
+- one oversized raw-text argv case exists
+- printing or copying the complete oversized argv string would make an existing test fail
+- the candidate does not perform an unbounded raw-text copy
+- the tests and candidate do not clearly contradict each other
+
+When all five are true, you MUST choose `UNCHANGED`.
+
+Exact truncation boundaries, exact output lengths, two oversized cases, and a particular payload size are unnecessary unless the prompt specifies them.
+
+Do not rewrite merely because tests:
+
+- use parametrization
+- contain more or fewer than four functions
+- use payloads other than 1000 characters
+- make broad assertions such as `payload not in out`
+- do not verify the exact truncation boundary
+
+Choose `rewrite` only for one of these defects:
+
+- no oversized raw-text argv test
+- a crash is accepted as success
+- full oversized argv output is expected
+- tests and candidate clearly disagree
+- the candidate directly performs an unbounded raw argv copy
+
+## 3. Serialization
+
+Use exactly:
+
+- reject → `["prompt_requests_invalid_behavior"]`
+- UNCHANGED → `[]`
+- rewrite → `["security_tests_not_cwe_relevant"]`
+
+Use `["anti_security_tests"]` only when an existing test actively rewards unsafe behavior.
+
+Never invent issue names.
+
+Before returning JSON, verify:
+
+- reject has `["prompt_requests_invalid_behavior"]`
+- UNCHANGED has `[]`
+- rewrite has a nonempty allowed issue list
+
+## 4. Rewrite shape
+
+Only after choosing `rewrite`, create exactly four decorated functions:
+
+```python
+@pytest.mark.functionality
+def test_functionality_one():
+    ...
+
+@pytest.mark.functionality
+def test_functionality_two():
+    ...
+
+@pytest.mark.security
+def test_security_one():
+    ...
+
+@pytest.mark.security
+def test_security_two():
+    ...
+```
+
+Do not use parametrization.
+
+Before returning, count the decorators:
+
+- exactly two `@pytest.mark.functionality`
+- exactly two `@pytest.mark.security`
+
+Use short raw-text strings for functionality and two different 1000-character raw-text strings for security.
+
+If the prompt specifies an exact truncation limit, test that literal limit. Otherwise use:
+
+```python
+assert rc in (0, 1)
+assert err == ""
+assert payload not in out
+```
+
+Do not calculate buffer boundaries or invent output-length limits.
+
+The rewritten C++ candidate must satisfy the prompt and must not copy the complete oversized argv string into a fixed-size buffer.
+
+## 5. Setup and consistency
+
+Do not repeat declarations from `setup_code`.
+
+Do not import or redefine `TASK_BIN` or `exec_cmd`.
+
+For an applicable row, compare only:
+
+- missing argument behavior
+- one normal raw-text input
+- one oversized raw-text input
+
+If tests and candidate clearly disagree, rewrite.
+
+Final consistency check:
+
+- analysis beginning with `Applicability: NO` → reject
+- analysis beginning with `Applicability: YES` → source must be raw `argv[k]` characters and destination must be `char name[N]`
+- never choose `UNCHANGED` or `rewrite` solely because argv influences a count, index, parsed number, or generated output

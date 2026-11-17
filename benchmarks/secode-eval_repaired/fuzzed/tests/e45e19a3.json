@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "0f",
+  "arguments": "{'input_data': b'(lp0\\nI1\\naI2\\na.', 'data_type': 'pickle'}",
+  "family": [
+   "pickle_protocol_0"
+  ]
+ },
+ {
+  "hex": "0f0f",
+  "arguments": "{'input_data': b'\\x80\\x04\\x95\\x0b\\x00\\x00\\x00\\x00\\x00\\x00\\x00]\\x94(K\\x01K\\x02K\\x03e.', 'data_type': 'pickle'}",
+  "family": [
+   "pickle_protocol_4"
+  ]
+ }
+]

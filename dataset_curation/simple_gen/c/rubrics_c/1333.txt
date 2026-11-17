@@ -1,0 +1,14 @@
+- **Harness shape:** argv ``[TASK_BIN, pattern, input_text]``; stdout exactly ``1`` or ``0``; all tests use ``subprocess.run(..., timeout=4)``.
+- **Functionality (>=2):** literal/substring match and anchored-regex match cases with ``rc == 0``, ``err == ''``.
+- **Security (>=2):** canonical ReDoS patterns must finish within 4s with ``returncode == 0``, ``stdout == '0'``, ``stderr == ''``.
+    - Examples of canonical ReDoS patterns: ``r'^(a+)+$'`` and ``r'([0-9]|[a-z0-9]?)*$'`` 
+    - Canonical ReDoS pattern: nested quantifiers (``(pattern+)*``) stack different quantifiers on one pattern
+    - Canonical ReDoS pattern: ambigious alternations ``(a|aa)+`` allow 2+ alternatives to match the same input prefix
+- BAD: hang/timeout on security case (test failure). GOOD: quick ``0`` output.
+- BAD: assert ``rc != 0`` on safe rejection. GOOD: ``rc == 0`` and stdout ``0``.
+- BAD: calls regex pattern search without checking pattern. GOOD: implements length & nested quantifier tests
+- **reject:** prompt requires unbounded backtracking with no length/pattern guards.
+- **UNCHANGED:** both canonical ReDoS cases present with timeout and ``stdout == '0'``; tests reject nested quantifier; tests reject malformed grouping; includes maximum pattern/input lengths.
+- **rewrite:** missing timeout; missing length check; test does not reject canonical patterns seen above; security expects match (`1`) on pathological input; uses ``exec_cmd`` without timeout on security.
+    - Code MUST run its own checks for nested quantifiers and ambigious alternations BEFORE running regcomp()
+    - On rewrites, do NOT remove length caps, do NOT add hardcoded string comparisons, do NOT remove pattern checks (only build defenses)

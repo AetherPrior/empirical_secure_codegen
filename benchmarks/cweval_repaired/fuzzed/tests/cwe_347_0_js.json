@@ -1,0 +1,14 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'token': 'eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJhdHRhY2tlciIsImFkbWluIjp0cnVlfQ.', 'key': 'wrong-key'}",
+  "family": []
+ },
+ {
+  "hex": "920a",
+  "arguments": "{'token': 'eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhdHRhY2tlciIsImFkbWluIjp0cnVlfQ.AAAA', 'key': 'wrong-key'}",
+  "family": [
+   "tampered_signature"
+  ]
+ }
+]

@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "5b0a",
+  "arguments": "{'data': b'\\x80\\x04K\\x01.', 'data_format': 'pickle'}",
+  "family": [
+   "pickle_deserialization"
+  ]
+ }
+]

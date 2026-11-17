@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "47",
+  "arguments": "{'data_stream': b\"cbuiltins\\neval\\n(S'1+1'\\ntR.\", 'deserialization_method': 'pickle'}",
+  "family": [
+   "pickle_global_reduce_eval"
+  ]
+ },
+ {
+  "hex": "4139",
+  "arguments": "{'data_stream': b'\\x80\\x04\\x95\\x15\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x04flag\\x94\\x8c\\x07exploit\\x94s.', 'deserialization_method': 'pickle'}",
+  "family": [
+   "pickle_protocol4_object"
+  ]
+ }
+]

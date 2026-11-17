@@ -1,0 +1,16 @@
+{
+  "archive": "/workspace/CodeGuarder_AE.zip",
+  "archive_sha256": "9f3adfb466036663d1d40a5117f8302236364ce88e8036dbbf17a25c5cecf420",
+  "indexes": {
+    "indexes/security/index.faiss": "b7f1c4d2dd3f1bdd052fdd44f53acdf9c3f1e800627eb4a80e3e85f1827f0fbb",
+    "indexes/security/index.pkl": "dbb1a4396d172f5e26575c1b7c6cafb02570bc4546910b96bb512f15ae706009",
+    "indexes/functional/index.faiss": "9b4eff923c9f6369b58f612ec76b6f4b43b9d132b5b1032de4c06f5cedb39ae2",
+    "indexes/functional/index.pkl": "bfb0909798aace04777771dadb6bc33e0195655bb0555d55abc4687839b30dd7"
+  },
+  "embedding_smoke": {
+    "security_rows": 16141,
+    "functional_rows": 12053,
+    "cached_vector_cosine": 0.9999736,
+    "document_order_matches_archive": true
+  }
+}

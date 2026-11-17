@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "5d",
+  "arguments": "{'sso_path': 'https://sso.example.com/auth', 'uid': '', 'redirect_url': 'https://%61pp.example.com/'}",
+  "family": [
+   "encoded_host"
+  ]
+ },
+ {
+  "hex": "630a",
+  "arguments": "{'sso_path': 'https://sso.example.com/auth', 'uid': '', 'redirect_url': '//evil.org/hack'}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "5d5d",
+  "arguments": "{'sso_path': 'https://sso.example.com/auth', 'uid': '', 'redirect_url': 'https://evil.org\\\\@app.example.com/'}",
+  "family": [
+   "parser_ambiguity"
+  ]
+ },
+ {
+  "hex": "5ddd",
+  "arguments": "{'sso_path': 'https://sso.example.com/auth', 'uid': '', 'redirect_url': 'https://app.example.com.evil.org/'}",
+  "family": [
+   "trusted_domain_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "5d3d",
+  "arguments": "{'sso_path': 'https://sso.example.com/auth', 'uid': '', 'redirect_url': 'https://evil.org/hack'}",
+  "family": [
+   "scheme_relative",
+   "untrusted_host"
+  ]
+ },
+ {
+  "hex": "5d40",
+  "arguments": "{'sso_path': 'https://sso.example.com/auth', 'uid': '', 'redirect_url': 'javascript:alert(1)'}",
+  "family": [
+   "non_http_scheme"
+  ]
+ },
+ {
+  "hex": "5dca",
+  "arguments": "{'sso_path': 'https://sso.example.com/auth', 'uid': '', 'redirect_url': 'https://app.example.com@evil.org/'}",
+  "family": [
+   "userinfo_host_confusion"
+  ]
+ },
+ {
+  "hex": "6f02ec",
+  "arguments": "{'sso_path': 'https://sso.example.com/auth', 'uid': '', 'redirect_url': 'https://192.0.2.1/'}",
+  "family": [
+   "untrusted_host"
+  ]
+ }
+]

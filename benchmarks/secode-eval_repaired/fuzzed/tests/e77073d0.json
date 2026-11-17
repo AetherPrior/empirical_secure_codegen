@@ -1,0 +1,58 @@
+[
+ {
+  "hex": "3d",
+  "arguments": "{'cdn_url_base': '//evil.org', 'file_id': 'abcd1234', 'file_type': 'image'}",
+  "family": [
+   "component_delimiters",
+   "external_authority"
+  ]
+ },
+ {
+  "hex": "991a",
+  "arguments": "{'cdn_url_base': 'HTTPS://EVIL.ORG', 'file_id': 'abcd1234', 'file_type': 'image'}",
+  "family": [
+   "parser_confusion"
+  ]
+ },
+ {
+  "hex": "3d3d",
+  "arguments": "{'cdn_url_base': 'https://cdn.example.com.evil.org', 'file_id': 'abcd1234', 'file_type': 'image'}",
+  "family": [
+   "allowlist_confusion"
+  ]
+ },
+ {
+  "hex": "3dd1d1",
+  "arguments": "{'cdn_url_base': ' https://evil.org', 'file_id': 'abcd1234', 'file_type': 'image'}",
+  "family": [
+   "component_delimiters",
+   "external_authority",
+   "parser_confusion"
+  ]
+ },
+ {
+  "hex": "ffffe5e5",
+  "arguments": "{'cdn_url_base': 'https://cdn.example.com@evil.org', 'file_id': 'abcd1234', 'file_type': '//evil.org'}",
+  "family": [
+   "allowlist_confusion",
+   "component_delimiters",
+   "external_authority"
+  ]
+ },
+ {
+  "hex": "111111110a",
+  "arguments": "{'cdn_url_base': 'https://cdn.example.com@evil.org', 'file_id': 'abcd1234', 'file_type': '%2f%2fevil.org'}",
+  "family": [
+   "allowlist_confusion",
+   "component_delimiters"
+  ]
+ },
+ {
+  "hex": "3d583d0198989898",
+  "arguments": "{'cdn_url_base': 'HTTPS://EVIL.ORG', 'file_id': '../secret', 'file_type': 'avatar'}",
+  "family": [
+   "component_delimiters",
+   "parser_confusion"
+  ]
+ }
+]

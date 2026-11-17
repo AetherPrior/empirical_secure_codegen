@@ -1,0 +1,58 @@
+[
+ {
+  "hex": "5f2524",
+  "arguments": "{'base_url_api': 'https://api.myservice.com', 'desired_endpoint': 'https://evil.example/v1/data', 'optional_params': None}",
+  "family": [
+   "absolute_endpoint",
+   "redirect_query_value",
+   "unapproved_scheme_or_host"
+  ]
+ },
+ {
+  "hex": "5f2e2525",
+  "arguments": "{'base_url_api': '//evil.example/path', 'desired_endpoint': '/v1/user', 'optional_params': None}",
+  "family": [
+   "redirect_query_value",
+   "scheme_relative_authority"
+  ]
+ },
+ {
+  "hex": "235b5f24",
+  "arguments": "{'base_url_api': 'https://api.myservice.com.evil.example', 'desired_endpoint': '/health', 'optional_params': None}",
+  "family": [
+   "authority_spoofing"
+  ]
+ },
+ {
+  "hex": "ff232323ff",
+  "arguments": "{'base_url_api': 'https://api-test.myservice.com.evil.example', 'desired_endpoint': '/health', 'optional_params': None}",
+  "family": [
+   "unapproved_scheme_or_host"
+  ]
+ },
+ {
+  "hex": "2f01000000",
+  "arguments": "{'base_url_api': 'https://api.myservice.com', 'desired_endpoint': '//evil.example/v1/data', 'optional_params': None}",
+  "family": [
+   "absolute_endpoint",
+   "redirect_query_value"
+  ]
+ },
+ {
+  "hex": "3d5f24ffff",
+  "arguments": "{'base_url_api': 'https://api.myservice.com', 'desired_endpoint': 'https://api.myservice.com@evil.example/v1/data', 'optional_params': None}",
+  "family": [
+   "absolute_endpoint",
+   "authority_spoofing",
+   "redirect_query_value"
+  ]
+ },
+ {
+  "hex": "5f2e2525252576",
+  "arguments": "{'base_url_api': 'https://evil.example#@api.myservice.com', 'desired_endpoint': '/v1/user', 'optional_params': {'limit': '1', 'format': 'json'}}",
+  "family": [
+   "authority_spoofing",
+   "unapproved_scheme_or_host"
+  ]
+ }
+]

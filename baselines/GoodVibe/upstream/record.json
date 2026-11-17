@@ -1,0 +1,252 @@
+{
+  "created": "2026-05-27T13:29:36.629673+00:00",
+  "modified": "2026-05-27T13:29:37.640889+00:00",
+  "id": 20412229,
+  "conceptrecid": "20412228",
+  "doi": "10.5281/zenodo.20412229",
+  "conceptdoi": "10.5281/zenodo.20412228",
+  "doi_url": "https://doi.org/10.5281/zenodo.20412229",
+  "metadata": {
+    "title": "GoodVibe",
+    "doi": "10.5281/zenodo.20412229",
+    "publication_date": "2026-05-27",
+    "description": "<p class=\"text-size-chat leading-[calc(var(--codex-chat-font-size)+8px)] extension:leading-normal my-2\"><strong class=\"font-semibold\">GoodVibe</strong>&nbsp;is the research code repository for the paper&nbsp;<em>GoodVibe</em>, submitted to&nbsp;<strong class=\"font-semibold\">USENIX Security 2026 Cycle 2</strong>. The repository contains the implementation of a neuron-level framework for improving the security of code language models through targeted safety-neuron discovery and selective fine-tuning.</p>\n<p class=\"text-size-chat leading-[calc(var(--codex-chat-font-size)+8px)] extension:leading-normal my-2\">The code supports gradient-based safety-neuron identification, masked neuron fine-tuning, clustered neuron fine-tuning, full-model fine-tuning, LoRA fine-tuning, inference, and safety evaluation with a learned judge. It also includes scripts for running end-to-end experiments and reproducing the main GoodVibe workflow described in the paper.</p>",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "Sasha, Sasha",
+        "affiliation": null,
+        "orcid": "0009-0008-3439-2731"
+      }
+    ],
+    "resource_type": {
+      "title": "Publication",
+      "type": "publication"
+    },
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "relations": {
+      "version": [
+        {
+          "index": 0,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "20412228"
+          }
+        }
+      ]
+    }
+  },
+  "title": "GoodVibe",
+  "links": {
+    "self": "https://zenodo.org/api/records/20412229",
+    "self_html": "https://zenodo.org/records/20412229",
+    "preview_html": "https://zenodo.org/records/20412229?preview=1",
+    "doi": "https://doi.org/10.5281/zenodo.20412229",
+    "self_doi": "https://doi.org/10.5281/zenodo.20412229",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.20412229",
+    "reserve_doi": "https://zenodo.org/api/records/20412229/draft/pids/doi",
+    "parent": "https://zenodo.org/api/records/20412228",
+    "parent_html": "https://zenodo.org/records/20412228",
+    "parent_doi": "https://doi.org/10.5281/zenodo.20412228",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.20412228",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:20412229/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:20412229/sequence/default",
+    "files": "https://zenodo.org/api/records/20412229/files",
+    "media_files": "https://zenodo.org/api/records/20412229/media-files",
+    "latest": "https://zenodo.org/api/records/20412229/versions/latest",
+    "latest_html": "https://zenodo.org/records/20412229/latest",
+    "versions": "https://zenodo.org/api/records/20412229/versions",
+    "draft": "https://zenodo.org/api/records/20412229/draft",
+    "access_links": "https://zenodo.org/api/records/20412229/access/links",
+    "access_grants": "https://zenodo.org/api/records/20412229/access/grants",
+    "access_users": "https://zenodo.org/api/records/20412229/access/users",
+    "access_request": "https://zenodo.org/api/records/20412229/access/request",
+    "access": "https://zenodo.org/api/records/20412229/access",
+    "communities": "https://zenodo.org/api/records/20412229/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/20412229/communities-suggestions",
+    "request_deletion": "https://zenodo.org/api/records/20412229/request-deletion",
+    "file_modification": "https://zenodo.org/api/records/20412229/file-modification",
+    "quota_increase": "https://zenodo.org/api/records/20412229/quota-increase",
+    "requests": "https://zenodo.org/api/records/20412229/requests"
+  },
+  "updated": "2026-05-27T13:29:37.640889+00:00",
+  "recid": "20412229",
+  "revision": 4,
+  "files": [
+    {
+      "id": "df23cf87-e55a-48ed-89ad-1a9e875b5aaf",
+      "key": "model_response_evaluator.py",
+      "size": 7508,
+      "checksum": "md5:6ca6eb55d23dbc908c06160a36c71f78",
+      "links": {
+        "self": "https://zenodo.org/api/records/20412229/files/model_response_evaluator.py/content"
+      }
+    },
+    {
+      "id": "f0cbf963-aed1-4a9f-b8be-455937eccffd",
+      "key": "fine_tune_without_clustering.py",
+      "size": 10571,
+      "checksum": "md5:552ef07870de7b9e1b55ca706e3f3f41",
+      "links": {
+        "self": "https://zenodo.org/api/records/20412229/files/fine_tune_without_clustering.py/content"
+      }
+    },
+    {
+      "id": "c717452c-8f7f-4858-a0d9-be64ce5f9df9",
+      "key": "neuro.yml",
+      "size": 7432,
+      "checksum": "md5:fdca1d0a87dba819babe85fd72d1d7b0",
+      "links": {
+        "self": "https://zenodo.org/api/records/20412229/files/neuro.yml/content"
+      }
+    },
+    {
+      "id": "61ccfdf2-63c5-4b64-a7b5-52e8eb3b4f2a",
+      "key": "fine_tune_clustering.py",
+      "size": 21051,
+      "checksum": "md5:35a7ce51d4ab96f4028b5fd50b9d8bf8",
+      "links": {
+        "self": "https://zenodo.org/api/records/20412229/files/fine_tune_clustering.py/content"
+      }
+    },
+    {
+      "id": "7d0e5f57-c4d9-4ca9-ae50-c142002225c6",
+      "key": "fine_tune_model_with_lora.py",
+      "size": 7288,
+      "checksum": "md5:bc64cbb1115cc8a90344db206bdc12dd",
+      "links": {
+        "self": "https://zenodo.org/api/records/20412229/files/fine_tune_model_with_lora.py/content"
+      }
+    },
+    {
+      "id": "371ef919-0c47-4890-8fb1-aa2c16851de5",
+      "key": "README.md",
+      "size": 7916,
+      "checksum": "md5:2c4cab37be57548d3cbeb24cb64d1ee9",
+      "links": {
+        "self": "https://zenodo.org/api/records/20412229/files/README.md/content"
+      }
+    },
+    {
+      "id": "c52e42e5-af53-4aed-98cf-0a7ab202509a",
+      "key": "goodvibe_example.yaml",
+      "size": 241,
+      "checksum": "md5:e845231164d93f765de2cf3e5850b077",
+      "links": {
+        "self": "https://zenodo.org/api/records/20412229/files/goodvibe_example.yaml/content"
+      }
+    },
+    {
+      "id": "d38cbcbf-1d58-4ddb-b4be-8af162ed7376",
+      "key": "safety_neuron_identifier.py",
+      "size": 4917,
+      "checksum": "md5:72601cd7df7adaf985923e99e69a9ae0",
+      "links": {
+        "self": "https://zenodo.org/api/records/20412229/files/safety_neuron_identifier.py/content"
+      }
+    },
+    {
+      "id": "93edeb4f-60c7-41c0-9cd7-0eb28194f3a1",
+      "key": "models.py",
+      "size": 295,
+      "checksum": "md5:1567a160629e01a42faea591a616630a",
+      "links": {
+        "self": "https://zenodo.org/api/records/20412229/files/models.py/content"
+      }
+    },
+    {
+      "id": "71a19c7a-17aa-4454-bdb0-844a61d57683",
+      "key": "main_safety_weights.py",
+      "size": 7109,
+      "checksum": "md5:e9dceb6312180ad1d454db6bdd9ef001",
+      "links": {
+        "self": "https://zenodo.org/api/records/20412229/files/main_safety_weights.py/content"
+      }
+    },
+    {
+      "id": "0d98b421-e870-4d3f-90a5-af3c2524c494",
+      "key": "probe.py",
+      "size": 1822,
+      "checksum": "md5:e1cc677f3ab34c9d94834bbabfe984ed",
+      "links": {
+        "self": "https://zenodo.org/api/records/20412229/files/probe.py/content"
+      }
+    },
+    {
+      "id": "51fcddcb-b1af-4132-a118-eae12f5e9181",
+      "key": "util.py",
+      "size": 4736,
+      "checksum": "md5:635e12ae7efd74e06531f072da88ec81",
+      "links": {
+        "self": "https://zenodo.org/api/records/20412229/files/util.py/content"
+      }
+    },
+    {
+      "id": "83370320-5ffa-4415-a530-65ad6d07e2fd",
+      "key": "util_model.py",
+      "size": 8347,
+      "checksum": "md5:74983beb58cc44986e012e46a1629508",
+      "links": {
+        "self": "https://zenodo.org/api/records/20412229/files/util_model.py/content"
+      }
+    },
+    {
+      "id": "104a370b-4f85-4afa-befb-76288ed730b9",
+      "key": "fine_tune_full_model.py",
+      "size": 6243,
+      "checksum": "md5:72d7f3df6a4a3c17dbeca391ed8032eb",
+      "links": {
+        "self": "https://zenodo.org/api/records/20412229/files/fine_tune_full_model.py/content"
+      }
+    },
+    {
+      "id": "91287b41-e506-477f-bc2d-72612ccd8d88",
+      "key": "main_inference.py",
+      "size": 4984,
+      "checksum": "md5:0944efe0a853831da634fa9e00d14bf1",
+      "links": {
+        "self": "https://zenodo.org/api/records/20412229/files/main_inference.py/content"
+      }
+    },
+    {
+      "id": "4d50e3a9-f4bd-4c5c-b01f-fa33ffdd8ec4",
+      "key": "evaluation_framework.py",
+      "size": 14039,
+      "checksum": "md5:8a7c3e0ed38cffa95c798dd69fb5e0a5",
+      "links": {
+        "self": "https://zenodo.org/api/records/20412229/files/evaluation_framework.py/content"
+      }
+    },
+    {
+      "id": "8942e0a3-a0ef-4b00-85ed-48e3418470bb",
+      "key": "pipeline.py",
+      "size": 4938,
+      "checksum": "md5:86c7d17c1a5f5a6f576106b0b408b57d",
+      "links": {
+        "self": "https://zenodo.org/api/records/20412229/files/pipeline.py/content"
+      }
+    }
+  ],
+  "swh": {},
+  "owners": [
+    {
+      "id": "1252482"
+    }
+  ],
+  "status": "published",
+  "stats": {
+    "downloads": 846,
+    "unique_downloads": 809,
+    "views": 220,
+    "unique_views": 206,
+    "version_downloads": 846,
+    "version_unique_downloads": 809,
+    "version_unique_views": 206,
+    "version_views": 220
+  },
+  "state": "done",
+  "submitted": true
+}

@@ -1,0 +1,66 @@
+[
+ {
+  "hex": "f8420a",
+  "arguments": "{'base_url': 'https://evil.test:443', 'endpoint_path': '/v1/data', 'query_info': None}",
+  "family": [
+   "authority_and_port_confusion",
+   "query_redirect_value",
+   "unapproved_host"
+  ]
+ },
+ {
+  "hex": "510af8",
+  "arguments": "{'base_url': 'https://malicious-api.com', 'endpoint_path': '/v2/analytics', 'query_info': None}",
+  "family": [
+   "unapproved_host"
+  ]
+ },
+ {
+  "hex": "39fb0a",
+  "arguments": "{'base_url': 'https://api-test.myservice.com', 'endpoint_path': 'https://evil.test/v1/data', 'query_info': None}",
+  "family": [
+   "external_endpoint",
+   "query_redirect_value",
+   "unapproved_host"
+  ]
+ },
+ {
+  "hex": "f8420a2d",
+  "arguments": "{'base_url': 'https://api.myservice.com@evil.test', 'endpoint_path': '/v2/analytics', 'query_info': None}",
+  "family": [
+   "query_redirect_value",
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "f830420a",
+  "arguments": "{'base_url': 'https://evil.test', 'endpoint_path': '/v1/data', 'query_info': None}",
+  "family": [
+   "query_redirect_value",
+   "unapproved_host"
+  ]
+ },
+ {
+  "hex": "8af8428a",
+  "arguments": "{'base_url': ' https://evil.test', 'endpoint_path': '/v1/data', 'query_info': None}",
+  "family": [
+   "fragment_and_whitespace_confusion",
+   "query_redirect_value",
+   "unapproved_host"
+  ]
+ },
+ {
+  "hex": "2b42139e",
+  "arguments": "{'base_url': 'https://api.myservice.com.evil.test', 'endpoint_path': '/health', 'query_info': None}",
+  "family": [
+   "host_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "808080800a",
+  "arguments": "{'base_url': 'http://malicious-api.com/v2/analytics', 'endpoint_path': '/v1/data', 'query_info': None}",
+  "family": [
+   "external_endpoint"
+  ]
+ }
+]

@@ -1,0 +1,17 @@
+[
+ {
+  "hex": "0b0a",
+  "arguments": "{'member_id': 'user444', 'member_role': 'EDITOR', 'doc_id': 'doc123', 'doc_owner_id': 'user111', 'replacement_content': ''}",
+  "family": [
+   "role_case_confusion"
+  ]
+ },
+ {
+  "hex": "5d0b",
+  "arguments": "{'member_id': 'user444', 'member_role': 'viewer', 'doc_id': 'doc456', 'doc_owner_id': 'user222', 'replacement_content': ''}",
+  "family": [
+   "role_case_confusion",
+   "unauthorized_role"
+  ]
+ }
+]

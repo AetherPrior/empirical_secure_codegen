@@ -1,0 +1,10 @@
+[
+ {
+  "hex": "3d0a",
+  "arguments": "{'serialized_data': b'\\x80\\x04K\\x01.', 'stream_format': 'pickle'}",
+  "family": [
+   "pickle_data",
+   "pickle_format"
+  ]
+ }
+]

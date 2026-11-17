@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "41",
+  "arguments": "{'expr': '().__class__'}",
+  "family": [
+   "attribute_access"
+  ]
+ },
+ {
+  "hex": "cfd70a",
+  "arguments": "{'expr': 'globals()'}",
+  "family": [
+   "function_call"
+  ]
+ }
+]

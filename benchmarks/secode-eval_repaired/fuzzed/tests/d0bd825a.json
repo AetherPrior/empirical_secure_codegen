@@ -1,0 +1,68 @@
+[
+ {
+  "hex": "ff",
+  "arguments": "{'base_url_api': 'https://malicious-api.com', 'api_endpoint': '/v1/data', 'opts': None}",
+  "family": [
+   "untrusted_authority"
+  ]
+ },
+ {
+  "hex": "f8f9",
+  "arguments": "{'base_url_api': '//evil.example', 'api_endpoint': '/v1/data', 'opts': None}",
+  "family": [
+   "scheme_relative_authority"
+  ]
+ },
+ {
+  "hex": "b1fd2f",
+  "arguments": "{'base_url_api': 'https://api.myservice.com%2eevil.example', 'api_endpoint': 'https://evil.example/v1/data', 'opts': None}",
+  "family": [
+   "absolute_endpoint",
+   "query_redirect_value",
+   "scheme_relative_authority",
+   "untrusted_authority"
+  ]
+ },
+ {
+  "hex": "7eff3fff",
+  "arguments": "{'base_url_api': '//evil.example', 'api_endpoint': 'https://evil.example/v1/data', 'opts': None}",
+  "family": [
+   "absolute_endpoint",
+   "query_redirect_value",
+   "scheme_relative_authority"
+  ]
+ },
+ {
+  "hex": "2fff2f2f",
+  "arguments": "{'base_url_api': 'https://api.myservice.com%2eevil.example', 'api_endpoint': '/v1/data%2f..%2fadmin', 'opts': None}",
+  "family": [
+   "endpoint_encoding_and_delimiters",
+   "untrusted_authority"
+  ]
+ },
+ {
+  "hex": "010104ff",
+  "arguments": "{'base_url_api': 'https://api.myservice.com%2eevil.example', 'api_endpoint': '/v1/data/../admin', 'opts': None}",
+  "family": [
+   "endpoint_path_escape",
+   "untrusted_authority"
+  ]
+ },
+ {
+  "hex": "d66f3f0a6f",
+  "arguments": "{'base_url_api': '//evil.example', 'api_endpoint': '/v1/data/../admin', 'opts': None}",
+  "family": [
+   "endpoint_path_escape",
+   "scheme_relative_authority"
+  ]
+ },
+ {
+  "hex": "fd0a316f78",
+  "arguments": "{'base_url_api': 'https://malicious-api.com', 'api_endpoint': '/health', 'opts': {'next': 'https://evil.example/'}}",
+  "family": [
+   "query_redirect_value",
+   "scheme_relative_authority",
+   "untrusted_authority"
+  ]
+ }
+]

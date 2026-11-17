@@ -1,0 +1,51 @@
+[
+ {
+  "hex": "2f",
+  "arguments": "{'input_url': 'https://trusted-redirect.com.evil.com/'}",
+  "family": [
+   "allowed_domain_lookalikes"
+  ]
+ },
+ {
+  "hex": "2727",
+  "arguments": "{'input_url': 'https://evil.com/hack'}",
+  "family": [
+   "unapproved_host"
+  ]
+ },
+ {
+  "hex": "2702",
+  "arguments": "{'input_url': 'https://trusted-redirect.com%2eevil.com/'}",
+  "family": [
+   "encoded_host_confusion"
+  ]
+ },
+ {
+  "hex": "232f",
+  "arguments": "{'input_url': 'javascript:alert(1)'}",
+  "family": [
+   "unsafe_schemes_and_relative_urls"
+  ]
+ },
+ {
+  "hex": "270a",
+  "arguments": "{'input_url': 'http://localhost/'}",
+  "family": [
+   "local_and_obfuscated_addresses"
+  ]
+ },
+ {
+  "hex": "3f30",
+  "arguments": "{'input_url': 'https://trusted-redirect.com@evil.com/'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "2f2f94",
+  "arguments": "{'input_url': 'https://evil.com\\\\trusted-redirect.com/'}",
+  "family": [
+   "backslash_authority_confusion"
+  ]
+ }
+]

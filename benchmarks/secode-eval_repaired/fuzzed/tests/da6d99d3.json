@@ -1,0 +1,41 @@
+[
+ {
+  "hex": "ffff0a0a",
+  "arguments": "{'cdn_url': '//evil.org', 'resource_key': 'images/logo.png', 'res_category': 'image'}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "ffff0affff0a",
+  "arguments": "{'cdn_url': 'https://cdn.example.com.evil.org/x', 'resource_key': 'abcd1234', 'res_category': 'image'}",
+  "family": [
+   "host_suffix"
+  ]
+ },
+ {
+  "hex": "ff5db00ab00a",
+  "arguments": "{'cdn_url': 'https://cdn.example.com@evil.org/x', 'resource_key': 'scripts/app.js', 'res_category': 'script'}",
+  "family": [
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "ff3839383838ff",
+  "arguments": "{'cdn_url': 'http://evil.org/x', 'resource_key': 'scripts/app.js', 'res_category': 'resource'}",
+  "family": [
+   "absolute_external",
+   "resource_key_absolute",
+   "resource_key_authority",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "ffff0a0aff0a0a",
+  "arguments": "{'cdn_url': 'https://evil.org/cdn.example.com', 'resource_key': 'images/logo.png', 'res_category': 'image'}",
+  "family": [
+   "host_suffix",
+   "scheme_relative"
+  ]
+ }
+]

@@ -1,0 +1,71 @@
+[
+ {
+  "hex": "db",
+  "arguments": "{'base_uri': 'https://malicious-api.com', 'api_endpoint': '/v1/data', 'query': None}",
+  "family": [
+   "untrusted_base_authority"
+  ]
+ },
+ {
+  "hex": "015bfc",
+  "arguments": "{'base_uri': 'https://api.myservice.com@evil.example', 'api_endpoint': '/v1/data', 'query': None}",
+  "family": [
+   "query_redirect_parameters",
+   "untrusted_base_authority"
+  ]
+ },
+ {
+  "hex": "0a69d3",
+  "arguments": "{'base_uri': 'https://api-test.myservice.com', 'api_endpoint': 'https://evil.example/v1/data', 'query': None}",
+  "family": [
+   "absolute_or_network_path_endpoint",
+   "query_redirect_parameters",
+   "untrusted_base_authority"
+  ]
+ },
+ {
+  "hex": "2d6bd3",
+  "arguments": "{'base_uri': 'https://api.myservice.com\\n@evil.example', 'api_endpoint': '/v1/data', 'query': None}",
+  "family": [
+   "base_scheme_and_authority_confusion"
+  ]
+ },
+ {
+  "hex": "ff00fffcff",
+  "arguments": "{'base_uri': 'http://api.myservice.com', 'api_endpoint': 'https://evil.example/v1/data', 'query': None}",
+  "family": [
+   "absolute_or_network_path_endpoint",
+   "base_scheme_and_authority_confusion",
+   "query_redirect_parameters",
+   "untrusted_base_authority"
+  ]
+ },
+ {
+  "hex": "d30ad30ad362",
+  "arguments": "{'base_uri': 'https://api.myservice.com@evil.example', 'api_endpoint': '/v1/data/../admin', 'query': None}",
+  "family": [
+   "endpoint_path_confusion",
+   "query_redirect_parameters",
+   "untrusted_base_authority"
+  ]
+ },
+ {
+  "hex": "010006ffff0100",
+  "arguments": "{'base_uri': 'https://api.myservice.com.evil.example', 'api_endpoint': '/health', 'query': {'redirect': 'https://evil.example'}}",
+  "family": [
+   "query_parameter_injection",
+   "query_redirect_parameters",
+   "untrusted_base_authority"
+  ]
+ },
+ {
+  "hex": "0a6900d3000069d3",
+  "arguments": "{'base_uri': 'https://api-test.myservice.com', 'api_endpoint': 'https://evil.example/v1/data', 'query': {'redirect': 'https://evil.example'}}",
+  "family": [
+   "absolute_or_network_path_endpoint",
+   "query_parameter_injection",
+   "query_redirect_parameters",
+   "untrusted_base_authority"
+  ]
+ }
+]

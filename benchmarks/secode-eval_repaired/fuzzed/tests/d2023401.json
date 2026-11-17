@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "ff",
+  "arguments": "{'active_user_id': 2, 'affected_user_id': 2, 'updated_privilege': 'admin'}",
+  "family": [
+   "privilege_escalation"
+  ]
+ }
+]

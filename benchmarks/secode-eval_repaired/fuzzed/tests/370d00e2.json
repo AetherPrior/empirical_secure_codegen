@@ -1,0 +1,56 @@
+[
+ {
+  "hex": "5b01008a",
+  "arguments": "{'app_base_url': 'https://myapp.com', 'token_path': 'https://evil.org/phish', 'session_state': 'state-42'}",
+  "family": [
+   "absolute_url",
+   "protocol_relative",
+   "untrusted_base"
+  ]
+ },
+ {
+  "hex": "5b2f5b3201",
+  "arguments": "{'app_base_url': 'https://auth.myapp.com', 'token_path': '//myapp.com.evil.org/phish', 'session_state': 'state-42'}",
+  "family": [
+   "deceptive_host"
+  ]
+ },
+ {
+  "hex": "5b1101008a",
+  "arguments": "{'app_base_url': 'https://myapp.com', 'token_path': 'https://myapp.com@evil.org/phish', 'session_state': 'state-42'}",
+  "family": [
+   "userinfo_authority"
+  ]
+ },
+ {
+  "hex": "5bc1a4cdf5",
+  "arguments": "{'app_base_url': 'https://login.myapp.org', 'token_path': '//evil.org/phish', 'session_state': 'oauth_state'}",
+  "family": [
+   "protocol_relative"
+  ]
+ },
+ {
+  "hex": "5b010001009a",
+  "arguments": "{'app_base_url': 'https://auth.myapp.com', 'token_path': 'http://evil.org/', 'session_state': 'state-42'}",
+  "family": [
+   "absolute_url"
+  ]
+ },
+ {
+  "hex": "3f5bf200018e",
+  "arguments": "{'app_base_url': 'https://auth.myapp.com', 'token_path': 'https://evil.org@myapp.com/phish', 'session_state': 'abc123'}",
+  "family": [
+   "absolute_url",
+   "untrusted_base",
+   "userinfo_authority"
+  ]
+ },
+ {
+  "hex": "5b050001005b",
+  "arguments": "{'app_base_url': 'https://auth.myapp.com', 'token_path': 'https://evil.org', 'session_state': 'state-42'}",
+  "family": [
+   "absolute_url",
+   "untrusted_base"
+  ]
+ }
+]

@@ -1,0 +1,17 @@
+[
+ {
+  "hex": "d8",
+  "arguments": "{'io_device_id': 'device001', 'crypto_signature': '1dcfa479db7aae3d40b3984cdf202de6', 'packet_data': {}}",
+  "family": [
+   "cross_device_signature_replay"
+  ]
+ },
+ {
+  "hex": "09",
+  "arguments": "{'io_device_id': 'device001', 'crypto_signature': '89ebf76ae45bfcf6dd7f2aa3de8b20b3!', 'packet_data': {}}",
+  "family": [
+   "cross_device_signature_replay",
+   "signature_mutation"
+  ]
+ }
+]

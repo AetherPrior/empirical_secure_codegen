@@ -1,0 +1,25 @@
+[
+ {
+  "hex": "43",
+  "arguments": "{'user_id': 'user7777', 'user_role': 'Admin', 'order_id': 'order1234', 'order_user_id': 'user5678'}",
+  "family": [
+   "owner_claim_spoof",
+   "role_case_confusion"
+  ]
+ },
+ {
+  "hex": "72",
+  "arguments": "{'user_id': 'user7777', 'user_role': 'customer', 'order_id': 'order1234', 'order_user_id': 'user5678'}",
+  "family": [
+   "owner_claim_spoof"
+  ]
+ },
+ {
+  "hex": "635fd3",
+  "arguments": "{'user_id': 'user7777', 'user_role': 'admin ', 'order_id': 'order5678', 'order_user_id': 'user1234'}",
+  "family": [
+   "owner_claim_spoof",
+   "role_boundary_confusion"
+  ]
+ }
+]

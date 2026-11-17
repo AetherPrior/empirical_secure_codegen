@@ -1,0 +1,15 @@
+{
+  "source": "/workspace/SDPO/checkpoints/merged_hf_models/verl_grpo_security_harness/qwen3_8b_e2e_all_langs/global_step_700",
+  "checkpoint": "global_step_700",
+  "model_type": "qwen3",
+  "training_steps": 700,
+  "training_recipe_reference": "dataset_curation/verl/examples/grpo_trainer/run_seed_coder_8b_grpo_security_harness.sh",
+  "files": {
+    "tokenizer.json": 11422650,
+    "model.safetensors": 16381517208,
+    "tokenizer_config.json": 693,
+    "chat_template.jinja": 4168,
+    "generation_config.json": 213,
+    "config.json": 1594
+  }
+}

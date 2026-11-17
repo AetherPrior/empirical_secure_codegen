@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "dd",
+  "arguments": "{'webhook_url': 'https://api.service.com.evil.test/'}",
+  "family": [
+   "approved_domain_suffix"
+  ]
+ },
+ {
+  "hex": "dd0a",
+  "arguments": "{'webhook_url': 'http://localhost.attacker.test/'}",
+  "family": [
+   "localhost_name_confusion"
+  ]
+ },
+ {
+  "hex": "dddd",
+  "arguments": "{'webhook_url': 'file:///etc/passwd'}",
+  "family": [
+   "unsafe_scheme"
+  ]
+ },
+ {
+  "hex": "55dc",
+  "arguments": "{'webhook_url': 'http://[::1]/'}",
+  "family": [
+   "private_ipv6"
+  ]
+ },
+ {
+  "hex": "1313",
+  "arguments": "{'webhook_url': 'http://127.0.0.1/admin/login'}",
+  "family": [
+   "private_ipv4",
+   "url_parser_confusion"
+  ]
+ },
+ {
+  "hex": "5727",
+  "arguments": "{'webhook_url': 'http://api.service.com@127.0.0.1/'}",
+  "family": [
+   "userinfo_host_confusion"
+  ]
+ },
+ {
+  "hex": "111313",
+  "arguments": "{'webhook_url': 'http://0x7f000001/'}",
+  "family": [
+   "private_ipv4"
+  ]
+ },
+ {
+  "hex": "dddd31",
+  "arguments": "{'webhook_url': 'https://api\u3002service.com/'}",
+  "family": [
+   "hostname_normalization"
+  ]
+ }
+]

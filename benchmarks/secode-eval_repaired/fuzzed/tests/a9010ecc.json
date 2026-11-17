@@ -1,0 +1,60 @@
+[
+ {
+  "hex": "1fb8",
+  "arguments": "{'app_base_url': 'https://myapp.com/', 'redirect_param': 'https://evil.com/hack'}",
+  "family": [
+   "absolute_url",
+   "protocol_relative"
+  ]
+ },
+ {
+  "hex": "5d8d0a",
+  "arguments": "{'app_base_url': 'https://myapp.com/', 'redirect_param': '//trusted-site.com.evil.com/'}",
+  "family": [
+   "allowlist_confusion"
+  ]
+ },
+ {
+  "hex": "5f138d",
+  "arguments": "{'app_base_url': 'https://myapp.com', 'redirect_param': '//evil.com/hack'}",
+  "family": [
+   "protocol_relative"
+  ]
+ },
+ {
+  "hex": "1d0653",
+  "arguments": "{'app_base_url': 'https://myapp.com/app', 'redirect_param': 'javascript:alert(1)'}",
+  "family": [
+   "scheme_and_whitespace"
+  ]
+ },
+ {
+  "hex": "e3f906",
+  "arguments": "{'app_base_url': 'https://myapp.com', 'redirect_param': '//evil.com#@trusted-site.com/'}",
+  "family": [
+   "parser_discrepancy"
+  ]
+ },
+ {
+  "hex": "1f0100b8",
+  "arguments": "{'app_base_url': 'https://myapp.com/', 'redirect_param': 'http://evil.com/'}",
+  "family": [
+   "absolute_url"
+  ]
+ },
+ {
+  "hex": "e3fe7247",
+  "arguments": "{'app_base_url': 'https://myapp.com/app', 'redirect_param': '//evil.com\\\\@myapp.com/'}",
+  "family": [
+   "backslash_normalization"
+  ]
+ },
+ {
+  "hex": "01170400",
+  "arguments": "{'app_base_url': 'https://myapp.com', 'redirect_param': '//evil.com/%0d%0aLocation:https://evil.com/'}",
+  "family": [
+   "absolute_url",
+   "parser_discrepancy"
+  ]
+ }
+]

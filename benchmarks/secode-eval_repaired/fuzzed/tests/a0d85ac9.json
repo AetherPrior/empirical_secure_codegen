@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "3f",
+  "arguments": "{'input_expr': '().__class__.__mro__'}",
+  "family": [
+   "attribute_introspection"
+  ]
+ },
+ {
+  "hex": "d3d3",
+  "arguments": "{'input_expr': 'globals()'}",
+  "family": [
+   "builtin_namespace_access"
+  ]
+ }
+]

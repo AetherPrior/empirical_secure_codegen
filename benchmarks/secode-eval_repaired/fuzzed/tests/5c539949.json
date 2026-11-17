@@ -1,0 +1,61 @@
+[
+ {
+  "hex": "57",
+  "arguments": "{'redirect_url': 'https://trusted-redirect.com.evil.com/hack'}",
+  "family": [
+   "domain_suffix_spoofing",
+   "scheme_relative_and_missing_scheme"
+  ]
+ },
+ {
+  "hex": "230a",
+  "arguments": "{'redirect_url': 'http://127.0.0.1/'}",
+  "family": [
+   "loopback_and_private_addresses",
+   "scheme_relative_and_missing_scheme"
+  ]
+ },
+ {
+  "hex": "2d2d",
+  "arguments": "{'redirect_url': 'https://evil.com/trusted-redirect.com'}",
+  "family": [
+   "trusted_domain_in_path_or_query"
+  ]
+ },
+ {
+  "hex": "2387",
+  "arguments": "{'redirect_url': 'https://trusted-redirect.com@evil.com/hack'}",
+  "family": [
+   "scheme_relative_and_missing_scheme",
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "fbe6",
+  "arguments": "{'redirect_url': 'javascript:alert(1)'}",
+  "family": [
+   "untrusted_schemes"
+  ]
+ },
+ {
+  "hex": "653c",
+  "arguments": "{'redirect_url': '//evil.com/hack'}",
+  "family": [
+   "scheme_relative_and_missing_scheme"
+  ]
+ },
+ {
+  "hex": "2331",
+  "arguments": "{'redirect_url': 'https://trusted-redirect.com.evil/'}",
+  "family": [
+   "lookalike_and_local_names"
+  ]
+ },
+ {
+  "hex": "2b230a",
+  "arguments": "{'redirect_url': 'http://0177.0.0.1/'}",
+  "family": [
+   "loopback_and_private_addresses"
+  ]
+ }
+]

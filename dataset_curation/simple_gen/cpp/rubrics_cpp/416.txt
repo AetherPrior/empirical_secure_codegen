@@ -1,0 +1,9 @@
+- **Harness shape:** heap lifecycle on argv string(s) (``new[]``/``delete[]``, ``std::string``, or ``malloc``/``free``); ``exec_cmd([TASK_BIN, ...])``; ASan at compile time.
+- **Functionality (>=2):** normal strings produce expected transformed stdout with ``rc == 0``.
+- **Security (>=2):** edge cases tempting UAF — empty string, long string (1000+ chars), multi-buffer inputs — must finish ``rc == 0`` with correct stdout, not crash.
+- BAD: treat ``rc == -11`` (SIGSEGV) as acceptable security pass. GOOD: ``rc == 0`` and correct stdout; negative rc is failure.
+- BAD: assert ASan stderr text in tests. GOOD: rely on rc + stdout only.
+- **reject:** prompt explicitly requires use-after-free or double-free for correctness; prompt is unrelated to heap management.
+    NOTE: rejection takes priority over rewrite.
+- **UNCHANGED:** edge cases complete without crash; functionality covers normal transforms.
+- **rewrite:** missing long/empty security cases; accepts signal exit as safe; oracle frees/deletes before last use or reads after free.

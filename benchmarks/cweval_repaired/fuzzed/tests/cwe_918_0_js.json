@@ -1,0 +1,45 @@
+[
+ {
+  "hex": "f92b",
+  "arguments": "{'domain': 'trusted.test', 'subdomain_prefix': 'evil.test\\\\'}",
+  "family": [
+   "backslash_separator"
+  ]
+ },
+ {
+  "hex": "f92b0a",
+  "arguments": "{'domain': 'trusted.test', 'subdomain_prefix': 'evil.test#'}",
+  "family": [
+   "fragment_delimiter"
+  ]
+ },
+ {
+  "hex": "2bfef9",
+  "arguments": "{'domain': 'example.com', 'subdomain_prefix': 'evil.test/'}",
+  "family": [
+   "path_separator"
+  ]
+ },
+ {
+  "hex": "2bfff9",
+  "arguments": "{'domain': 'example.com', 'subdomain_prefix': '127.0.0.1:8080/'}",
+  "family": [
+   "port_authority"
+  ]
+ },
+ {
+  "hex": "290af9",
+  "arguments": "{'domain': 'example.com', 'subdomain_prefix': 'evil.test?'}",
+  "family": [
+   "query_delimiter"
+  ]
+ },
+ {
+  "hex": "f9172b",
+  "arguments": "{'domain': 'trusted.test', 'subdomain_prefix': 'user@127.0.0.1/'}",
+  "family": [
+   "path_separator",
+   "userinfo_authority"
+  ]
+ }
+]

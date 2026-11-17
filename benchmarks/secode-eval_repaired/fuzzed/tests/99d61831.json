@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "11",
+  "arguments": "{'input_content': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "1111",
+  "arguments": "{'input_content': '<body onload=alert(1)>'}",
+  "family": [
+   "html_injection"
+  ]
+ },
+ {
+  "hex": "112f",
+  "arguments": "{'input_content': '<script>alert(1)</script>'}",
+  "family": [
+   "script_element"
+  ]
+ }
+]

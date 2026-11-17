@@ -1,0 +1,62 @@
+[
+ {
+  "hex": "fd",
+  "arguments": "{'msg_identifier': 'msg_1001', 'crypto_sign': 'ABCD1234EFGH5678IJKL9012MNOP3456'}",
+  "family": [
+   "altered_format"
+  ]
+ },
+ {
+  "hex": "7d7d",
+  "arguments": "{'msg_identifier': 'msg_9999', 'crypto_sign': 'abcd1234efgh5678ijkl9012mnop3456'}",
+  "family": [
+   "signature_for_other_message",
+   "truncated_signature",
+   "unknown_identifier"
+  ]
+ },
+ {
+  "hex": "ffff",
+  "arguments": "{'msg_identifier': 'msg_1001', 'crypto_sign': 'abcd5678efgh1234ijkl9012mnop3456'}",
+  "family": [
+   "near_match"
+  ]
+ },
+ {
+  "hex": "ff2c",
+  "arguments": "{'msg_identifier': 'msg_1001', 'crypto_sign': 'abcd1234efgh5678ijkl9012mnop3456x'}",
+  "family": [
+   "extended_signature",
+   "signature_for_other_message",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "fd24",
+  "arguments": "{'msg_identifier': 'msg_1001', 'crypto_sign': ''}",
+  "family": []
+ },
+ {
+  "hex": "9597",
+  "arguments": "{'msg_identifier': 'msg_1001', 'crypto_sign': '1122aabbccdd3344eeff5566gggghhhh'}",
+  "family": [
+   "signature_for_other_message",
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "ff3d",
+  "arguments": "{'msg_identifier': 'msg_1001', 'crypto_sign': 'abcd1234efgh5678'}",
+  "family": [
+   "truncated_signature"
+  ]
+ },
+ {
+  "hex": "ff4dff",
+  "arguments": "{'msg_identifier': 'msg_1001', 'crypto_sign': '1122aabbccdd3344eeff5566gggghhhX'}",
+  "family": [
+   "near_match",
+   "truncated_signature"
+  ]
+ }
+]

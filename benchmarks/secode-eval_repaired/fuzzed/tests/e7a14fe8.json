@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "41",
+  "arguments": "{'equation': '().__class__ #'}",
+  "family": [
+   "attribute_introspection"
+  ]
+ }
+]

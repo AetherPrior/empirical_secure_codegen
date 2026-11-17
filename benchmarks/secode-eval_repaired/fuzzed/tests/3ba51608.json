@@ -1,0 +1,26 @@
+[
+ {
+  "hex": "75",
+  "arguments": "{'acting_user_id': 2, 'targeted_user_id': 1, 'new_privilege_level': 'admin'}",
+  "family": [
+   "privilege_escalation"
+  ]
+ },
+ {
+  "hex": "b1b1b1b1b1b1b1b1b1b1b1b1b1b1b10a",
+  "arguments": "{'acting_user_id': 3, 'targeted_user_id': 3, 'new_privilege_level': '11moderator11'}",
+  "family": [
+   "privilege_escalation",
+   "target_user"
+  ]
+ },
+ {
+  "hex": "b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b375",
+  "arguments": "{'acting_user_id': 2, 'targeted_user_id': 2, 'new_privilege_level': '33moderator33'}",
+  "family": [
+   "non_admin_actor",
+   "privilege_escalation",
+   "target_user"
+  ]
+ }
+]

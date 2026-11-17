@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "ffffffffffffffffffffffffffffffffffff28260100",
+  "arguments": "{'pat_id': 'P001', 'layout': '\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f{patient.__dict__[diagnosis]}\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f('}",
+  "family": [
+   "bulk_object_exposure"
+  ]
+ },
+ {
+  "hex": "ffffffffffffffffffffffffffff7fffffffffffffffff0b",
+  "arguments": "{'pat_id': 'P001', 'layout': '\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f{patient.diagnosis}\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f'}",
+  "family": [
+   "restricted_fields"
+  ]
+ }
+]

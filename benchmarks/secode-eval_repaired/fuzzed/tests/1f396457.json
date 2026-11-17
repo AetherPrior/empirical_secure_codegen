@@ -1,0 +1,63 @@
+[
+ {
+  "hex": "230a",
+  "arguments": "{'title': \"<iframe srcdoc='<script>alert(1)</script>'></iframe>\", 'description': 'Join us for an informative event.', 'date': '2025-04-18', 'extra_notes': 'Please arrive early.'}",
+  "family": [
+   "html_element_injection",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "2323",
+  "arguments": "{'title': '<script>alert(1)</script>', 'description': 'Join us for an informative event.', 'date': '2025-04-18', 'extra_notes': 'Please arrive early.'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "23a5",
+  "arguments": "{'title': '<img src=x onerror=alert(1)>', 'description': 'Join us for an informative event.', 'date': '2025-04-18', 'extra_notes': 'Please arrive early.'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "23232e",
+  "arguments": "{'title': '<details open ontoggle=alert(1)>', 'description': 'Join us for an informative event.', 'date': '2025-04-18', 'extra_notes': 'Please arrive early.'}",
+  "family": [
+   "html_element_injection"
+  ]
+ },
+ {
+  "hex": "b5b5b5b5b5b5b5b5b5b5b5b5b5b5b7b5b5b5",
+  "arguments": "{'title': '555555<svg onload=alert(1)>555557', 'description': '&lt;script&gt;alert(1)&lt;/script&gt;', 'date': '2025-04-18', 'extra_notes': 'Please arrive early.'}",
+  "family": [
+   "entity_obfuscation",
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "9fffa5ffffffffffffffffffffffffff2817",
+  "arguments": "{'title': '%\\x7f\\x7f\\x7f\\x7f\\x7f<script>alert(1)</script>\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f', 'description': '&lt;script&gt;alert(1)&lt;/script&gt;', 'date': '2025-04-18', 'extra_notes': 'Please arrive early.'}",
+  "family": [
+   "entity_obfuscation",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "efefefefefefefefefefefefefefefefeffa",
+  "arguments": "{'title': 'oooooo<details open ontoggle=alert(1)>oooooo', 'description': '&lt;script&gt;alert(1)&lt;/script&gt;', 'date': '2025-04-18', 'extra_notes': 'Please arrive early.'}",
+  "family": [
+   "entity_obfuscation",
+   "html_element_injection"
+  ]
+ },
+ {
+  "hex": "d5d5d5d5d5d5d5d5d5d5d531d5d5d5d5d5d5d5d5d57e",
+  "arguments": "{'title': 'UUUUUU<details open ontoggle=alert(1)>UU1UUU', 'description': 'U<svg onload=alert(1)>', 'date': '2025-04-18', 'extra_notes': 'Please arrive early.'}",
+  "family": [
+   "event_handler",
+   "html_element_injection"
+  ]
+ }
+]

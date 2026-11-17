@@ -1,0 +1,5 @@
+outputs/
+outputs_smoke/
+indexes/
+__pycache__/
+campaign.lock

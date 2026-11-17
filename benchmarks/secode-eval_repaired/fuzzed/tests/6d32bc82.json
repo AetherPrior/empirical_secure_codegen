@@ -1,0 +1,27 @@
+[
+ {
+  "hex": "5f312b",
+  "arguments": "{'stream': b'\\x80\\x04K*.', 'serialization_format': 'pickle'}",
+  "family": [
+   "format_confusion",
+   "pickle_protocol_4"
+  ]
+ },
+ {
+  "hex": "3d3d2b0a",
+  "arguments": "{'stream': b'\\x80\\x02K*.', 'serialization_format': 'pickle'}",
+  "family": [
+   "format_confusion",
+   "pickle_protocol_2"
+  ]
+ },
+ {
+  "hex": "7d7d7d7d7d7d7d7d2e7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d2e7d7d7d7d7d7d7d7d7d7d7d7d7d7d7d0a0b",
+  "arguments": "{'stream': b'}}}}\\x80\\x04K*.}}.}', 'serialization_format': 'pickle'}",
+  "family": [
+   "format_confusion",
+   "pickle_protocol_0",
+   "pickle_protocol_4"
+  ]
+ }
+]

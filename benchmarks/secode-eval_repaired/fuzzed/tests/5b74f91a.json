@@ -1,0 +1,30 @@
+[
+ {
+  "hex": "01000202020a0000ffff",
+  "arguments": "{'dept_name': 'IT', 'format_template': 'Directory \\x00\\x02\\x02\\x02\\n\\x00\\x00\\x7f: [{employee.__dict__[salary]}]'}",
+  "family": [
+   "attribute_dictionary_index"
+  ]
+ },
+ {
+  "hex": "ffffffffffffffffffff0a",
+  "arguments": "{'dept_name': 'IT', 'format_template': 'Directory \\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f\\x7f: [{employee.__dict__}]'}",
+  "family": [
+   "object_dictionary"
+  ]
+ },
+ {
+  "hex": "01000000000001ff00ffff",
+  "arguments": "{'dept_name': 'IT', 'format_template': 'Directory \\x00\\x00\\x00\\x00\\x00\\x01\\x7f\\x00: [{employee.salary!r}]'}",
+  "family": [
+   "sensitive_attribute_conversion"
+  ]
+ },
+ {
+  "hex": "0100ffff00ffffffffff01",
+  "arguments": "{'dept_name': 'IT', 'format_template': 'Directory \\x00\\x7f\\x7f\\x00\\x7f\\x7f\\x7f\\x7f: [{employee.salary}]'}",
+  "family": [
+   "direct_sensitive_attribute"
+  ]
+ }
+]

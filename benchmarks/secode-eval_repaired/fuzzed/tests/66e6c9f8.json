@@ -1,0 +1,10 @@
+[
+ {
+  "hex": "3b3f",
+  "arguments": "{'stream': b'\\x80\\x04\\x95\\x18\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x07command\\x94\\x8c\\x07execute\\x94s.', 'stream_format': 'pickle'}",
+  "family": [
+   "pickle_format_variants",
+   "pickle_payloads"
+  ]
+ }
+]

@@ -1,0 +1,14 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'request': {'headers': {'X-CSRF-Token': 'invalid'}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": [
+   "invalid_token"
+  ]
+ },
+ {
+  "hex": "0a23",
+  "arguments": "{'request': {'headers': {}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": []
+ }
+]

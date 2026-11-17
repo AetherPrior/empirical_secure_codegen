@@ -1,0 +1,63 @@
+{
+  "hf_home": "/workspace/hf_home",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "temperature": 0.6,
+  "top_p": 0.95,
+  "max_tokens": 16384,
+  "max_model_len": 40960,
+  "concurrency": 256,
+  "eval_workers": 64,
+  "gpu_memory_utilization": 0.92,
+  "enable_thinking": true,
+  "gpus": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "evaluation_workers_total": 128,
+  "baseline": "Outcome-Only-RL",
+  "jobs": [
+    {
+      "name": "Outcome-Only-RL_repaired_cweval",
+      "benchmark": "cweval",
+      "variant": "repaired",
+      "out": "/workspace/verisec/baselines_extended/Outcome-Only-RL/outputs/repaired/cweval",
+      "expected_samples": 300,
+      "languages": null,
+      "model": "/workspace/verisec/baselines_extended/Outcome-Only-RL/checkpoints/global_step_700",
+      "revision": null,
+      "model_label": "qwen3_8b_outcome_only_rl_step700_think",
+      "prepared_cases": null
+    },
+    {
+      "name": "Outcome-Only-RL_repaired_baxbench",
+      "benchmark": "baxbench",
+      "variant": "repaired",
+      "out": "/workspace/verisec/baselines_extended/Outcome-Only-RL/outputs/repaired/baxbench",
+      "expected_samples": 672,
+      "languages": null,
+      "model": "/workspace/verisec/baselines_extended/Outcome-Only-RL/checkpoints/global_step_700",
+      "revision": null,
+      "model_label": "qwen3_8b_outcome_only_rl_step700_think",
+      "prepared_cases": null
+    },
+    {
+      "name": "Outcome-Only-RL_repaired_seccodeplt",
+      "benchmark": "seccodeplt",
+      "variant": "repaired",
+      "out": "/workspace/verisec/baselines_extended/Outcome-Only-RL/outputs/repaired/seccodeplt",
+      "expected_samples": 2457,
+      "languages": null,
+      "model": "/workspace/verisec/baselines_extended/Outcome-Only-RL/checkpoints/global_step_700",
+      "revision": null,
+      "model_label": "qwen3_8b_outcome_only_rl_step700_think",
+      "prepared_cases": null
+    }
+  ],
+  "scope": "repaired only"
+}

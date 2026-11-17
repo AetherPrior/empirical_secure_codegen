@@ -1,0 +1,10 @@
+[
+ {
+  "hex": "5b",
+  "arguments": "{'user_id': 'USER2', 'user_role': 'viewer', 'project_id': 'PROJ001', 'new_settings': {'visibility': 'private'}}",
+  "family": [
+   "member_without_manager_role",
+   "non_manager_role"
+  ]
+ }
+]

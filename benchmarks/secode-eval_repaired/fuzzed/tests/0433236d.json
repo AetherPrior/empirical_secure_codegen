@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "2f",
+  "arguments": "{'external_url': 'https://api.service.com.evil.example/webhook'}",
+  "family": [
+   "allowlist_suffix_bypass"
+  ]
+ },
+ {
+  "hex": "e32b",
+  "arguments": "{'external_url': 'http://localhost/'}",
+  "family": [
+   "localhost_aliases"
+  ]
+ },
+ {
+  "hex": "410e",
+  "arguments": "{'external_url': 'http://127.0.0.1/admin/login'}",
+  "family": [
+   "parser_and_scheme_confusion",
+   "private_ipv4"
+  ]
+ },
+ {
+  "hex": "2f0a",
+  "arguments": "{'external_url': 'http://[::1]/'}",
+  "family": [
+   "ipv6_loopback"
+  ]
+ },
+ {
+  "hex": "5d5d",
+  "arguments": "{'external_url': 'http://127.0.0.1.nip.io/'}",
+  "family": [
+   "private_dns_names"
+  ]
+ },
+ {
+  "hex": "ffff",
+  "arguments": "{'external_url': 'http://api.service.com@127.0.0.1/admin'}",
+  "family": [
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "1919",
+  "arguments": "{'external_url': 'http://2130706433/'}",
+  "family": [
+   "encoded_and_numeric_ip"
+  ]
+ },
+ {
+  "hex": "5d9c",
+  "arguments": "{'external_url': '//127.0.0.1/admin'}",
+  "family": [
+   "parser_and_scheme_confusion"
+  ]
+ }
+]

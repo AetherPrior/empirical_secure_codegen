@@ -1,0 +1,32 @@
+[
+ {
+  "hex": "73",
+  "arguments": "{'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoxfQ.AAAA', 'key': ''}",
+  "family": [
+   "unverified_hs256"
+  ]
+ },
+ {
+  "hex": "3173",
+  "arguments": "{'token': 'eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJhIjoxfQ.', 'key': ''}",
+  "family": [
+   "unsigned_none"
+  ]
+ },
+ {
+  "hex": "730a73",
+  "arguments": "{'token': 'eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJhIjoxfQ.', 'key': 'wrong-key'}",
+  "family": [
+   "attacker_keys",
+   "unsigned_none"
+  ]
+ },
+ {
+  "hex": "010a010a",
+  "arguments": "{'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoxfQ.bm90LXZhbGlk', 'key': 'wrong-key'}",
+  "family": [
+   "attacker_keys",
+   "unverified_hs256"
+  ]
+ }
+]

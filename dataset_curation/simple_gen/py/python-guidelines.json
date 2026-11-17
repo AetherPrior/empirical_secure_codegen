@@ -1,0 +1,230 @@
+{
+    "CWE-1004": {
+        "guideline": "- Pyramid cookies should be handled securely by setting httponly=True. If this parameter is not properly set, your cookies are not properly protected and are at risk of being stolen by an attacker.\n- Pyramid cookies should be handled securely by setting httponly=True in response.set_cookie(...). If this parameter is not properly set, your cookies are not properly protected and are at risk of being stolen by an attacker.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-116": {
+        "guideline": "- If you are in a web context, enable 'autoescaping' by setting 'autoescape=True.' You may also consider using 'jinja2.select_autoescape()' to only enable automatic escaping for certain file extensions.\n- If you are in a web context, enable autoescaping by setting 'autoescape=True.' You may also consider using 'jinja2.select_autoescape()' to only enable automatic escaping for certain file extensions.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-1236": {
+        "guideline": "- `defusedcsv` is a drop-in replacement with the same API that will attempt to mitigate formula injection attempts. You can use `defusedcsv` instead of `csv` to safely generate CSVs.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-1275": {
+        "guideline": "- Pyramid cookies should be handled securely by setting samesite='Lax'. If this parameter is not properly set, your cookies are not properly protected and are at risk of being stolen by an attacker.\n- Pyramid cookies should be handled securely by setting samesite='Lax' in response.set_cookie(...). If this parameter is not properly set, your cookies are not properly protected and are at risk of being stolen by an attacker.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-1333": {
+        "guideline": "- check all regexes or use safer alternatives such as pyre2.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-155": {
+        "guideline": "- Consider a file named '-e sh script.sh' -- this will execute a script when 'rsync' is called.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-20": {
+        "guideline": "- Use $FORM.cleaned_data[] instead of request.POST[] after form.is_valid() has been executed to only access sanitized data\n- Vulnerabilities  that generally occur due to this issue are authentication bypasses,  password reset issues, Server-Side-Request-Forgery (SSRF), and many more. It is recommended to validate the URL before passing it to a  request library, or using application logic such as authentication  or password resets.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-200": {
+        "guideline": "- Ensure that private or sensitive information, is not included in the output. Only non-sensitive data should be present.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-22": {
+        "guideline": "- Ensure the user or request data is validated or sanitized, otherwise it could result in path traversal attacks and therefore sensitive data being leaked.\n - Consider using os.path.abspath or os.path.realpath or the pathlib library",
+        "data_source": "semgrep"
+    },
+    "CWE-250": {
+        "guideline": "- If unverified user data can reach the `run` or `create` method it can result in running arbitrary container.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-276": {
+        "guideline": "- These permissions `$BITS` are widely permissive and grant access to more people than may be necessary. A good default is `0o644` which gives read and write access to yourself and read access to everyone else.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-287": {
+        "guideline": "- Ensure that the JWT token is verified.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-295": {
+        "guideline": "- Certificate verification explicitly disabled, insecure connections possible\n- Re-enable certification validation.\n- Ensure you are using the API for your version of Python securely. For example, Python 3 versions prior to 3.4.3 will not verify SSL certificates by default.\n- Use 'ssl.create_default_context' instead.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-310": {
+        "guideline": "- Using an empty key in AES encryption can result in weak encryption and may allow attackers to easily decrypt sensitive data. Ensure that a strong, non-empty key is used for AES encryption.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-319": {
+        "guideline": "- It is recommended to use HTTPSConnectionPool instead for to encrypt communications.\n- 'OpenerDirector.open(...)' is being used with 'http://'. Use 'https://' instead to secure the channel.\n- Consider using SFTP instead. urllib does not support SFTP, so consider a library which supports SFTP.\n- Detected a 'urllib.request.Request()' object using an insecure transport protocol, 'http://'. This connection will not be encrypted. Use 'https://' instead.\n- Consider using SFTP instead. urllib does not support SFTP natively, so consider using a library which supports SFTP.\n- Consider using SFTP instead. urllib does not support SFTP, so consider switching to a library which supports SFTP.\n- 'URLopener.open(...)' is being used with 'http://'. Use 'https://' instead to secure the channel.\n- Use SFTP instead. urllib does not support SFTP, so consider using a library which supports SFTP.\n- 'URLopener.retrieve(...)' is being used with 'http://'. Use 'https://' instead to secure the channel.\n- Use SFTP instead. urllib does not support SFTP, so consider switching to a library which supports SFTP.\n- Initializing a security context for Dask (`distributed`) without \"require_encryption\" keyword argument may silently fail to provide security.\n- Telnet does not encrypt communications. Use SSH instead.\n- The 'FTP' class sends information unencrypted. Consider using the 'FTP_TLS' class instead.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-322": {
+        "guideline": "- Host keys should be verified to ensure the connection is not to a malicious server. Use RejectPolicy or a custom subclass instead.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-326": {
+        "guideline": "- Detected an insufficient key size for DSA. NIST recommends a key size of 2048 or higher.\n- NIST recommends a key size of 224 or higher.\n- Detected an insufficient key size for RSA. NIST recommends a key size of 2048 or higher.\n- Detected an insufficient key size for RSA. NIST recommends a key size of 3072 or higher.\n- use of 'set_ciphers()' should only be used when you have very specialized requirements. Otherwise, you risk lowering the security of the SSL channel.\n- create an SSL context using 'ssl.SSLContext()' and use that to wrap a socket.\n- TLS versions 1.0, 1.1, and all SSL versions are considered weak encryption and are deprecated. Use 'ssl.PROTOCOL_TLSv1_2' or higher.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-327": {
+        "guideline": "- MD2, MD4, MD5, SHA1 are not collision resistant and are therefore not suitable as a cryptographic signature. Use a modern hash algorithm from the SHA-2, SHA-3, or BLAKE2 family instead.\n- Do not explicitly use the 'none' algorithm. Instead, use an algorithm such as 'HS256'.\n- If hashing, use a suitable password hashing function such as scrypt. You can use `hashlib.scrypt`.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-330": {
+        "guideline": "- Consider using `uuid.uuid4()` instead for better randomness and security.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-352": {
+        "guideline": "- Do not globally disable automatic checks of cross-site request forgery tokens, which might leave views unprotected.\n- Do not set 'WTF_CSRF_ENABLED' to 'False'.\n- Create functions without @csrf_exempt, as that indicates no CSRF token is set for this route, which is a security risk.",
+        "data_source": "semgrep"
+    },
+    "CWE-477": {
+        "guideline": "- Warning MONGODB-CR was deprecated with the release of MongoDB 3.6 and is no longer supported by MongoDB 4.0 (see https://api.mongodb.com/python/current/examples/authentication.html for details).\n",
+        "data_source": "semgrep"
+    },
+    "CWE-489": {
+        "guideline": "- Hardcoded variable `DEBUG` detected. Set this by using FLASK_DEBUG environment variable\n- Hardcoded variable `ENV` detected. Set this by using FLASK_ENV environment variable\n- Hardcoded variable `SECRET_KEY` detected. Use environment variables or config files instead\n- Hardcoded variable `TESTING` detected. Use environment variables or config files instead\n- Do not deploy to production with this flag enabled as it will leak sensitive information. Instead, consider using Flask configuration variables or setting 'debug' using system environment variables.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-502": {
+        "guideline": "\n- Try to avoid serializing whole objects. Consider instead using a serializer such as JSON.\n- Avoid using insecure deserialization libraries, backed by `pickle`, `_pickle`, `cpickle`, `dill`, `shelve`, or `yaml`, which are known to lead to remote code execution vulnerabilities.\n- If yaml is a must, use `yaml.safe_load` or `yaml.SafeLoader` instead.\n- Never unmarshal data received from an untrusted or unauthenticated source.\n- For connection objects: unless the connection object was produced using Pipe() you should only use the recv() and send() methods after performing some sort of authentication.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-521": {
+        "guideline": "- '$VAR' is the empty string and is being used to set the password on '$MODEL'. If you meant to set an unusable password, set the password to None or call 'set_unusable_password()'.\n- Call django.contrib.auth.password_validation.validate_password() with validation functions before setting the password.\n- '$VAR' is using the empty string as its default and is being used to set the password on '$MODEL'. If you meant to set an unusable password, set the default value to 'None' or call 'set_unusable_password()'.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-522": {
+        "guideline": "- Do not store passwords in JWT tokens.\n- The object is passed strictly to jwt.encode(...) Make sure that sensitive information is not exposed through JWT token payload.\n- Consider using an appropriate security mechanism to protect the credentials (e.g. keeping secrets in environment variables)\n",
+        "data_source": "semgrep"
+    },
+    "CWE-523": {
+        "guideline": "- Authentication detected over HTTP. This connection will not be encrypted. Use 'https://' instead.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-532": {
+        "guideline": "- Make sure that the logger is not logging  sensitive information.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-553": {
+        "guideline": "- Semgrep found a Python reverse shell using $BINPATH to $IP at $PORT\n",
+        "data_source": "semgrep"
+    },
+    "CWE-601": {
+        "guideline": "- Ensure you are redirecting to safe URLs by validating the URL before redirecting.\n- If you must use a URL to unknown pages, consider using 'urlparse()' or similar and checking if the 'netloc' property is the same as your site's host name.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-611": {
+        "guideline": "- The Python documentation recommends using `defusedxml` instead of `xml` because the native Python `xml` library is vulnerable to XML External Entity (XXE) attacks. These attacks can leak confidential data and \"XML bombs\" can cause denial of service.",
+        "data_source": "semgrep"
+    },
+    "CWE-614": {
+        "guideline": "- If you want to let client-side JavaScript read the cookie, set httponly=False. If you want to attach cookies to requests for external sites, set samesite=None.\n- Pyramid cookies should be handled securely by setting secure=True. If this parameter is not properly set, your cookies are not properly protected and are at risk of being stolen by an attacker.\n- Pyramid cookies should be handled securely by setting secure=True in response.set_cookie(...). If this parameter is not properly set, your cookies are not properly protected and are at risk of being stolen by an attacker.\n- Include the `secure=True`, `httponly=True`, `samesite='Lax'` arguments or set these to be true in the Flask configuration.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-668": {
+        "guideline": "- top-level app.run(...) is ignored by flask. Consider putting app.run(...) behind a guard, like inside a function\n",
+        "data_source": "semgrep"
+    },
+    "CWE-673": {
+        "guideline": "- Function `flask.url_for` with `_external=True` argument will generate URLs using the `Host` header of the HTTP request, which may lead to security risks such as Host header injection\n",
+        "data_source": "semgrep"
+    },
+    "CWE-704": {
+        "guideline": "- Either cast to a different type, or add a guard checking for all capitalizations of the string 'nan'.\n- use a parameterized query which is available by default in most database engines. Alternatively, consider using an object-relational mapper (ORM) such as SQLAlchemy which will protect your queries.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-706": {
+        "guideline": "- Untrusted user input in `importlib.import_module()` function allows an attacker to load arbitrary code. Avoid dynamic values in `importlib.import_module()` or use a whitelist to prevent running untrusted code.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-73": {
+        "guideline": "- Make sure to properly sanitize filename or use `flask.send_from_directory`\n",
+        "data_source": "semgrep"
+    },
+    "CWE-74": {
+        "guideline": "- Found request data in an EmailMessage that is set to use HTML. An attacker could inject data into this HTML email, causing XSS. Consider sanitizing the data or using plain text emails instead.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-770": {
+        "guideline": "- Add rate-limiting to your application to prevent resource exhaustion attacks.\n- When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules.\n- Do not rely exclusively on looking for malicious or malformed inputs. This is likely to miss at least one undesirable input, especially if the code's environment changes.",
+        "data_source": "semgrep, MITRE"
+    },
+    "CWE-776": {
+        "guideline": "- xmlrpc is not inherently safe from vulnerabilities. Use defusedxml.xmlrpc instead.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-78": {
+        "guideline": "- In general, prefer to use Python API versions of system commands. If you must use subprocess, use a dictionary to allowlist a set of commands.\n- If you must use subprocess, use the 'subprocess' module instead of 'os' and pass the arguments as a list.\n- Audit the use of function calls to ensure it is not controllable by an external resource. You may consider using 'shlex.quote()' or 'shlex.escape()'.\n- Make sure no external content reaches the subprocess call when spawning a process. This is dangerous because it allows a malicious actor to execute commands.\n- Using `shell=False` means you have to split the command string into an array of strings for the command and its arguments. You may consider using 'shlex.split()' for this purpose.\n- Use 'ssl.create_default_context()' wherever necessary.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-79": {
+        "guideline": "You may be accidentally bypassing secure methods of rendering HTML by manually constructing HTML and this could create a cross-site scripting vulnerability, which could let attackers steal sensitive user data.\n- Check that the HTML is rendered safely. Otherwise, escape the HTML in a template (html.escape) to safely render HTML instead.\n- Ensure that the request data is properly escaped or sanitized.",
+        "data_source": "semgrep"
+    },
+    "CWE-798": {
+        "guideline": "- It is not recommended to store credentials in source-code, as this risks secrets being leaked and used by either an internal or external malicious adversary. It is recommended to use environment variables to securely provide credentials or retrieve credentials from a secure vault or HSM (Hardware Security Module).\n",
+        "data_source": "semgrep"
+    },
+    "CWE-862": {
+        "guideline": "- Use the access control capabilities of your operating system and server environment and define your access control lists accordingly. Use a \"default deny\" policy when defining these ACLs. \n- Ensure that access control checks are performed related to the business logic. These checks may be different than the access control checks that are applied to more generic resources such as files, connections, processes, memory, and database records.",
+        "data_source": "MITRE"
+    },
+    "CWE-863": {
+        "guideline": "- Use the access control capabilities of your operating system and server environment and define your access control lists accordingly. Use a \"default deny\" policy when defining these ACLs. \n- Ensure that access control checks are performed related to the business logic. These checks may be different than the access control checks that are applied to more generic resources such as files, connections, processes, memory, and database records.",
+        "data_source": "MITRE"
+    },
+    "CWE-89": {
+        "guideline": "- If user input enters this function, ensure it is properly sanitized. In order to prevent SQL injection, use parameterized queries instead. You can create parameterized queries like so: 'cur.execute(\"SELECT %s FROM table\", (user_value,))' or 'conn.fetch(\"SELECT $1 FROM table\", value)'. You can also create prepared statements with 'Connection.prepare': 'stmt = conn.prepare(\"SELECT $1 FROM table\"); await stmt.fetch(user_value)'",
+        "data_source": "semgrep"
+    },
+    "CWE-91": {
+        "guideline": "- Using non-constant TwiML (Twilio Markup Language) argument when creating a Twilio conversation could allow the injection of additional TwiML commands\n",
+        "data_source": "semgrep"
+    },
+    "CWE-915": {
+        "guideline": "- Assign each field you want to edit individually to prevent mass assignment.\n- use a parameterized query which is available by default in most database engines. Alternatively, consider using the Django object-relational mappers (ORM) instead of raw SQL queries.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-918": {
+        "guideline": "- This is called server-side request forgery, or SSRF. Do not allow arbitrary hosts. Instead, create an allowlist for approved hosts, or hardcode the correct host.\n- do not forward the response to the user, and ensure proper authentication and transport-layer security in the proxied request.",
+        "data_source": "semgrep"
+    },
+    "CWE-93": {
+        "guideline": "- a malicious actor could force rolling of critical log files, or cause a denial-of-service by using up available disk space. Instead, ensure that request data is properly escaped or sanitized.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-939": {
+        "guideline": "- urllib supports 'file://' schemes, so a dynamic value controlled by a malicious actor may allow them to read arbitrary files. Audit uses of urllib calls to ensure user data cannot control the URLs, or consider using the 'requests' library instead.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-94": {
+        "guideline": "- Reject/sanitize any input that does not strictly conform to specifications, or transform it into something that does. \n- Assume all input is malicious. Use an \"accept known good\" input validation strategy, i.e., use a list of acceptable inputs that strictly conform to specifications. \n- When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules.\n- Do not rely exclusively on looking for malicious or malformed inputs. This is likely to miss at least one undesirable input, especially if the code's environment changes. This can give attackers enough room to bypass the intended validation.\n- If you are dynamically constructing code that invokes a function, then verifying that the input is alphanumeric might be insufficient. An attacker might still be able to reference a dangerous function that you did not intend to allow, such as system(), exec(), or exit().\n- An adversary could still cause excessive memory or stack consumption via deeply nested structures, so the python documentation discourages use of ast.literal_eval() on untrusted data.\n",
+        "data_source": "MITRE"
+    },
+    "CWE-942": {
+        "guideline": "- Using this configuration, flask_cors will dynamically reflects the Origin of each request in the Access-Control-Allow-Origin header, allowing all origins and allowing cookies and credentials to be sent along with request. It is recommended to specify allowed origins instead of using \"*\" when setting 'support_credentials=True'.\n- CORS policy allows any origin (using wildcard '*'). This is insecure and should be avoided.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-943": {
+        "guideline": "- Explicitly assign query params instead of passing data from `$EVENT` directly to DynamoDB client.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-95": {
+        "guideline": "- Avoid having user data flowing into exec, as this is code injection.\n- eval() can be dangerous if used to evaluate dynamic content. Ensure evaluated content is not definable by external sources.\n- Annotations passed to `typing.get_type_hints` are evaluated in `globals` and `locals` namespaces. Make sure that no arbitrary value can be written as the annotation and passed to `typing.get_type_hints` function.\n- Prefer using the `verify()` argument over `listen()` to prevent unrecognized configurations.",
+        "data_source": "semgrep"
+    },
+    "CWE-96": {
+        "guideline": "- Refactor your code not to use 'globals()'.\n- Found a template created with string formatting. This is susceptible to server-side template injection and cross-site scripting attacks.\n- Do not use 'globals()'. Instead, specify each variable in a dictionary or 'django.template.Context' object, like '{\"var1\": \"hello\"}' and use that instead.\n- Do not use 'locals()'. Instead, specify each variable in a dictionary or 'django.template.Context' object, like '{\"var1\": \"hello\"}' and use that instead.\n",
+        "data_source": "semgrep"
+    },
+    "CWE-338": {
+        "guideline": "- The secrets module is used for generating cryptographically strong random numbers suitable for managing data such as passwords, account authentication, security tokens, and related secrets.\n- Secrets should be used in preference to the default pseudo-random number generator in the random module, which is designed for modelling and simulation, not security or cryptography.\n",
+        "data_source": "Python Software Foundation"
+    },
+    "CWE-377": {
+        "guideline": "- Use a safe temp file function.\n- Ensure that you use proper file permissions.\n- Temporary files should be writable and readable only by the process that owns the file.\n- Randomize temporary file names. This can also be achieved by using a safe temp-file function. This will ensure that temporary files will not be created in predictable places.\n",
+        "data_source": "MITRE"
+    }
+}

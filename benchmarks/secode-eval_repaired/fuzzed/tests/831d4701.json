@@ -1,0 +1,33 @@
+[
+ {
+  "hex": "4a",
+  "arguments": "{'uid': 'USER9', 'role': 'viewer', 'pid': 'PROJ002', 'settings': {'deadline': '2024-01-01'}}",
+  "family": [
+   "nonmember_identity",
+   "role_spoofing"
+  ]
+ },
+ {
+  "hex": "c7",
+  "arguments": "{'uid': 'USER2', 'role': 'viewer', 'pid': 'PROJ001', 'settings': {'deadline': '2024-01-01'}}",
+  "family": [
+   "member_without_permission",
+   "role_spoofing"
+  ]
+ },
+ {
+  "hex": "47",
+  "arguments": "{'uid': 'USER1 ', 'role': 'viewer', 'pid': 'PROJ001', 'settings': {'deadline': '2024-01-01'}}",
+  "family": [
+   "creator_identity_confusion",
+   "role_spoofing"
+  ]
+ },
+ {
+  "hex": "15ffff0a",
+  "arguments": "{'uid': 'USER9', 'role': 'project_manager\\x7f', 'pid': 'PROJ002', 'settings': {'deadline': '2024-01-01'}}",
+  "family": [
+   "nonmember_identity"
+  ]
+ }
+]

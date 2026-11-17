@@ -1,0 +1,41 @@
+[
+ {
+  "hex": "d1d1d1d1d1d1d1d17e",
+  "arguments": "{'target': 'https://attacker.invalid/QQQQQ', 'domain': ''}",
+  "family": [
+   "path_contains_domain"
+  ]
+ },
+ {
+  "hex": "d1d1d1d1d10000d1d17e",
+  "arguments": "{'target': 'https://example.com@attackerQQQQ.invalid', 'domain': 'example.com'}",
+  "family": [
+   "path_contains_domain",
+   "userinfo_contains_domain"
+  ]
+ },
+ {
+  "hex": "d1d1afd1d1d0d1d1267e",
+  "arguments": "{'target': 'https://example.com.attacker.invalidQQQPQ', 'domain': 'example.com'}",
+  "family": [
+   "hostname_suffix_substring",
+   "path_contains_domain"
+  ]
+ },
+ {
+  "hex": "31313131d1d1d13131d1",
+  "arguments": "{'target': 'https://evil-shop.test111QQ.invalid', 'domain': 'shop.test'}",
+  "family": [
+   "hostname_prefix_substring",
+   "path_contains_domain"
+  ]
+ },
+ {
+  "hex": "d1d1d1d1d1d1d1d10a7e",
+  "arguments": "{'target': 'https://attacker.invalid/?next=example.comQQQQQ', 'domain': 'example.com'}",
+  "family": [
+   "path_contains_domain",
+   "query_contains_domain"
+  ]
+ }
+]

@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "41",
+  "arguments": "{'username': '\" onmouseover=\"alert(1)'}",
+  "family": [
+   "attribute_breakout"
+  ]
+ },
+ {
+  "hex": "d126",
+  "arguments": "{'username': '<script>alert(1)</script>'}",
+  "family": [
+   "script_tag"
+  ]
+ },
+ {
+  "hex": "5b41",
+  "arguments": "{'username': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "event_handler"
+  ]
+ }
+]

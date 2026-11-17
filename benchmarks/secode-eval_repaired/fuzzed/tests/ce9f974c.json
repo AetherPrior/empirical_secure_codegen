@@ -1,0 +1,32 @@
+[
+ {
+  "hex": "6b",
+  "arguments": "{'owner_id': 'USER1 ', 'access_level': 'viewer', 'proj_id': 'PROJ001', 'modifications': {'visibility': 'public'}}",
+  "family": [
+   "creator_identity_near_miss",
+   "unauthorized_member_role"
+  ]
+ },
+ {
+  "hex": "6b0a",
+  "arguments": "{'owner_id': 'USER2', 'access_level': 'PROJECT_MANAGER', 'proj_id': 'PROJ001', 'modifications': {'visibility': 'public'}}",
+  "family": [
+   "role_confusion"
+  ]
+ },
+ {
+  "hex": "6b6b",
+  "arguments": "{'owner_id': 'USER2', 'access_level': 'team_member', 'proj_id': 'PROJ001', 'modifications': {'visibility': 'public'}}",
+  "family": [
+   "unauthorized_member_role"
+  ]
+ },
+ {
+  "hex": "09b50a",
+  "arguments": "{'owner_id': 'USER2', 'access_level': 'viewer,project_manager', 'proj_id': 'PROJ001', 'modifications': {'visibility': 'public'}}",
+  "family": [
+   "role_confusion",
+   "unauthorized_member_role"
+  ]
+ }
+]

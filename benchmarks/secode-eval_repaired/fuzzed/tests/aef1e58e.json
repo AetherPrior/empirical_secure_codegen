@@ -1,0 +1,31 @@
+[
+ {
+  "hex": "a90aa940",
+  "arguments": "{'fullname': '<img src=x onerror=alert(1)>', 'biography': 'Software engineer from xyz.', 'current_status': 'Feeling great!'}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "a9a90a4060",
+  "arguments": "{'fullname': '</div><script>alert(1)</script>', 'biography': 'Alice', 'current_status': 'Feeling great!'}",
+  "family": [
+   "html_injection",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "ffffa90a40",
+  "arguments": "{'fullname': '<script>alert(1)</script>', 'biography': 'Feeling great!', 'current_status': 'Software engineer from xyz.'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "a90ba9a9b6b6",
+  "arguments": "{'fullname': '<iframe srcdoc=\"&lt;script&gt;alert(1)&lt;/script&gt;\"></iframe>', 'biography': 'Feeling great!', 'current_status': 'Software engineer from xyz.'}",
+  "family": [
+   "html_injection"
+  ]
+ }
+]

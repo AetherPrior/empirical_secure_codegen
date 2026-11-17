@@ -1,0 +1,57 @@
+[
+ {
+  "hex": "130a0a2d",
+  "arguments": "{'cdn_origin_url': 'https://evil.org', 'content_id': 'exploit.png', 'content_kind': 'script'}",
+  "family": [
+   "external_origin",
+   "path_injection_id",
+   "path_injection_kind",
+   "scheme_relative_origin"
+  ]
+ },
+ {
+  "hex": "13b70a06b7",
+  "arguments": "{'cdn_origin_url': 'https://cdn.example.com@evil.org', 'content_id': 'abcd1234', 'content_kind': 'script'}",
+  "family": [
+   "userinfo_origin"
+  ]
+ },
+ {
+  "hex": "132a9d2d2d",
+  "arguments": "{'cdn_origin_url': 'https://cdn.example.com.evil.org', 'content_id': 'abcd1234', 'content_kind': 'script'}",
+  "family": [
+   "host_normalization",
+   "host_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "edf5eced2d",
+  "arguments": "{'cdn_origin_url': '//evil.org', 'content_id': 'abcd1234', 'content_kind': 'video'}",
+  "family": [
+   "path_injection_id",
+   "path_injection_kind",
+   "scheme_relative_origin"
+  ]
+ },
+ {
+  "hex": "13e90a0a0a2d",
+  "arguments": "{'cdn_origin_url': 'https://cdn.example.com%2eevil.org', 'content_id': 'exploit.png', 'content_kind': 'script'}",
+  "family": [
+   "host_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "133d140a0a2d",
+  "arguments": "{'cdn_origin_url': 'https://cdn.example.com', 'content_id': 'exploit.png', 'content_kind': '/../../evil.org'}",
+  "family": [
+   "path_injection_kind"
+  ]
+ },
+ {
+  "hex": "ed000800f521f5a8cf",
+  "arguments": "{'cdn_origin_url': 'https://cdn\u3002example.com', 'content_id': 'abcd1234', 'content_kind': 'video'}",
+  "family": [
+   "host_normalization"
+  ]
+ }
+]

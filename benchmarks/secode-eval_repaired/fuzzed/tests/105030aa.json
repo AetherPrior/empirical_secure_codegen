@@ -1,0 +1,31 @@
+[
+ {
+  "hex": "09",
+  "arguments": "{'header_value': '\\nInjected: 1'}",
+  "family": [
+   "bare_line_breaks"
+  ]
+ },
+ {
+  "hex": "0902",
+  "arguments": "{'header_value': '\\r\\nAnother-Bad-Header: injected'}",
+  "family": [
+   "crlf_header_injection"
+  ]
+ },
+ {
+  "hex": "5d5d",
+  "arguments": "{'header_value': 'value\\r\\n Injected: 1'}",
+  "family": [
+   "obsolete_line_folding"
+  ]
+ },
+ {
+  "hex": "c51111",
+  "arguments": "{'header_value': 'x\\r\\nInjected: 1'}",
+  "family": [
+   "bare_line_breaks",
+   "crlf_header_injection"
+  ]
+ }
+]

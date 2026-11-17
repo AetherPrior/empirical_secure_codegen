@@ -1,0 +1,44 @@
+[
+ {
+  "hex": "05",
+  "arguments": "{'python_code': 'globals()'}",
+  "family": [
+   "builtin_introspection"
+  ]
+ },
+ {
+  "hex": "055d",
+  "arguments": "{'python_code': '().__class__.__mro__'}",
+  "family": [
+   "dunder_attribute_access"
+  ]
+ },
+ {
+  "hex": "4141",
+  "arguments": "{'python_code': \"'{0.__class__}'.format(0)\"}",
+  "family": [
+   "format_attribute_access"
+  ]
+ },
+ {
+  "hex": "0506",
+  "arguments": "{'python_code': 'f\\'{__import__(\"os\").getcwd()}\\''}",
+  "family": [
+   "fstring_calls"
+  ]
+ },
+ {
+  "hex": "2f2f26",
+  "arguments": "{'python_code': 'eval(\\'__import__(\"os\").getcwd()\\')'}",
+  "family": [
+   "nested_eval"
+  ]
+ },
+ {
+  "hex": "5705ae",
+  "arguments": "{'python_code': \"__import__('os').getcwd()\"}",
+  "family": [
+   "dynamic_import"
+  ]
+ }
+]

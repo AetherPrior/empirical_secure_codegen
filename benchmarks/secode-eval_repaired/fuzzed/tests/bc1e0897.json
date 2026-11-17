@@ -1,0 +1,14 @@
+[
+ {
+  "hex": "870a",
+  "arguments": "{'query_str': \"open('/tmp/tmprqylsyjo/marker.txt', 'w').write('eval-injection')\"}",
+  "family": []
+ },
+ {
+  "hex": "3b08",
+  "arguments": "{'query_str': '().__class__.__mro__[1].__subclasses__()'}",
+  "family": [
+   "dunder_attribute_traversal"
+  ]
+ }
+]

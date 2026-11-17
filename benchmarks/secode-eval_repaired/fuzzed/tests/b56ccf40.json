@@ -1,0 +1,30 @@
+[
+ {
+  "hex": "07dc",
+  "arguments": "{'code_submission': \"open('/tmp/tmpzug8wi3t/user_code_marker', 'w').write('marker')\"}",
+  "family": []
+ },
+ {
+  "hex": "0107",
+  "arguments": "{'code_submission': 'eval(\"__import__(\\'os\\').system(\\'echo CWE94\\')\")'}",
+  "family": [
+   "code_execution",
+   "dynamic_import"
+  ]
+ },
+ {
+  "hex": "070f",
+  "arguments": "{'code_submission': \"__import__('os').system('echo CWE94')\"}",
+  "family": [
+   "dynamic_import"
+  ]
+ },
+ {
+  "hex": "077a",
+  "arguments": "{'code_submission': \"import os; os.system('echo CWE94')\"}",
+  "family": [
+   "command_execution",
+   "imports"
+  ]
+ }
+]

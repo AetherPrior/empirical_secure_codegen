@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "23",
+  "arguments": "{'url_input': 'https://trusted-redirect.com.evil.com/'}",
+  "family": [
+   "host_suffix_delimiter_confusion"
+  ]
+ },
+ {
+  "hex": "5106",
+  "arguments": "{'url_input': 'https://trusted-redirect.com@evil.com/hack'}",
+  "family": [
+   "userinfo_host_confusion"
+  ]
+ },
+ {
+  "hex": "2121",
+  "arguments": "{'url_input': 'https://trusted-redirect.com.evil.com/hack'}",
+  "family": [
+   "host_suffix_delimiter_confusion",
+   "trusted_domain_suffix"
+  ]
+ },
+ {
+  "hex": "a10a",
+  "arguments": "{'url_input': '//evil.com/hack'}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "a325",
+  "arguments": "{'url_input': 'HTTPS://EVIL.COM/hack'}",
+  "family": [
+   "scheme_and_host_case_variants"
+  ]
+ },
+ {
+  "hex": "0b32",
+  "arguments": "{'url_input': 'http://localhost/admin'}",
+  "family": [
+   "localhost_and_private_addresses"
+  ]
+ },
+ {
+  "hex": "0b20",
+  "arguments": "{'url_input': 'https://evil.com/trusted-redirect.com'}",
+  "family": [
+   "trusted_domain_in_path_or_query"
+  ]
+ },
+ {
+  "hex": "215321",
+  "arguments": "{'url_input': 'https://partner.com.attacker.invalid/hack'}",
+  "family": [
+   "trusted_domain_suffix"
+  ]
+ }
+]

@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "1353",
+  "arguments": "{'expression': \"(__import__('os').system('echo hacked'))\"}",
+  "family": [
+   "dynamic_import"
+  ]
+ },
+ {
+  "hex": "133e",
+  "arguments": "{'expression': '(().__class__.__mro__)'}",
+  "family": [
+   "dunder_introspection"
+  ]
+ },
+ {
+  "hex": "2f130a",
+  "arguments": "{'expression': \"(__builtins__['__import__']('os').getcwd())\"}",
+  "family": [
+   "builtin_access"
+  ]
+ }
+]

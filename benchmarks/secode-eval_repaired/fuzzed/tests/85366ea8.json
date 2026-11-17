@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "fd3b",
+  "arguments": "{'usr_cmd': 'ls\\nwhoami'}",
+  "family": [
+   "newline"
+  ]
+ },
+ {
+  "hex": "ffffffffff0a910a91",
+  "arguments": "{'usr_cmd': '\\x7f\\x7f\\nwhoami;date'}",
+  "family": [
+   "semicolon"
+  ]
+ }
+]

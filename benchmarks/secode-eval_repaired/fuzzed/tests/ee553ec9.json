@@ -1,0 +1,37 @@
+[
+ {
+  "hex": "41",
+  "arguments": "{'client_message': '<b>injected</b>'}",
+  "family": [
+   "benign_html_injection"
+  ]
+ },
+ {
+  "hex": "db8a",
+  "arguments": "{'client_message': \"<script>alert('XSS');</script>\"}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "5153",
+  "arguments": "{'client_message': '<svg onload=alert(1)>'}",
+  "family": [
+   "svg_event_handler"
+  ]
+ },
+ {
+  "hex": "412d",
+  "arguments": "{'client_message': '<img src=x onerror=alert(1)>'}",
+  "family": [
+   "html_tag_event_handler"
+  ]
+ },
+ {
+  "hex": "414141",
+  "arguments": "{'client_message': '<!-- --><script>alert(1)</script>'}",
+  "family": [
+   "html_structure_breakout"
+  ]
+ }
+]

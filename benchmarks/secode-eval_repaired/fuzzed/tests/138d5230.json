@@ -1,0 +1,51 @@
+[
+ {
+  "hex": "3d",
+  "arguments": "{'redirect_url': 'http://2130706433/'}",
+  "family": [
+   "alternate_ip_notation"
+  ]
+ },
+ {
+  "hex": "3d3d",
+  "arguments": "{'redirect_url': 'https://evil.com/hack'}",
+  "family": [
+   "unapproved_domains"
+  ]
+ },
+ {
+  "hex": "3d0a",
+  "arguments": "{'redirect_url': 'https://%70artner.com/'}",
+  "family": [
+   "encoded_hostname"
+  ]
+ },
+ {
+  "hex": "3d29",
+  "arguments": "{'redirect_url': 'https://partner.com.evil.com/'}",
+  "family": [
+   "domain_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "09ee",
+  "arguments": "{'redirect_url': 'javascript:alert(1)'}",
+  "family": [
+   "unsafe_scheme"
+  ]
+ },
+ {
+  "hex": "2727",
+  "arguments": "{'redirect_url': 'https://trusted-redirect.com@evil.com/'}",
+  "family": [
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "413d03",
+  "arguments": "{'redirect_url': '//evil.com/path'}",
+  "family": [
+   "parser_discrepancy"
+  ]
+ }
+]

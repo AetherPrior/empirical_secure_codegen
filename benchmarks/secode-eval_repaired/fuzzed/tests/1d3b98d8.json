@@ -1,0 +1,68 @@
+[
+ {
+  "hex": "2b0a",
+  "arguments": "{'cdn_url': 'https://evil.org', 'resource_identifier': 'abcd1234', 'resource_kind': 'image'}",
+  "family": [
+   "absolute_external_url",
+   "kind_url_injection",
+   "scheme_relative_authority"
+  ]
+ },
+ {
+  "hex": "79074a",
+  "arguments": "{'cdn_url': '//evil.org', 'resource_identifier': 'abcd1234', 'resource_kind': 'image'}",
+  "family": [
+   "kind_url_injection",
+   "scheme_relative_authority"
+  ]
+ },
+ {
+  "hex": "2b0aef",
+  "arguments": "{'cdn_url': 'https://cdn.example.com.evil.org', 'resource_identifier': 'abcd1234', 'resource_kind': 'script'}",
+  "family": [
+   "hostname_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "25313b",
+  "arguments": "{'cdn_url': '//evil.org/x', 'resource_identifier': 'abcd1234', 'resource_kind': 'script'}",
+  "family": [
+   "identifier_external_reference",
+   "kind_url_injection",
+   "scheme_relative_authority"
+  ]
+ },
+ {
+  "hex": "2b082e",
+  "arguments": "{'cdn_url': 'https://cdn.example.com@evil.org', 'resource_identifier': 'abcd1234', 'resource_kind': 'image'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "0f2a0f2a",
+  "arguments": "{'cdn_url': '//cdn.example.com%2eevil.org', 'resource_identifier': 'abcd1234', 'resource_kind': 'image'}",
+  "family": [
+   "parser_normalization"
+  ]
+ },
+ {
+  "hex": "2b47230a",
+  "arguments": "{'cdn_url': '//evil.org\\\\@cdn.example.com', 'resource_identifier': 'abcd1234', 'resource_kind': 'image'}",
+  "family": [
+   "kind_url_injection",
+   "scheme_relative_authority",
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "d5d5f7f7",
+  "arguments": "{'cdn_url': 'https://evil.org/x', 'resource_identifier': 'abcd1234', 'resource_kind': 'script'}",
+  "family": [
+   "absolute_external_url",
+   "identifier_external_reference",
+   "kind_url_injection",
+   "scheme_relative_authority"
+  ]
+ }
+]

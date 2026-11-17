@@ -1,0 +1,12 @@
+{
+  "baxbench": {
+    "python:3.12-alpine": {
+      "image_id": "sha256:09db1f0786a07d109f40e7954fbfcad6a911fd8b7d80ca1b67ea0fc0e1dad219",
+      "digest": "python@sha256:02a73ead8397e904cea6d17e18516f1df3590e05dc8823bd5b1c7f849227d272"
+    },
+    "node:22.12-alpine3.20": {
+      "image_id": "sha256:a4fcfaa787a5fceaa8e10a23041e57c84ca1b29ce4c5d2ca2c96de6efecb099b",
+      "digest": "node@sha256:027911463b296bdaf6df82b5ccf2c6b290fee725d5fba6513a037ed019400625"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'request_details': {'headers': {}, 'body': {'user_id': '1', 'new_phone': '111-222-3333'}}}",
+  "family": []
+ },
+ {
+  "hex": "f8c7",
+  "arguments": "{'request_details': {'headers': {'X-CSRF-Token': 'invalid'}, 'body': {'user_id': '1', 'new_phone': '111-222-3333'}}}",
+  "family": [
+   "forged_token"
+  ]
+ },
+ {
+  "hex": "0035a9",
+  "arguments": "{'request_details': {'headers': {'csrf-token': 'invalid'}, 'body': {'user_id': '1', 'new_phone': '111-222-3333'}}}",
+  "family": [
+   "forged_token",
+   "header_name_confusion"
+  ]
+ },
+ {
+  "hex": "f7ff29",
+  "arguments": "{'request_details': {'headers': {'X-CSRF-Token': ' secure_csrf_token'}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": [
+   "token_format_confusion"
+  ]
+ },
+ {
+  "hex": "f8a9a9a9a9a9a9c782b6",
+  "arguments": "{'request_details': {'headers': {'X-CSRF-Token': 'Bearer secure_csrf_token))))'}, 'body': {'user_id': '1', 'new_phone': '111-222-3333', 'csrf_token': 'invalid'}}}",
+  "family": [
+   "forged_token",
+   "token_format_confusion"
+  ]
+ }
+]

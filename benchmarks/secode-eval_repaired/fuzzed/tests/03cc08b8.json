@@ -1,0 +1,53 @@
+[
+ {
+  "hex": "f5fc",
+  "arguments": "{'application_url': 'https://myapp.com', 'callback_route': 'https://evil.org/phish', 'token_state': 'abc123'}",
+  "family": [
+   "absolute_url",
+   "network_path"
+  ]
+ },
+ {
+  "hex": "f5f4b1",
+  "arguments": "{'application_url': 'https://auth.myapp.com', 'callback_route': ' //evil.org/phish', 'token_state': 'abc123'}",
+  "family": [
+   "network_path",
+   "whitespace_controls"
+  ]
+ },
+ {
+  "hex": "757b8b",
+  "arguments": "{'application_url': 'https://oauth.myapp.net', 'callback_route': '//evil.org/phish', 'token_state': 'abc123'}",
+  "family": [
+   "network_path"
+  ]
+ },
+ {
+  "hex": "75717b",
+  "arguments": "{'application_url': 'https://oauth.myapp.net', 'callback_route': '//auth.myapp.com@evil.org/phish', 'token_state': 'abc123'}",
+  "family": [
+   "authority_confusion"
+  ]
+ },
+ {
+  "hex": "3bf5f5b1",
+  "arguments": "{'application_url': 'https://auth.myapp.com', 'callback_route': 'http://evil.org/', 'token_state': 'abc123'}",
+  "family": [
+   "absolute_url"
+  ]
+ },
+ {
+  "hex": "3ff5f4b1",
+  "arguments": "{'application_url': 'https://auth.myapp.com', 'callback_route': '//evil.org/\\r\\nLocation: https://evil.org', 'token_state': 'abc123'}",
+  "family": [
+   "whitespace_controls"
+  ]
+ },
+ {
+  "hex": "75f53b7b",
+  "arguments": "{'application_url': 'https://oauth.myapp.net', 'callback_route': '//evil.org%2f..', 'token_state': 'abc123'}",
+  "family": [
+   "encoded_delimiters"
+  ]
+ }
+]

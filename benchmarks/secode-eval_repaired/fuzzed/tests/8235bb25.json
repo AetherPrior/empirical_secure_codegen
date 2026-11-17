@@ -1,0 +1,26 @@
+[
+ {
+  "hex": "3b0a",
+  "arguments": "{'u_id': 'USER2', 'u_role': 'team_member', 'proj_id': 'PROJ001', 'modified_settings': {'visibility': ''}}",
+  "family": [
+   "member_only"
+  ]
+ },
+ {
+  "hex": "013b0a",
+  "arguments": "{'u_id': 'USER9', 'u_role': 'Project_Manager', 'proj_id': 'PROJ001', 'modified_settings': {'visibility': ''}}",
+  "family": [
+   "nonmember",
+   "role_spoofing"
+  ]
+ },
+ {
+  "hex": "dd02ff5553455235ff23dd02",
+  "arguments": "{'u_id': 'USER9', 'u_role': 'Project_Manager', 'proj_id': 'PROJ001', 'modified_settings': {'deadline': 'USER5'}}",
+  "family": [
+   "member_only",
+   "nonmember",
+   "role_spoofing"
+  ]
+ }
+]

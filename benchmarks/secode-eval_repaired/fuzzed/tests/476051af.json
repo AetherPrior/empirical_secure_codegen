@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "a3",
+  "arguments": "{'bin_data': b'(dp0\\nVkey\\np1\\nVauthorized\\np2\\ns.', 'format_type': 'pickle'}",
+  "family": [
+   "pickle_protocol_0"
+  ]
+ },
+ {
+  "hex": "4129",
+  "arguments": "{'bin_data': b'\\x80\\x04\\x95\\x17\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x03key\\x94\\x8c\\nauthorized\\x94s.', 'format_type': 'pickle'}",
+  "family": [
+   "pickle_protocol_4"
+  ]
+ },
+ {
+  "hex": "2f3d",
+  "arguments": "{'bin_data': b'\\x80\\x02}q\\x00X\\x03\\x00\\x00\\x00keyq\\x01X\\n\\x00\\x00\\x00authorizedq\\x02s.', 'format_type': 'pickle'}",
+  "family": [
+   "pickle_protocol_2"
+  ]
+ }
+]

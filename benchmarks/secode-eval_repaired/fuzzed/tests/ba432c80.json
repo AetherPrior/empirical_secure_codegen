@@ -1,0 +1,45 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'url': 'https://example.com/docs/report.pdf', 'sign_hash': ''}",
+  "family": []
+ },
+ {
+  "hex": "0505",
+  "arguments": "{'url': 'https://example.com/docs/invoice.pdf', 'sign_hash': '7d793037a0760186574b0282f2f435e7'}",
+  "family": [
+   "signature_for_other_document",
+   "signature_mutation"
+  ]
+ },
+ {
+  "hex": "0323",
+  "arguments": "{'url': 'https://example.com/docs/report.pdf', 'sign_hash': ' 7d793037a0760186574b0282f2f435e7'}",
+  "family": [
+   "signature_for_other_document",
+   "signature_mutation",
+   "signature_padding_or_case"
+  ]
+ },
+ {
+  "hex": "010a",
+  "arguments": "{'url': 'https://example.com/docs/report.pdf', 'sign_hash': '7d793037a0760186574b0282f2f435e'}",
+  "family": [
+   "signature_mutation"
+  ]
+ },
+ {
+  "hex": "050505",
+  "arguments": "{'url': 'https://example.com/docs/report.pdf', 'sign_hash': '9e107d9d372bb6826bd81d3542a419d6'}",
+  "family": [
+   "signature_for_other_document"
+  ]
+ },
+ {
+  "hex": "032303",
+  "arguments": "{'url': 'https://example.com/docs/report.pdf', 'sign_hash': '7D793037A0760186574B0282F2F435E7'}",
+  "family": [
+   "signature_padding_or_case"
+  ]
+ }
+]

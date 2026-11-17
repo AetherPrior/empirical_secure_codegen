@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "ed",
+  "arguments": "{'curr_user_id': 2, 'targ_user_id': 1, 'privilege_change': 'normal'}",
+  "family": [
+   "privilege_downgrade"
+  ]
+ },
+ {
+  "hex": "51f5510a",
+  "arguments": "{'curr_user_id': 3, 'targ_user_id': 2, 'privilege_change': 'admin'}",
+  "family": [
+   "privilege_escalation"
+  ]
+ }
+]

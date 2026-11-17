@@ -1,0 +1,52 @@
+[
+ {
+  "hex": "33",
+  "arguments": "{'api_endpoint': 'https://api.trustedsource.com.evil.example/data'}",
+  "family": [
+   "allowlist_suffix_and_prefix_confusion"
+  ]
+ },
+ {
+  "hex": "330a",
+  "arguments": "{'api_endpoint': 'http://127.0.0.1/secret'}",
+  "family": [
+   "direct_internal_hosts",
+   "scheme_and_parser_confusion"
+  ]
+ },
+ {
+  "hex": "334a",
+  "arguments": "{'api_endpoint': 'http://localhost./secret'}",
+  "family": [
+   "internal_hostname_variants"
+  ]
+ },
+ {
+  "hex": "3332",
+  "arguments": "{'api_endpoint': 'http://2130706433/secret'}",
+  "family": [
+   "alternate_ip_encodings"
+  ]
+ },
+ {
+  "hex": "5d06",
+  "arguments": "{'api_endpoint': 'https://api.trustedsource.com@127.0.0.1/secret'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "332f",
+  "arguments": "{'api_endpoint': '//127.0.0.1/secret'}",
+  "family": [
+   "scheme_and_parser_confusion"
+  ]
+ },
+ {
+  "hex": "ffff0a",
+  "arguments": "{'api_endpoint': 'http://192.168.1.10/private'}",
+  "family": [
+   "direct_internal_hosts"
+  ]
+ }
+]

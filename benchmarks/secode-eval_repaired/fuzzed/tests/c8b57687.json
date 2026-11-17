@@ -1,0 +1,66 @@
+[
+ {
+  "hex": "2b",
+  "arguments": "{'user_input': '<![CDATA[injection]]>'}",
+  "family": [
+   "cdata_markup"
+  ]
+ },
+ {
+  "hex": "2b32",
+  "arguments": "{'user_input': '--><x>injected</x><!--'}",
+  "family": [
+   "comment_injection",
+   "tag_injection"
+  ]
+ },
+ {
+  "hex": "2bff32",
+  "arguments": "{'user_input': '<!--injected-->'}",
+  "family": [
+   "comment_injection"
+  ]
+ },
+ {
+  "hex": "2b0100",
+  "arguments": "{'user_input': ']]><x>injected</x><![CDATA['}",
+  "family": [
+   "cdata_markup",
+   "tag_injection"
+  ]
+ },
+ {
+  "hex": "818181813231",
+  "arguments": "{'user_input': '\\x01\\x01<![CDATA[injection]]>'}",
+  "family": [
+   "cdata_markup",
+   "invalid_xml_character"
+  ]
+ },
+ {
+  "hex": "ffff00ffff2b",
+  "arguments": "{'user_input': '\\x00\\x7f<!--injected-->'}",
+  "family": [
+   "comment_injection",
+   "invalid_xml_character"
+  ]
+ },
+ {
+  "hex": "292b0000002900",
+  "arguments": "{'user_input': '\\x00\\x00\\x00]]><x>injected</x><![CDATA['}",
+  "family": [
+   "cdata_markup",
+   "invalid_xml_character",
+   "tag_injection"
+  ]
+ },
+ {
+  "hex": "0101070000002b",
+  "arguments": "{'user_input': '\\x07\\x00\\x00--><x>injected</x><!--'}",
+  "family": [
+   "comment_injection",
+   "invalid_xml_character",
+   "tag_injection"
+  ]
+ }
+]

@@ -1,0 +1,60 @@
+[
+ {
+  "hex": "31",
+  "arguments": "{'base_url': 'https://malicious-api.com', 'path': '/v1/data', 'params': None}",
+  "family": [
+   "unapproved_authority"
+  ]
+ },
+ {
+  "hex": "2571",
+  "arguments": "{'base_url': 'https://api.myservice.com@evil.example', 'path': '/v1/data', 'params': None}",
+  "family": [
+   "query_redirect_value",
+   "unapproved_authority"
+  ]
+ },
+ {
+  "hex": "0a716f",
+  "arguments": "{'base_url': 'https://api.myservice.com', 'path': '//evil.example/v1/data', 'params': None}",
+  "family": [
+   "authority_in_path",
+   "query_redirect_value",
+   "unapproved_authority"
+  ]
+ },
+ {
+  "hex": "310a717171",
+  "arguments": "{'base_url': 'https://api.myservice.com@evil.example', 'path': '/v1/data/../admin', 'params': None}",
+  "family": [
+   "endpoint_confusion",
+   "query_redirect_value",
+   "unapproved_authority"
+  ]
+ },
+ {
+  "hex": "0a1f71526f",
+  "arguments": "{'base_url': 'https://api.myservice.com', 'path': '//api.myservice.com.evil.example/v1/data', 'params': None}",
+  "family": [
+   "authority_in_path"
+  ]
+ },
+ {
+  "hex": "23002900eb00",
+  "arguments": "{'base_url': 'https://malicious-api.com', 'path': '/v1/data/../admin', 'params': None}",
+  "family": [
+   "endpoint_confusion",
+   "unapproved_authority"
+  ]
+ },
+ {
+  "hex": "ffffffffffffffff0a",
+  "arguments": "{'base_url': '\\\\\\\\evil.example\\\\v1\\\\data\\x7f\\x7f', 'path': '/v1/data?next=https://evil.example', 'params': None}",
+  "family": [
+   "authority_in_path",
+   "endpoint_confusion",
+   "query_redirect_value",
+   "unapproved_authority"
+  ]
+ }
+]

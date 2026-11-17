@@ -1,0 +1,44 @@
+{
+  "model": "Qwen/Qwen3-8B",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "dataset": "prosecalign/prosec-mixed-clm7b-inst",
+  "dataset_revision": "d4f17919b3d946bcd393d87c15dfecfa13aaf566",
+  "language": "all",
+  "pairs": 61166,
+  "data_sha256": "6782fa69074c32b3eb9f2f5139fb213d3c8a60bc830bc903477160c3b1eedabb",
+  "gpus": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "seed": 42,
+  "max_steps": 400,
+  "per_device_train_batch_size": 2,
+  "gradient_accumulation_steps": 8,
+  "effective_batch_size": 64,
+  "learning_rate": 5e-06,
+  "beta": 0.05,
+  "max_length": 4096,
+  "max_prompt_length": 2048,
+  "lora_r": 8,
+  "lora_alpha": 16,
+  "lora_dropout": 0.05,
+  "eval_ratio": 0.02,
+  "enable_thinking": false,
+  "precompute_ref_log_probs": false,
+  "notes": [
+    "400-step ProSec-style DPO adaptation to Qwen3-8B; all dataset languages, including Java",
+    "Fresh initialization from pinned base, not the superseded Python-only adapter",
+    "No BaxBench evaluation while on hold"
+  ],
+  "run_name": "qwen3_8b_prosec_all_400step",
+  "train_jsonl": "data/prosec_all.jsonl",
+  "language_counts": {
+    "python": 19079,
+    "c": 4264,
+    "java": 18558,
+    "javascript": 10078,
+    "cpp": 9187
+  }
+}

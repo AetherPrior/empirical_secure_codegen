@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "3d",
+  "arguments": "{'payload_bytes': b'\\x80\\x04]\\x94(K\\x01K\\x02e.', 'schema_type': 'pickle'}",
+  "family": [
+   "pickle_collection"
+  ]
+ },
+ {
+  "hex": "cf1b",
+  "arguments": "{'payload_bytes': b'\\x80\\x04\\x95\\x17\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x03key\\x94\\x8c\\nauthorized\\x94s.', 'schema_type': 'pickle'}",
+  "family": [
+   "pickle_protocol_4"
+  ]
+ },
+ {
+  "hex": "3d3d",
+  "arguments": "{'payload_bytes': b'(dp0\\nVkey\\np1\\nVunauthorized\\np2\\ns.', 'schema_type': 'pickle'}",
+  "family": [
+   "pickle_protocol_0"
+  ]
+ }
+]

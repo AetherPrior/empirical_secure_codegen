@@ -1,0 +1,41 @@
+[
+ {
+  "hex": "9b",
+  "arguments": "{'event_name': '<img src=x onerror=alert(1)>', 'description_of_event': 'Join us for an afternoon of food, games, and conversation.', 'date_of_event': '2025-06-14', 'notes_for_event': 'Please RSVP by Friday.'}",
+  "family": [
+   "event_handler_element"
+  ]
+ },
+ {
+  "hex": "9f02",
+  "arguments": "{'event_name': '<script>alert(1)</script>', 'description_of_event': 'Join us for an afternoon of food, games, and conversation.', 'date_of_event': '2025-06-14', 'notes_for_event': 'Please RSVP by Friday.'}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "1b371b",
+  "arguments": "{'event_name': '\"><iframe srcdoc=\"<script>alert(1)</script>\"></iframe>', 'description_of_event': 'Join us for an afternoon of food, games, and conversation.', 'date_of_event': '2025-06-14', 'notes_for_event': 'Please RSVP by Friday.'}",
+  "family": [
+   "script_element",
+   "tag_and_attribute_breakout"
+  ]
+ },
+ {
+  "hex": "5d2d2d9b",
+  "arguments": "{'event_name': '\"><iframe srcdoc=\"<script>alert(1)</script>\"></iframe>', 'description_of_event': '<img src=x onerror=alert(1)>', 'date_of_event': '2025-06-14', 'notes_for_event': 'Please RSVP by Friday.'}",
+  "family": [
+   "event_handler_element",
+   "script_element",
+   "tag_and_attribute_breakout"
+  ]
+ },
+ {
+  "hex": "9b9b2626",
+  "arguments": "{'event_name': '<script>alert(1)</script>', 'description_of_event': '<img src=x onerror=alert(1)>', 'date_of_event': '2025-06-14', 'notes_for_event': 'Please RSVP by Friday.'}",
+  "family": [
+   "event_handler_element",
+   "script_element"
+  ]
+ }
+]

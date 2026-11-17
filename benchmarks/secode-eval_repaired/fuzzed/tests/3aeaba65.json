@@ -1,0 +1,38 @@
+[
+ {
+  "hex": "2b",
+  "arguments": "{'iot_id': 'device001', 'crypto_signature': '1dcfa479db7aae3d40b3984cdf202de6', 'packet_info': {}}",
+  "family": [
+   "cross_device_signature"
+  ]
+ },
+ {
+  "hex": "292b",
+  "arguments": "{'iot_id': 'device001', 'crypto_signature': ' 89ebf76ae45bfcf6dd7f2aa3de8b20b3', 'packet_info': {}}",
+  "family": [
+   "cross_device_signature",
+   "signature_mutation",
+   "signature_whitespace"
+  ]
+ },
+ {
+  "hex": "3102",
+  "arguments": "{'iot_id': 'device001', 'crypto_signature': '', 'packet_info': {}}",
+  "family": []
+ },
+ {
+  "hex": "31e002",
+  "arguments": "{'iot_id': 'device001', 'crypto_signature': 'x89ebf76ae45bfcf6dd7f2aa3de8b20b3', 'packet_info': {}}",
+  "family": [
+   "cross_device_signature",
+   "signature_mutation"
+  ]
+ },
+ {
+  "hex": "df3102",
+  "arguments": "{'iot_id': 'device001', 'crypto_signature': '89ebf76ae45bfcf6dd7f2aa3de8b20b', 'packet_info': {}}",
+  "family": [
+   "signature_mutation"
+  ]
+ }
+]

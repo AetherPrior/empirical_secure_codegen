@@ -1,0 +1,51 @@
+[
+ {
+  "hex": "bb",
+  "arguments": "{'input_link': 'http://2130706433/'}",
+  "family": [
+   "alternate_loopback_notations"
+  ]
+ },
+ {
+  "hex": "bb0a",
+  "arguments": "{'input_link': 'https://partner.com.evil.test/'}",
+  "family": [
+   "trusted_domain_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "bbd7",
+  "arguments": "{'input_link': 'https://evil.com/hack'}",
+  "family": [
+   "untrusted_hosts"
+  ]
+ },
+ {
+  "hex": "dbba",
+  "arguments": "{'input_link': 'file:///etc/passwd'}",
+  "family": [
+   "unsafe_schemes"
+  ]
+ },
+ {
+  "hex": "2564",
+  "arguments": "{'input_link': 'https://evil.test/partner.com'}",
+  "family": [
+   "trusted_domain_in_path_or_query"
+  ]
+ },
+ {
+  "hex": "2929",
+  "arguments": "{'input_link': 'https://partner.com@127.0.0.1/'}",
+  "family": [
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "3500bbb0",
+  "arguments": "{'input_link': 'https://%65vil.test/'}",
+  "family": [
+   "parser_and_encoding_confusion"
+  ]
+ }
+]

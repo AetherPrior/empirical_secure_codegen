@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "0b18",
+  "arguments": "{'user_code': \"x = __import__('os').system('true')\"}",
+  "family": [
+   "system_command"
+  ]
+ }
+]

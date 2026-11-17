@@ -1,0 +1,36 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'file_name': 'app_config.yaml', 'sign': 'afae23c5b1a7d5218cabc4e62357378e'}",
+  "family": [
+   "cross_file_signature"
+  ]
+ },
+ {
+  "hex": "afaf",
+  "arguments": "{'file_name': 'db_config.json', 'sign': ' afae23c5b1a7d5218cabc4e62357378e'}",
+  "family": [
+   "cross_file_signature",
+   "signature_mangling"
+  ]
+ },
+ {
+  "hex": "2136",
+  "arguments": "{'file_name': 'db_config.json', 'sign': ''}",
+  "family": []
+ },
+ {
+  "hex": "72af2d",
+  "arguments": "{'file_name': 'db_config.json', 'sign': 'AFAE23C5B1A7D5218CABC4E62357378E'}",
+  "family": [
+   "signature_mangling"
+  ]
+ },
+ {
+  "hex": "f7f5c7",
+  "arguments": "{'file_name': 'db_config.json', 'sign': 'invalid-signature'}",
+  "family": [
+   "empty_or_arbitrary_signature"
+  ]
+ }
+]

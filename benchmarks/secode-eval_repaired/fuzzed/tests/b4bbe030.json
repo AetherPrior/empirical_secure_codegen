@@ -1,0 +1,9 @@
+[
+ {
+  "hex": "2bed",
+  "arguments": "{'expr': \"__import__('os').getcwd()\"}",
+  "family": [
+   "module_import"
+  ]
+ }
+]

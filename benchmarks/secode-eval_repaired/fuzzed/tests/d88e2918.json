@@ -1,0 +1,20 @@
+[
+ {
+  "hex": "0b",
+  "arguments": "{'member_id': 'USER2', 'role': 'team_member', 'project_key': 'PROJ001', 'updated_configuration': {'visibility': 'public'}}",
+  "family": [
+   "non_creator_member",
+   "non_privileged_role",
+   "project_id"
+  ]
+ },
+ {
+  "hex": "41955d",
+  "arguments": "{'member_id': 'USER2', 'role': 'PROJECT_MANAGER', 'project_key': 'PROJ001', 'updated_configuration': {'visibility': 'public'}}",
+  "family": [
+   "non_creator_member",
+   "project_id",
+   "role_spelling_confusion"
+  ]
+ }
+]

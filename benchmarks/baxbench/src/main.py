@@ -1,0 +1,466 @@
+import argparse
+import pathlib
+
+import docker
+
+from env import all_envs
+from env.aider_envs import all_aider_envs
+from env.openhands_envs import all_openhands_envs
+from env.base import Env
+from print import tasks_and_results_to_table, tasks_and_results_to_table_averages, save_results_as_json
+from scenarios import all_scenarios
+from scenarios.base import Scenario
+from tasks import Task, TaskHandler
+from dataclasses import dataclass
+from typing import Optional, Any
+
+@dataclass
+class ExtraArgs:
+    agent_backend: Optional[str] = "api"
+    agent_api_base: Optional[str] = None
+    agent_service_tier: Optional[str] = None
+    codex_reasoning_effort: Optional[str] = "none"
+    claude_effort: Optional[str] = "low"
+    agent_max_budget_usd: Optional[float] = None
+    agent_timeout: Optional[int] = 600
+    reasoning_effort: Optional[str] = None
+    max_thinking_tokens: Optional[int] = None
+    openhands_timeout: Optional[int] = 300
+    openhands_max_iterations: Optional[int] = 50
+    agent_port: Optional[int] = None
+    container: Optional[docker.models.containers.Container] = None
+    llm_model: Optional[str] = None
+    vllm: Optional[bool] = False
+    completions: Optional[bool] = False
+    trace_csv: Optional[str] = None
+    intervention_str: Optional[str] = None
+    custom_system_prompt: Optional[str] = None
+    no_system_prompt: Optional[bool] = False
+
+
+def esc(text: str):
+    return text.replace('/','-').replace('_','-')
+
+def select_agent_envs(args: argparse.Namespace, agent_name: str) -> list[Env]:
+    agent2dict = {
+        "aider": all_aider_envs,
+        "openhands": all_openhands_envs,
+    }
+    args_envs = args.envs if args.envs else []
+    if args_envs:
+        envs = [e for e in agent2dict[agent_name] if e.id in args_envs]
+    envs = sorted(envs, key=lambda e: e.id)
+    if not envs:
+        raise Exception(
+            f"Got an empty/invalid list of agent envs, possible choices: {[e.id for e in agent2dict[agent_name]]}",
+        )
+    return envs
+
+
+def select_envs(args: argparse.Namespace, is_agent_test: bool = False) -> list[Env]:
+    envs = all_envs
+
+    args_envs = args.envs if args.envs else []
+    
+    if args_envs:
+        envs = [e for e in all_envs if e.id in args_envs]
+
+    envs = sorted(envs, key=lambda e: e.id)
+    if not envs:
+        raise Exception(
+            f"Got an empty/invalid list of envs, possible choices: {[e.id for e in all_envs]}",
+        )
+    return envs
+
+
+def select_scenarios(args: argparse.Namespace) -> list[Scenario]:
+    scenarios = all_scenarios
+    if args.scenarios:
+        scenarios = [e for e in all_scenarios if e.id in args.scenarios]
+    scenarios = sorted(scenarios, key=lambda s: s.id)
+    if not scenarios:
+        raise Exception(
+            f"Got an empty/invalid list of scenarios, possible choices: {[s.id for s in all_scenarios]}",
+        )
+    return scenarios
+
+
+def main(args: argparse.Namespace) -> None:
+
+    # def parse_kv_pairs(pairs: Optional[list[str]]) -> dict[str, Any]:
+    #     if not pairs:
+    #         return {}
+    #     out = {}
+    #     for pair in pairs:
+    #         key, value = pair.split("=", 1)
+    #         try:
+    #             out[key] = eval(value)  # convert numbers, bools, etc.
+    #         except Exception:
+    #             out[key] = value
+    #     return out
+    
+    # args.extra_args = parse_kv_pairs(args.extra_args)
+    args.extra_args = ExtraArgs(**args.extra_args)
+
+    # print all args
+    print("Running with args:")
+    for arg, val in vars(args).items():
+        print(f"  {arg}: {val}")
+    # ----- Run tasks -----#
+    # Validate spec_type
+    if "agent" in args.spec_type and args.models[0] not in ['aider','openhands','swe-agent']:
+        raise Exception("Bad specification type as model is not an agent!")
+
+    if args.mode == "generate":
+        # ----- Preparation -----#
+        if "openhands" in args.models[0].lower() or "aider" in args.models[0].lower():
+            envs = select_agent_envs(args, agent_name=args.models[0])
+        else:
+            envs = select_envs(args)
+        scenarios = select_scenarios(args)
+
+        if args.only_samples:
+            samples = args.only_samples
+        else:
+            samples = list(range(args.n_samples))
+
+        tasks = sorted(
+            [
+                Task(
+                    env=env,
+                    scenario=scenario,
+                    model=model,
+                    temperature=args.temperature,
+                    spec_type=args.spec_type,
+                    safety_prompt=args.safety_prompt,
+                    openrouter=args.openrouter,
+                    extra_args=args.extra_args,
+                )
+                for env in envs
+                for scenario in scenarios
+                for model in args.models
+            ],
+            key=lambda t: t.id,
+        )
+        task_handler = TaskHandler(
+            tasks=tasks,
+            results_dir=args.results_dir,
+            max_concurrent_runs=args.max_concurrent_runs,
+        )
+        task_handler.run_generation(
+            batch_size=args.n_samples,
+            max_retries=args.max_retries,
+            base_delay=args.base_delay,
+            max_delay=args.max_delay,
+            force=args.force,
+            openrouter=args.openrouter,
+        )
+        
+    elif args.mode == "test":
+        # ----- Preparation -----#
+        envs = select_envs(args)
+        scenarios = select_scenarios(args)
+
+        print("Selected envs:", [e.id for e in envs])
+        print("Entrypoints:", [e.entrypoint_cmd for e in envs])
+        
+        if args.only_samples:
+            samples = args.only_samples
+        else:
+            samples = list(range(args.n_samples))
+
+        tasks = sorted(
+            [
+                Task(
+                    env=env,
+                    scenario=scenario,
+                    model=model,
+                    temperature=args.temperature,
+                    spec_type=args.spec_type,
+                    safety_prompt=args.safety_prompt,
+                    openrouter=args.openrouter,
+                    extra_args=args.extra_args
+                )
+                for env in envs
+                for scenario in scenarios
+                for model in args.models
+            ],
+            key=lambda t: t.id,
+        )
+
+        task_handler = TaskHandler(
+            tasks=tasks,
+            results_dir=args.results_dir,
+            max_concurrent_runs=args.max_concurrent_runs,
+        )
+        task_handler.run_tests(
+            samples=samples,
+            timeout=args.timeout,
+            num_ports=args.num_ports,
+            min_port=args.min_port,
+            force=args.force,
+        )
+
+    elif args.mode == "evaluate":
+        # ----- Preparation -----#
+        envs = select_envs(args)
+        scenarios = select_scenarios(args)
+
+        if args.only_samples:
+            samples = args.only_samples
+        else:
+            samples = list(range(args.n_samples))
+
+        tasks = sorted(
+            [
+                Task(
+                    env=env,
+                    scenario=scenario,
+                    model=model,
+                    temperature=args.temperature,
+                    spec_type=args.spec_type,
+                    safety_prompt=args.safety_prompt,
+                    openrouter=args.openrouter,
+                    extra_args=args.extra_args
+                )
+                for env in envs
+                for scenario in scenarios
+                for model in args.models
+            ],
+            key=lambda t: t.id,
+        )
+
+        task_handler = TaskHandler(
+            tasks=tasks,
+            results_dir=args.results_dir,
+            max_concurrent_runs=args.max_concurrent_runs,
+        )
+        r = task_handler.evaluate_results(
+            ks=args.ks,
+            samples=samples,
+        )
+        print(tasks_and_results_to_table_averages(r))
+        print()
+        print(tasks_and_results_to_table(r, verbose=False))
+        reasoning_effort = args.extra_args.reasoning_effort if args.extra_args.reasoning_effort else "None"
+        save_results_as_json(r, 
+                             filename=pathlib.Path(args.results_dir, f"overall_results_{esc(args.models[0])}_{args.temperature}_{args.spec_type}_{args.safety_prompt}_{reasoning_effort}.json"), 
+                             include_samples=True,
+                             verbose=True)
+    else:
+        raise Exception(f"Invalid mode: {args.mode}")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--models", type=str, nargs="+", required=True, help="List of models"
+    )
+    parser.add_argument(
+        "--mode",
+        type=str,
+        choices=[
+            "generate",
+            "test",
+            "evaluate",
+        ],
+        required=True,
+        help="Mode in which to run the code",
+    )
+    parser.add_argument(
+        "--temperature", type=float, default=0.2, help="Temperature for sampling"
+    )
+    parser.add_argument(
+        "--n_samples",
+        type=int,
+        default=5,
+        help="The number of samples to generate or test. Will index from 0.",
+    )
+    parser.add_argument(
+        "--only_samples",
+        type=int,
+        nargs="+",
+        default=None,
+        help="If given, it will restrict operations to these sample indices.",
+    )
+    parser.add_argument(
+        "--ks", type=int, nargs="+", default=[1, 5], help="List of k for pass@k score."
+    )
+    parser.add_argument(
+        "--envs",
+        type=str,
+        default=None,
+        nargs="+",
+        help="List of environments (if empty, then all environments are used)",
+    )
+    parser.add_argument(
+        "--scenarios",
+        type=str,
+        default=None,
+        nargs="+",
+        help="List of scenarios (if empty, then all scenarios are used)",
+    )
+    parser.add_argument(
+        "--spec_type",
+        choices=["openapi", "text", "agent_openapi"],
+        default="openapi",
+        type=str,
+        help="The type of specifications to use.",
+    )
+    parser.add_argument(
+        "--safety_prompt",
+        choices=["none", "generic", "specific", "cweEnumerate", "policyEnumerate", "dataflowEnumerate"],
+        default="none",
+        type=str,
+        help="The type of additional safety cue to use.",
+    )
+    parser.add_argument(
+        "--results_dir",
+        type=pathlib.Path,
+        default=pathlib.Path(__file__).parent.parent / "results",
+        help="Directory to save the results",
+    )
+    parser.add_argument(
+        "--max_concurrent_runs",
+        type=int,
+        default=None,
+        help="Maximum number of concurrent runs",
+    )
+    parser.add_argument(
+        "--timeout",
+        type=int,
+        default=300,
+        help="Timeout for each test run in seconds.",
+    )
+    parser.add_argument(
+        "--num_ports",
+        type=int,
+        default=10000,
+        help="Number of ports to use for docker containers",
+    )
+    parser.add_argument(
+        "--min_port",
+        type=int,
+        default=12345,
+        help="Minimum port number to use for docker containers",
+    )
+    parser.add_argument(
+        "--max_retries",
+        type=int,
+        default=20,
+        help="Maximum number of retries for backoff during generation",
+    )
+    parser.add_argument(
+        "--base_delay",
+        type=float,
+        default=1.0,
+        help="Base delay for backoff during generation",
+    )
+    parser.add_argument(
+        "--max_delay",
+        type=float,
+        default=128.0,
+        help="Maximum delay for backoff during generation",
+    )
+    parser.add_argument(
+        "--force",
+        "-f",
+        action="store_true",
+        help="Force generation even if the file already exists",
+    )
+    parser.add_argument(
+        "--openrouter",
+        action="store_true",
+        help="Route requests through OpenRouter",
+    )
+    # parser.add_argument(
+    #     "--llm_model",
+    #     type=str,
+    #     default=None,
+    #     help="LLM model to use for agents that support it (e.g., 'gpt-4o', 'gpt-5-mini-2025-08-07')",
+    # )
+    # parser.add_argument(
+    #     "--max_thinking_tokens",
+    #     type=int,
+    #     default=None, 
+    #     help="Maximum thinking budget for LLMs"
+    # )
+    # parser.add_argument(
+    #     "--vllm",
+    #     action="store_true",
+    #     help="Use VLLM for inferencing (for local models only)"
+    # )
+    extra_parser = argparse.ArgumentParser(add_help=False)
+    extra_parser.add_argument(
+        "--agent_backend", "--backend", dest="agent_backend",
+        choices=["api", "codex", "claude"], default="api",
+        help="Use direct API or a coding-agent CLI for generation.",
+    )
+    extra_parser.add_argument("--agent_api_base", type=str, default=None)
+    extra_parser.add_argument("--agent_service_tier", type=str, default=None)
+    extra_parser.add_argument(
+        "--codex_reasoning_effort",
+        choices=["none", "low", "medium", "high", "xhigh", "max"],
+        default="none",
+    )
+    extra_parser.add_argument(
+        "--claude_effort",
+        choices=["low", "medium", "high", "xhigh", "max"],
+        default="low",
+    )
+    extra_parser.add_argument("--agent_max_budget_usd", type=float, default=None)
+    extra_parser.add_argument("--agent_timeout", type=int, default=600)
+    extra_parser.add_argument(
+        "--reasoning_effort", type=str, choices=["low", "medium", "high"]
+    )
+    extra_parser.add_argument(
+        "--max_thinking_tokens", type=int, default=None, help="Maximum thinking budget for LLMs"
+    )
+    extra_parser.add_argument(
+        "--openhands_timeout", type=int, default=300, help="Timeout for OpenHands agents"
+    )
+    extra_parser.add_argument(
+        "--openhands_max_iterations", type=int, default=50, help="Max iterations for    OpenHands agents"
+    )
+    extra_parser.add_argument(
+        "--agent_port", type=int, default=None, help="Port for agent server"
+    ) 
+    extra_parser.add_argument(
+        "--container", type=str, default=None, help="Docker container ID"
+    )
+    extra_parser.add_argument(
+        "--llm_model", type=str, default=None, help="LLM model to use for agents that support it (e.g., 'gpt-4o', 'gpt-5-mini-2025-08-07')"
+    )
+    extra_parser.add_argument(
+        "--vllm", action="store_true", help="Use VLLM for inferencing (for local models only)"
+    )
+    extra_parser.add_argument(
+        "--completions", action="store_true", help="Use completions API instead of chat completions"
+    )
+    extra_parser.add_argument(
+        "--trace_csv", type=str, default=None, help="Path to trace CSV for interventions"
+    )
+    extra_parser.add_argument(
+        "--intervention_str", type=str, default="Wait,", help="Intervention string to insert"
+    )
+    extra_parser.add_argument(
+        "--custom_system_prompt", type=str, default=None, help="Custom system prompt to use"
+    )
+    extra_parser.add_argument(
+        "--no_system_prompt", action="store_true", help="Do not send a system message"
+    )
+    # extra_parser.add_argument(
+    #     "--extra_args",
+    #     type=str,
+    #     nargs="+",
+    #     default=None,
+    #     help="Additional extra args as key=value pairs",
+    # )
+    args, remaining = parser.parse_known_args()
+    extra_args, _ = extra_parser.parse_known_args(remaining)
+    for key, value in vars(extra_args).items():
+        if not hasattr(args, "extra_args"):
+            args.extra_args = {}
+        args.extra_args[key] = value
+
+    main(args)

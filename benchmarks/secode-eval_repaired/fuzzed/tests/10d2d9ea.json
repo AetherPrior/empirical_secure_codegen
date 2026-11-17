@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "0d2f29",
+  "arguments": "{'expression': '__builtins__'}",
+  "family": [
+   "bare_name"
+  ]
+ },
+ {
+  "hex": "0d0a0d2e",
+  "arguments": "{'expression': \"__import__('os').getcwd()\"}",
+  "family": [
+   "module_import"
+  ]
+ }
+]

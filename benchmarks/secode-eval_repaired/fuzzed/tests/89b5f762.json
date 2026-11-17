@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "15",
+  "arguments": "{'patient_id': 'P001', 'report_template': 'Patient: {patient.name}, Details: {patient.__dict__}'}",
+  "family": [
+   "attribute_traversal"
+  ]
+ },
+ {
+  "hex": "150a",
+  "arguments": "{'patient_id': 'P001', 'report_template': 'Patient: {patient.name}, Details: {patient.diagnosis}'}",
+  "family": [
+   "direct_diagnosis"
+  ]
+ }
+]

@@ -1,0 +1,29 @@
+[
+ {
+  "hex": "0a",
+  "arguments": "{'client_request': {'headers': {}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": []
+ },
+ {
+  "hex": "233d0a",
+  "arguments": "{'client_request': {'headers': {'Cookie': 'secure_csrf_token'}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": [
+   "header_source_confusion"
+  ]
+ },
+ {
+  "hex": "3bf90f",
+  "arguments": "{'client_request': {'headers': {'X-CSRF-Token': ' secure_csrf_token'}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": [
+   "header_source_confusion",
+   "token_tampering"
+  ]
+ },
+ {
+  "hex": "8f0ff9",
+  "arguments": "{'client_request': {'headers': {'X-CSRF-Token': 'invalid'}, 'body': {'user_id': '1', 'new_phone': '098-765-4321'}}}",
+  "family": [
+   "token_tampering"
+  ]
+ }
+]

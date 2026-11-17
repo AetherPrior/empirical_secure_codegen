@@ -1,0 +1,24 @@
+[
+ {
+  "hex": "dbf5",
+  "arguments": "{'u_id': 'USER3', 'u_role': 'account_owner', 'source_account': 'ACC002', 'destination_account': 'ACC001', 'money': 1.0}",
+  "family": [
+   "owner_identity_mismatch"
+  ]
+ },
+ {
+  "hex": "ed0a0a",
+  "arguments": "{'u_id': 'USER3', 'u_role': 'account_owner ', 'source_account': 'ACC001', 'destination_account': 'ACC002', 'money': 1.0}",
+  "family": [
+   "owner_identity_mismatch",
+   "role_format_confusion"
+  ]
+ },
+ {
+  "hex": "ed230a",
+  "arguments": "{'u_id': 'USER1', 'u_role': 'customer_service', 'source_account': 'ACC001', 'destination_account': 'ACC002', 'money': 1.0}",
+  "family": [
+   "unauthorized_role"
+  ]
+ }
+]

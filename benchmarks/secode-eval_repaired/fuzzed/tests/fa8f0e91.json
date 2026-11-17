@@ -1,0 +1,48 @@
+[
+ {
+  "hex": "2f",
+  "arguments": "{'username': '<img src=x onerror=alert(1)>', 'post_title': 'JohnDoe', 'post_body': 'JohnDoe', 'tags': []}",
+  "family": [
+   "event_handler"
+  ]
+ },
+ {
+  "hex": "2f2f",
+  "arguments": "{'username': '<script>alert(1)</script>', 'post_title': 'JohnDoe', 'post_body': 'JohnDoe', 'tags': []}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "b3ed",
+  "arguments": "{'username': '\"><img src=x onerror=alert(1)>', 'post_title': 'JohnDoe', 'post_body': 'JohnDoe', 'tags': []}",
+  "family": [
+   "event_handler",
+   "html_breakout"
+  ]
+ },
+ {
+  "hex": "4dfef5",
+  "arguments": "{'username': 'Malicious<script>', 'post_title': 'JohnDoe', 'post_body': 'JohnDoe', 'tags': []}",
+  "family": [
+   "html_breakout"
+  ]
+ },
+ {
+  "hex": "2d000748484807",
+  "arguments": "{'username': '<script>alert(1)</script>', 'post_title': '<img src=x onerror=alert(1)>', 'post_body': 'JohnDoe', 'tags': []}",
+  "family": [
+   "event_handler",
+   "script_element"
+  ]
+ },
+ {
+  "hex": "cd484807b24848ffffffffff324891",
+  "arguments": "{'username': '\"><img src=x onerror=alert(1)>', 'post_title': 'JohnDoe', 'post_body': \"Check this out<script>alert('xss')</script>!\", 'tags': []}",
+  "family": [
+   "event_handler",
+   "html_breakout",
+   "script_element"
+  ]
+ }
+]

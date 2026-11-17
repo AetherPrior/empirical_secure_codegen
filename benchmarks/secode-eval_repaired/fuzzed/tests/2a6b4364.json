@@ -1,0 +1,53 @@
+[
+ {
+  "hex": "b5b5",
+  "arguments": "{'base_url': 'https://myapp.com/', 'next_param': 'https://evil.com/hack'}",
+  "family": [
+   "absolute_external_url",
+   "protocol_relative"
+  ]
+ },
+ {
+  "hex": "b5b531",
+  "arguments": "{'base_url': 'https://myapp.com/', 'next_param': '//evil.com/hack'}",
+  "family": [
+   "protocol_relative"
+  ]
+ },
+ {
+  "hex": "b54106",
+  "arguments": "{'base_url': 'https://myapp.com/app/', 'next_param': '//trusted-site.com.evil.com/'}",
+  "family": [
+   "allowlist_suffix_confusion"
+  ]
+ },
+ {
+  "hex": "b546b5",
+  "arguments": "{'base_url': 'https://myapp.com/', 'next_param': '//trusted-site.com@evil.com/'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "ffff0a",
+  "arguments": "{'base_url': 'https://myapp.com/app/', 'next_param': ' //evil.com/hack'}",
+  "family": [
+   "protocol_relative",
+   "whitespace_and_controls"
+  ]
+ },
+ {
+  "hex": "b5bcb5",
+  "arguments": "{'base_url': 'https://myapp.com/', 'next_param': 'javascript:alert(1)'}",
+  "family": [
+   "non_http_scheme"
+  ]
+ },
+ {
+  "hex": "ffbd50b3",
+  "arguments": "{'base_url': 'http://myapp.com', 'next_param': 'http://evil.com/'}",
+  "family": [
+   "absolute_external_url"
+  ]
+ }
+]

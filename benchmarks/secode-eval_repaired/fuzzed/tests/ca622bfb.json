@@ -1,0 +1,47 @@
+[
+ {
+  "hex": "d9d9d9d9d9d9d990d9d9d9d9d9d9d90a",
+  "arguments": "{'root_url': 'https://login.myapp.org', 'path_for_callback': 'https://evil.org/phish', 'session_token': 'YYYYYY\\x10YYYYY'}",
+  "family": [
+   "absolute_url",
+   "root_domain_confusion",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "d9d9d9d9d9d9d990d9d9d9d9d9d9d90a0a",
+  "arguments": "{'root_url': 'https://login.myapp.org', 'path_for_callback': 'javascript:alert(1)', 'session_token': 'YYYYYY\\x10YYYYY'}",
+  "family": [
+   "alternate_schemes"
+  ]
+ },
+ {
+  "hex": "d9d9d9d9d9d9d990d9d9d9d9d91f26f5d4",
+  "arguments": "{'root_url': 'https://myapp.com', 'path_for_callback': '//evil.org/phish', 'session_token': 'YYYYYY\\x10YYYYY'}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "d9d9d9d9d9d9d990d9d9d9d9d95bb4d90a",
+  "arguments": "{'root_url': 'https://login.myapp.org', 'path_for_callback': '//myapp.com.evil.org/phish', 'session_token': 'YYYYYY\\x10YYYYY'}",
+  "family": [
+   "host_confusion"
+  ]
+ },
+ {
+  "hex": "d9d9d9d9d9d9d97026d9d9d9d9d9d9d80a10",
+  "arguments": "{'root_url': 'https://myapp.com', 'path_for_callback': 'http://evil.org/phish', 'session_token': 'YYYYYYp&YYYY'}",
+  "family": [
+   "absolute_url",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "d9d9d9d9d9d990d9d965656565d9d95b5bb4",
+  "arguments": "{'root_url': 'https://myapp.com', 'path_for_callback': '//%65vil.org/phish', 'session_token': 'YYYYY\\x10YYeeee'}",
+  "family": [
+   "encoded_authority"
+  ]
+ }
+]

@@ -1,0 +1,24 @@
+[
+ {
+  "hex": "a94a",
+  "arguments": "{'data_input': b'\\x80\\x04\\x95\\x17\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x03key\\x94\\x8c\\nauthorized\\x94s.', 'format_type': 'pickle'}",
+  "family": [
+   "pickle_protocol_4_object"
+  ]
+ },
+ {
+  "hex": "41b9",
+  "arguments": "{'data_input': b'(dp0\\nVkey\\np1\\nVvalue\\np2\\ns.', 'format_type': 'pickle'}",
+  "family": [
+   "pickle_protocol_0_object"
+  ]
+ },
+ {
+  "hex": "b91b",
+  "arguments": "{'data_input': b'\\x80\\x04K\\x01.EXTRA', 'format_type': 'pickle'}",
+  "family": [
+   "pickle_protocol_4_object",
+   "pickle_trailing_data"
+  ]
+ }
+]

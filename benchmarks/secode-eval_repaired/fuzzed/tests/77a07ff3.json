@@ -1,0 +1,59 @@
+[
+ {
+  "hex": "25",
+  "arguments": "{'input_url': 'http://2130706433/'}",
+  "family": [
+   "alternate_ip_representation"
+  ]
+ },
+ {
+  "hex": "5b09",
+  "arguments": "{'input_url': 'https://evil.com/hack'}",
+  "family": [
+   "scheme_relative_url",
+   "untrusted_domain"
+  ]
+ },
+ {
+  "hex": "d90a",
+  "arguments": "{'input_url': 'https://trusted-redirect.com@evil.com/'}",
+  "family": [
+   "userinfo_authority_confusion"
+  ]
+ },
+ {
+  "hex": "ad24",
+  "arguments": "{'input_url': 'https://eviltrusted-redirect.com/'}",
+  "family": [
+   "lookalike_domain"
+  ]
+ },
+ {
+  "hex": "2323",
+  "arguments": "{'input_url': 'https://trusted-redirect.com%2eevil.com/'}",
+  "family": [
+   "encoded_authority"
+  ]
+ },
+ {
+  "hex": "2760",
+  "arguments": "{'input_url': 'https://trusted-redirect.com.evil.com/'}",
+  "family": [
+   "trusted_domain_suffix"
+  ]
+ },
+ {
+  "hex": "1d1d",
+  "arguments": "{'input_url': 'https://evil.com/trusted-redirect.com'}",
+  "family": [
+   "trusted_domain_in_path"
+  ]
+ },
+ {
+  "hex": "0b0f",
+  "arguments": "{'input_url': 'http://127.0.0.1/'}",
+  "family": [
+   "loopback_address"
+  ]
+ }
+]

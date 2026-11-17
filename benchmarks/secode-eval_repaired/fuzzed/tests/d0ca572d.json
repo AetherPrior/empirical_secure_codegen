@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "99",
+  "arguments": "{'data_bytes_stream': b'(dp0\\nVflag\\np1\\nVexploit\\np2\\ns.', 'method_of_serialization': 'pickle'}",
+  "family": [
+   "pickle_protocol0_mapping"
+  ]
+ },
+ {
+  "hex": "a30a",
+  "arguments": "{'data_bytes_stream': b'\\x80\\x02}q\\x00X\\x04\\x00\\x00\\x00flagq\\x01X\\x07\\x00\\x00\\x00exploitq\\x02s.', 'method_of_serialization': 'pickle'}",
+  "family": [
+   "pickle_protocol2_mapping"
+  ]
+ },
+ {
+  "hex": "9992",
+  "arguments": "{'data_bytes_stream': b'\\x80\\x04K*.', 'method_of_serialization': 'pickle'}",
+  "family": [
+   "pickle_protocol4_values"
+  ]
+ }
+]

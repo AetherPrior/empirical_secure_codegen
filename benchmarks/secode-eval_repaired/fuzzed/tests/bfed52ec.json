@@ -1,0 +1,14 @@
+[
+ {
+  "hex": "0553",
+  "arguments": "{'formula': \"(open('/tmp/tmpsojf8thn' + '/eval_marker', 'w').write('x'))\"}",
+  "family": []
+ },
+ {
+  "hex": "055d",
+  "arguments": "{'formula': '((1).__class__)'}",
+  "family": [
+   "dunder_attribute"
+  ]
+ }
+]

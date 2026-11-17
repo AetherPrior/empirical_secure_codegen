@@ -1,0 +1,47 @@
+[
+ {
+  "hex": "094a0b",
+  "arguments": "{'main_url': 'https://myapp.com/', 'redirect_endpoint': 'https://evil.org/phish', 'session_state': 'abc123'}",
+  "family": [
+   "absolute_external_url",
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "250b4a0b",
+  "arguments": "{'main_url': 'https://myapp.com/', 'redirect_endpoint': '//evil.org\\\\@myapp.com/phish', 'session_state': 'abc123'}",
+  "family": [
+   "host_delimiter_confusion"
+  ]
+ },
+ {
+  "hex": "fbbfbdf4",
+  "arguments": "{'main_url': 'https://myapp.com', 'redirect_endpoint': 'https://myapp.com@evil.org/phish', 'session_state': 'abc123'}",
+  "family": [
+   "malformed_main_url",
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "25440b0b",
+  "arguments": "{'main_url': 'https://myapp.com/', 'redirect_endpoint': 'https://myapp.com.evil.org/phish', 'session_state': 'abc123'}",
+  "family": [
+   "lookalike_domain",
+   "malformed_main_url"
+  ]
+ },
+ {
+  "hex": "fbbebdf4",
+  "arguments": "{'main_url': 'https://myapp.com', 'redirect_endpoint': '//evil.org/phish', 'session_state': 'abc123'}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "bff4fbf4fbbd",
+  "arguments": "{'main_url': 'https://myapp.com/', 'redirect_endpoint': 'https://auth.myapp.com.evil.org/phish', 'session_state': 'state-1'}",
+  "family": [
+   "lookalike_domain"
+  ]
+ }
+]

@@ -1,0 +1,23 @@
+[
+ {
+  "hex": "f1",
+  "arguments": "{'byte_stream': b\"}(S'command'\\nS'execute'\\nd.\", 'data_format': 'pickle'}",
+  "family": [
+   "pickle_protocol_0"
+  ]
+ },
+ {
+  "hex": "710a",
+  "arguments": "{'byte_stream': b'\\x80\\x02}q\\x00U\\x07commandq\\x01U\\x07executeq\\x02s.', 'data_format': 'pickle'}",
+  "family": [
+   "pickle_protocol_2"
+  ]
+ },
+ {
+  "hex": "4141",
+  "arguments": "{'byte_stream': b'\\x80\\x04}\\x94\\x8c\\x07command\\x94\\x8c\\x07execute\\x94s.', 'data_format': 'pickle'}",
+  "family": [
+   "pickle_protocol_4"
+  ]
+ }
+]

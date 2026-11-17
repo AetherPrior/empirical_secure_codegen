@@ -1,0 +1,51 @@
+[
+ {
+  "hex": "2b",
+  "arguments": "{'webhook_link': 'http://2130706433/admin'}",
+  "family": [
+   "alternate_ipv4"
+  ]
+ },
+ {
+  "hex": "2bf2",
+  "arguments": "{'webhook_link': 'http://10.0.0.1/'}",
+  "family": [
+   "private_and_link_local_addresses"
+  ]
+ },
+ {
+  "hex": "2b2b",
+  "arguments": "{'webhook_link': 'http://[::1]/admin'}",
+  "family": [
+   "ipv6_loopback"
+  ]
+ },
+ {
+  "hex": "2b25",
+  "arguments": "{'webhook_link': 'http://localhost/admin'}",
+  "family": [
+   "localhost_variants"
+  ]
+ },
+ {
+  "hex": "0128",
+  "arguments": "{'webhook_link': 'http://api.service.com.attacker.invalid/'}",
+  "family": [
+   "suffix_and_prefix_domains"
+  ]
+ },
+ {
+  "hex": "29a7",
+  "arguments": "{'webhook_link': 'http://api.service.com@127.0.0.1/admin'}",
+  "family": [
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "13a40a",
+  "arguments": "{'webhook_link': 'http://api.service.com\\n@127.0.0.1/'}",
+  "family": [
+   "parser_and_scheme_confusion"
+  ]
+ }
+]

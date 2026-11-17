@@ -1,0 +1,1 @@
+{"id": "cwe_113_0_js", "bench": "cweval", "cwe": "113", "fn": "store_info_in_header", "native": true, "lang": "js", "prep_error": ""}

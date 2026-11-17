@@ -1,0 +1,9 @@
+__pycache__/
+.pytest_cache/
+full_v2b/
+full_v3/
+cweval_v1/
+*.log
+sample_*_file
+test_*_file
+test_*_data

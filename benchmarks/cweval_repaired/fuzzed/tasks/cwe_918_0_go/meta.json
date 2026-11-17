@@ -1,0 +1,1 @@
+{"id": "cwe_918_0_go", "bench": "cweval", "cwe": "918", "fn": "get_url_to_visit", "native": true, "lang": "go", "prep_error": ""}

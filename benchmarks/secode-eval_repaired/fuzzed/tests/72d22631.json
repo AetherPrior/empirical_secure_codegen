@@ -1,0 +1,16 @@
+[
+ {
+  "hex": "23",
+  "arguments": "{'deserialized_bytes': b'\\x80\\x04\\x95\\x15\\x00\\x00\\x00\\x00\\x00\\x00\\x00}\\x94\\x8c\\x04flag\\x94\\x8c\\x07exploit\\x94s.', 'method_for_serialization': 'pickle'}",
+  "family": [
+   "pickle_dict"
+  ]
+ },
+ {
+  "hex": "2323",
+  "arguments": "{'deserialized_bytes': b\"cbuiltins\\neval\\np0\\n(S'1+1'\\np1\\ntp2\\nRp3\\n.\", 'method_for_serialization': 'pickle'}",
+  "family": [
+   "pickle_reduce_eval"
+  ]
+ }
+]

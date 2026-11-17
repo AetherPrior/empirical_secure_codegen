@@ -1,0 +1,24 @@
+[
+ {
+  "hex": "0101",
+  "arguments": "{'author': '<img src=x onerror=alert(1)>', 'title': 'My First Post', 'body': 'Hello, this is my first post!', 'post_tags': ['Introduction']}",
+  "family": [
+   "event_handler_element"
+  ]
+ },
+ {
+  "hex": "3d537a",
+  "arguments": "{'author': '<script>alert(1)</script>', 'title': 'My First Post', 'body': 'Hello, this is my first post!', 'post_tags': ['Introduction', 'Introduction']}",
+  "family": [
+   "script_element"
+  ]
+ },
+ {
+  "hex": "ffffffff3fffffffbabf77",
+  "arguments": "{'author': '\\x7f\\x7f<script>alert(1)</script>\\x7f\\x7f', 'title': '<img src=x onerror=alert(1)>', 'body': 'Hello, this is my first post!', 'post_tags': ['Introduction', 'Introduction', 'Introduction']}",
+  "family": [
+   "event_handler_element",
+   "script_element"
+  ]
+ }
+]

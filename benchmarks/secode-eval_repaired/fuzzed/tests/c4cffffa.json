@@ -1,0 +1,62 @@
+[
+ {
+  "hex": "01",
+  "arguments": "{'sso_service_url': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_back_url': 'https://app.example.com.evil.org/'}",
+  "family": [
+   "allowlist_suffix",
+   "subdomain_confusion"
+  ]
+ },
+ {
+  "hex": "410f",
+  "arguments": "{'sso_service_url': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_back_url': 'https://app.example.com@evil.org/'}",
+  "family": [
+   "userinfo_confusion"
+  ]
+ },
+ {
+  "hex": "5d0a",
+  "arguments": "{'sso_service_url': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_back_url': 'javascript:alert(1)'}",
+  "family": [
+   "non_http_scheme"
+  ]
+ },
+ {
+  "hex": "c741",
+  "arguments": "{'sso_service_url': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_back_url': 'https://evil.org/%2f%2fevil.org/'}",
+  "family": [
+   "encoded_destination",
+   "untrusted_host"
+  ]
+ },
+ {
+  "hex": "0146",
+  "arguments": "{'sso_service_url': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_back_url': 'https://evil.org/hack'}",
+  "family": [
+   "scheme_relative",
+   "untrusted_host"
+  ]
+ },
+ {
+  "hex": "0125",
+  "arguments": "{'sso_service_url': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_back_url': 'https://evil.app.example.com/'}",
+  "family": [
+   "subdomain_confusion"
+  ]
+ },
+ {
+  "hex": "0124",
+  "arguments": "{'sso_service_url': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_back_url': '//evil.org/hack'}",
+  "family": [
+   "scheme_relative"
+  ]
+ },
+ {
+  "hex": "31a90a",
+  "arguments": "{'sso_service_url': 'https://sso.example.com/auth', 'user_identifier': 'user123', 'redirect_back_url': 'data:text/html,https://evil.org/'}",
+  "family": [
+   "non_http_scheme",
+   "untrusted_host"
+  ]
+ }
+]
